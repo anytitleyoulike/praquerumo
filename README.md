@@ -1,2 +1,4 @@
-# Praquerumo
-projeto de desenvolvimento da plataforma do Pra Que Rumo
+PraQueRumo
+==========
+
+Plataforma Web para o turísmo de aventura.

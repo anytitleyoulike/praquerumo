@@ -1,0 +1,1729 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"respo",
+				"responsePromise〔variable〕"
+			],
+			[
+				"re",
+				"res"
+			],
+			[
+				"is",
+				"is_browser"
+			],
+			[
+				"ta",
+				"target"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"curl",
+				"curlresponse"
+			],
+			[
+				"enc",
+				"encodedFields"
+			],
+			[
+				"url",
+				"url_post"
+			],
+			[
+				"api",
+				"api_key"
+			],
+			[
+				"cur",
+				"curlresponse"
+			],
+			[
+				"fatu",
+				"fatura"
+			],
+			[
+				"erro",
+				"error"
+			],
+			[
+				"_sen",
+				"_sendFlashError"
+			],
+			[
+				"men",
+				"mensagem"
+			],
+			[
+				"resul",
+				"result_pgto"
+			],
+			[
+				"ca",
+				"case	case …"
+			],
+			[
+				"res",
+				"result_pgto"
+			],
+			[
+				"ati",
+				"atividade_codigo"
+			],
+			[
+				"mod",
+				"modalidade_id"
+			],
+			[
+				"ele",
+				"elemento_id"
+			],
+			[
+				"cate",
+				"categoria_id"
+			],
+			[
+				"fig",
+				"fig_01"
+			],
+			[
+				"eve",
+				"eventosAgrupados"
+			],
+			[
+				"organi",
+				"organizer"
+			],
+			[
+				"ema",
+				"email"
+			],
+			[
+				"sty",
+				"style	Attr"
+			],
+			[
+				"orga",
+				"organizador"
+			],
+			[
+				"usu",
+				"usuarios_model"
+			],
+			[
+				"_send",
+				"_sendEmailToClient"
+			],
+			[
+				"dado",
+				"dados_email"
+			],
+			[
+				"org",
+				"organizer_email"
+			],
+			[
+				"te",
+				"telefone"
+			],
+			[
+				"da",
+				"dados_validados"
+			],
+			[
+				"cli",
+				"clientData"
+			],
+			[
+				"client",
+				"clientData"
+			],
+			[
+				"text",
+				"textarea	<textarea>"
+			],
+			[
+				"spa",
+				"span	<span>"
+			],
+			[
+				"bu",
+				"button	<button>"
+			],
+			[
+				"nume",
+				"numeroEmReais"
+			],
+			[
+				"dados",
+				"dados_email"
+			],
+			[
+				"def",
+				"defined"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"col",
+				"color"
+			],
+			[
+				"style",
+				"style	Attr"
+			],
+			[
+				"con",
+				"content"
+			],
+			[
+				"su",
+				"subject"
+			],
+			[
+				"fatura",
+				"fatura_id"
+			],
+			[
+				"var_dump",
+				"var_dump()	standard Function"
+			],
+			[
+				"quan",
+				"quantity"
+			],
+			[
+				"_sendEmail",
+				"_sendEmailToClient"
+			],
+			[
+				"els",
+				"elseif	elseif …"
+			],
+			[
+				"aguardando",
+				"aguardando_pagamento"
+			],
+			[
+				"vali",
+				"validade	iugu.js"
+			],
+			[
+				"invo",
+				"invoice_id"
+			],
+			[
+				"date",
+				"datetime_now"
+			],
+			[
+				"buscarEve",
+				"buscarEventoDetalhes"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"the",
+				"thead	<thead>"
+			],
+			[
+				"table",
+				"table-layout"
+			],
+			[
+				"disp",
+				"display"
+			],
+			[
+				"paddi",
+				"padding-top"
+			],
+			[
+				"blo",
+				"block"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"borde",
+				"border-top"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"bord",
+				"border-bottom"
+			],
+			[
+				"reali",
+				"realizaTransacaoCartao"
+			],
+			[
+				"submit",
+				"submit()	jquery.fileupload.js"
+			],
+			[
+				"validate",
+				"validate_card"
+			],
+			[
+				"gre",
+				"green"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"descri",
+				"descricao_atividade"
+			],
+			[
+				"defaul",
+				"default_state"
+			],
+			[
+				"ab",
+				"absolute"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"marg",
+				"margin-bottom"
+			],
+			[
+				"cl",
+				"class"
+			],
+			[
+				"div",
+				"div	Tag"
+			],
+			[
+				"ve",
+				"verticalcentered"
+			],
+			[
+				"vert",
+				"vertical-align"
+			],
+			[
+				"hei",
+				"height"
+			],
+			[
+				"mari",
+				"margin-top"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"ma",
+				"margin-top"
+			],
+			[
+				"nome",
+				"nome_empresa"
+			],
+			[
+				"mo",
+				"modalidade"
+			],
+			[
+				"coun",
+				"counter"
+			],
+			[
+				"class",
+				"classe"
+			],
+			[
+				"al",
+				"text-align"
+			],
+			[
+				"fon",
+				"font-family"
+			],
+			[
+				"st",
+				"style	Tag"
+			],
+			[
+				"op",
+				"options"
+			],
+			[
+				"path",
+				"pathArray"
+			],
+			[
+				"vi",
+				"visivel_fim"
+			],
+			[
+				"r",
+				"rgba()"
+			],
+			[
+				"margi",
+				"margin-top"
+			],
+			[
+				"pa",
+				"padding-right"
+			],
+			[
+				"i",
+				"inline-block"
+			],
+			[
+				"in",
+				"inline"
+			],
+			[
+				"bo",
+				"bottom"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"fat",
+				"fatura"
+			],
+			[
+				"fa",
+				"fatura"
+			],
+			[
+				"quanti",
+				"quantity"
+			],
+			[
+				"fo",
+				"formatted_slug"
+			],
+			[
+				"ite",
+				"itens"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"data",
+				"data_horario"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"resu",
+				"resultado"
+			],
+			[
+				"ur",
+				"url_boleto"
+			],
+			[
+				"iu",
+				"iugu_client"
+			],
+			[
+				"em",
+				"email"
+			],
+			[
+				"dad",
+				"dados_email"
+			],
+			[
+				"pre",
+				"preco"
+			],
+			[
+				"sta",
+				"status_id"
+			],
+			[
+				"us",
+				"usuario"
+			],
+			[
+				"usua",
+				"usuario_id"
+			],
+			[
+				"even",
+				"evento"
+			],
+			[
+				"_a",
+				"_add_esforco_fisico"
+			],
+			[
+				"lingu",
+				"lingua_id"
+			],
+			[
+				"dt",
+				"dt_criacao"
+			],
+			[
+				"userna",
+				"username"
+			],
+			[
+				"sobr",
+				"sobre_en"
+			],
+			[
+				"sobre",
+				"sobre_pt"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "application/controllers/usuarios.php",
+			"settings":
+			{
+				"buffer_size": 426,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/controllers/tests/user.php",
+			"settings":
+			{
+				"buffer_size": 4208,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/helpers/agent_helper.php",
+			"settings":
+			{
+				"buffer_size": 172,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/iugu.js",
+			"settings":
+			{
+				"buffer_size": 5227,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "//Angular - cliente\napp.controller('name', ['', function(){\n  \n  $email = function()\nvar url = 'http:://henrique.com.br/script.php'\nvar responsePromise = $http.jsonp( url,\n             {  params : {\n                   p1 : \"v1\"\n                  ,p2 : \"v2\"\n                }\n              }\n            );\n\nif(responsePromise.success)\n  email = \"cadastrou com sucesso\";\nelse\n  email = \"desculpe, vc se ferrou.\";\n}])\n\nresponsePromise.success(function(data) {\n    // do something with the returned JavaScript object\n    // ( in the \"data\" parameter ).\n});\n\n\n//php - servidor\n      public function addEmail(){        \n        $email = $this->input->post('email');\n\n        $arquivo_emails = fopen('a');\n        $respond = $arquivo_emails.fwrite($email);\n\n        if($respond)\n          echo json_encode(array('success' => true,'resposta' => 'deu tudo certo!'));\n\n        else{\n          echo json_encode(array('success' => false, 'resposta' => 'ferrou!'));\n         }\n      }  \n",
+			"settings":
+			{
+				"buffer_size": 975,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/views/equipe/index.php",
+			"settings":
+			{
+				"buffer_size": 9725,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/models/atividades_model.php",
+			"settings":
+			{
+				"buffer_size": 8190,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/models/eventos_model.php",
+			"settings":
+			{
+				"buffer_size": 4757,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/controllers/agendamento.php",
+			"settings":
+			{
+				"buffer_size": 12214,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 306.0,
+		"selected_items":
+		[
+		],
+		"width": 851.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/etc/NetworkManager/system-connections/wifi-hotspot",
+		"/home/anderson/praquerumo/transfer.php",
+		"/etc/NetworkManager/system-connections/apds-hotspot",
+		"/home/anderson/praquerumo/application/helpers/curl_helper.php",
+		"/home/anderson/praquerumo/assets/css/utils.css",
+		"/home/anderson/praquerumo/application/controllers/fatura.php",
+		"/home/anderson/praquerumo/application/models/historico_model.php",
+		"/home/anderson/praquerumo/application/views/emails/fatura_cancelada.php",
+		"/home/anderson/praquerumo/application/views/emails/outra_data_pqr.php",
+		"/home/anderson/praquerumo/application/views/emails/outra_data_organizador.php",
+		"/home/anderson/praquerumo/application/views/emails/outra_data_cliente.php",
+		"/home/anderson/praquerumo/application/views/emails/aguardando_pagamento.php",
+		"/home/anderson/praquerumo/application/views/emails/venda_realizada.php",
+		"/home/anderson/praquerumo/assets/js/iugu.js",
+		"/home/anderson/praquerumo/application/views/emails/aguardando_pagamento.php-tmp",
+		"/home/anderson/Área de Trabalho/quickstart.html",
+		"/home/anderson/praquerumo/index.php",
+		"/home/anderson/praquerumo/application/helpers/pqr_email_helper.php",
+		"/home/anderson/mercado/application/views/cabecalho.php",
+		"/home/anderson/mercado/application/views/produtos/index.php",
+		"/home/anderson/praquerumo/application/controllers/atividades.php",
+		"/home/anderson/praquerumo/application/controllers/agendamento.php",
+		"/home/anderson/praquerumo/application/views/agendamento/index.php",
+		"/home/anderson/praquerumo/application/helpers/lr_helper.php",
+		"/home/anderson/praquerumo/application/config/autoload.php",
+		"/home/anderson/praquerumo/application/models/eventos_model.php",
+		"/home/anderson/praquerumo/application/helpers/iugu_helper.php",
+		"/home/anderson/praquerumo/assets/css/evento-box.css",
+		"/home/anderson/praquerumo/application/controllers/tests/iugutest.php",
+		"/home/anderson/praquerumo/application/views/rodape.php",
+		"/home/anderson/praquerumo/application/views/eventos/sucesso.php",
+		"/home/anderson/praquerumo/application/controllers/crud.php",
+		"/home/anderson/praquerumo/application/controllers/crud.php-tmp",
+		"/home/anderson/praquerumo/application/views/eventos/crud_template.php",
+		"/home/anderson/praquerumo/application/helpers/currency_helper.php",
+		"/home/anderson/praquerumo/application/language/portuguese-br/texto_lang.php",
+		"/home/anderson/praquerumo/application/language/english/texto_lang.php",
+		"/home/anderson/praquerumo/application/language/english/texto_lang.php-tmp",
+		"/home/anderson/praquerumo/application/views/cabecalho.php",
+		"/home/anderson/praquerumo/application/views/eventos/index.php",
+		"/home/anderson/praquerumo/application/views/eventos/detalhes.php",
+		"/home/anderson/praquerumo/application/models/atividades_model.php",
+		"/home/anderson/praquerumo/application/views/eventos/detalhes.php-tmp",
+		"/home/anderson/praquerumo/assets/grocery_crud/texteditor/tiny_mce/plugins/directionality/editor_plugin_src.js",
+		"/home/anderson/praquerumo/application/views/login/index.php",
+		"/home/anderson/praquerumo/application/views/equipe/index.php",
+		"/home/anderson/praquerumo/application/views/emails/index.html",
+		"/home/anderson/praquerumo/application/config/database.php",
+		"/home/anderson/praquerumo/application/helpers/date_helper.php",
+		"/home/anderson/praquerumo/application/controllers/atividades.php-tmp",
+		"/home/anderson/apps/testapp/app/controllers/inicio_controller.rb",
+		"/home/anderson/.bashrc",
+		"/home/anderson/praquerumo/assets/js/js-details.js",
+		"/home/anderson/ruby/livroRuby/cap1/plural.rb",
+		"/home/anderson/ruby/livroRuby/cap2/if_else.rb",
+		"/home/anderson/Documentos/praquerumo_test_09_11_12.sql",
+		"/home/anderson/praquerumo/application/controllers/newsletter.php",
+		"/home/anderson/ruby/livroRuby/cap1/idade.rb",
+		"/home/anderson/praquerumo/assets/js/jquery.carouFredSel-6.2.1-packed.js",
+		"/home/anderson/praquerumo/application/models/usuarios_model.php",
+		"/home/anderson/praquerumo/application/views/emails/outra_data_cliente.html",
+		"/home/anderson/praquerumo/application/controllers/usuarios.php",
+		"/home/anderson/praquerumo/assets/js/initialize-carousel-detailspage.js",
+		"/home/anderson/praquerumo/assets/css/carousel.css",
+		"/home/anderson/praquerumo/application/libraries/iugu-php/lib/Iugu/APIChildResource.php",
+		"/home/anderson/praquerumo/assets/grocery_crud/languages/spanish.php",
+		"/home/anderson/praquerumo/application/helpers/check_state_helper.php",
+		"/home/anderson/praquerumo/application/views/eventos/index.php-tmp",
+		"/home/anderson/praquerumo/assets/js/js-index3.js",
+		"/home/anderson/praquerumo/assets/css/font-awesome.css",
+		"/home/anderson/praquerumo/application/config/foreign_chars.php",
+		"/home/anderson/praquerumo/assets/css/custom.css",
+		"/home/anderson/praquerumo/assets/css/bootstrap.css",
+		"/home/anderson/praquerumo/application/views/nav_bar.php",
+		"/home/anderson/praquerumo/assets/js/js-payment.js",
+		"/home/anderson/praquerumo/assets/fonts/FontAwesome.otf",
+		"/home/anderson/praquerumo/application/models/faturas_model.php",
+		"/home/anderson/praquerumo/assets/css/details.css",
+		"/home/anderson/praquerumo/application/controllers/fatura.php-tmp",
+		"/home/anderson/praquerumo/application/helpers/auth_helper.php",
+		"/home/anderson/praquerumo/application/views/emails/incompletos/cancelamento_tabela.php",
+		"/home/anderson/praquerumo/application/views/emails/venda_realizada.html",
+		"/home/anderson/praquerumo/application/views/emails/aguardando_pagamento.html",
+		"/home/anderson/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/anderson/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/anderson/praquerumo/application/views/emails/venda_realizada.php-tmp",
+		"/home/anderson/praquerumo/application/views/emails/fatura_cancelada.php-tmp",
+		"/home/anderson/praquerumo/application/core/MY_Loader.php",
+		"/home/anderson/praquerumo/application/models/status_model.php",
+		"/home/anderson/praquerumo/assets/css/style01.css",
+		"/home/anderson/praquerumo/assets/grocery_crud/texteditor/tiny_mce/themes/advanced/source_editor.htm",
+		"/home/anderson/praquerumo/assets/grocery_crud/texteditor/ckeditor/plugins/specialchar/lang/en.js",
+		"/home/anderson/praquerumo/application/controllers/agendamento.php-tmp",
+		"/home/anderson/praquerumo/application/libraries/iugu-php/index.html",
+		"/home/anderson/praquerumo/application/language/portuguese-br/index.html",
+		"/home/anderson/praquerumo/application/language/english/index.html",
+		"/home/anderson/praquerumo/application/controllers/tests/index.html",
+		"/home/anderson/praquerumo/assets/grocery_crud/texteditor/tiny_mce/utils/form_utils.js",
+		"/home/anderson/praquerumo/application/views/eventos/aguardando_pagamento.php",
+		"/home/anderson/praquerumo/application/controllers/tests/emailtest.php",
+		"/home/anderson/praquerumo/assets/grocery_crud/languages/pt-br.portuguese.php",
+		"/home/anderson/igniter/application/controllers/iugupgto.php",
+		"/home/anderson/igniter/application/views/iugu/index.php",
+		"/home/anderson/praquerumo/application/views/emails/incompletos/email.php",
+		"/home/anderson/praquerumo/application/language/portuguese-br/email_lang.php",
+		"/home/anderson/praquerumo/application/controllers/tests/mailchimp.php-tmp",
+		"/home/anderson/praquerumo/application/config/mailchimp.php-tmp",
+		"/home/anderson/praquerumo/assets/grocery_crud/js/jquery_plugins/ui/i18n/multiselect/ui-multiselect-ar.js",
+		"/home/anderson/praquerumo/assets/grocery_crud/js/jquery_plugins/ui/i18n/multiselect/ui-multiselect-el.js",
+		"/home/anderson/praquerumo/application/libraries/iugu-php/VERSION",
+		"/home/anderson/praquerumo/application/views/emails/confirmacao_tabela.html",
+		"/home/anderson/Documentos/html_css3/modelo.html",
+		"/home/anderson/Documentos/html_css3/normalize.css",
+		"/home/anderson/praquerumo/application/views/emails/email.php",
+		"/home/anderson/praquerumo/assets/grocery_crud/index.html",
+		"/home/anderson/praquerumo/application/views/index.html",
+		"/home/anderson/praquerumo/application/third_party/index.html",
+		"/home/anderson/praquerumo/application/models/index.html",
+		"/home/anderson/praquerumo/application/migrations/index.html",
+		"/home/anderson/praquerumo/application/libraries/index.html",
+		"/home/anderson/praquerumo/application/language/index.html",
+		"/home/anderson/praquerumo/application/hooks/index.html",
+		"/home/anderson/praquerumo/application/helpers/index.html",
+		"/home/anderson/praquerumo/application/errors/index.html",
+		"/home/anderson/praquerumo/application/core/index.html",
+		"/home/anderson/praquerumo/application/views/eventos/index_.php",
+		"/home/anderson/praquerumo/application/views/nav_old.php",
+		"/home/anderson/praquerumo/application/libraries/iugu-php/test/index.html"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"()\");\n",
+			"$this->",
+			"spacer",
+			"webfont",
+			"hidden",
+			"=\"#\">",
+			"preco",
+			"class=\"activities-on\"",
+			"dropdown-header",
+			"box-2-title",
+			"box-2",
+			"voucher-text",
+			"content-table",
+			"payment-date",
+			"box-title",
+			"box",
+			"borderTop",
+			"bordertop",
+			"bold",
+			"justify",
+			"clear",
+			"box-right",
+			"box-left",
+			"box-1",
+			"table-descricao",
+			"table-voucher",
+			"bg-mail",
+			"getEvento",
+			"getEvento]",
+			"$this->_logger",
+			"carderror",
+			"104374",
+			"classes",
+			"$language",
+			"this",
+			"collapse",
+			"navbar-brand",
+			"navbar-header",
+			"navbar-wrapper2",
+			"dropdown-menu",
+			"navbar-collapse",
+			"navbar-nav",
+			"navbar-right",
+			"navbar-wrapper2",
+			"foorterbg",
+			"roundbtn",
+			"size",
+			"one",
+			"fwi",
+			"login-wrap",
+			"Equipe",
+			"45",
+			"page",
+			"page-container",
+			"caroufredsel_wrapper2",
+			"inner",
+			"caroufredsel_wrapper2",
+			"caroufredsel_wrapper",
+			"bookbtn",
+			"pnr",
+			"footerbg",
+			"scont",
+			"agenda-quantidade",
+			"php",
+			"gotop",
+			"top",
+			"mt1",
+			"text-decoration: none;",
+			"icon",
+			"evento",
+			"getPreventDefault",
+			"body",
+			"../../../images/sprite.png",
+			"../../images/profile-icons.png",
+			"../../images/hotelpref-ico-green.png",
+			"../../images/hotelpref-ico.png",
+			"../../images/sprite.png",
+			"hidden",
+			"indent",
+			"text"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"icon-small",
+			"icon2",
+			"atividade",
+			"evento",
+			"defaultPrevented",
+			"../images/sprite.png",
+			"../images/profile-icons.png",
+			"../images/hotelpref-ico-green.png",
+			"../images/hotelpref-ico.png",
+			"../images/sprite.png",
+			"png"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": true,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "application/controllers/usuarios.php",
+					"settings":
+					{
+						"buffer_size": 426,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								422,
+								422
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"bs_sintax": "php",
+							"buffer_scroll_name": "3183ee4d",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "application/controllers/tests/user.php",
+					"settings":
+					{
+						"buffer_size": 4208,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								634,
+								634
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "php",
+							"buffer_scroll_name": "5cef0f2d",
+							"incomplete_sync": null,
+							"open_with_edit": true,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "application/helpers/agent_helper.php",
+					"settings":
+					{
+						"buffer_size": 172,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								77,
+								77
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"bs_sintax": "php",
+							"buffer_scroll_name": "1eed13fc",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"side_bar_folders_auto_load_folder": 1,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "assets/js/iugu.js",
+					"settings":
+					{
+						"buffer_size": 5227,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5185,
+								5185
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1998.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"settings":
+					{
+						"buffer_size": 975,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								554,
+								554
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "application/views/equipe/index.php",
+					"settings":
+					{
+						"buffer_size": 9725,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6961,
+								6961
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 127.0,
+						"translation.y": 2754.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "application/models/atividades_model.php",
+					"settings":
+					{
+						"buffer_size": 8190,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 52.0,
+						"translation.y": 324.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "application/models/eventos_model.php",
+					"settings":
+					{
+						"buffer_size": 4757,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4293,
+								4293
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 31.0,
+						"translation.y": 1296.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "application/controllers/agendamento.php",
+					"settings":
+					{
+						"buffer_size": 12214,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2773,
+								2773
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1296.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 112.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"agen",
+				"application/controllers/agendamento.php"
+			],
+			[
+				"iugu",
+				"assets/js/iugu.js"
+			],
+			[
+				"event",
+				"application/models/eventos_model.php"
+			],
+			[
+				"ati",
+				"application/models/atividades_model.php"
+			],
+			[
+				"iu",
+				"assets/js/iugu.js"
+			],
+			[
+				"hist",
+				"application/models/historico_model.php"
+			],
+			[
+				"au",
+				"application/config/autoload.php"
+			],
+			[
+				"even",
+				"application/models/eventos_model.php"
+			],
+			[
+				"crud",
+				"application/controllers/crud.php"
+			],
+			[
+				"fat",
+				"application/controllers/fatura.php"
+			],
+			[
+				"roda",
+				"application/views/rodape.php"
+			],
+			[
+				"text",
+				"application/language/portuguese-br/texto_lang.php"
+			],
+			[
+				"index",
+				"application/views/eventos/index.php"
+			],
+			[
+				"cabe",
+				"application/views/cabecalho.php"
+			],
+			[
+				"dest",
+				"application/views/eventos/detalhes.php"
+			],
+			[
+				"data",
+				"application/config/database.php"
+			],
+			[
+				"deta",
+				"application/views/eventos/detalhes.php"
+			],
+			[
+				"age",
+				"application/controllers/agendamento.php"
+			],
+			[
+				"inde",
+				"application/views/eventos/index.php"
+			],
+			[
+				"cru",
+				"application/controllers/crud.php"
+			],
+			[
+				"iug",
+				"assets/js/iugu.js"
+			],
+			[
+				"pqr",
+				"application/helpers/pqr_email_helper.php"
+			],
+			[
+				"vend",
+				"application/views/emails/venda_realizada.php"
+			],
+			[
+				"usu",
+				"application/models/usuarios_model.php"
+			],
+			[
+				"carousel",
+				"assets/js/jquery.carouFredSel-6.2.1-packed.js"
+			],
+			[
+				"index.php",
+				"application/views/eventos/index.php"
+			],
+			[
+				"js-index3",
+				"assets/js/js-index3.js"
+			],
+			[
+				"font",
+				"assets/css/font-awesome.css"
+			],
+			[
+				"bo",
+				"assets/css/bootstrap.css"
+			],
+			[
+				"custom",
+				"assets/css/custom.css"
+			],
+			[
+				"ativi",
+				"application/controllers/atividades.php"
+			],
+			[
+				"news",
+				"application/controllers/newsletter.php"
+			],
+			[
+				"pay",
+				"assets/js/js-payment.js"
+			],
+			[
+				"nav",
+				"application/views/nav_bar.php"
+			],
+			[
+				"index3",
+				"assets/js/js-index3.js"
+			],
+			[
+				"det",
+				"application/views/eventos/detalhes.php"
+			],
+			[
+				"cu",
+				"application/helpers/currency_helper.php"
+			],
+			[
+				"fatu",
+				"application/models/faturas_model.php"
+			],
+			[
+				"auto",
+				"application/config/autoload.php"
+			],
+			[
+				"helper",
+				"application/helpers/currency_helper.php"
+			],
+			[
+				"agua",
+				"application/views/emails/aguardando_pagamento.php"
+			],
+			[
+				"ven",
+				"application/views/emails/venda_realizada.php"
+			],
+			[
+				"can",
+				"application/views/emails/fatura_cancelada.php"
+			],
+			[
+				"cust",
+				"assets/css/custom.css"
+			],
+			[
+				"nva",
+				"application/views/nav_bar.php"
+			],
+			[
+				"my",
+				"application/core/MY_Loader.php"
+			],
+			[
+				"sta",
+				"application/helpers/check_state_helper.php"
+			],
+			[
+				"statu",
+				"application/models/status_model.php"
+			],
+			[
+				"agenda",
+				"application/controllers/agendamento.php"
+			],
+			[
+				"venda",
+				"application/views/emails/venda_realizada.php"
+			],
+			[
+				"stat",
+				"application/models/status_model.php"
+			],
+			[
+				"ftura",
+				"application/models/faturas_model.php"
+			],
+			[
+				"mail",
+				"application/helpers/pqr_email_helper.php"
+			],
+			[
+				"evento",
+				"application/models/eventos_model.php"
+			],
+			[
+				"agend",
+				"application/controllers/agendamento.php"
+			],
+			[
+				"emai",
+				"application/helpers/pqr_email_helper.php"
+			],
+			[
+				"js-pay",
+				"assets/js/js-payment.js"
+			],
+			[
+				"index_",
+				"application/views/eventos/index_.php"
+			],
+			[
+				"carous",
+				"assets/css/carousel.css"
+			],
+			[
+				"index3.js",
+				"assets/js/js-index3.js"
+			],
+			[
+				"jspay",
+				"assets/js/js-payment.js"
+			],
+			[
+				"js",
+				"assets/js/js-details.js"
+			],
+			[
+				"rout",
+				"application/config/routes.php"
+			],
+			[
+				"check",
+				"application/helpers/check_language_helper.php"
+			],
+			[
+				"ol",
+				"application/views/nav_old.php"
+			],
+			[
+				"lan",
+				"application/controllers/language.php"
+			],
+			[
+				"customse",
+				"assets/js/jquery.customSelect.js"
+			],
+			[
+				"nices",
+				"assets/js/jquery.nicescroll.min.js"
+			],
+			[
+				"functio",
+				"assets/js/functions.js"
+			],
+			[
+				"cus",
+				"assets/css/custom.css"
+			],
+			[
+				"animo",
+				"assets/js/animo.js"
+			],
+			[
+				"js-abou",
+				"assets/js/js-about.js"
+			],
+			[
+				"texto",
+				"application/language/english/texto_lang.php"
+			],
+			[
+				"por",
+				"assets/grocery_crud/languages/pt-br.portuguese.php"
+			],
+			[
+				"equi",
+				"application/views/equipe/index.php"
+			],
+			[
+				"contru",
+				"application/views/manutencao/construcao.php"
+			],
+			[
+				"routes",
+				"application/config/routes.php"
+			],
+			[
+				"styl",
+				"assets/css/style01.css"
+			],
+			[
+				"utils",
+				"assets/css/utils.css"
+			],
+			[
+				"custo",
+				"assets/css/custom.css"
+			],
+			[
+				"ca",
+				"application/views/cabecalho.php"
+			],
+			[
+				"eve",
+				"assets/css/evento-box.css"
+			],
+			[
+				"jsp",
+				"assets/js/js-payment.js"
+			],
+			[
+				"dat",
+				"application/helpers/date_helper.php"
+			],
+			[
+				"at",
+				"application/controllers/atividades.php"
+			],
+			[
+				"cale",
+				"application/language/portuguese-br/calendar_lang.php"
+			],
+			[
+				"ag",
+				"application/controllers/agendamento.php"
+			],
+			[
+				"em",
+				"application/controllers/tests/emailtest.php"
+			],
+			[
+				"tex",
+				"application/language/english/texto_lang.php"
+			],
+			[
+				"ema",
+				"application/views/emails/email.php"
+			],
+			[
+				"",
+				"application/helpers/iugu_helper.php"
+			],
+			[
+				"aut",
+				"application/config/autoload.php"
+			],
+			[
+				"paym",
+				"assets/js/js-payment.js"
+			],
+			[
+				"config",
+				"application/config/config.php"
+			],
+			[
+				"his",
+				"application/models/historico_model.php"
+			],
+			[
+				"con",
+				"application/config/config.php"
+			],
+			[
+				"confi",
+				"application/config/config.php"
+			],
+			[
+				"date",
+				"application/helpers/date_helper.php"
+			],
+			[
+				"charge",
+				"application/libraries/iugu-php/lib/Iugu/Charge.php"
+			],
+			[
+				"detail",
+				"assets/js/js-details.js"
+			],
+			[
+				"new",
+				"application/controllers/newsletter.php"
+			],
+			[
+				"ro",
+				"application/views/rodape.php"
+			],
+			[
+				"term",
+				"application/controllers/termos.php"
+			],
+			[
+				"iugu-o",
+				"application/libraries/iugu-php/lib/Iugu/Object.php"
+			],
+			[
+				"apir",
+				"application/libraries/iugu-php/lib/Iugu/APIResource.php"
+			],
+			[
+				"char",
+				"application/libraries/iugu-php/lib/Iugu/Charge.php"
+			],
+			[
+				"ter",
+				"application/controllers/termos.php"
+			],
+			[
+				"sty",
+				"assets/css/style01.css"
+			],
+			[
+				"cur",
+				"application/helpers/currency_helper.php"
+			],
+			[
+				"e",
+				"application/models/eventos_model.php"
+			],
+			[
+				"js-deta",
+				"assets/js/js-details.js"
+			],
+			[
+				"cr",
+				"application/controllers/crud.php"
+			],
+			[
+				"ut",
+				"assets/css/utils.css"
+			],
+			[
+				"rod",
+				"application/views/rodape.php"
+			],
+			[
+				"ind",
+				"application/views/eventos/index.php"
+			],
+			[
+				"avali",
+				"application/models/avaliacao_model.php"
+			],
+			[
+				"groce",
+				"application/libraries/Grocery_CRUD.php"
+			],
+			[
+				"grocery",
+				"application/config/grocery_crud.php"
+			],
+			[
+				"groc",
+				"application/config/grocery_crud.php"
+			],
+			[
+				"uti",
+				"assets/css/utils.css"
+			],
+			[
+				"func",
+				"assets/js/functions.js"
+			],
+			[
+				"js-de",
+				"assets/js/js-details.js"
+			],
+			[
+				"box",
+				"assets/css/evento-box-small.css"
+			],
+			[
+				"in",
+				"application/views/eventos/index.php"
+			],
+			[
+				"index.p",
+				"application/views/eventos/index.php"
+			],
+			[
+				"rou",
+				"application/config/routes.php"
+			],
+			[
+				"conf",
+				"application/config/config.php"
+			],
+			[
+				"form",
+				"application/views/produtos/formulario.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/opt/lampp/htdocs/praquerumo.com.br/praquerumo.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 227.0,
+	"status_bar_visible": true
+}

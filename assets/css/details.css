@@ -1,0 +1,27 @@
+
+
+.social-networks{
+	position: relative;
+	width: 120%;
+	margin-right: 5px;
+}
+
+.bt-gplus{
+	position: relative;
+	width: 21%;
+	height: 30px;
+	float: left;	
+}
+
+.bt-twitter{
+	width: 21%;
+	height: 30px;
+	float: left;
+}
+
+.bt-face{
+	width: 44%;
+	height: 30px;
+	float: left;
+	margin-bottom: 5px;	
+}
