@@ -1,4 +1,4 @@
 PraQueRumo
 ==========
 
-Plataforma Web para o turísmo de aventura.
+Plataforma Web para o turismo de aventura.
