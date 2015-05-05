@@ -1,0 +1,13 @@
+#AuthType Basic
+#AuthUserFile /home/blackone/dev.praquerumo.com.br/.htpasswd
+#AuthName "Autentication"
+#require valid-user
+
+RewriteEngine On
+
+RewriteRule ^index.php/(.*)$ /$1 [R=302,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(index\.php|images|robots\.txt)
+RewriteRule ^(.*)$ index.php?/$1 [L]
