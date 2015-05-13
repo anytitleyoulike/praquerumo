@@ -230,9 +230,9 @@ echo form_hidden($data);
 				<div class="cstyle10"></div>
 
 				<ul class="nav nav-tabs" id="myTab">
-					<li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#summary">
+					<li onclick="mySelectUpdate()" class="active"><a data-toggle="tab" href="#summary">
 						<span class="summary"></span><span class="hidetext"><?=lang("details_menu_informacoes")?></span>&nbsp;</a></li>
-					<li onclick="mySelectUpdate()" class="active"><a data-toggle="tab" href="#agendamento">
+					<li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#agendamento">
 						<span class="rates"></span><span class="hidetext"><?=lang("details_menu_agendamento")?></span>&nbsp;</a></li>
 					<!--<li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#preferences"><span class="preferences"></span><span class="hidetext">Preferências</span>&nbsp;</a></li>-->
 					<li onclick="loadScript()" class=""><a data-toggle="tab" href="#maps">
@@ -246,7 +246,7 @@ echo form_hidden($data);
 
 					<!-- TAB 1 -->
 
-					<div id="summary" class="tab-pane fade">
+					<div id="summary" class="tab-pane fade active in">
 						<div class="hpadding20">
 <?=$atividade['apresentacao']?>
 </div>
@@ -399,7 +399,7 @@ echo form_hidden($data);
 
 					<!-- TAB 2 -->
 
-					<div id="agendamento" class="tab-pane fade active in">
+					<div id="agendamento" class="tab-pane fade">
 					<!--
 					    <div class="hpadding20">
 							<div class="col-md-4 offset-0">
@@ -1006,36 +1006,7 @@ if (!empty($eventos)) {
 
 			<div class="col-md-4" >
 
-				<div class="pagecontainer2 testimonialbox">
 
-<?php
-if (!empty($comentarios)) {
-	for ($i = count($comentarios) - 1;
-		$i >= 0;
-		$i--) {
-		if (trim($comentarios[$i]['comentario']) != "") {
-			$ultimo_comentario = $comentarios[$i]['comentario'];
-			$nome_comentario = $comentarios[$i]['nome'];
-			$cidade_comentario = $comentarios[$i]['cidade'];
-			$estado_comentario = $comentarios[$i]['estado'];
-			break;
-		}
-	}
-} else {
-	$ultimo_comentario = "Seja o primeiro a comentar sobre sua experiência dessa atividade com o mundo!";
-}
-?>
-
-					<div class="cpadding0 mt-10">
-						<span class="icon-quote"></span>
-						<div class="opensans size16 grey2"><?=$ultimo_comentario?>
-						<?php if (!empty($comentarios)) {?>
-							<span class="lato orange bold size13"><i>por <?=$nome_comentario?>de
-<?=$cidade_comentario?>/<?=$estado_comentario?></i></span>
-<?php }?>
-						</div>
-					</div>
-				</div>
 
 				<div class="pagecontainer2 mt20 alsolikebox ">
 					<div class="cpadding1">
