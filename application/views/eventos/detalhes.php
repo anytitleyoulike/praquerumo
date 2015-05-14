@@ -371,9 +371,9 @@ echo form_hidden($data);
 							</div>
 							<div class="clearfix"></div>
 						</div>
-						<!-- End of collapse 4 -->
 
 						<div class="line4"></div>
+						<!-- End of collapse 4 -->
 
 						<!-- Collapse 5  -->
 						<button type="button" onclick='activaTab("maps");loadScript()' class="collapsebtn2 collapsed" data-toggle="collapse" data-target="#collapse5">
@@ -393,7 +393,27 @@ echo form_hidden($data);
 							<div class="clearfix"></div>
 						</div>
 						<!-- End of collapse 5 -->
+<?php 
+	if(!is_null($atividade['como_chegar'])){
+?>
+						<!-- Collapse 6 -->
+						<div class="line4"></div>
+						<button type="button" class="collapsebtn2" data-toggle="collapse" data-target="#collapse6">
+Como Chegar<span class="collapsearrow"></span>
+						</button>
 
+						<div id="collapse6" class="collapse in">
+							<div class="hpadding20">
+								<div class="col-md-12">
+<?=$atividade['como_chegar']?>
+</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<!-- End of Collapse 6 -->
+<?php 
+	}
+?>
 					</div>
 
 
