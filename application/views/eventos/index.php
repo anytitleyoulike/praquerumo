@@ -70,7 +70,7 @@
 					<!-- papercut fade turnoff flyin slideright slideleft slideup slidedown-->
 					<!-- FADE -->
 					<li data-transition="fade" data-slotamount="1" data-masterspeed="300">
-						<img src="<?=base_url("assets/images/destaques/7.png")?>" alt=""/>
+						<img src="<?=base_url("assets/images/destaques/6.png")?>" alt=""/>
 						<div class="tp-caption scrolleffect sft"
 							 data-x="center"
 							 data-y="120"
