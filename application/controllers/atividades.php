@@ -1,4 +1,4 @@
-<?php if (!defined('BASEPATH')) {
+meshim_widget<?php if (!defined('BASEPATH')) {
 	exit('No direct script access allowed');
 }
 
@@ -18,8 +18,8 @@ class Atividades extends CI_Controller {
 		$lingua = get_language();
 		$fotos_destaque = getDestaques();
 
-		$atividades = $this->atividades_model->buscarAtividades(21, $lingua['id'], $lingua['sufix'], $estado);
-		$atividades_destaque = $this->atividades_model->buscarDestaque(3, $lingua['id'], $lingua['sufix'], $estado);
+		$atividades = $this->atividades_model->buscarAtividades(21, $lingua['id'], $lingua['sufix']);
+		$atividades_destaque = $this->atividades_model->buscarDestaque(3, $lingua['id'], $lingua['sufix']);
 
 		foreach ($atividades as &$atividade) {
 			$atividade['avaliacao'] = $this->avaliacao_model->buscarAvaliacao($atividade['codigo']);

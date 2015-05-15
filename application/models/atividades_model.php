@@ -9,7 +9,7 @@ class Atividades_model extends CI_Model {
 	 * @sufix sufixo do idioma
 	 * @return array com eventos
 	 */
-	public function buscarAtividades($limite, $lingua, $sufix, $estado) {
+	public function buscarAtividades($limite, $lingua, $sufix) {
 		$this->db->select("atividade.codigo, atividade.disponivel,
 			atividade.vendivel, atividade.fig_01, atividade.fig_02,
 			atividade.fig_03, atividade.fig_04, atividade.fig_destaque,
@@ -32,7 +32,7 @@ class Atividades_model extends CI_Model {
 		$this->db->group_by("atividade.codigo");
 		$this->db->where("descricao_atividade.lingua_id", $lingua);
 		$this->db->where("atividade.disponivel", true);
-		$this->db->where("descricao_atividade.estado", $estado);
+		//$this->db->where("descricao_atividade.estado", $estado);
 		//colocar where para datas a partir do dia atual
 		$this->db->order_by("evento.inicio");
 		$this->db->limit($limite);
@@ -45,7 +45,7 @@ class Atividades_model extends CI_Model {
 	 * @limite limite de eventos que o método deve retornar
 	 * @return array com eventos
 	 */
-	public function buscarDestaque($limite, $lingua, $sufix, $estado) {
+	public function buscarDestaque($limite, $lingua, $sufix) {
 		$this->db->select("atividade.fig_destaque, descricao_atividade.cidade,
 			evento.preco, evento.inicio, modalidade.nome" . $sufix . " as modalidade");
 		$this->db->select_min('evento.preco');
@@ -57,7 +57,7 @@ class Atividades_model extends CI_Model {
 		$this->db->group_by("atividade.codigo");
 		$this->db->where("destaque", true);
 		$this->db->where("descricao_atividade.lingua_id", $lingua);
-		$this->db->where("descricao_atividade.estado", $estado);
+		//$this->db->where("descricao_atividade.estado", $estado);
 		$this->db->order_by("evento.inicio");
 		$this->db->limit($limite);
 		return $this->db->get()->result_array();
