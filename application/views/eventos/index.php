@@ -45,6 +45,10 @@
     		position: absolute;
     		bottom: 15px;
     	}
+
+    	.fullscreenbanner {
+    		padding: 20px 20px;
+    	}
     </style>
 
 
@@ -66,7 +70,7 @@
 					<!-- papercut fade turnoff flyin slideright slideleft slideup slidedown-->
 					<!-- FADE -->
 					<li data-transition="fade" data-slotamount="1" data-masterspeed="300">
-						<img src="<?=base_url("assets/images/destaques/4.jpg")?>" alt=""/>
+						<img src="<?=base_url("assets/images/destaques/8.png")?>" alt=""/>
 						<div class="tp-caption scrolleffect sft"
 							 data-x="center"
 							 data-y="120"
@@ -74,8 +78,6 @@
 							 data-start="800"
 							 data-easing="easeOutExpo"  >
 							 <div class="sboxpurple textcenter">
-								<span class="lato size28 slim caps white">Pra Que Rumo</span><br/><br/><br/>
-								<span class="lato size100 slim caps white">Descubra seu Rumo</span><br/>
 								<span class="lato size20 normal caps white"></span><br/><br/>
 								<span class="lato size48 slim uppercase yellow"></span><br/>
 							 </div>
@@ -183,89 +185,12 @@
 
 
 
-
 	<!-- WRAP -->
 	<div class="wrap bgfix cstyle03">
 
-		<!-- 3 COLS OVER HEADER-->
-		<div class="container mt-200 z-index100">
-		  <div class="row">
+		
 
-			<div class="col-md-4">
-				<div class="shadow cstyle05">
-					<div class="fwi one">
-						<img src="<?=base_url("assets/images/destaques/info1.png")?>" alt="" />
-						<div class="mhover none">
-							<span class="icon">
-								<a href="#">
-									<img src="<?=base_url("assets/images/spacer.png")?>" alt=""/>
-								</a>
-							</span>
-						</div>
-					</div>
-					<div class="ctitle"><!--primeiro evento--><!-- <a href="#"> --><img src="<?=base_url("assets/images/spacer.png")?>" alt=""/></a>
-						<span><!-- R$50,00 --></span>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-4">
-				<div class="shadow cstyle05">
-					<div class="fwi one"><img src="<?=base_url("assets/images/destaques/info2.png")?>" alt="" /><div class="mhover none"><span class="icon"><a href="#"><img src="<?=base_url("assets/images/spacer.png")?>" alt=""/></a></span></div></div>
-					<div class="ctitle"><!-- Kayak --><!-- <a href="#"> --><img src="<?=base_url("assets/images/spacer.png")?>" alt=""/></a>
-						<span><!-- R$150,00 --></span>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="shadow cstyle05">
-					<div class="fwi one"><img src="<?=base_url("assets/images/destaques/info3.png")?>" alt="" /><div class="mhover none"><span class="icon"><a href="#"><img src="<?=base_url("assets/images/spacer.png")?>" alt=""/></a></span></div></div>
-					<div class="ctitle"><!-- Bóia Cross --><!-- <a href="#"> --><img src="<?=base_url("assets/images/spacer.png")?>" alt=""/></a>
-						<span><!-- R$120,00 --></span>
-					</div>
-				</div>
-			</div>
-		  </div>
-		</div>
-		<!-- / 3 COLS OVER HEADER-->
-		<div class="lastminute lcfix">
-			<div class="container lmc">
-					<!--<div class="line3 line-info"></div>-->
-
-					<div class="col-md-4">
-						<div class="opensans grey2 center">
-							<div class="box-info box-circle">
-								<span class="gcircle">1</span><span class="lato size20 dark mt6 ml10 left"><b>Escolha</b></span>
-							</div>
-							<div class="clearfix"></div>
-							<span class="size18">Selecione uma de nossas atividades e convide seus amigos para compartilhar a aventura.</span>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="opensans grey2 center">
-							<div class="box-info box-circle">
-								<span class="gcircle">2</span><span class="lato size20 dark mt6 ml10 left"><b>Agende</b></span>
-							</div>
-							<div class="clearfix"></div>
-							<span class="size18">Opte pela melhor data disponível e deixe os organizadores resolverem o resto para você.</span>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="opensans grey2 center">
-							<div class="box-info box-circle">
-								<span class="gcircle">3</span><span class="lato size20 dark mt6 ml10 left"><b>Vivencie</b></span>
-							</div>
-							<div class="clearfix"></div>
-							<span class="size18">Desfrute de experiências renovadoras que o farão sair da rotina.</span>
-						</div>
-					</div>
-
-					<!--<div class="line3 line-info2"></div>-->
-
-			</div>
-		</div>
-
-		<div id="atividades" class="container cstyle07">
+		<div id="atividades" class="container cstyle07" style="padding:20px;">
 <?php $counter = 0;
 foreach ($atividades as $atividade) {?>
 			  <div class="col-md-4 box-activity">
@@ -316,7 +241,7 @@ foreach ($atividades as $atividade) {?>
 	foreach ($atividade['eventos'] as $evento) {
 
 		if ($evento['disponivel'] > 0) {
-			echo anchor(base_url("atividades/{$atividade['slug']}/#agendamento"), '<time datetime="2014-09-20" class="calendar-icon calendar-small calendar-green calendar-left10">
+			echo anchor(base_url("atividades/{$atividade['slug']}"), '<time datetime="2014-09-20" class="calendar-icon calendar-small calendar-green calendar-left10">
 															  <em> ' . lang("evento_disponivel") . '</em>
 															  <strong>' . getMonthNameData($evento['data_inicio']) . '</strong>
 															  <span>' . getDayData($evento['data_inicio']) . '</span>
