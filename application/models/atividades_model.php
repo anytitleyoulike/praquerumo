@@ -19,20 +19,16 @@ class Atividades_model extends CI_Model {
 			COUNT(evento.codigo) AS eventos, evento.inicio,
 			atividade.slug,
 			modalidade.nome" . $sufix . " as modalidade");
-		//COUNT(avaliacao.avaliacao) AS avaliacoes_atividade,
+		
 		$this->db->select_min('evento.preco');
-		//$this->db->select_avg("avaliacao.avaliacao");
-		//$this->db->select_avg("avaliacao.recomenda");
 		$this->db->from("atividade");
 		$this->db->join("modalidade", "modalidade.id = atividade.modalidade_id");
 		$this->db->join("evento", "evento.atividade_codigo = atividade.codigo");
 		$this->db->join("descricao_atividade", "descricao_atividade.atividade_codigo = atividade.codigo");
-		//$this->db->join("avaliacao", "avaliacao.atividade_codigo = atividade.codigo");
 
 		$this->db->group_by("atividade.codigo");
 		$this->db->where("descricao_atividade.lingua_id", $lingua);
 		$this->db->where("atividade.disponivel", true);
-		//$this->db->where("descricao_atividade.estado", $estado);
 		//colocar where para datas a partir do dia atual
 		$this->db->order_by("evento.inicio");
 		$this->db->limit($limite);
@@ -57,7 +53,6 @@ class Atividades_model extends CI_Model {
 		$this->db->group_by("atividade.codigo");
 		$this->db->where("destaque", true);
 		$this->db->where("descricao_atividade.lingua_id", $lingua);
-		//$this->db->where("descricao_atividade.estado", $estado);
 		$this->db->order_by("evento.inicio");
 		$this->db->limit($limite);
 		return $this->db->get()->result_array();
