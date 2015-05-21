@@ -288,7 +288,7 @@ echo form_hidden($data);
 
 <?php }?>
 
-<?php if (!is_null($atividade['dicas'])){ ?>
+<?php if (isset($atividade['dicas'])){ ?>
 <!-- Collapse 3 -->
 							<div class="line4"></div>
 							<button type="button" class="collapsebtn2 collapsed" data-toggle="collapse" data-target="#collapse3">
@@ -330,7 +330,7 @@ echo form_hidden($data);
 <?php }?>
 <!-- End of collapse 3 -->
 
-<?php if (!is_null($atividade['acompanhamento'])){ ?>
+<?php if (isset($atividade['acompanhamento'])){ ?>
 <!-- Collapse 6 -->
 							<div class="line4"></div>
 							<button type="button" class="collapsebtn2" data-toggle="collapse" data-target="#collapse6">
@@ -373,7 +373,7 @@ echo form_hidden($data);
 <!-- End of collapse 6 -->
 
 <!-- Begin of collapse 7 -->
-<?php if (!is_null($atividade['cuidados'])){ ?>
+<?php if (isset($atividade['cuidados'])){ ?>
 <div class="line4"></div>
 							<button type="button" class="collapsebtn2" data-toggle="collapse" data-target="#collapse7">
 <?=lang("details_item_cuidados_restricoes")?><span class="collapsearrow"></span>
