@@ -288,6 +288,26 @@ echo form_hidden($data);
 
 <?php }?>
 
+<?php if (!is_null($atividade['dicas'])){ ?>
+<!-- Collapse 3 -->
+							<div class="line4"></div>
+							<button type="button" class="collapsebtn2 collapsed" data-toggle="collapse" data-target="#collapse3">
+<?=lang("details_item_dicas")?><span class="collapsearrow"></span>
+							</button>
+
+							<div id="collapse3" class="collapse in">
+								<div class="hpadding20">
+									<div class="col-md-12">
+										<ul class="checklist">
+											<li><?=$atividade['dicas']?><br /></li>
+										</ul>
+									</div>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+<?php }?>
+<!-- End of collapse 3 -->
+
 <?php if (!count($dicas) == 0) {?>
 <!-- Collapse 3 -->
 							<div class="line4"></div>
@@ -309,6 +329,26 @@ echo form_hidden($data);
 							</div>
 <?php }?>
 <!-- End of collapse 3 -->
+
+<?php if (!is_null($atividade['acompanhamento'])){ ?>
+<!-- Collapse 6 -->
+							<div class="line4"></div>
+							<button type="button" class="collapsebtn2" data-toggle="collapse" data-target="#collapse6">
+<?=lang("details_item_itens_inclusos")?><span class="collapsearrow"></span>
+							</button>
+
+								<div id="collapse6" class="collapse in">
+									<div class="hpadding20">
+										<div class="col-md-12">
+											<ul class="checklist">
+												<li><?=$atividade['acompanhamento']?><br /></li>
+											</ul>
+										</div>
+									<div class="clearfix"></div>
+									</div>
+								</div>
+<?php }?>
+<!-- End of collapse 6 -->
 
 <?php if (!count($acompanhamentos) == 0) {?>
 <!-- Collapse 6 -->
@@ -332,8 +372,27 @@ echo form_hidden($data);
 <?php }?>
 <!-- End of collapse 6 -->
 
-						<!-- Begin of collapse 7 -->
+<!-- Begin of collapse 7 -->
+<?php if (!is_null($atividade['cuidados'])){ ?>
+<div class="line4"></div>
+							<button type="button" class="collapsebtn2" data-toggle="collapse" data-target="#collapse7">
+<?=lang("details_item_cuidados_restricoes")?><span class="collapsearrow"></span>
+							</button>
 
+								<div id="collapse7" class="collapse in">
+									<div class="hpadding20">
+										<div class="col-md-12">
+											<ul class="checklist">
+												<li><?=$atividade["cuidados"]?><br /></li>
+											</ul>
+										</div>
+									<div class="clearfix"></div>
+									</div>
+								</div>
+<?php }?>
+<!-- End of collapse 7 -->
+
+<!-- Begin of collapse 7 -->
 <?php if (!count($restricoes) == 0) {?>
 <div class="line4"></div>
 							<button type="button" class="collapsebtn2" data-toggle="collapse" data-target="#collapse7">
