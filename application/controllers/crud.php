@@ -107,7 +107,6 @@ class Crud extends CI_Controller {
 
 		//manipulation
 		$crud->unique_fields('slug');
-		$crud->unset_delete();
 
 		//callbacks
 		$crud->callback_add_field('dt_criacao', function () {
