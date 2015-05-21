@@ -1803,3 +1803,18 @@ ALTER TABLE `preferencias`
 ALTER TABLE `restricoes`
   ADD CONSTRAINT `fk_cuidados_has_atividade_atividade1` FOREIGN KEY (`atividade_codigo`) REFERENCES `atividade` (`codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_cuidados_has_atividade_cuidados1` FOREIGN KEY (`cuidados_id`) REFERENCES `cuidados` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- NOVO CAMPO dicas
+--
+ALTER TABLE `atividade` ADD `dicas` TEXT NOT NULL;
+
+--
+-- NOVO CAMPO acompanhamento
+--
+ALTER TABLE `atividade` ADD `acompanhamento` TEXT NOT NULL;
+
+--
+-- NOVO CAMPO cuidados
+--
+ALTER TABLE `atividade` ADD `cuidados` TEXT NOT NULL;
