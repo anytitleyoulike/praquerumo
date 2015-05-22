@@ -52,25 +52,6 @@
 			}(document, 'script', 'facebook-jssdk'));
 		</script>
 
-	<div class="container breadcrub">
-	    <div>
-			<a class="homebtn left" href="<?=base_url()?>"></a>
-			<div class="left">
-				<ul class="bcrumbs">
-					<li>/</li>
-					<li><a href="#"><?=$elemento["nome{$sufix}"]?></a></li>
-					<li>/</li>
-					<li><a href="#"><?=$categoria["nome{$sufix}"]?></a></li>
-					<li>/</li>
-					<li><a href="#" class="active"><?=$modalidade["nome{$sufix}"]?></a></li>
-				</ul>
-			</div>
-			<a class="backbtn right" href="<?=base_url()?>"></a>
-		</div>
-		<div class="clearfix"></div>
-		<div class="brlines"></div>
-	</div>
-
 	<!-- Organizador -->
 <?php
 $data = array(
@@ -1025,9 +1006,6 @@ if (!empty($eventos)) {
 			</div>
 
 			<div class="col-md-4" >
-
-
-
 				<div class="pagecontainer2 mt20 alsolikebox ">
 					<div class="cpadding1">
 						<span class="icon-location"></span>
