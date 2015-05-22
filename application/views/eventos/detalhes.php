@@ -288,7 +288,10 @@ echo form_hidden($data);
 
 <?php }?>
 
-<?php if (isset($atividade['dicas']) && $atividade['dicas'] != ''){ ?>
+<?php 
+	if (isset($atividade['dicas']) && $atividade['dicas'] != ''){ 
+		$array = explode('</p>', $atividade['dicas']);
+?>
 <!-- Collapse 3 -->
 							<div class="line4"></div>
 							<button type="button" class="collapsebtn2 collapsed" data-toggle="collapse" data-target="#collapse3">
@@ -299,7 +302,15 @@ echo form_hidden($data);
 								<div class="hpadding20">
 									<div class="col-md-12">
 										<ul class="checklist">
-											<li><?=$atividade['dicas']?><br /></li>
+										<?php 
+											foreach ($array as $array) {
+												if(strlen($array) != 2){
+										?>
+													<li><?=$array?><br /></li>
+										<?php 
+												}
+											}
+										?>
 										</ul>
 									</div>
 								</div>
@@ -330,7 +341,10 @@ echo form_hidden($data);
 <?php }?>
 <!-- End of collapse 3 -->
 
-<?php if (isset($atividade['acompanhamento']) && $atividade['acompanhamento'] != ''){ ?>
+<?php 
+	if (isset($atividade['acompanhamento']) && $atividade['acompanhamento'] != ''){ 
+		$array = explode('</p>', $atividade['acompanhamento']);
+?>
 <!-- Collapse 6 -->
 							<div class="line4"></div>
 							<button type="button" class="collapsebtn2" data-toggle="collapse" data-target="#collapse6">
@@ -341,7 +355,15 @@ echo form_hidden($data);
 									<div class="hpadding20">
 										<div class="col-md-12">
 											<ul class="checklist">
-												<li><?=$atividade['acompanhamento']?><br /></li>
+											<?php 
+												foreach ($array as $array) {
+													if(strlen($array) != 2){
+											?>
+														<li><?=$array?><br /></li>
+											<?php 
+													}
+												}
+											?>
 											</ul>
 										</div>
 									<div class="clearfix"></div>
@@ -373,7 +395,10 @@ echo form_hidden($data);
 <!-- End of collapse 6 -->
 
 <!-- Begin of collapse 7 -->
-<?php if (isset($atividade['cuidados']) && $atividade['cuidados'] != ''){ ?>
+<?php
+	if (isset($atividade['cuidados']) && $atividade['cuidados'] != ''){
+		$array = explode('</p>', $atividade['cuidados']);
+?>
 <div class="line4"></div>
 							<button type="button" class="collapsebtn2" data-toggle="collapse" data-target="#collapse7">
 <?=lang("details_item_cuidados_restricoes")?><span class="collapsearrow"></span>
@@ -383,7 +408,15 @@ echo form_hidden($data);
 									<div class="hpadding20">
 										<div class="col-md-12">
 											<ul class="checklist">
-												<li><?=$atividade["cuidados"]?><br /></li>
+											<?php 
+												foreach ($array as $array) {
+													if(strlen($array) != 2){
+											?>
+														<li><?=$array?><br /></li>
+											<?php 
+													}
+												}
+											?>
 											</ul>
 										</div>
 									<div class="clearfix"></div>
