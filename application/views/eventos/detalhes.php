@@ -316,7 +316,9 @@ echo form_hidden($data);
 								</div>
 								<div class="clearfix"></div>
 							</div>
-<?php }?>
+<?php 
+	}else{
+?>
 <!-- End of collapse 3 -->
 
 <?php if (!count($dicas) == 0) {?>
@@ -338,7 +340,10 @@ echo form_hidden($data);
 								</div>
 								<div class="clearfix"></div>
 							</div>
-<?php }?>
+<?php 
+		}
+	}
+?>
 <!-- End of collapse 3 -->
 
 <?php 
@@ -369,10 +374,13 @@ echo form_hidden($data);
 									<div class="clearfix"></div>
 									</div>
 								</div>
-<?php }?>
+<?php 
+	}else{
+?>
 <!-- End of collapse 6 -->
 
-<?php if (!count($acompanhamentos) == 0) {?>
+<?php 
+		if (!count($acompanhamentos) == 0) {?>
 <!-- Collapse 6 -->
 							<div class="line4"></div>
 							<button type="button" class="collapsebtn2" data-toggle="collapse" data-target="#collapse6">
@@ -391,7 +399,10 @@ echo form_hidden($data);
 									<div class="clearfix"></div>
 									</div>
 								</div>
-<?php }?>
+<?php
+		}
+	}
+?>
 <!-- End of collapse 6 -->
 
 <!-- Begin of collapse 7 -->
@@ -422,11 +433,14 @@ echo form_hidden($data);
 									<div class="clearfix"></div>
 									</div>
 								</div>
-<?php }?>
+<?php 
+	}else{
+?>
 <!-- End of collapse 7 -->
 
 <!-- Begin of collapse 7 -->
-<?php if (!count($restricoes) == 0) {?>
+<?php 
+		if (!count($restricoes) == 0) {?>
 <div class="line4"></div>
 							<button type="button" class="collapsebtn2" data-toggle="collapse" data-target="#collapse7">
 <?=lang("details_item_cuidados_restricoes")?><span class="collapsearrow"></span>
@@ -435,13 +449,15 @@ echo form_hidden($data);
 								<div id="collapse7" class="collapse in">
 									<div class="hpadding20">
 										<div class="col-md-12">
-<?php if (!count($restricoes) == 0) {?>
-<ul class="checklist">
+											<ul class="checklist">
 <?php foreach ($restricoes as $restricoe):?>
 														<li><?=$restricoe["nome{$sufix}"]?><br /></li>
 <?php endforeach?>
 </ul>
-<?php }?>
+<?php 
+		}
+	}
+?>
 </div>
 									<div class="clearfix"></div>
 									</div>
