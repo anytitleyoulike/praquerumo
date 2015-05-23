@@ -453,16 +453,15 @@ echo form_hidden($data);
 <?php foreach ($restricoes as $restricoe):?>
 														<li><?=$restricoe["nome{$sufix}"]?><br /></li>
 <?php endforeach?>
-</ul>
-<?php 
-		}
-	}
-?>
-</div>
+											</ul>
+										</div>
 									<div class="clearfix"></div>
 									</div>
 								</div>
-<?php }?>
+<?php
+		}
+	}
+?>
 <!-- End of collapse 7 -->
 						<div class="line4"></div>
 
