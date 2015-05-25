@@ -67,7 +67,7 @@ class Atividades_model extends CI_Model {
 		$this->db->select("atividade.codigo, atividade.slug, atividade.vendivel, atividade.disponivel,
 			atividade.latitude, atividade.longitude, atividade.fig_01, atividade.fig_02, atividade.fig_03,
 			atividade.fig_04, atividade.categoria_id, atividade.elemento_id, atividade.modalidade_id,
-			atividade.usuario_id,
+			atividade.usuario_id, atividade.dicas, atividade.acompanhamento, atividade.cuidados,
 			,descricao_atividade.lingua_id, descricao_atividade.atividade_codigo, descricao_atividade.como_chegar, descricao_atividade.titulo,
 			descricao_atividade.apresentacao, descricao_atividade.esforco_fisico, descricao_atividade.conforto,
 			descricao_atividade.dificuldade_tecnica, descricao_atividade.descricao, descricao_atividade.cidade,

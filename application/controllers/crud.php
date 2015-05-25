@@ -70,10 +70,13 @@ class Crud extends CI_Controller {
 		     ->display_as('latitude', 'Latitude(decimal)')
 		     ->display_as('longitude', 'Longitude(decimal)')
 		     ->display_as('dt_criacao', 'Data de criação')
+		     ->display_as('acompanhamento', 'Acompanhamento')
+		     ->display_as('dicas', 'Dicas')
+		     ->display_as('cuidados', 'Cuidados')
 		     ->display_as('dt_atualizacao', 'Data de atualização');
 
 		$crud->columns('slug', 'usuario_id', 'modalidade_id', 'categoria_id',
-			'elemento_id', 'comissao', 'fig_thumbnail', 'dt_atualizacao', 'dt_criacao');
+			'elemento_id', 'comissao', 'fig_thumbnail', 'dt_atualizacao', 'dt_criacao', 'cuidados', 'dicas', 'acompanhamento');
 
 		//campos no add de uma atividade
 		$crud->add_fields('slug', 'usuario_id', 'modalidade_id', 'categoria_id',
@@ -91,9 +94,9 @@ class Crud extends CI_Controller {
 		$crud->set_relation('modalidade_id', 'modalidade', 'nome_pt');
 		$crud->set_relation('categoria_id', 'categoria', 'nome_pt');
 		$crud->set_relation('elemento_id', 'elemento', 'nome_pt');
-		$crud->set_relation_n_n('acompanhamento', 'acompanhamentos', 'itens', 'atividade_codigo', 'itens_id', 'nome_pt', '');
-		$crud->set_relation_n_n('cuidados', 'restricoes', 'cuidados', 'atividade_codigo', 'cuidados_id', 'nome_pt', '');
-		$crud->set_relation_n_n('dicas', 'dicas', 'informacoes', 'atividade_codigo', 'informacoes_id', 'nome_pt', '');
+		//$crud->set_relation_n_n('acompanhamento', 'acompanhamentos', 'itens', 'atividade_codigo', 'itens_id', 'nome_pt', '');
+		//$crud->set_relation_n_n('cuidados', 'restricoes', 'cuidados', 'atividade_codigo', 'cuidados_id', 'nome_pt', '');
+		//$crud->set_relation_n_n('dicas', 'dicas', 'informacoes', 'atividade_codigo', 'informacoes_id', 'nome_pt', '');
 		$crud->set_field_upload('fig_01', 'assets/images/atividades/detalhes');
 		$crud->set_field_upload('fig_02', 'assets/images/atividades/detalhes');
 		$crud->set_field_upload('fig_03', 'assets/images/atividades/detalhes');
