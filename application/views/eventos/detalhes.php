@@ -56,7 +56,6 @@
 <?php
 $data = array(
 	'organizador-codigo' => $atividade['usuario_id'],
-	'atividade-slug' => $atividade['slug'],
 );
 echo form_hidden($data);
 
@@ -174,7 +173,7 @@ echo form_hidden($data);
 					      <div class="modal-body">
 					      	<div class="input-group modal-box modal-email">
 							  <span class="input-group-addon"><span class="glyphicon glyphicon-bookmark"></span></span>
-							  <input  type="text" class="form-control" value = "<?=$atividade['titulo']?>" disabled>
+							  <input id="tips-atividade" type="text" class="form-control" value = "<?=$atividade['titulo']?>" disabled>
 							</div>
 					      	<div class="input-group modal-box modal-email">
 							  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>

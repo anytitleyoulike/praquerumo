@@ -188,6 +188,7 @@ function getOutrasDatas(){
                     '"email" : "'+ $('#tips-email').val() +'",' +
                     '"telefone" : "'+ $('#tips-telefone').val() +'",' +
                     '"organizador" : "'+ $('input[name="organizador-codigo"]').val() +'",' +
+                    '"atividade":"'+ $('#tips-atividade').val() +'",' +
                     '"descricao":"'+ $('#tips-descricao').val() +'"' +
                     '} }';
   return clientData;

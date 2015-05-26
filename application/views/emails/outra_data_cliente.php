@@ -68,6 +68,9 @@
 														<div>
 															<p> Ticket de pergunta aberto, entraremos em contato com nossos organizadores.</p>
 
+															<p> Atividade:</p>
+															<p><?=$atividade?></p>
+
 															<p>Mensagem:</p>
 															<p style="font-size:14px;"><tt><?=$descricao?></tt></p>
 															<br/>
