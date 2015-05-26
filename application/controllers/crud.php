@@ -103,7 +103,7 @@ class Crud extends CI_Controller {
 
 		$crud->required_fields('usuario_id', "modalidade_id", "categoria_id",
 			"elemento_id", "comissao", "slug", "vendivel", "disponivel", "destaque",
-			"fig_01", "fig_02", "fig_03", "fig_04", "fig_thumbnail", "fig_destaque");
+			"fig_01", "fig_thumbnail");
 
 		//manipulation
 		$crud->unique_fields('slug');
