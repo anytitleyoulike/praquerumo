@@ -200,7 +200,8 @@ function sendData(btn, clientData){
           data : {
                     nome: clientData.nome, email: clientData.email,
                     telefone: clientData.telefone, descricao: clientData.descricao,
-                    organizador: clientData.organizador
+                    organizador: clientData.organizador, 
+                    atividade: clientData.atividade
                   },
           beforeSend: function(){
             //res.container.append(res.loader);
