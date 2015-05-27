@@ -273,6 +273,40 @@ echo form_hidden($data);
 
 <?php }?>
 
+<?php 
+	if (isset($atividade['dicas']) && $atividade['dicas'] != ''){ 
+		$array = explode('</p>', $atividade['dicas']);
+		$array = str_replace('<p>', '', $array);
+?>
+<!-- Collapse 3 -->
+							<div class="line4"></div>
+							<button type="button" class="collapsebtn2 collapsed" data-toggle="collapse" data-target="#collapse3">
+<?=lang("details_item_dicas")?><span class="collapsearrow"></span>
+							</button>
+
+							<div id="collapse3" class="collapse in">
+								<div class="hpadding20">
+									<div class="col-md-12">
+										<ul class="checklist">
+										<?php 
+											foreach ($array as $array) {
+												if(strlen($array) != 2){
+										?>
+													<li><?=$array?></li>
+										<?php 
+												}
+											}
+										?>
+										</ul>
+									</div>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+<?php 
+	}else{
+?>
+<!-- End of collapse 3 -->
+
 <?php if (!count($dicas) == 0) {?>
 <!-- Collapse 3 -->
 							<div class="line4"></div>
@@ -292,10 +326,48 @@ echo form_hidden($data);
 								</div>
 								<div class="clearfix"></div>
 							</div>
-<?php }?>
+<?php 
+		}
+	}
+?>
 <!-- End of collapse 3 -->
 
-<?php if (!count($acompanhamentos) == 0) {?>
+<?php 
+	if (isset($atividade['acompanhamento']) && $atividade['acompanhamento'] != ''){ 
+		$array = explode('</p>', $atividade['acompanhamento']);
+		$array = str_replace('<p>', '', $array);
+?>
+<!-- Collapse 6 -->
+							<div class="line4"></div>
+							<button type="button" class="collapsebtn2" data-toggle="collapse" data-target="#collapse6">
+<?=lang("details_item_itens_inclusos")?><span class="collapsearrow"></span>
+							</button>
+
+								<div id="collapse6" class="collapse in">
+									<div class="hpadding20">
+										<div class="col-md-12">
+											<ul class="checklist">
+											<?php 
+												foreach ($array as $array) {
+													if(strlen($array) != 2){
+											?>
+														<li><?=$array?></li>
+											<?php 
+													}
+												}
+											?>
+											</ul>
+										</div>
+									<div class="clearfix"></div>
+									</div>
+								</div>
+<?php 
+	}else{
+?>
+<!-- End of collapse 6 -->
+
+<?php 
+		if (!count($acompanhamentos) == 0) {?>
 <!-- Collapse 6 -->
 							<div class="line4"></div>
 							<button type="button" class="collapsebtn2" data-toggle="collapse" data-target="#collapse6">
@@ -314,12 +386,18 @@ echo form_hidden($data);
 									<div class="clearfix"></div>
 									</div>
 								</div>
-<?php }?>
+<?php
+		}
+	}
+?>
 <!-- End of collapse 6 -->
 
-						<!-- Begin of collapse 7 -->
-
-<?php if (!count($restricoes) == 0) {?>
+<!-- Begin of collapse 7 -->
+<?php
+	if (isset($atividade['cuidados']) && $atividade['cuidados'] != ''){
+		$array = explode('</p>', $atividade['cuidados']);
+		$array = str_replace('<p>', '', $array);
+?>
 <div class="line4"></div>
 							<button type="button" class="collapsebtn2" data-toggle="collapse" data-target="#collapse7">
 <?=lang("details_item_cuidados_restricoes")?><span class="collapsearrow"></span>
@@ -328,18 +406,50 @@ echo form_hidden($data);
 								<div id="collapse7" class="collapse in">
 									<div class="hpadding20">
 										<div class="col-md-12">
-<?php if (!count($restricoes) == 0) {?>
-<ul class="checklist">
-<?php foreach ($restricoes as $restricoe):?>
-														<li><?=$restricoe["nome{$sufix}"]?><br /></li>
-<?php endforeach?>
-</ul>
-<?php }?>
-</div>
+											<ul class="checklist">
+											<?php 
+												foreach ($array as $array) {
+													if(strlen($array) != 2){
+											?>
+														<li><?=$array?></li>
+											<?php 
+													}
+												}
+											?>
+											</ul>
+										</div>
 									<div class="clearfix"></div>
 									</div>
 								</div>
-<?php }?>
+<?php 
+	}else{
+?>
+<!-- End of collapse 7 -->
+
+<!-- Begin of collapse 7 -->
+<?php 
+		if (!count($restricoes) == 0) {?>
+<div class="line4"></div>
+							<button type="button" class="collapsebtn2" data-toggle="collapse" data-target="#collapse7">
+<?=lang("details_item_cuidados_restricoes")?><span class="collapsearrow"></span>
+							</button>
+
+								<div id="collapse7" class="collapse in">
+									<div class="hpadding20">
+										<div class="col-md-12">
+											<ul class="checklist">
+<?php foreach ($restricoes as $restricoe):?>
+														<li><?=$restricoe["nome{$sufix}"]?><br /></li>
+<?php endforeach?>
+											</ul>
+										</div>
+									<div class="clearfix"></div>
+									</div>
+								</div>
+<?php
+		}
+	}
+?>
 <!-- End of collapse 7 -->
 						<div class="line4"></div>
 
