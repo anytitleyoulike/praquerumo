@@ -188,6 +188,7 @@ function getOutrasDatas(){
                     '"email" : "'+ $('#tips-email').val() +'",' +
                     '"telefone" : "'+ $('#tips-telefone').val() +'",' +
                     '"organizador" : "'+ $('input[name="organizador-codigo"]').val() +'",' +
+                    '"atividade":"'+ $('#tips-atividade').val() +'",' +
                     '"descricao":"'+ $('#tips-descricao').val() +'"' +
                     '} }';
   return clientData;
@@ -200,7 +201,8 @@ function sendData(btn, clientData){
           data : {
                     nome: clientData.nome, email: clientData.email,
                     telefone: clientData.telefone, descricao: clientData.descricao,
-                    organizador: clientData.organizador
+                    organizador: clientData.organizador, 
+                    atividade: clientData.atividade
                   },
           beforeSend: function(){
             //res.container.append(res.loader);

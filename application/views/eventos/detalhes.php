@@ -172,6 +172,10 @@ echo form_hidden($data);
 					      </div>
 					      <div class="modal-body">
 					      	<div class="input-group modal-box modal-email">
+							  <span class="input-group-addon"><span class="glyphicon glyphicon-bookmark"></span></span>
+							  <input id="tips-atividade" type="text" class="form-control" value = "<?=$atividade['titulo']?>" disabled>
+							</div>
+					      	<div class="input-group modal-box modal-email">
 							  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
 							  <input id="tips-nome" type="text" class="form-control" placeholder="nome">
 							</div>

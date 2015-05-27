@@ -51,6 +51,7 @@ class Newsletter extends CI_Controller {
 		$email = $this->input->post('email');
 		$telefone = $this->input->post('telefone');
 		$organizador = $this->input->post('organizador');
+		$atividade = $this->input->post('atividade');
 		$descricao = $this->input->post('descricao');
 
 		$dados_validos = $this->_validacao();
@@ -68,6 +69,7 @@ class Newsletter extends CI_Controller {
 				'telefone' => $telefone,
 				'descricao' => $descricao,
 				'organizador' => $organizer['nome'],
+				'atividade' => $atividade,
 			);
 
 			#send emails#
