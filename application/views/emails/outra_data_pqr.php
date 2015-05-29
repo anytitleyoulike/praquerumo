@@ -74,6 +74,7 @@
 																	Email: <?=$email?><br/>
 																	Telefone: <?=$telefone?><br/>
 																	Descrição: <?=$descricao?><br/>
+																	Atividade: <?=$atividade?><br/>
 																</p>
 															</div>
 

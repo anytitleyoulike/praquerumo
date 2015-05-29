@@ -172,6 +172,10 @@ echo form_hidden($data);
 					      </div>
 					      <div class="modal-body">
 					      	<div class="input-group modal-box modal-email">
+							  <span class="input-group-addon"><span class="glyphicon glyphicon-bookmark"></span></span>
+							  <input id="tips-atividade" type="text" class="form-control" value = "<?=$atividade['titulo']?>" disabled>
+							</div>
+					      	<div class="input-group modal-box modal-email">
 							  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
 							  <input id="tips-nome" type="text" class="form-control" placeholder="nome">
 							</div>
@@ -272,6 +276,7 @@ echo form_hidden($data);
 <?php 
 	if (isset($atividade['dicas']) && $atividade['dicas'] != ''){ 
 		$array = explode('</p>', $atividade['dicas']);
+		$array = str_replace('<p>', '', $array);
 ?>
 <!-- Collapse 3 -->
 							<div class="line4"></div>
@@ -287,7 +292,7 @@ echo form_hidden($data);
 											foreach ($array as $array) {
 												if(strlen($array) != 2){
 										?>
-													<li><?=$array?><br /></li>
+													<li><?=$array?></li>
 										<?php 
 												}
 											}
@@ -330,6 +335,7 @@ echo form_hidden($data);
 <?php 
 	if (isset($atividade['acompanhamento']) && $atividade['acompanhamento'] != ''){ 
 		$array = explode('</p>', $atividade['acompanhamento']);
+		$array = str_replace('<p>', '', $array);
 ?>
 <!-- Collapse 6 -->
 							<div class="line4"></div>
@@ -345,7 +351,7 @@ echo form_hidden($data);
 												foreach ($array as $array) {
 													if(strlen($array) != 2){
 											?>
-														<li><?=$array?><br /></li>
+														<li><?=$array?></li>
 											<?php 
 													}
 												}
@@ -390,6 +396,7 @@ echo form_hidden($data);
 <?php
 	if (isset($atividade['cuidados']) && $atividade['cuidados'] != ''){
 		$array = explode('</p>', $atividade['cuidados']);
+		$array = str_replace('<p>', '', $array);
 ?>
 <div class="line4"></div>
 							<button type="button" class="collapsebtn2" data-toggle="collapse" data-target="#collapse7">
@@ -404,7 +411,7 @@ echo form_hidden($data);
 												foreach ($array as $array) {
 													if(strlen($array) != 2){
 											?>
-														<li><?=$array?><br /></li>
+														<li><?=$array?></li>
 											<?php 
 													}
 												}
