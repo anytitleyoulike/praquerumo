@@ -10,15 +10,24 @@ class Atividades_model extends CI_Model {
 	 * @return array com eventos
 	 */
 	public function buscarAtividades($limite, $lingua, $sufix) {
-		$this->db->select("atividade.codigo, atividade.disponivel,
-			atividade.vendivel, atividade.fig_01, atividade.fig_02,
-			atividade.fig_03, atividade.fig_04, atividade.fig_destaque,
-			atividade.fig_thumbnail, descricao_atividade.titulo,
+		$this->db->select("
+			atividade.codigo, 
+			atividade.disponivel,
+			atividade.vendivel,
+			atividade.fig_01,
+			atividade.fig_02,
+			atividade.fig_03,
+			atividade.fig_04,
+			atividade.fig_destaque,
+			atividade.fig_thumbnail,
+			descricao_atividade.titulo,
 			descricao_atividade.apresentacao,
-			descricao_atividade.cidade, descricao_atividade.estado,
-			COUNT(evento.codigo) AS eventos, evento.inicio,
+			descricao_atividade.cidade,
+			descricao_atividade.estado,
+			COUNT(evento.codigo) AS eventos,
+			evento.fim,
 			atividade.slug,
-			modalidade.nome" . $sufix . " as modalidade");
+			modalidade.nome" . $sufix . " AS modalidade");
 		
 		$this->db->select_min('evento.preco');
 		$this->db->from("atividade");
@@ -29,8 +38,10 @@ class Atividades_model extends CI_Model {
 		$this->db->group_by("atividade.codigo");
 		$this->db->where("descricao_atividade.lingua_id", $lingua);
 		$this->db->where("atividade.disponivel", true);
+		$this->db->where("atividade.vendivel", true);
+
 		//colocar where para datas a partir do dia atual
-		$this->db->order_by("evento.inicio");
+		//$this->db->order_by("evento.fim", "ASC");
 		$this->db->limit($limite);
 
 		return $this->db->get()->result_array();
