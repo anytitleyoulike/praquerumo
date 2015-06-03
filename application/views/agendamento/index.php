@@ -59,6 +59,7 @@ $data = array(
 	'data_horario' => $descricao,
 	'tipo_pagamento' => '#card',
 	'preco_str' => $preco,
+	'visivel_fim' => $evento['visivel_fim'],
 );
 echo form_hidden($data);
 ?>
@@ -193,7 +194,7 @@ echo form_error("email");
 					<!-- Nav tabs -->
 					<ul class="nav navigation-tabs">
 					  <li class="active"><a href="#card" data-toggle="tab">Cartão de Crédito</a></li>
-					  <li><a href="#bank_slip" data-toggle="tab">Boleto</a></li>
+					  <li><a href="#bank_slip" id="pagBoleto" data-toggle="tab">Boleto</a></li>
 					</ul>
 
 					<!-- Tab panes -->
@@ -362,6 +363,9 @@ echo form_input(array(
 
 					  </div>
 					  <!-- End of Tab 2 -->
+
+
+
 					</div>
 
 
@@ -414,13 +418,12 @@ Completando esse agendamento, concordo que lí e aceito o
 
 echo form_close();
 ?>
-					<!--<div>
-						<div class="loader">Ola</div>
-					</div>-->
-
 				</div>
 
 			</div>
+
+			<!-- Tab 2 alterntivo -->
+					  
 			<!-- END OF LEFT CONTENT -->
 
 			<!-- RIGHT CONTENT -->
@@ -552,6 +555,10 @@ echo form_close();
 
 	<!-- Javascript  -->
 	<script src="<?=base_url("assets/js/js-payment.js")?>"></script>
+
+	<!-- datas  -->
+	<script src="<?=base_url("assets/js/datas.js")?>"></script>
+
 	<!-- Iugu -->
 	<script type="text/javascript" src="https://js.iugu.com/v2"></script>
 	<script type="text/javascript" src='<?=base_url("assets/js/iugu.js")?>'></script>
