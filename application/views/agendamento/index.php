@@ -193,7 +193,7 @@ echo form_error("email");
 					<br/>
 					<!-- Nav tabs -->
 					<ul class="nav navigation-tabs">
-					  <li class="active"><a href="#card" data-toggle="tab">Cartão de Crédito</a></li>
+					  <li class="active"><a href="#card" id="pagCard" data-toggle="tab">Cartão de Crédito</a></li>
 					  <li><a href="#bank_slip" id="pagBoleto" data-toggle="tab">Boleto</a></li>
 					</ul>
 
