@@ -59,16 +59,16 @@ if (defined('ENVIRONMENT')) {
 			$db['default']['database'] = 'praquerumo';//devpraquerumo
 			break;
 		case 'testing':
-			$db['default']['hostname'] = 'mysql.praquerumo.com.br';
-			$db['default']['username'] = 'blackone';
-			$db['default']['password'] = '@tt171423';
-			$db['default']['database'] = 'testpraquerumo';
+			$db['default']['hostname'] = 'localhost'; //localhost servidor
+			$db['default']['username'] = 'pqr_admin';
+			$db['default']['password'] = 'pr4qu3rum0';
+			$db['default']['database'] = 'pqr_teste';
 			break;
 		case 'production':
-			$db['default']['hostname'] = 'mysql.praquerumo.com.br';
-			$db['default']['username'] = 'blackone';
-			$db['default']['password'] = '@tt171423';
-			$db['default']['database'] = 'praquerumo';
+			$db['default']['hostname'] = 'localhost';//mysql.dev.praquerumo.com.br
+			$db['default']['username'] = 'pqr_admin';//blackone
+			$db['default']['password'] = 'pr4qu3rum0';//@tt171423
+			$db['default']['database'] = 'pqr_producao';//devpraquerumo
 			break;
 
 		default:
