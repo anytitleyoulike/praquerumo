@@ -139,7 +139,7 @@ class Agendamento extends CI_Controller {
 			$data_horario = $this->input->post('data_horario');
 
 			$disponivel = $this->_verificaDisponibilidade($evento, $quantidade);
-
+			
 			if ($disponivel != 0) {
 				$result_pgto = $this->_pagar($token, $email, $descricao,
 					$quantidade, $preco_formatado);
@@ -184,8 +184,8 @@ class Agendamento extends CI_Controller {
 						'compra' => $dados_compra,
 					);
 					//send email de confirmação(com voucher e qrcode)
-
-					//$this->_sendEmailToClient($email, $dados_email);
+					
+					// $this->_sendEmailToClient($email, $dados_email);
 
 					//pegar email do organizador
 					//$this->_sendEmailToOrganizer();
@@ -304,6 +304,17 @@ class Agendamento extends CI_Controller {
 		return $dados_atividade;
 	}
 
+	/** remove acentos do titulo do evento. 
+	** dependendo da configuração do servidor, o controller pega a string vazia (se houver acentos) 
+	**/
+
+	private function _removeUTF($titulo) {
+		$titulo = strtr(utf8_decode($titulo),
+                 utf8_decode('ŠŒŽšœžŸ¥µÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ'),
+                             'SOZsozYYuAAAAAAACEEEEIIIIDNOOOOOOUUUUYsaaaaaaaceeeeiiiionoooooouuuuyy');
+		return $titulo;
+	}
+
 	function _novoAgendamento($codigo_evento, $quantidade, $error = null) {
 		$evento = $this->eventos_model->buscarEventoDetalhes($codigo_evento);
 		$preco = $evento['preco'] * $quantidade;
@@ -312,6 +323,9 @@ class Agendamento extends CI_Controller {
 		$descricao = getDayData($evento['data_inicio']) .
 		" de " . getMonthFullNameData($evento['data_inicio']) . " " .
 		getSessionTime($evento['hora_inicio']) . " - " . getSessionTime($evento['hora_fim']);
+		
+		// remove acentos do titulo do evento. 
+		$evento['titulo'] = $this->_removeUTF($evento['titulo']);
 
 		$data = array(
 			"evento" => $evento,

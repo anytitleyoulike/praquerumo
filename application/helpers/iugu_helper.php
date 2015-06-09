@@ -3,7 +3,7 @@
 function setIuguAPIToken() {
 	require_once (APPPATH . 'libraries/iugu-php/lib/Iugu.php');
 
-	if (defined('ENVIRONMENT') && ENVIRONMENT == 'development') {
+	if (defined('ENVIRONMENT') && ENVIRONMENT == 'development' || 'testing') {
 		#test token#
 		Iugu::setApiKey("a446d1b1bfa063746f198a0e51903dca");
 	} else {
