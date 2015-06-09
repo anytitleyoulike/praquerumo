@@ -10,56 +10,22 @@ class Atividades_model extends CI_Model {
 	 * @return array com eventos
 	 */
 	public function buscarAtividades($limite, $lingua, $sufix) {
-		$query = $this->db->query(
-			"SELECT 
-				atividade.codigo, 
-				atividade.disponivel,
-				atividade.vendivel,
-				atividade.fig_01,
-				atividade.fig_02,
-				atividade.fig_03,
-				atividade.fig_04,
-				atividade.fig_destaque,
-				atividade.fig_thumbnail,
-				descricao_atividade.titulo,
-				descricao_atividade.apresentacao,
-				descricao_atividade.cidade,
-				descricao_atividade.estado,
-				COUNT(evento.codigo) AS eventos,
-				evento.fim,
-				evento.preco,
-				atividade.slug,
-				modalidade.nome_pt AS modalidade
-			FROM
-				atividade
-			INNER JOIN
-				modalidade ON modalidade.id = atividade.modalidade_id
-			INNER JOIN
-				evento ON evento.atividade_codigo = atividade.codigo
-			INNER JOIN
-				descricao_atividade ON descricao_atividade.atividade_codigo = atividade.codigo
-			WHERE
-				(atividade.disponivel = TRUE AND atividade.vendivel = TRUE)
-			GROUP BY
-				atividade.codigo
-			ORDER BY
-				evento.fim ASC
-		");
-    	return $query->result_array();
-		/*$this->db->select_min('evento.preco');
-		$this->db->from("atividade");
+		$query = $this->db->select('atividade.codigo, atividade.disponivel, atividade.vendivel,
+				atividade.fig_01, atividade.fig_02, atividade.fig_03, atividade.fig_04,
+				atividade.fig_destaque, atividade.fig_thumbnail, descricao_atividade.titulo,
+				descricao_atividade.apresentacao, descricao_atividade.cidade, descricao_atividade.estado,
+				COUNT(evento.codigo) AS eventos, evento.visivel_fim, 
+				evento.preco, atividade.slug, modalidade.nome_pt AS modalidade');
+		$this->db->select_min('evento.inicio', 'data_proxima');
+		$this->db->from('atividade');
 		$this->db->join("modalidade", "modalidade.id = atividade.modalidade_id");
 		$this->db->join("evento", "evento.atividade_codigo = atividade.codigo");
 		$this->db->join("descricao_atividade", "descricao_atividade.atividade_codigo = atividade.codigo");
+		$this->db->where(array("atividade.disponivel" => TRUE, "atividade.vendivel" => TRUE, "evento.visivel_fim >=" => date('Y-m-d H:i:s')));
+		$this->db->group_by('atividade.codigo');
+		$this->db->order_by('data_proxima');
 
-		$this->db->group_by("atividade.codigo");
-		$this->db->where("descricao_atividade.lingua_id", $lingua);
-		$this->db->where("atividade.disponivel", true);
-		$this->db->where("atividade.vendivel", true);
-		//colocar where para datas a partir do dia atual
-		//$this->db->order_by("evento.fim", "ASC");
-		$this->db->limit($limite);
-		return $this->db->get()->result_array();*/
+		return $this->db->get()->result_array();
 	}
 
 	/*
