@@ -549,14 +549,35 @@ if (!empty($eventos)) {
 
 								<div class="line2"></div>
 								<div class="padding20">
+									<?php
+										$cont = 0;
+										foreach ($horarios as $key => $value) {
+											$cont = $cont + $value['disponivel'];
+										}
+										if($cont != 0){
+									?>
+										<div class="col-md-4 offset-0">
+											<time datetime="<?=$data?>" class="calendar-icon calendar-large
+												 calendar-green">
+												  <em><?=lang("evento_disponivel")?></em>
+												  <strong><?=getMonthNameData($data)?></strong>
+												  <span><?=getDayData($data)?></span>
+											</time>
+										</div>
+									<?php 
+										}else{
+									?>
 									<div class="col-md-4 offset-0">
-										<time datetime="<?=$data?>" class="calendar-icon calendar-large
-											 calendar-green">
-											  <em><?=lang("evento_disponivel")?></em>
-											  <strong><?=getMonthNameData($data)?></strong>
-											  <span><?=getDayData($data)?></span>
-										</time>
-									</div>
+											<time datetime="<?=$data?>" class="calendar-icon calendar-large
+												 calendar-red">
+												  <em><?=lang("evento_indisponivel")?></em>
+												  <strong><?=getMonthNameData($data)?></strong>
+												  <span><?=getDayData($data)?></span>
+											</time>
+										</div>
+									<?php
+										}
+									?>
 									<div class="col-md-8 offset-0">
 										<table class="table">
 												<thead>
@@ -611,7 +632,7 @@ if (!empty($eventos)) {
 			echo "<td>" .
 			form_button(array(
 				"class" => "bookbtn mt1 overbook agenda-agendar",
-				"content" => "Lotado")
+				"content" => "Esgotado")
 			)
 			. "</td>";
 		}

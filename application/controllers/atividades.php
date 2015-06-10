@@ -27,8 +27,13 @@ class Atividades extends CI_Controller {
 			$atividade['eventos'] = $this->eventos_model->buscarDatasEventos(2, $atividade['codigo']);
 		}
 
+		$contador = 0;
+		foreach ($atividade['eventos'] as $evento) {
+			$contador = $contador + $evento['disponivel'];
+		}
+
 		$data = array("atividades" => $atividades, "destaques" => $atividades_destaque,
-			"fotos_destaque" => $fotos_destaque, "estado" => $estado);
+			"fotos_destaque" => $fotos_destaque, "estado" => $estado, "contador" => $contador);
 		$this->load->template("eventos/index", $data);
 	}
 
