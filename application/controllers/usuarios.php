@@ -5,7 +5,7 @@
 class Usuarios extends CI_Controller{
 
 	public function novo() {
-		usuario = array(
+		$usuario = array(
 			"nome" => $this->input->post("nome"),
 			"email" => $this->input->post("email"),
 			"senha" => md5($this->input->post("senha"))
