@@ -59,8 +59,9 @@ $data = array(
 	'data_horario' => $descricao,
 	'tipo_pagamento' => '#card',
 	'preco_str' => $preco,
-	'visivel_fim' => $evento['visivel_fim'],
+	'bloquear_boleto' => $bloquear_boleto,
 );
+
 echo form_hidden($data);
 ?>
 <div class="col-md-4 textright">

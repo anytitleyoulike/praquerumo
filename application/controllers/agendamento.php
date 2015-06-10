@@ -315,6 +315,17 @@ class Agendamento extends CI_Controller {
 		return $titulo;
 	}
 
+	private function _verificaDatasPagamento($dataFim){
+		$dataAtualPhp = strtotime("+ 2 days");
+		$dataFim = strtotime($dataFim);
+		$bloquear = false;
+		if($dataAtualPhp > $dataFim){
+			$bloquear = true;
+		}
+		return $bloquear;
+
+	}
+
 	function _novoAgendamento($codigo_evento, $quantidade, $error = null) {
 		$evento = $this->eventos_model->buscarEventoDetalhes($codigo_evento);
 		$preco = $evento['preco'] * $quantidade;
@@ -327,6 +338,8 @@ class Agendamento extends CI_Controller {
 		// remove acentos do titulo do evento. 
 		$evento['titulo'] = $this->_removeUTF($evento['titulo']);
 
+		$bloquear_boleto = $this->_verificaDatasPagamento($evento['visivel_fim']);
+
 		$data = array(
 			"evento" => $evento,
 			"quantidade" => $quantidade,
@@ -337,6 +350,7 @@ class Agendamento extends CI_Controller {
 			"preco_avg" => numeroEmReais($preco / $quantidade),
 			"descricao_pgto" => $evento['titulo'] . ", " . $descricao,
 			"descricao" => $descricao,
+			'bloquear_boleto' => $bloquear_boleto,
 		);
 		$this->load->template("agendamento/index", $data);
 	}
