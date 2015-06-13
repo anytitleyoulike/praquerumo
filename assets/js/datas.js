@@ -8,4 +8,9 @@ $(function(){
         } );
         $("#pagBoleto")[0].title="Opção boleto desabilitada, pagamentos por boleto somente com 3 dias de antecedência.";        
     }
+    if ($('input[name="bloquear_cartao"]').val()){ 
+        $("#pagCard")[0].hidden=true;
+        $("#pagCard2")[0].hidden=false;
+    }
+
 });

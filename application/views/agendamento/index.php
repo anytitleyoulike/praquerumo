@@ -38,8 +38,21 @@
 <?php if ($error):?>
 		<p class="alert alert-danger"><?=$error?></p>
 <?php endif;?>
+
+<!-- Pagamento bloqueado -->
+<div id="pagCard2" hidden="true" class="col-md-8 pagecontainer2 offset-0 loaderArea">
+				<div class="padding30 grey">
+					<span class="size16px bold dark left">Evento indisponível :(</span>
+					<div class="roundstep active right">1</div>
+					<div class="clearfix"></div>
+					<div class="line4"></div>
+					Esse evento não está mais disponível. Entre em contato com o administrador para novas datas.<br/><br/>
+				</div>
+</div>
+
+
 <!-- LEFT CONTENT -->
-			<div class="col-md-8 pagecontainer2 offset-0 loaderArea">
+			<div id="pagCard" class="col-md-8 pagecontainer2 offset-0 loaderArea">
 				<div class="padding30 grey">
 					<span class="size16px bold dark left">Identificação</span>
 					<div class="roundstep active right">1</div>
@@ -60,6 +73,12 @@ $data = array(
 	'tipo_pagamento' => '#card',
 	'preco_str' => $preco,
 	'bloquear_boleto' => $bloquear_boleto,
+	'bloquear_cartao' => $bloquear_cartao,
+	//RESOLVIDO O PROBLEMA DAS DATAS/HORA, AGORA PENSAR EM UMA SOLUÇÃO QUE BLOQUEIE O PAGAMENTO.
+	/*'menos_6hrs' => $menos_6hrs,
+	'dataHj' => $dataHj,
+	'dataHjhrs' => $dataHjhrs,
+	'now' => $now,*/
 );
 
 echo form_hidden($data);
@@ -194,7 +213,7 @@ echo form_error("email");
 					<br/>
 					<!-- Nav tabs -->
 					<ul class="nav navigation-tabs">
-					  <li class="active"><a href="#card" id="pagCard" data-toggle="tab">Cartão de Crédito</a></li>
+					  <li class="active"><a href="#card" data-toggle="tab">Cartão de Crédito</a></li>
 					  <li><a href="#bank_slip" id="pagBoleto" data-toggle="tab">Boleto</a></li>
 					</ul>
 
