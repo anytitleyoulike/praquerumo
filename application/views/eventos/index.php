@@ -238,7 +238,7 @@ foreach ($atividades as $atividade) {?>
 						<div class="box-dates">
 <?php
 	foreach ($atividade['eventos'] as $evento) {
-		if ($contador != 0) {
+		if ($evento['disponivel'] > 0) {
 				echo anchor(base_url("atividades/{$atividade['slug']}"), '<time datetime="2014-09-20" class="calendar-icon calendar-small calendar-green calendar-left10">
 																  <em> ' . lang("evento_disponivel") . '</em>
 																  <strong>' . getMonthNameData($evento['data_inicio']) . '</strong>

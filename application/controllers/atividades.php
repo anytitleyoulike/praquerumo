@@ -27,13 +27,8 @@ class Atividades extends CI_Controller {
 			$atividade['eventos'] = $this->eventos_model->buscarDatasEventos(2, $atividade['codigo']);
 		}
 
-		$contador = 0;
-		foreach ($atividade['eventos'] as $evento) {
-			$contador = $contador + $evento['disponivel'];
-		}
-
 		$data = array("atividades" => $atividades, "destaques" => $atividades_destaque,
-			"fotos_destaque" => $fotos_destaque, "estado" => $estado, "contador" => $contador);
+			"fotos_destaque" => $fotos_destaque, "estado" => $estado);
 		$this->load->template("eventos/index", $data);
 	}
 
@@ -102,13 +97,13 @@ class Atividades extends CI_Controller {
 			$atividade['elemento_id'], $atividade['codigo']);
 		$atividades_relacionadas = null;
 		$eventos = $this->eventos_model->buscarDatasHorariosEventos(40, $atividade['codigo']);
-		$eventosAgrupados = agrupaPorData($eventos);
+		$eventosPorDatas = agrupaPorData($eventos);
 
 		$data = array('atividade' => $atividade, 'acompanhamentos' => $acompanhamentos, 'restricoes' => $restricoes,
 			'modalidade' => $modalidade, 'elemento' => $elemento, 'categoria' => $categoria, 'organizador' => $organizador,
 			'comentarios' => $comentarios, 'dicas' => $dicas, 'sufix' => $lingua['sufix'],
 			'atividades_recomendadas' => $atividades_recomendadas, 'atividades_relacionadas' => $atividades_relacionadas,
-			'eventos' => $eventosAgrupados, 'avaliacao' => $avaliacao);
+			'eventos' => $eventosPorDatas, 'avaliacao' => $avaliacao);
 		/*codigo para converter titulo em slug amigavel
 		echo url_title(convert_accented_characters($evento['titulo']), '-', TRUE);
 		 */
