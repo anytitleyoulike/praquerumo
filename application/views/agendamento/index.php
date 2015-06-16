@@ -73,12 +73,6 @@ $data = array(
 	'tipo_pagamento' => '#card',
 	'preco_str' => $preco,
 	'bloquear_boleto' => $bloquear_boleto,
-	'bloquear_cartao' => $bloquear_cartao,
-	//RESOLVIDO O PROBLEMA DAS DATAS/HORA, AGORA PENSAR EM UMA SOLUÇÃO QUE BLOQUEIE O PAGAMENTO.
-	/*'menos_6hrs' => $menos_6hrs,
-	'dataHj' => $dataHj,
-	'dataHjhrs' => $dataHjhrs,
-	'now' => $now,*/
 );
 
 echo form_hidden($data);
