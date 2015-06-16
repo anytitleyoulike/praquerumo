@@ -20,16 +20,28 @@ class Atividades extends CI_Controller {
 
 		$atividades = $this->atividades_model->buscarAtividades(21, $lingua['id'], $lingua['sufix']);
 		$atividades_destaque = $this->atividades_model->buscarDestaque(3, $lingua['id'], $lingua['sufix']);
-
+		
 		foreach ($atividades as &$atividade) {
 			$atividade['avaliacao'] = $this->avaliacao_model->buscarAvaliacao($atividade['codigo']);
 			$atividade['recomendacao'] = $this->avaliacao_model->buscarRecomendacao($atividade['codigo']);
-			$atividade['eventos'] = $this->eventos_model->buscarDatasEventos(2, $atividade['codigo']);
+			$atividade['eventos'] = $this->eventos_model->buscarDatasHorariosEventos(3, $atividade['codigo']);
 		}
-
+			
+		var_dump($atividade['eventos']);
+		// $totalDisponivel =0;
+		// $atividades['eventos'] = agrupaPorData($atividade['eventos']);
+		// foreach ($eventosPorDatas as $key => $arrayEventos) {
+		// 	$totalDisponivel += $arrayEventos['disponivel'];
+		// }
+		
+		// foreach ($atividades['eventos'] as $value) {
+	
+		// }
+		
+		$a = array("a" => $atividade);
 		$data = array("atividades" => $atividades, "destaques" => $atividades_destaque,
 			"fotos_destaque" => $fotos_destaque, "estado" => $estado);
-		$this->load->template("eventos/index", $data);
+		// $this->load->template("eventos/index", $data);
 	}
 
 	public function oldIndex() {

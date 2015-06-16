@@ -21,7 +21,7 @@ class Atividades_model extends CI_Model {
 		$this->db->join("modalidade", "modalidade.id = atividade.modalidade_id");
 		$this->db->join("evento", "evento.atividade_codigo = atividade.codigo");
 		$this->db->join("descricao_atividade", "descricao_atividade.atividade_codigo = atividade.codigo");
-		$this->db->where(array("atividade.disponivel" => TRUE, "atividade.vendivel" => TRUE, "evento.visivel_fim >=" => date('Y-m-d H:i:s')));
+		$this->db->where(array("atividade.disponivel" => TRUE, "atividade.vendivel" => TRUE, "evento.visivel_fim >=" => date('Y-m-d H:i:s'), 'atividade.codigo' => 6));
 		$this->db->group_by('atividade.codigo');
 		$this->db->order_by('data_proxima');
 
