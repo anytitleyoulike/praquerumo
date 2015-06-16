@@ -25,9 +25,11 @@ class Atividades extends CI_Controller {
 			$atividade['avaliacao'] = $this->avaliacao_model->buscarAvaliacao($atividade['codigo']);
 			$atividade['recomendacao'] = $this->avaliacao_model->buscarRecomendacao($atividade['codigo']);
 			$atividade['eventos'] = $this->eventos_model->buscarDatasHorariosEventos(3, $atividade['codigo']);
+			//fazer busca utilizando a data de inicio, retornando  sum(disponivel) e associando a um indice de $atividades['eventos']
+
 		}
 			
-		var_dump($atividade['eventos']);
+		// var_dump($atividade['eventos']);
 		// $totalDisponivel =0;
 		// $atividades['eventos'] = agrupaPorData($atividade['eventos']);
 		// foreach ($eventosPorDatas as $key => $arrayEventos) {
