@@ -278,12 +278,10 @@ foreach ($atividades as $atividade) {?>
 
 		</div>
 
-		<div class="line4"></div>
-
 		<!-- Eventos sem data -->
 
 		<div id="atividades" class="container cstyle07" style="padding:20px;">
-<?php $counter = 0;
+<?php
 foreach ($atividadesSemData as $atividadeSemDate) {
 ?>
 			  <div class="col-md-4 box-activity">
