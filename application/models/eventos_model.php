@@ -75,6 +75,7 @@ class Eventos_model extends CI_Model {
 		$this->db->select('evento.codigo, evento.preco,
 		 evento.disponivel');
 		$this->db->select('date_format(evento.inicio, "%Y-%m-%d") as data_inicio', false);
+		$this->db->select_sum('evento.disponivel', 'totalDisponivel');
 		$this->db->group_by("data_inicio");
 		$this->db->where("evento.atividade_codigo", $codigoAtividade);
 		$this->db->where("evento.visivel_inicio <= NOW()");
