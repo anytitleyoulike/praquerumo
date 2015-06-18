@@ -325,16 +325,6 @@ class Agendamento extends CI_Controller {
 		return $bloquear;
 	}
 
-	private function _verificaBloqueioCartao($dataFim){
-		$dataAtualPhp = strtotime("+ 12 hours");
-		$dataFim = strtotime($dataFim);
-		$bloquear = false;
-		if($dataAtualPhp > $dataFim){
-			$bloquear = true;
-		}
-		return $bloquear;
-	}
-
 	function _novoAgendamento($codigo_evento, $quantidade, $error = null) {
 		$evento = $this->eventos_model->buscarEventoDetalhes($codigo_evento);
 		$preco = $evento['preco'] * $quantidade;
@@ -348,11 +338,6 @@ class Agendamento extends CI_Controller {
 		$evento['titulo'] = $this->_removeUTF($evento['titulo']);
 
 		$bloquear_boleto = $this->_verificaBloqueioBoleto($evento['visivel_fim']);
-		$bloquear_cartao = $this->_verificaBloqueioCartao($evento['visivel_fim']);
-		/*$data6hrs = strtotime("- 6 hours");
-		$dataHj = strtotime("- 1 days");
-		$dataHjhrs = strtotime("+ 12 hours");
-		$now = date("Y-m-d h:i:s");*/
 
 		$data = array(
 			"evento" => $evento,
@@ -365,11 +350,6 @@ class Agendamento extends CI_Controller {
 			"descricao_pgto" => $evento['titulo'] . ", " . $descricao,
 			"descricao" => $descricao,
 			'bloquear_boleto' => $bloquear_boleto,
-			'bloquear_cartao' => $bloquear_cartao,
-			/*'menos_6hrs' => date("Y-m-d h:i:sa", $data6hrs),
-			'dataHj' => date("Y-m-d h:i:sa", $dataHj),
-			'dataHjhrs' => date("Y-m-d h:i:sa", $dataHjhrs),
-			'now' => $now,*/
 		);
 		$this->load->template("agendamento/index", $data);
 	}
