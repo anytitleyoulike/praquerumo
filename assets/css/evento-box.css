@@ -75,26 +75,26 @@ time.calendar-icon:hover, time.calendar-icon:focus
 
 time.calendar-green strong
 {
-  background-color: #72bf66;
+  background-color: #11a96b;
   border-bottom: 1px dashed #249024;
-  box-shadow: 0 2px 0 #72bf66;
+  box-shadow: 0 2px 0 #11a96b;
 }
 
 time.calendar-green em
 {
-  color: #72bf66;
+  color: #11a96b;
 }
 
 time.calendar-orange strong
 {
-  background-color: #fd9f1b;
+  background-color: #ef7a25;
   border-bottom: 1px dashed #f37302;
-  box-shadow: 0 2px 0 #fd9f1b;
+  box-shadow: 0 2px 0 #ef7a25;
 }
 
 time.calendar-orange em
 {
-  color: #fd9f1b;
+  color: #ef7a25;
 }
 
 time.calendar-red strong
