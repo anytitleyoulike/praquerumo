@@ -72,18 +72,35 @@ echo form_hidden($data);
 						<div id="inner">
 							<div id="caroufredsel_wrapper2">
 								<div id="carousel">
+
+									<?php if($atividade['fig_01'] != ''){ ?>
 									<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_01']}")?>" alt=""/>
+									<?php } ?>
+									<?php if($atividade['fig_02'] != ''){ ?>
 									<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_02']}")?>" alt=""/>
+									<?php } ?>
+									<?php if($atividade['fig_03'] != ''){ ?>
 									<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_03']}")?>" alt=""/>
+									<?php } ?>
+									<?php if($atividade['fig_04'] != ''){ ?>
 									<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_04']}")?>" alt=""/>
+									<?php } ?>
 								</div>
 							</div>
 							<div id="pager-wrapper">
 								<div id="pager">
-									<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_01']}")?>" width="120" height="68" alt=""/>
-									<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_02']}")?>" width="120" height="68" alt=""/>
-									<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_03']}")?>" width="120" height="68" alt=""/>
-									<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_04']}")?>" width="120" height="68" alt=""/>
+									<?php if($atividade['fig_01'] != ''){ ?>
+										<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_01']}")?>" width="120" height="68" alt=""/>
+									<?php } ?>
+									<?php if($atividade['fig_02'] != ''){ ?>
+										<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_02']}")?>" width="120" height="68" alt=""/>
+									<?php } ?>
+									<?php if($atividade['fig_03'] != ''){ ?>
+										<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_03']}")?>" width="120" height="68" alt=""/>
+									<?php } ?>
+									<?php if($atividade['fig_04'] != ''){ ?>
+										<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_04']}")?>" width="120" height="68" alt=""/>
+									<?php } ?>
 								</div>
 							</div>
 						</div>
