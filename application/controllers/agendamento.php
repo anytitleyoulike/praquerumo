@@ -316,8 +316,9 @@ class Agendamento extends CI_Controller {
 	}
 
 	private function _verificaBloqueioBoleto($dataFim){
-		$dataAtualPhp = strtotime("+ 2 days");
+		$dataAtualPhp = strtotime("+3 days");
 		$dataFim = strtotime($dataFim);
+		
 		$bloquear = false;
 		if($dataAtualPhp > $dataFim){
 			$bloquear = true;
