@@ -1491,11 +1491,11 @@ a.gotop {width:37px;height:37px; display:block; text-align:center;margin:0 auto;
 a.gotop img{width:37px;height:37px; display:block; background:url('../images/sprite.png')  0px -72px; }
 a:hover.gotop img{width:37px;height:37px; display:block; background:url('../images/sprite.png')  0px -109px;}
 
-a.social1 {margin:0 5px; position:relative; top:-120px; }
-a.social2 {margin:0 5px; position:relative; top:-120px; }
-a.social3 {margin:0 5px; position:relative; top:-120px; }
-a.social4 {margin:0 5px; position:relative; top:-120px; }
-a.social5 {margin:0 5px; position:relative; top:-120px; }
+a.social1 {margin:0 5px; /*position:relative;*/ top:-120px; }
+a.social2 {margin:0 5px; /*position:relative;*/ top:-120px; }
+a.social3 {margin:0 5px; /*position:relative;*/ top:-120px; }
+a.social4 {margin:0 5px; /*position:relative;*/ top:-120px; }
+a.social5 {margin:0 5px; /*position:relative;*/ top:-120px; }
 
 a.social1b {margin:0 1px;}
 a.social2b{margin:0 1px;}
