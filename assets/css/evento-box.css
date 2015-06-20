@@ -51,7 +51,7 @@ time.calendar-icon span
   color: #2f2f2f;
 }
 
-time.calendar-icon:hover, time.calendar-icon:focus
+/*time.calendar-icon:hover, time.calendar-icon:focus
 {
   -webkit-animation: swing 0.6s ease-out;
   animation: swing 0.6s ease-out;
@@ -71,7 +71,7 @@ time.calendar-icon:hover, time.calendar-icon:focus
   60%  { transform: rotate(-9deg) skewY(-3deg); }
   80%  { transform: rotate(6deg)  skewY(-2deg); }
   100% { transform: rotate(0deg)  skewY(0deg); }
-}
+}*/
 
 time.calendar-green strong
 {
