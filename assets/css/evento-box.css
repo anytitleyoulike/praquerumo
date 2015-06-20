@@ -75,14 +75,14 @@ time.calendar-icon:hover, time.calendar-icon:focus
 
 time.calendar-green strong
 {
-  background-color: #11a96b;
+  background-color: #72bf66;
   border-bottom: 1px dashed #249024;
-  box-shadow: 0 2px 0 #11a96b;
+  box-shadow: 0 2px 0 #72bf66;
 }
 
 time.calendar-green em
 {
-  color: #11a96b;
+  color: #72bf66;
 }
 
 time.calendar-orange strong
