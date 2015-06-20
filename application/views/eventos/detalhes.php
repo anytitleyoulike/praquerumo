@@ -43,13 +43,15 @@
 <?=$nav_bar?>
   	<!-- script facebook social plugin -->
 	  	<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-			  var js, fjs = d.getElementsByTagName(s)[0];
-			  if (d.getElementById(id)) return;
-			  js = d.createElement(s); js.id = id;
-			  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&appId=763327940353666&version=v2.0";
-			  fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
+		<script>
+			(function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+					js = d.createElement(s); js.id = id;
+					js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.3&appId=665351240192194";
+					fjs.parentNode.insertBefore(js, fjs);
+			}
+			(document, 'script', 'facebook-jssdk'));
 		</script>
 
 	<!-- Organizador -->
@@ -107,7 +109,7 @@ echo form_hidden($data);
 					<h4 class="grey" style="font-family:'Hammersmith One', sans-serif;"><?=$atividade["cidade"] . "/" . $atividade["estado"]?></h4>
 					<div class="social-networks">
 							<!-- facebook social button-->
-							<div class="bt-face fb-like" data-href="http://www.praquerumo.com.br/atividades/<?=$atividade['slug']?>"
+							<div class="bt-face fb-like" data-href="<?=base_url('ativdades/'.$atividade['slug'])?>"
 								data-layout="button_count" data-action="like"
 								data-show-faces="false" data-share="true">
 							</div>
