@@ -46,6 +46,8 @@ class Agendamento extends CI_Controller {
 			$preco_formatado = str_replace('.', '', $preco);
 			$descricao = $this->input->post('descricao');
 			$data_horario = $this->input->post('data_horario');
+			$forma_pagamento = $this->input->post('tipo_pagamento');
+			var_dump($forma_pagamento);
 
 			$disponivel = $this->_verificaDisponibilidade($evento, $quantidade);
 
@@ -78,6 +80,7 @@ class Agendamento extends CI_Controller {
 						//'evento' => $evento,
 						'nome' => $nome,
 						'url' => $resultado['url'],
+						'forma_pagamento' => $forma_pagamento,
 						//'voucher' => $invoice_id,
 						//'quantidade' => $quantidade,
 						//'preco' => $preco_formatado,
@@ -137,6 +140,8 @@ class Agendamento extends CI_Controller {
 			$preco_confirmacao = $this->input->post('preco_str');
 			$descricao = $this->input->post('descricao');
 			$data_horario = $this->input->post('data_horario');
+			$forma_pagamento = $this->input->post('tipo_pagamento');
+			if($forma_pagamento == '#card')$forma_pagamento = 'Cartão de Crédito';
 
 			$disponivel = $this->_verificaDisponibilidade($evento, $quantidade);
 			
@@ -175,6 +180,7 @@ class Agendamento extends CI_Controller {
 						'quantidade' => $quantidade,
 						'preco' => $preco_confirmacao,
 						'voucher' => $invoice_id,
+						'forma_pagamento' => $forma_pagamento,
 					);
 					/*Fim de dados para email*/
 
@@ -185,7 +191,7 @@ class Agendamento extends CI_Controller {
 					);
 					//send email de confirmação(com voucher e qrcode)
 					
-					// $this->_sendEmailToClient($email, $dados_email);
+					$this->_sendEmailToClient($email, $dados_email);
 
 					//pegar email do organizador
 					//$this->_sendEmailToOrganizer();
