@@ -72,18 +72,35 @@ echo form_hidden($data);
 						<div id="inner">
 							<div id="caroufredsel_wrapper2">
 								<div id="carousel">
+
+									<?php if($atividade['fig_01'] != ''){ ?>
 									<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_01']}")?>" alt=""/>
+									<?php } ?>
+									<?php if($atividade['fig_02'] != ''){ ?>
 									<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_02']}")?>" alt=""/>
+									<?php } ?>
+									<?php if($atividade['fig_03'] != ''){ ?>
 									<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_03']}")?>" alt=""/>
+									<?php } ?>
+									<?php if($atividade['fig_04'] != ''){ ?>
 									<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_04']}")?>" alt=""/>
+									<?php } ?>
 								</div>
 							</div>
 							<div id="pager-wrapper">
 								<div id="pager">
-									<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_01']}")?>" width="120" height="68" alt=""/>
-									<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_02']}")?>" width="120" height="68" alt=""/>
-									<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_03']}")?>" width="120" height="68" alt=""/>
-									<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_04']}")?>" width="120" height="68" alt=""/>
+									<?php if($atividade['fig_01'] != ''){ ?>
+										<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_01']}")?>" width="120" height="68" alt=""/>
+									<?php } ?>
+									<?php if($atividade['fig_02'] != ''){ ?>
+										<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_02']}")?>" width="120" height="68" alt=""/>
+									<?php } ?>
+									<?php if($atividade['fig_03'] != ''){ ?>
+										<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_03']}")?>" width="120" height="68" alt=""/>
+									<?php } ?>
+									<?php if($atividade['fig_04'] != ''){ ?>
+										<img src="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_04']}")?>" width="120" height="68" alt=""/>
+									<?php } ?>
 								</div>
 							</div>
 						</div>
@@ -549,14 +566,35 @@ if (!empty($eventos)) {
 
 								<div class="line2"></div>
 								<div class="padding20">
+									<?php
+										$cont = 0;
+										foreach ($horarios as $key => $value) {
+											$cont = $cont + $value['disponivel'];
+										}
+										if($cont != 0){
+									?>
+										<div class="col-md-4 offset-0">
+											<time datetime="<?=$data?>" class="calendar-icon calendar-large
+												 calendar-green">
+												  <em><?=lang("evento_disponivel")?></em>
+												  <strong><?=getMonthNameData($data)?></strong>
+												  <span><?=getDayData($data)?></span>
+											</time>
+										</div>
+									<?php 
+										}else{
+									?>
 									<div class="col-md-4 offset-0">
-										<time datetime="<?=$data?>" class="calendar-icon calendar-large
-											 calendar-green">
-											  <em><?=lang("evento_disponivel")?></em>
-											  <strong><?=getMonthNameData($data)?></strong>
-											  <span><?=getDayData($data)?></span>
-										</time>
-									</div>
+											<time datetime="<?=$data?>" class="calendar-icon calendar-large
+												 calendar-red">
+												  <em><?=lang("evento_indisponivel")?></em>
+												  <strong><?=getMonthNameData($data)?></strong>
+												  <span><?=getDayData($data)?></span>
+											</time>
+										</div>
+									<?php
+										}
+									?>
 									<div class="col-md-8 offset-0">
 										<table class="table">
 												<thead>
@@ -611,7 +649,7 @@ if (!empty($eventos)) {
 			echo "<td>" .
 			form_button(array(
 				"class" => "bookbtn mt1 overbook agenda-agendar",
-				"content" => "Lotado")
+				"content" => "Esgotado")
 			)
 			. "</td>";
 		}

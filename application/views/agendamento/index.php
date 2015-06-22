@@ -38,8 +38,21 @@
 <?php if ($error):?>
 		<p class="alert alert-danger"><?=$error?></p>
 <?php endif;?>
+
+<!-- Pagamento bloqueado -->
+<div id="pagCard2" hidden="true" class="col-md-8 pagecontainer2 offset-0 loaderArea">
+				<div class="padding30 grey">
+					<span class="size16px bold dark left">Evento indisponível :(</span>
+					<div class="roundstep active right">1</div>
+					<div class="clearfix"></div>
+					<div class="line4"></div>
+					Esse evento não está mais disponível. Entre em contato com o administrador para novas datas.<br/><br/>
+				</div>
+</div>
+
+
 <!-- LEFT CONTENT -->
-			<div class="col-md-8 pagecontainer2 offset-0 loaderArea">
+			<div id="pagCard" class="col-md-8 pagecontainer2 offset-0 loaderArea">
 				<div class="padding30 grey">
 					<span class="size16px bold dark left">Identificação</span>
 					<div class="roundstep active right">1</div>
@@ -59,7 +72,9 @@ $data = array(
 	'data_horario' => $descricao,
 	'tipo_pagamento' => '#card',
 	'preco_str' => $preco,
+	'bloquear_boleto' => $bloquear_boleto,
 );
+
 echo form_hidden($data);
 ?>
 <div class="col-md-4 textright">
@@ -193,7 +208,7 @@ echo form_error("email");
 					<!-- Nav tabs -->
 					<ul class="nav navigation-tabs">
 					  <li class="active"><a href="#card" data-toggle="tab">Cartão de Crédito</a></li>
-					  <li><a href="#bank_slip" data-toggle="tab">Boleto</a></li>
+					  <li><a href="#bank_slip" id="pagBoleto" data-toggle="tab">Boleto</a></li>
 					</ul>
 
 					<!-- Tab panes -->
@@ -362,6 +377,9 @@ echo form_input(array(
 
 					  </div>
 					  <!-- End of Tab 2 -->
+
+
+
 					</div>
 
 
@@ -414,13 +432,12 @@ Completando esse agendamento, concordo que lí e aceito o
 
 echo form_close();
 ?>
-					<!--<div>
-						<div class="loader">Ola</div>
-					</div>-->
-
 				</div>
 
 			</div>
+
+			<!-- Tab 2 alterntivo -->
+					  
 			<!-- END OF LEFT CONTENT -->
 
 			<!-- RIGHT CONTENT -->
@@ -552,6 +569,10 @@ echo form_close();
 
 	<!-- Javascript  -->
 	<script src="<?=base_url("assets/js/js-payment.js")?>"></script>
+
+	<!-- datas  -->
+	<script src="<?=base_url("assets/js/datas.js")?>"></script>
+
 	<!-- Iugu -->
 	<script type="text/javascript" src="https://js.iugu.com/v2"></script>
 	<script type="text/javascript" src='<?=base_url("assets/js/iugu.js")?>'></script>

@@ -19,6 +19,17 @@ class Atividades extends CI_Controller {
 		$fotos_destaque = getDestaques();
 
 		$atividades = $this->atividades_model->buscarAtividades(21, $lingua['id'], $lingua['sufix']);
+
+		/*Atividade sem data*/
+		$atividadesSemData = $this->atividades_model->buscarAtividadesSemData(21, $lingua['id'], $lingua['sufix']);
+
+		foreach ($atividadesSemData as &$atividadeSemDate) {
+			$atividadeSemDate['avaliacao'] = $this->avaliacao_model->buscarAvaliacao($atividadeSemDate['codigo']);
+			$atividadeSemDate['recomendacao'] = $this->avaliacao_model->buscarRecomendacao($atividadeSemDate['codigo']);
+			$atividadeSemDate['eventos'] = $this->eventos_model->buscarDatasEventos(2, $atividadeSemDate['codigo']);
+		}
+		/*Atividde sem data*/
+
 		$atividades_destaque = $this->atividades_model->buscarDestaque(3, $lingua['id'], $lingua['sufix']);
 
 		foreach ($atividades as &$atividade) {
@@ -28,7 +39,7 @@ class Atividades extends CI_Controller {
 		}
 
 		$data = array("atividades" => $atividades, "destaques" => $atividades_destaque,
-			"fotos_destaque" => $fotos_destaque, "estado" => $estado);
+			"fotos_destaque" => $fotos_destaque, "estado" => $estado, "atividadesSemData" => $atividadesSemData);
 		$this->load->template("eventos/index", $data);
 	}
 
@@ -97,13 +108,13 @@ class Atividades extends CI_Controller {
 			$atividade['elemento_id'], $atividade['codigo']);
 		$atividades_relacionadas = null;
 		$eventos = $this->eventos_model->buscarDatasHorariosEventos(40, $atividade['codigo']);
-		$eventosAgrupados = agrupaPorData($eventos);
+		$eventosPorDatas = agrupaPorData($eventos);
 
 		$data = array('atividade' => $atividade, 'acompanhamentos' => $acompanhamentos, 'restricoes' => $restricoes,
 			'modalidade' => $modalidade, 'elemento' => $elemento, 'categoria' => $categoria, 'organizador' => $organizador,
 			'comentarios' => $comentarios, 'dicas' => $dicas, 'sufix' => $lingua['sufix'],
 			'atividades_recomendadas' => $atividades_recomendadas, 'atividades_relacionadas' => $atividades_relacionadas,
-			'eventos' => $eventosAgrupados, 'avaliacao' => $avaliacao);
+			'eventos' => $eventosPorDatas, 'avaliacao' => $avaliacao);
 		/*codigo para converter titulo em slug amigavel
 		echo url_title(convert_accented_characters($evento['titulo']), '-', TRUE);
 		 */
