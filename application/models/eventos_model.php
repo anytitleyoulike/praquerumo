@@ -27,7 +27,7 @@ class Eventos_model extends CI_Model {
 	}
 
 	public function buscarEventoDetalhes($id) {
-		$this->db->select('evento.codigo, evento.preco, atividade.fig_thumbnail, descricao_atividade.titulo,
+		$this->db->select('evento.codigo, evento.preco, evento.visivel_fim, atividade.fig_thumbnail, descricao_atividade.titulo,
 			descricao_atividade.cidade, descricao_atividade.estado, descricao_atividade.ponto_encontro');
 		$this->db->select('date_format(evento.inicio, "%Y-%m-%d") as data_inicio', false);
 		$this->db->select('date_format(evento.inicio, "%T") as hora_inicio', false);
@@ -75,6 +75,7 @@ class Eventos_model extends CI_Model {
 		$this->db->select('evento.codigo, evento.preco,
 		 evento.disponivel');
 		$this->db->select('date_format(evento.inicio, "%Y-%m-%d") as data_inicio', false);
+		$this->db->select_sum('evento.disponivel', 'totalDisponivel');
 		$this->db->group_by("data_inicio");
 		$this->db->where("evento.atividade_codigo", $codigoAtividade);
 		$this->db->where("evento.visivel_inicio <= NOW()");
