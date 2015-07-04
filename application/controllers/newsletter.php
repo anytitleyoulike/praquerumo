@@ -16,18 +16,11 @@ class Newsletter extends CI_Controller {
 		if ($sucesso) {
 			$email = array('email' => $this->input->post('newsletter'));
 			$this->newsletter_model->salvar($email);
+			$this->_sendEmailToClient($email, 'teste');
 			$this->load->template('newsletter/obrigado');
-
-			//$this->session->set_flashdata("success", "Novo Produto Cadastrado com sucesso!");
-			//redirect('/');
+			//$this->_sendEmailToPQR($dados_email);
 		} else {
-			$this->load->model("eventos_model");
-			$eventos = $this->eventos_model->buscarEventos(6);
-			$eventos_destaque = $this->eventos_model->buscarEventosDestaque(4);
-			$data = array("eventos" => $eventos, "destaques" => $eventos_destaque);
-
-			//redirect(base_url());
-			$this->load->template("eventos/index", $data);
+			$this->load->template('newsletter/erro');
 		}
 	}
 
@@ -109,7 +102,7 @@ class Newsletter extends CI_Controller {
 
 	function _sendEmailToClient($email, $data) {
 		$subject = "Praquerumo News";
-		$conteudo = $this->load->view('emails/outra_data_cliente', $data, TRUE);
+		$conteudo = $this->load->view('emails/incompletos/email', $data, TRUE);
 		send_email($email, $subject, $conteudo);
 	}
 
