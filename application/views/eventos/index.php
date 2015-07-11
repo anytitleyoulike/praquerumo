@@ -274,6 +274,72 @@ foreach ($atividades as $atividade) {?>
 		echo '<div class="clearfix"></div>';
 	}
 }
+
+foreach ($atividadesSemData as $atividadeSemDate) {
+?>
+			  <div class="col-md-4 box-activity">
+				<div class="boxshadow center">
+					<span class="badge pull-right price"><?=numeroEmReais($atividadeSemDate['preco'])?></span>
+					<a href="<?=base_url("atividades/{$atividadeSemDate['slug']}")?>">
+						<img src="<?=base_url("assets/images/atividades/thumbnails/{$atividadeSemDate['fig_thumbnail']}")?>" alt="" class="fwimg"/>
+					</a>
+					<div class="bscontainer box-height">
+						<h4 class="lato bold caps"><?php $attributes = array('class' => 'ancora-titulo');?>
+							<?=anchor(base_url("atividades/{$atividadeSemDate['slug']}"),
+'<h3 class="box-titulo black palo-alto size18">'
+. character_limiter($atividadeSemDate["titulo"], 30) .
+'</h3>', $attributes)?>
+</h4>
+						<h6 class="grey" style="text-align: left; float: center; padding-left: 30px; margin-top: 0px;">
+<?=$atividadeSemDate["cidade"] . "/" . $atividadeSemDate["estado"]?>
+</h6>
+
+<?php $avaliacao = $atividadeSemDate['avaliacao'];
+	if ($avaliacao['nota'] == null) {
+		$rating = 0;
+	} else {
+
+		$rating = round($avaliacao['nota']);
+	}
+
+	if ($avaliacao['recomenda'] == null) {
+		$recomendacoes = 0;
+	} else {
+
+		$recomendacoes = $atividadeSemDate['recomendacao']['quantidade'];
+	}
+
+	?>
+									<img src="<?=base_url("assets/images/user-rating-{$rating}.png")?>" width="100"	alt=""/>
+						<hr>
+						<div class="presentation">
+							<p class="grey">
+<?=character_limiter($atividadeSemDate["apresentacao"], 120)?>
+</p>
+						</div>
+						<!-- Mais eventos -->
+						<div class="clearfix"></div>
+						<div class="box-dates">
+
+
+<?=anchor(base_url("atividades/{$atividadeSemDate['slug']}"), '<time datetime="2014-09-20" class="calendar-icon calendar-small calendar-orange calendar-left10">
+															  <em>Mais</em>
+															  <strong>Datas</strong>
+															  <span>+</span>
+															</time>')?>
+</div>
+						<!--<form action="list4.html">
+							<button class="roundbtn" type="submit">Mais</button>
+						</form>-->
+					</div>
+				</div>
+			  </div>
+<?php
+$counter++;
+	if ($counter % 3 == 0) {
+		echo '<div class="clearfix"></div>';
+	}
+}
 ?>
 
 		</div>
