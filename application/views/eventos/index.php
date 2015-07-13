@@ -211,13 +211,6 @@ foreach ($atividades as $atividade) {?>
 </h6>
 
 <?php $avaliacao = $atividade['avaliacao'];
-	if ($avaliacao['nota'] == null) {
-		$rating = 0;
-	} else {
-
-		$rating = round($avaliacao['nota']);
-	}
-
 	if ($avaliacao['recomenda'] == null) {
 		$recomendacoes = 0;
 	} else {
@@ -226,7 +219,6 @@ foreach ($atividades as $atividade) {?>
 	}
 
 	?>
-									<img src="<?=base_url("assets/images/user-rating-{$rating}.png")?>" width="100"	alt=""/>
 						<hr>
 						<div class="presentation">
 							<p class="grey">
@@ -300,13 +292,6 @@ foreach ($atividadesSemData as $atividadeSemDate) {
 </h6>
 
 <?php $avaliacao = $atividadeSemDate['avaliacao'];
-	if ($avaliacao['nota'] == null) {
-		$rating = 0;
-	} else {
-
-		$rating = round($avaliacao['nota']);
-	}
-
 	if ($avaliacao['recomenda'] == null) {
 		$recomendacoes = 0;
 	} else {
@@ -315,7 +300,6 @@ foreach ($atividadesSemData as $atividadeSemDate) {
 	}
 
 	?>
-									<img src="<?=base_url("assets/images/user-rating-{$rating}.png")?>" width="100"	alt=""/>
 						<hr>
 						<div class="presentation">
 							<p class="grey">
