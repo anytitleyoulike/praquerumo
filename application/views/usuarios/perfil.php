@@ -3,7 +3,7 @@
   <head>
   	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Travel Agency - HTML5 Booking template</title>
+	<title>Pra Que Rumo - Perfil</title>
 	
     <!-- Bootstrap -->
     <link href="dist/css/bootstrap.css" rel="stylesheet" media="screen">
@@ -50,7 +50,7 @@
 				  <span class="icon-bar"></span>
 				  <span class="icon-bar"></span>
 				</button>
-				<a href="index.html" class="navbar-brand"><img src="images/logo.png" alt="Travel Agency Logo" class="logo"/></a>
+				<a href="" class="navbar-brand"><img src="images/logo.png" alt="PraQueRumo Logo" class="logo"/></a>
 			  </div>
 			  <div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
@@ -201,18 +201,9 @@
 					  <li class="active">
 						<a href="#profile" data-toggle="tab">
 						<span class="profile-icon"></span>
-						Your profile
+						Perfil
 						</a></li>
-					  <li>
-						  <a href="#bookings" data-toggle="tab" onclick="mySelectUpdate()">
-						  <span class="bookings-icon"></span>						  
-						  Bookings
-						  </a></li>
-					  <li>
-						  <a href="#wishlist" data-toggle="tab" onclick="mySelectUpdate()">
-						  <span class="wishlist-icon"></span>							  
-						  Wishlist
-						  </a></li>
+
 					  <li>
 						  <a href="#settings" data-toggle="tab" onclick="mySelectUpdate()">
 						  <span class="settings-icon"></span>								  
@@ -263,42 +254,30 @@
 						<div class="clearfix"></div>
 						  
 						
-						<span class="size16 bold">Personal details</span>
+						<span class="size16 bold">Dados Pessoais</span>
 						<div class="line2"></div>
 						  
 
 						<!-- COL 1 -->
 						<div class="col-md-12 offset-0">
 							
-							Name*:
-							<input type="text" class="form-control" placeholder="John Doe" rel="popover" id="name" data-content="This field is mandatory" data-original-title="Here you can edit your name">
+							Nome:
+							<input type="text" class="form-control" rel="popover" id="name" data-content="This field is mandatory" data-original-title="Here you can edit your name">
 							<br/>
-							Username*:
-							<input type="text" class="form-control" placeholder="Jack" rel="popover" id="username" data-content="This field is mandatory" data-original-title="Here you can edit your username">						  
+							Usuário:
+							<input type="text" class="form-control" rel="popover" id="username" data-content="This field is mandatory" data-original-title="Here you can edit your username">						  
 							<br/>
 							E-mail*:
-							<input type="text" class="form-control" placeholder="office@email.com" id="email" data-content="This field is mandatory" data-original-title="Edit your email address">
+							<input type="text" class="form-control" id="email" placeholder="exemplo@email.com" data-content="This field is mandatory" data-original-title="Edit your email address">
 							<br/>
-							Phone number:
+							Telefone:
 							<input type="text" class="form-control" placeholder="">	
 							
 							<br/>
-							Birth date:<br/>
+							Data de Nascimento:<br/>
 							<div class="row">
 								<div class="col-md-4">
-									<select class="form-control mySelectBoxClass">
-									  <option>12:00 AM</option>
-									</select>
-								</div>
-								<div class="col-md-4">
-									<select class="form-control mySelectBoxClass">
-									  <option>12:00 AM</option>
-									</select>
-								</div>
-								<div class="col-md-4">
-									<select class="form-control mySelectBoxClass">
-									  <option>12:00 AM</option>
-									</select>
+									<input type="text" class="form-control" name="dtNascimento" placeholder="DD/MM/AAAA">
 								</div>
 							</div>
 
@@ -307,25 +286,28 @@
 				
 						<br/>
 						<br/>						
-						<span class="size16 bold">Your address</span>
+						<span class="size16 bold">Endereço</span>
 						<div class="line2"></div>
 						
-						<br/>
-						Company name:
-						<input type="text" class="form-control" placeholder="">	
-						
-						<br/>
-						Address*:
+						Rua:
 						<input type="text" class="form-control" placeholder="">							
 						
 						<br/>
-						Zip Code*:
+						Cep:
+						<input type="text" class="form-control" placeholder="">
+
+						<br/>						
+						Cidade*:
+						<input type="text" class="form-control" placeholder="ex: Manaus">
+
+						<br/>
+						Estado:
 						<input type="text" class="form-control" placeholder="">
 
 						<br/>
-						Country*:
+						País:
 						<select class="form-control mySelectBoxClass">
-						  <option value="">Country...</option>
+						  <option value="">País</option>
 							<option value="AF">Afghanistan</option>
 							<option value="AL">Albania</option>
 							<option value="DZ">Algeria</option>
@@ -574,16 +556,8 @@
 							<option value="ZM">Zambia</option>
 							<option value="ZW">Zimbabwe</option>
 						</select>
-						
-						<br/><br/>
-						City*:
-						<input type="text" class="form-control" placeholder="ex: London">
 
-						<br/>
-						Region/State*:
-						<input type="text" class="form-control" placeholder="">
-
-					    <button type="submit" class="greenbtn  margtop20">Update</button>	
+					    <button type="submit" class="greenbtn  margtop20">Atualizar</button>	
 						</div>
 						<!-- END OF COL 1 -->
 						
@@ -592,320 +566,6 @@
 						
 					  </div>
 					  <!-- END OF TAB 1 -->		
-
-					  
-					  
-					  <!-- TAB 2 -->					  
-					  <div class="tab-pane" id="bookings">
-						<div class="padding40">
-						
-							<div class="col-md-4 offset-0">
-								<span class="dark size18">Places</span>
-								<div class="line4"></div>
-								<ul class="blogcat">
-									<li><a href="#">Rome</a> <span class="badge indent0">3</span></li>
-									<li><a href="#">Malaga</a> <span class="badge indent0">1</span></li>
-									<li><a href="#">Marbella</a> <span class="badge indent0">1</span></li>
-									<li><a href="#">Gibraltar</a> <span class="badge indent0">1</span></li>
-									<li><a href="#">Zakynthos</a> <span class="badge indent0">2</span></li>
-									<li><a href="#">Thasos</a> <span class="badge indent0">1</span></li>
-									<li><a href="#">Santorini</a> <span class="badge indent0">1</span></li>
-									<li><a href="#">Golden Sands</a> <span class="badge indent0">1</span></li>
-									<li><a href="#">Sunny Beach</a> <span class="badge indent0">1</span></li>
-								</ul>
-							</div>
-							<div class="col-md-4 offset-0">
-								<span class="dark size18">Trips</span>
-								<div class="line4"></div>
-								<ul class="blogcat">
-									<li><a href="#">Italy</a> <span class="badge indent0">2</span></li>
-									<li><a href="#">England</a> <span class="badge indent0">1</span></li>
-									<li><a href="#">Greece</a> <span class="badge indent0">2</span></li>
-									<li><a href="#">Spain</a> <span class="badge indent0">1</span></li>
-									<li><a href="#">Bulgary</a> <span class="badge indent0">1</span></li>
-								</ul>
-							</div>							
-							<div class="col-md-4 offset-0">
-								<span class="dark size18">Countries</span>
-								<div class="line4"></div>
-								<ul class="blogcat">
-									<li><img src="images/flags/IT.png" class="right" alt=""/><a href="#">Italy</a></li>
-									<li><img src="images/flags/GB.png" class="right" alt=""/><a href="#">England</a></li>
-									<li><img src="images/flags/GR.png" class="right" alt=""/><a href="#">Greece</a></li>
-									<li><img src="images/flags/ES.png" class="right" alt=""/><a href="#">Spain</a></li>
-									<li><img src="images/flags/BG.png" class="right" alt=""/><a href="#">Bulgary</a></li>
-								</ul>
-							</div>
-							<div class="clearfix"></div>							
-							<br/>
-							<br/>
-							<br/>
-							
-							<table class="table table-bordered  mt-10">
-							<tr class="grey opensans">
-								<td class="center"><span class="size30 slim lh4 dark">10</span><br/><span class="size12">Trips</span></td>
-								<td class="center"><span class="size30 slim lh4 dark">20</span><br/><span class="size12">Places</span></td>
-								<td class="center"><span class="size30 slim lh4 dark">14</span><br/><span class="size12">Days away</span></td>
-								<td class="center"><span class="size30 slim lh4 dark">5</span><br/><span class="size12">Countries</span></td>
-							</tr>
-							</table>
-							
-							<br/>
-							<br/>
-							
-							<span class="dark size18">Your latest bookings</span>
-							<div class="right mt-5">
-								<select class="form-control mySelectBoxClass hasCustomSelect cpwidth">
-								  <option value="">All time</option>
-								  <option value="">Countries</option>
-								  <option value="">Date</option>
-								</select>
-							</div>		
-							<div class="right mr20 mt-5">
-								<select class="form-control mySelectBoxClass hasCustomSelect cpwidth2">
-								  <option value="">5/page</option>
-								  <option value="">15/page</option>
-								  <option value="">20/page</option>
-								</select>
-							</div>								
-							<div class="line4"></div>
-							<br/>
-							
-							<div class="col-md-4 offset-0">
-								<a href="#"><img alt="" class="left mr20" src="images/smallthumb-1.jpg"></a>
-								<a class="dark" href="#"><b>Hotel Dany</b></a> /
-								<span class="dark size12">Greece - Zakynthos</span><br>
-								<span class="opensans green bold size14">$36-$160</span> <span class="grey">avg/night</span><br>
-								<img alt="" src="images/filter-rating-5.png"><br/>
-							</div>
-							<div class="col-md-7">
-								<span class="grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam faucibus, quam vel interdum lacinia, lacus justo rutrum lorem, in fermentum ligula est a diam. Nam aliquet arcu est, a malesuada odio laoreet non.</span>
-							</div>
-							<div class="col-md-1 offset-0">
-								<button onclick="errorMessage()" type="submit" class="btn-search5 right">More</button>
-							</div>
-							<div class="clearfix"></div>
-							<div class="line4"></div>
-							
-							<div class="col-md-4 offset-0">
-								<a href="#"><img alt="" class="left mr20" src="images/smallthumb-2.jpg"></a>
-								<a class="dark" href="#"><b>Hotel Dany</b></a> /
-								<span class="dark size12">Greece - Zakynthos</span><br>
-								<span class="opensans green bold size14">$36-$160</span> <span class="grey">avg/night</span><br>
-								<img alt="" src="images/filter-rating-5.png"><br/>
-							</div>
-							<div class="col-md-7">
-								<span class="grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam faucibus, quam vel interdum lacinia, lacus justo rutrum lorem, in fermentum ligula est a diam. Nam aliquet arcu est, a malesuada odio laoreet non.</span>
-							</div>
-							<div class="col-md-1 offset-0">
-								<button onclick="errorMessage()" type="submit" class="btn-search5 right">More</button>
-							</div>
-							<div class="clearfix"></div>
-							<div class="line4"></div>
-							
-							<div class="col-md-4 offset-0">
-								<a href="#"><img alt="" class="left mr20" src="images/smallthumb-3.jpg"></a>
-								<a class="dark" href="#"><b>Hotel Dany</b></a> /
-								<span class="dark size12">Greece - Zakynthos</span><br>
-								<span class="opensans green bold size14">$36-$160</span> <span class="grey">avg/night</span><br>
-								<img alt="" src="images/filter-rating-5.png"><br/>
-							</div>
-							<div class="col-md-7">
-								<span class="grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam faucibus, quam vel interdum lacinia, lacus justo rutrum lorem, in fermentum ligula est a diam. Nam aliquet arcu est, a malesuada odio laoreet non.</span>
-							</div>
-							<div class="col-md-1 offset-0">
-								<button onclick="errorMessage()" type="submit" class="btn-search5 right">More</button>
-							</div>
-							<div class="clearfix"></div>
-							<div class="line4"></div>
-							
-							<div class="col-md-4 offset-0">
-								<a href="#"><img alt="" class="left mr20" src="images/smallthumb-1.jpg"></a>
-								<a class="dark" href="#"><b>Hotel Dany</b></a> /
-								<span class="dark size12">Greece - Zakynthos</span><br>
-								<span class="opensans green bold size14">$36-$160</span> <span class="grey">avg/night</span><br>
-								<img alt="" src="images/filter-rating-5.png"><br/>
-							</div>
-							<div class="col-md-7">
-								<span class="grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam faucibus, quam vel interdum lacinia, lacus justo rutrum lorem, in fermentum ligula est a diam. Nam aliquet arcu est, a malesuada odio laoreet non.</span>
-							</div>
-							<div class="col-md-1 offset-0">
-								<button onclick="errorMessage()" type="submit" class="btn-search5 right">More</button>
-							</div>
-							<div class="clearfix"></div>
-							<div class="line4"></div>
-							
-							<div class="col-md-4 offset-0">
-								<a href="#"><img alt="" class="left mr20" src="images/smallthumb-2.jpg"></a>
-								<a class="dark" href="#"><b>Hotel Dany</b></a> /
-								<span class="dark size12">Greece - Zakynthos</span><br>
-								<span class="opensans green bold size14">$36-$160</span> <span class="grey">avg/night</span><br>
-								<img alt="" src="images/filter-rating-5.png"><br/>
-							</div>
-							<div class="col-md-7">
-								<span class="grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam faucibus, quam vel interdum lacinia, lacus justo rutrum lorem, in fermentum ligula est a diam. Nam aliquet arcu est, a malesuada odio laoreet non.</span>
-							</div>
-							<div class="col-md-1 offset-0">
-								<button onclick="errorMessage()" type="submit" class="btn-search5 right">More</button>
-							</div>
-							<div class="clearfix"></div>
-				
-							<div class="line4"></div>
-							<ul class="pagination right paddingbtm20">
-							  <li class="disabled"><a href="#">«</a></li>
-							  <li><a href="#">1</a></li>
-							  <li><a href="#">2</a></li>
-							  <li><a href="#">3</a></li>
-							  <li><a href="#">»</a></li>
-							</ul>
-							
-							
-						
-						</div>
-					  </div>
-					  <!-- END OF TAB 2 -->	
-					  
-					  <!-- TAB 3 -->					  
-					  <div class="tab-pane" id="wishlist">
-						<div class="padding40">
-						
-
-							<input type="text" placeholder="Make new category" class="form-control wh80percent left">
-							<button type="submit" class="btn-search5 right"><span class="glyphicon glyphicon-plus"></span>Add new</button>
-
-							<div class="clearfix"></div>
-							<br/>
-							
-							<ul class="blogcat">
-								<li><a href="#">Incredible places</a> <span class="badge indent0">3</span></li>
-								<li><a href="#">My next places</a> <span class="badge indent0">1</span></li>
-								<li><a href="#">Europe</a> <span class="badge indent0">1</span></li>
-							</ul>
-						
-							<br/>
-							<br/>
-							
-							<span class="dark size18">Favourites list</span>
-							<div class="right mt-5">
-								<select class="form-control mySelectBoxClass hasCustomSelect cpwidth2">
-								  <option value="">5/page</option>
-								  <option value="">15/page</option>
-								  <option value="">20/page</option>
-								</select>
-							</div>								
-							<div class="line4"></div>
-							<br/>
-							
-							<div>
-								<div class="col-md-4 offset-0">
-									<a href="#"><img alt="" class="left mr20" src="images/smallthumb-1.jpg"></a>
-									<a class="dark" href="#"><b>Hotel Dany</b></a> /
-									<span class="dark size12">Greece - Zakynthos</span><br>
-									<span class="opensans green bold size14">$36-$160</span> <span class="grey">avg/night</span><br>
-									<img alt="" src="images/filter-rating-5.png"><br/>
-								</div>
-								<div class="col-md-7">
-									<span class="grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam faucibus, quam vel interdum lacinia, lacus justo rutrum lorem, in fermentum ligula est a diam. Nam aliquet arcu est, a malesuada odio laoreet non.</span>
-								</div>
-								<div class="col-md-1 offset-0">
-									<button onclick="errorMessage()" type="submit" class="btn-search5 right"><span class="glyphicon glyphicon-heart dark"></span></button>
-								</div>
-								<button aria-hidden="true" data-dismiss="alert" class="close mr20 mt10" type="button">×</button>	
-								<div class="clearfix"></div>
-								<div class="line6"></div>
-							</div>
-							
-							<div>
-								<div class="col-md-4 offset-0">
-									<a href="#"><img alt="" class="left mr20" src="images/smallthumb-2.jpg"></a>
-									<a class="dark" href="#"><b>Hotel Dany</b></a> /
-									<span class="dark size12">Greece - Zakynthos</span><br>
-									<span class="opensans green bold size14">$36-$160</span> <span class="grey">avg/night</span><br>
-									<img alt="" src="images/filter-rating-5.png"><br/>
-								</div>
-								<div class="col-md-7">
-									<span class="grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam faucibus, quam vel interdum lacinia, lacus justo rutrum lorem, in fermentum ligula est a diam. Nam aliquet arcu est, a malesuada odio laoreet non.</span>
-								</div>
-								<div class="col-md-1 offset-0">
-									<button onclick="errorMessage()" type="submit" class="btn-search5 right"><span class="glyphicon glyphicon-heart dark"></span></button>
-								</div>
-								<button aria-hidden="true" data-dismiss="alert" class="close mr20 mt10" type="button">×</button>
-								<div class="clearfix"></div>
-								<div class="line6"></div>
-							</div>
-							
-							<div>
-								<div class="col-md-4 offset-0">
-									<a href="#"><img alt="" class="left mr20" src="images/smallthumb-3.jpg"></a>
-									<a class="dark" href="#"><b>Hotel Dany</b></a> /
-									<span class="dark size12">Greece - Zakynthos</span><br>
-									<span class="opensans green bold size14">$36-$160</span> <span class="grey">avg/night</span><br>
-									<img alt="" src="images/filter-rating-5.png"><br/>
-								</div>
-								<div class="col-md-7">
-									<span class="grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam faucibus, quam vel interdum lacinia, lacus justo rutrum lorem, in fermentum ligula est a diam. Nam aliquet arcu est, a malesuada odio laoreet non.</span>
-								</div>
-								<div class="col-md-1 offset-0">
-									<button onclick="errorMessage()" type="submit" class="btn-search5 right"><span class="glyphicon glyphicon-heart"></span></button>
-								</div>
-								<button aria-hidden="true" data-dismiss="alert" class="close mr20 mt10" type="button">×</button>									
-								<div class="clearfix"></div>
-								<div class="line6"></div>
-							</div>
-							
-							<div>
-								<div class="col-md-4 offset-0">
-									<a href="#"><img alt="" class="left mr20" src="images/smallthumb-1.jpg"></a>
-									<a class="dark" href="#"><b>Hotel Dany</b></a> /
-									<span class="dark size12">Greece - Zakynthos</span><br>
-									<span class="opensans green bold size14">$36-$160</span> <span class="grey">avg/night</span><br>
-									<img alt="" src="images/filter-rating-5.png"><br/>
-								</div>
-								<div class="col-md-7">
-									<span class="grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam faucibus, quam vel interdum lacinia, lacus justo rutrum lorem, in fermentum ligula est a diam. Nam aliquet arcu est, a malesuada odio laoreet non.</span>
-								</div>
-								<div class="col-md-1 offset-0">
-									<button onclick="errorMessage()" type="submit" class="btn-search5 right"><span class="glyphicon glyphicon-heart dark"></span></button>
-								</div>
-								<button aria-hidden="true" data-dismiss="alert" class="close mr20 mt10" type="button">×</button>									
-								<div class="clearfix"></div>
-								<div class="line6"></div>
-							</div>
-							
-							<div>
-								<div class="col-md-4 offset-0">
-									<a href="#"><img alt="" class="left mr20" src="images/smallthumb-2.jpg"></a>
-									<a class="dark" href="#"><b>Hotel Dany</b></a> /
-									<span class="dark size12">Greece - Zakynthos</span><br>
-									<span class="opensans green bold size14">$36-$160</span> <span class="grey">avg/night</span><br>
-									<img alt="" src="images/filter-rating-5.png"><br/>
-								</div>
-								<div class="col-md-7">
-									<span class="grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam faucibus, quam vel interdum lacinia, lacus justo rutrum lorem, in fermentum ligula est a diam. Nam aliquet arcu est, a malesuada odio laoreet non.</span>
-								</div>
-								<div class="col-md-1 offset-0">
-									<button onclick="errorMessage()" type="submit" class="btn-search5 right"><span class="glyphicon glyphicon-heart"></span></button>
-								</div>
-								<button aria-hidden="true" data-dismiss="alert" class="close mr20 mt10" type="button">×</button>									
-								<div class="clearfix"></div>
-							</div>
-				
-							<div class="line4"></div>
-							<ul class="pagination right paddingbtm20">
-							  <li class="disabled"><a href="#">«</a></li>
-							  <li><a href="#">1</a></li>
-							  <li><a href="#">2</a></li>
-							  <li><a href="#">»</a></li>
-							</ul>
-							
-							
-						
-						
-						
-						
-						</div>
-					  </div>
-					  <!-- END OF TAB 3 -->	
 					  
 					  <!-- TAB 4 -->					  
 					  <div class="tab-pane" id="settings">
@@ -1129,12 +789,12 @@
 						
 							<div class="checkbox dark">
 							  <label>
-								<input type="checkbox" checked> Check this box to receive a monthly newsletter
+								<input type="checkbox" checked> Sim, eu desejo receber novidades por email!
 							  </label>
 							</div>
 							
 							<br/>
-							<button type="submit" class="btn-search5">Save changes</button>							
+							<button type="submit" class="btn-search5">Salvar</button>							
 						
 						</div>
 					  </div>

@@ -31,4 +31,20 @@ class Login extends CI_Controller{
 		$this->session->set_flashdata("success", "Deslogado com sucesso");
 		redirect('/');
 	}
+
+	public function teste() {
+
+		
+		// $this->form_validation->set_rules('senha', 'Password', 'required');
+  //       $this->form_validation->set_rules('email', 'email', 'required|valid_email');
+			$usuario = array(
+				"email" => $this->input->post('email'),
+				"senha" => md5($this->input->post('senha'))
+			);
+
+		if($this->form_validation->run() == TRUE) {
+		} else {
+			$this->load->template("login/index");
+		}
+	}
 }

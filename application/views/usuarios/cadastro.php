@@ -3,26 +3,53 @@
 	<head></head>
 	<title>Login PRAQUERUMO</title>
 	<body>
-		
-		<form action="/praquerumo/usuarios/cadastro" method="post">
-			<h5>Nome:</h5>
-			<?php echo form_error('nome');?>
-			<input type="text" name="nome" value="" placeholder="Nome Completo" size="30">
+		<div class="container">
 			
-			<h5>Telefone:</h5>
-			<?php echo form_error('telefone'); ?>
-			<input type="text" name="telefone" value="" size="30">
+			<?php
+			if(isset($msg)) {
+				echo '<div class="alert alert-danger fade in">
+	        			 <a href="#" class="close" data-dismiss="alert"></a>
+	       				 <strong>Erro!</strong> ' . $msg .'
+	    		</div>';
+			}
+			?>
 
-			<h5>Email:</h5>
-			<?php echo form_error('email'); ?>
-			<input type="text" name="email" value="" size="30">
-
-			<h5>Senha:</h5>
-			<?php echo form_error('senha'); ?>
-			<input type="text" name="senha" value="" size="30">
-			
-			<div><input type="submit" value="Enviar" /></div>
-		</form>
+			<form action="/praquerumo/usuarios/cadastro" class="form-horizontal" method="post">
+				
+				<div class="form-group">
+				<label class="control-label">Nome:</label>
+					<?php echo form_error('nome');?>
+					<input type="text" class="form-control" name="nome" value="<?php echo set_value('nome');?>" placeholder="Nome Completo" size="30">
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label">Telefone:</label>
+					<?php echo form_error('telefone'); ?>
+					<input type="text" class="form-control" name="telefone" value="<?php echo set_value('telefone');?>" size="30">
+				</div>
+				
+				<div class="form-group">
+				<label class="control-label">Usuario:</label>
+					<?php echo form_error('username');?>
+					<input type="text" class="form-control" name="username" value="<?php echo set_value('username');?>" size="30">
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label">Email:</label>
+					<?php echo form_error('email'); ?>
+					<input type="text" class="form-control" placeholder="exemplo@email.com" name="email" value="<?php echo set_value('email');?>" size="30">
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label">Senha:</label>
+					<?php echo form_error('senha'); ?>
+					<input type="password" class="form-control" name="senha" size="30">
+				</div>
+				<div>
+					<input type="submit" class="btn btn-default" value="Enviar" />
+				</div>
+			</form>
+		</div>
 
 	</body>
 </html>
