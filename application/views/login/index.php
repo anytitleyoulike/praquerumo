@@ -30,10 +30,9 @@
 		<!-- Login Wrap  -->
 		<div class="login-wrap">
 			<img src="<?= base_url("assets/images/logo_beta_white.png")?>" class="login-img" alt="logo"/><br/>
-			<form method="post" action="/praquerumo/login/teste">
+			<form method="post" action="/praquerumo/usuarios/login">
 				<div class="login-c1">
-			<?php echo validation_errors() ?>
-					<div class="cpadding50">
+					<div class="cpadding50" >
 						<input type="text" name="email" class="form-control logpadding" placeholder="Usuário ou Email">
 						<br/>
 						<input type="password" name="senha" class="form-control logpadding" placeholder="Senha">
