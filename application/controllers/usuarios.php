@@ -40,7 +40,26 @@ class Usuarios extends CI_Controller{
 
 	//Olhar o trello e ver os proximos passos
 	public function perfil() {
-		$this->load->template("usuarios/perfil");
+		$id = $this->session->userdata('id');
+
+		$this->load->model('usuarios_model','usuario');
+		$usuario = $this->usuario->buscaUsuario($id);
+
+		$this->load->template("usuarios/perfil", $usuario);
+	}
+
+	public function update() {
+		
+		$usuario = array(
+			"nome"          => $this->input->post('nome'),
+			"email"         => $this->input->post('email'),
+			"telefone"      => $this->input->post('telefone')
+			// "dtAniversario" => $this->input->post('dtAniversario')
+		);
+		
+		$this->load->model('usuarios_model','usuario');
+		$usuario = $this->usuario->atualizaDados($usuario);
+
 	}
 
 	public function login() {

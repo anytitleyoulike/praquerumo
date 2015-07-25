@@ -11,6 +11,17 @@ class Usuarios_model extends CI_Model {
 		}
 	}
 
+	public function atualizaDados($usuario) {
+		$this->db->update('usuario',$usuario);
+		$this->db->where('email', $usuario['email']);
+
+		if($this->db->affected_rows() > 0) {
+			return TRUE;	
+		} else {
+			return FALSE;
+		}
+	}
+
 	public function buscaUsuarioId($email) {
 		$this->db->select("usuario.id");
 		$this->db->where("email", $email);
@@ -19,7 +30,7 @@ class Usuarios_model extends CI_Model {
 	}
 
 	public function buscaUsuario($id) {
-		$this->db->select("usuario.nome, usuario.email, usuario.telefone");
+		$this->db->select("*");
 		$this->db->where("id", $id);
 
 		return $this->db->get('usuario')->row_array();
