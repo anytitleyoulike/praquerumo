@@ -7,8 +7,7 @@ class Usuarios extends CI_Controller{
 	public function cadastro() {
 		
 		$this->load->model("usuarios_model","usuario");
-		$this->form_validation->set_error_delimiters('<div class = "error">', '</div>');
-		
+
 		if($this->form_validation->run('cadastro') == TRUE) {
 			
 			$usuario = array(
@@ -26,7 +25,18 @@ class Usuarios extends CI_Controller{
 
 			} else {
 				$this->usuario->salva($usuario);
-				// $this->load->template("usuarios/perfil");
+							
+				$userSession = array(
+					"id"        => $this->db->insert_id(),
+					"email"     => $usuario['email'],
+					"logged_in" => TRUE
+				);
+
+				$this->session->set_userdata($userSession);
+
+				redirect("/");
+
+				//criar verificação de email usando md5(unidid(rand()));
 			}
 
 		} else {
@@ -40,26 +50,41 @@ class Usuarios extends CI_Controller{
 
 	//Olhar o trello e ver os proximos passos
 	public function perfil() {
-		$id = $this->session->userdata('id');
+		$userId = $this->session->userdata('id');
 
 		$this->load->model('usuarios_model','usuario');
-		$usuario = $this->usuario->buscaUsuario($id);
-
+		
+		$usuario = $this->usuario->buscaDadosPerfil($userId);
+		
 		$this->load->template("usuarios/perfil", $usuario);
 	}
 
 	public function update() {
-		
-		$usuario = array(
-			"nome"          => $this->input->post('nome'),
-			"email"         => $this->input->post('email'),
-			"telefone"      => $this->input->post('telefone')
-			// "dtAniversario" => $this->input->post('dtAniversario')
-		);
-		
+		$userId = $this->session->userdata('id');
 		$this->load->model('usuarios_model','usuario');
-		$usuario = $this->usuario->atualizaDados($usuario);
+		
+		$this->usuario->nome = $this->input->post('nome');
+		$this->usuario->telefone = $this->input->post('telefone');
+		$this->usuario->email = $this->input->post('email');
 
+		// $usuario = array(
+		// 	"nome"          => $this->input->post('nome'),
+		// 	"email"         => $this->input->post('email'),
+		// 	"telefone"      => $this->input->post('telefone')
+		// 	// "dtAniversario" => $this->input->post('dtAniversario')
+		// );
+
+		$usuario = $this->usuario->atualizaDados($userId, $this->usuario);
+		if($usuario) {
+			redirect("/usuarios/perfil");
+		} else {
+			echo "Falhou";
+		}
+	}
+
+	public function teste () {
+		var_dump($this->session->userdata('email'));
+		
 	}
 
 	public function login() {
@@ -86,7 +111,7 @@ class Usuarios extends CI_Controller{
 					"email" => $usuario['email'],
 					"logged_in" => TRUE
 				);
-				$this->session->set_userdata($usuario);				
+				$this->session->set_userdata($sessaoData);				
 				
 				redirect("/");
 
@@ -95,6 +120,11 @@ class Usuarios extends CI_Controller{
 				$this->load->template("login/index");
 			}
 		}
+
+	}
+
+	public function logout() {
+		$this->session->sess_destroy();
 	}
 
 }

@@ -1,7 +1,7 @@
 <html> 
 	<meta charset="UTF-8">
-	<head></head>
-	<title>Login PRAQUERUMO</title>
+	<head><?= $nav_bar?></head>
+	<title>Cadastro PRAQUERUMO</title>
 	<body>
 		<div class="container">
 			
@@ -14,7 +14,7 @@
 			}
 			?>
 
-			<form action="/praquerumo/usuarios/cadastro" class="form-horizontal" method="post">
+			<form action="/praquerumo/usuarios/cadastro" class="form-horizontal form" method="post">
 				
 				<div class="form-group">
 				<label class="control-label">Nome:</label>

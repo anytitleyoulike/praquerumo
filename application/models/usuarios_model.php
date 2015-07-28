@@ -2,6 +2,11 @@
 
 class Usuarios_model extends CI_Model {
 
+
+	public $nome;
+	public $email;
+	public $telefone;
+
 	public function salva($usuario) {
 		$this->db->insert('usuario', $usuario);
 		if($this->db->affected_rows() > 0) {
@@ -11,9 +16,10 @@ class Usuarios_model extends CI_Model {
 		}
 	}
 
-	public function atualizaDados($usuario) {
+	public function atualizaDados($userId, $usuario) {
+		$this->db->where('id', $userId);
 		$this->db->update('usuario',$usuario);
-		$this->db->where('email', $usuario['email']);
+		//pesquisar update string
 
 		if($this->db->affected_rows() > 0) {
 			return TRUE;	
@@ -29,11 +35,12 @@ class Usuarios_model extends CI_Model {
 		return $this->db->get('usuario')->row_array();
 	}
 
-	public function buscaUsuario($id) {
+	public function buscaDadosPerfil($userId) {
 		$this->db->select("*");
-		$this->db->where("id", $id);
+		$this->db->from('usuario');
+		$this->db->where("id", $userId);
 
-		return $this->db->get('usuario')->row_array();
+		return $this->db->get()->row_array();
 	}
 
 	public function buscarUsuario($usuario) {
@@ -45,9 +52,6 @@ class Usuarios_model extends CI_Model {
 
 		$query = $this->db->get();
 		
-		if($query->num_rows == 0) {
-			return FALSE;
-		}
 		return $query;
 
 	}

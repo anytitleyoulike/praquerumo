@@ -6908,3 +6908,5 @@ td.visible-print {
     display: none !important;
   }
 }
+
+.form { width: 60%; margin-top: 5%; margin-left:20%;}
