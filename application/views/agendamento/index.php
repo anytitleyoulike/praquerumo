@@ -62,7 +62,7 @@
 <?php
 $attributes = array('id' => 'payment-form');
 
-echo form_open("agendamento/realizaTransacaoCartao", $attributes);
+echo form_open("agendamento/formularioParamento", $attributes);
 
 $data = array(
 	'evento_codigo' => $evento['codigo'],

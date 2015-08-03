@@ -24,6 +24,14 @@ class Agendamento extends CI_Controller {
 		$this->load->template("eventos/aguardando_pagamento");
 	}
 
+	public function formularioParamento(){
+		if($this->input->post('tipo_pagamento') == '#card'){
+			$this->realizaTransacaoCartao();
+		}
+		else $this->realizaTransacaoBoleto();
+
+	}
+
 	public function realizaTransacaoBoleto() {
 		$this->load->model("eventos_model");
 		$this->load->model("usuarios_model");
@@ -35,8 +43,9 @@ class Agendamento extends CI_Controller {
 		$evento = $this->input->post('evento_codigo');
 		$quantidade = $this->input->post('quantidade');
 
-		//$dados_validados = $this->_validacao();
-		$dados_validados = true;
+		$dados_validados = $this->_validacao();
+
+		//$dados_validados = true;
 		if ($dados_validados) {
 			$email = $this->input->post('email');
 			$nome = $this->input->post('nome');
@@ -46,8 +55,7 @@ class Agendamento extends CI_Controller {
 			$preco_formatado = str_replace('.', '', $preco);
 			$descricao = $this->input->post('descricao');
 			$data_horario = $this->input->post('data_horario');
-			$forma_pagamento = $this->input->post('tipo_pagamento');
-			var_dump($forma_pagamento);
+			$forma_pagamento = 'boleto bancario';
 
 			$disponivel = $this->_verificaDisponibilidade($evento, $quantidade);
 
@@ -88,18 +96,19 @@ class Agendamento extends CI_Controller {
 					);
 
 					//send email de confirmação(com voucher e qrcode)
-					$this->_sendEmailToClientWaiting($email, $dados_email);
+					//$this->_sendEmailToClientWaiting($email, $dados_email);
 					//pegar email do organizador
 					//$this->_sendEmailToOrganizer();
 					$this->_sendEmailToPQRWaiting($dados_email);
 					//load page de sucesso no agendamento
 					//$this->load->view("eventos/sucesso");
 					//redirect(base_url("fatura/novo"));
+					$url_boleto_iugu = $resultado['url'];
+					echo "<script language='javascript'>window.location.replace('$url_boleto_iugu');</script>";
 
 					echo json_encode(array('success' => $resultado['success'],
 						'url_boleto' => $resultado['url'], 'errors' => $resultado['errors'],
 						'url_aguardando' => base_url("agendamento/aguardaPagamento")));
-					//$this->load->template('eventos/aguardando_pagamento', $dados_email);
 				} else {
 					echo json_encode(array('success' => false,
 						'errors' => 'erros na criação do boleto'));
@@ -109,8 +118,9 @@ class Agendamento extends CI_Controller {
 					'errors' => 'vagas indesponiveis'));
 			}
 		} else {
-			echo json_encode(array('success' => false,
-				'errors' => 'dados invalidos'));
+			$this->_novoAgendamento($evento, $quantidade);
+			/*echo json_encode(array('success' => false,
+				'errors' => 'dados invalidos'));*/
 		}
 	}
 
@@ -298,6 +308,19 @@ class Agendamento extends CI_Controller {
 		return $this->form_validation->run();
 	}
 
+	function _validacao_boleto(){
+		$this->load->helper(array('form', 'url'));
+				
+		if ($this->validation->run() == FALSE)
+		{
+			$this->load->view('myform');
+		}
+		else
+		{
+			$this->load->view('formsuccess');
+		}
+	}
+
 	function _dadosAtividade($codigo_evento) {
 		$evento = $this->eventos_model->buscarEventoDetalhes($codigo_evento);
 		$dados_atividade = array(
@@ -431,5 +454,4 @@ class Agendamento extends CI_Controller {
 
 		return Iugu_Charge::create($carrinho);
 	}
-
 }
