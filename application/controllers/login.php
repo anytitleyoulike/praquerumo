@@ -3,10 +3,10 @@
 class Login extends CI_Controller{
 
 	public function index() {
-		$this->load->view("login/index");
+		$this->load->template("login/index");
 	}
 	
-	public function autenticar() {
+	public function aut() {
 		//$this->output->enable_profiler(TRUE);
 		
 		$this->load->model("usuarios_model");
@@ -25,6 +25,44 @@ class Login extends CI_Controller{
 		
 		redirect('/');
 	}
+
+
+	public function autentica() {
+		$this->load->model("usuarios_model","usuario");
+
+		if($this->form_validation->run('login') == FALSE) {
+			$this->load->template("login/index");
+		} else {
+			
+			$usuario = array(
+				"email" => $this->input->post('email'),
+				"senha" => md5($this->input->post('senha'))
+			);
+			
+			//verifica login e senha do usuário
+			$result = $this->usuario->buscarUsuario($usuario);
+			
+			if($result->num_rows() > 0) {
+				
+				$usuario = $result->row_array();
+				
+				$sessaoData = array(
+					"id"    => $usuario['id'],
+					"email" => $usuario['email'],
+				"logged_in" => TRUE
+				);
+				$this->session->set_userdata($sessaoData);				
+				
+				redirect("/");
+
+			} else {
+				// login e email errados
+				$this->load->template("login/index");
+			}
+		}
+
+	}
+
 	
 	public function logout() {
 		$this->session->unset_userdata("usuario_logado");

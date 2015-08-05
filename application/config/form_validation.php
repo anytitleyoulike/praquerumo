@@ -34,12 +34,12 @@
 
         "login" => array(
             array(
-                'field' => 'senha',
+                'field' => 'senha_login',
                 'label' => 'Senha',
                 'rules' => 'required|min_length[3]|max_length[20]|trim|xss_clean'
             ),
             array(
-                'field' => 'email',
+                'field' => 'email_login',
                 'label' => 'Email',
                 'rules' => 'required|valid_email|trim|xss_clean'
             )

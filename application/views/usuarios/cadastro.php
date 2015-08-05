@@ -2,6 +2,9 @@
 	<meta charset="UTF-8">
 	<head><?= $nav_bar?></head>
 	<title>Cadastro PRAQUERUMO</title>
+
+	<script src="/praquerumo/assets/js/jquery.mask.min.js"></script>
+
 	<body>
 		<div class="container">
 			
@@ -25,7 +28,7 @@
 				<div class="form-group">
 					<label class="control-label">Telefone:</label>
 					<?php echo form_error('telefone'); ?>
-					<input type="text" class="form-control" name="telefone" value="<?php echo set_value('telefone');?>" size="30">
+					<input type="text" class="form-control" id="phone" name="telefone" value="<?php echo set_value('telefone');?>" size="30">
 				</div>
 				
 				<div class="form-group">
@@ -53,3 +56,16 @@
 
 	</body>
 </html>
+
+<script type='text/javascript'> 
+	var maskBehavior = function (val) {
+ 		return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+	},
+	
+		options = {onKeyPress: function(val, e, field, options) {
+			field.mask(maskBehavior.apply({}, arguments), options);
+		}
+	};
+ 
+$('#phone').mask(maskBehavior, options);
+</script>

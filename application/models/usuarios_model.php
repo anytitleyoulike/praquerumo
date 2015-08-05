@@ -6,6 +6,7 @@ class Usuarios_model extends CI_Model {
 	public $nome;
 	public $email;
 	public $telefone;
+	public $username;
 
 	public function salva($usuario) {
 		$this->db->insert('usuario', $usuario);

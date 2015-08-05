@@ -265,7 +265,7 @@
 								<input type="text" name="nome" value="<?= $nome ?>"class="form-control" id="name">
 								<br/>
 								Usuário:
-								<input type="text" class="form-control"  value="<?= $username ?>" rel="popover" id="username">						  
+								<input type="text" class="form-control" name="username" value="<?= $username ?>" rel="popover" id="username">						  
 								<br/>
 								E-mail*:
 								<input type="text" name="email"  value="<?= $email ?>" class="form-control" id="email" placeholder="exemplo@email.com" >

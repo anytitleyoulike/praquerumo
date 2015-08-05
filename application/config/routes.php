@@ -42,7 +42,6 @@ $route['default_controller'] = "atividades";
 $route['404_override'] = '';
 $route['atividades/(:any)'] = 'atividades/mostra/$1';
 $route['eventos/(:any)'] = 'atividades/mostra/$1';
-$route['cadastro'] = 'usuarios/cadastro';
-$route['login'] = 'usuarios/login';
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

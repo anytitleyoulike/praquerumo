@@ -5,9 +5,9 @@
 class Usuarios extends CI_Controller{
 
 	public function cadastro() {
-		
-		$this->load->model("usuarios_model","usuario");
 
+		$this->load->model("usuarios_model","usuario");
+		$this->form_validation->set_error_delimiters("<p class='alert alert-danger'>", "</p>");
 		if($this->form_validation->run('cadastro') == TRUE) {
 			
 			$usuario = array(
@@ -41,7 +41,7 @@ class Usuarios extends CI_Controller{
 
 		} else {
 
-			$this->load->template("usuarios/cadastro");
+			$this->load->template("login/index");
 		}
 
 			
@@ -66,6 +66,8 @@ class Usuarios extends CI_Controller{
 		$this->usuario->nome = $this->input->post('nome');
 		$this->usuario->telefone = $this->input->post('telefone');
 		$this->usuario->email = $this->input->post('email');
+		$this->usuario->username = $this->input->post('username');
+
 
 		// $usuario = array(
 		// 	"nome"          => $this->input->post('nome'),
@@ -75,52 +77,17 @@ class Usuarios extends CI_Controller{
 		// );
 
 		$usuario = $this->usuario->atualizaDados($userId, $this->usuario);
+		
 		if($usuario) {
 			redirect("/usuarios/perfil");
 		} else {
-			echo "Falhou";
+			echo "falhou";
 		}
 	}
 
 	public function teste () {
 		var_dump($this->session->userdata('email'));
 		
-	}
-
-	public function login() {
-		$this->load->model("usuarios_model","usuario");
-
-		if($this->form_validation->run('login') == FALSE) {
-			$this->load->template("login/index");
-		} else {
-			
-			$usuario = array(
-				"email" => $this->input->post('email'),
-				"senha" => md5($this->input->post('senha'))
-			);
-			
-			//verifica login e senha do usuário
-			$result = $this->usuario->buscarUsuario($usuario);
-			
-			if($result->num_rows() > 0) {
-				
-				$usuario = $result->row_array();
-				
-				$sessaoData = array(
-					"id"    => $usuario['id'],
-					"email" => $usuario['email'],
-					"logged_in" => TRUE
-				);
-				$this->session->set_userdata($sessaoData);				
-				
-				redirect("/");
-
-			} else {
-				// login e email errados
-				$this->load->template("login/index");
-			}
-		}
-
 	}
 
 	public function logout() {
