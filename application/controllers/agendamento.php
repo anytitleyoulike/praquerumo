@@ -24,7 +24,7 @@ class Agendamento extends CI_Controller {
 		$this->load->template("eventos/aguardando_pagamento");
 	}
 
-	public function formularioParamento(){
+	public function realizaTransacoesPagamentos(){
 		if($this->input->post('tipo_pagamento') == '#card'){
 			$this->realizaTransacaoCartao();
 		}
@@ -41,6 +41,7 @@ class Agendamento extends CI_Controller {
 		$this->load->helper('iugu');
 
 		$evento = $this->input->post('evento_codigo');
+		
 		$quantidade = $this->input->post('quantidade');
 
 		$dados_validados = $this->_validacao();
@@ -306,19 +307,6 @@ class Agendamento extends CI_Controller {
 		$this->form_validation->set_error_delimiters("<p class='alert alert-danger'>", "</p>");
 
 		return $this->form_validation->run();
-	}
-
-	function _validacao_boleto(){
-		$this->load->helper(array('form', 'url'));
-				
-		if ($this->validation->run() == FALSE)
-		{
-			$this->load->view('myform');
-		}
-		else
-		{
-			$this->load->view('formsuccess');
-		}
 	}
 
 	function _dadosAtividade($codigo_evento) {

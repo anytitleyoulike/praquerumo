@@ -1,7 +1,6 @@
 <?php
 
 function send_email($to, $subject, $content) {
-	$to = 'ezequiel.brandao@gmail.com';
 	$ci = get_instance();
 	$ci->load->library("email");
 	$config["protocol"] = "smtp";
