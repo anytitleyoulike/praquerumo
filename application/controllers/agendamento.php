@@ -58,7 +58,7 @@ class Agendamento extends CI_Controller {
 					$usuario = $this->_getUsuarioId($nome, $celular, $email);
 
 					$vagas_atualizados = $this->_atualizaVagas($resultado["success"],
-						$evento, $disponivel, $quantidade);
+						$evento, $disponivel, $quantidade, $atividade_codigo);
 
 					//add fatura
 					$fatura = array(
@@ -123,6 +123,9 @@ class Agendamento extends CI_Controller {
 
 		$evento = $this->input->post('evento_codigo');
 		$quantidade = $this->input->post('quantidade');
+		$atividade_codigo = $this->input->post('atividade_codigo');
+
+		var_dump($evento);
 
 		$dados_validados = $this->_validacao();
 
@@ -355,14 +358,24 @@ class Agendamento extends CI_Controller {
 		$this->load->template("agendamento/index", $data);
 	}
 
+	public function teste(){
+		$this->load->model('eventos_model','evento');
+
+		$a = $this->evento->buscaMaxVagasDisponiveis(12);
+		var_dump($a['disponivel']);
+	}
+
 	/*descontar de disponiveis do evento*/
-	function _atualizaVagas($result_success, $evento, $vagas_disponiveis, $quantidade) {
+	function _atualizaVagas($result_success, $evento, $vagas_disponiveis, $quantidade, $atividade_codigo) {
 		if ($result_success) {
 			$vagas = (int) $vagas_disponiveis - $quantidade;
 			$vagas_restantes = ($vagas > 0) ? $vagas : 0;
 			$dados = array('disponivel' => $vagas_restantes);
 			$this->eventos_model->atualizaVagasDisponiveis($evento, $dados);
-
+			$maxVagas = $this->eventos_model->buscaMaxVagasDisponiveis($codigo);
+			if($maxVagas['disponivel'] == 0){
+				$this->eventos_model->atualizaStatusVendivel($atividade_codigo);
+			}
 			return true;
 		} else {
 			//erro na operação bancaria
