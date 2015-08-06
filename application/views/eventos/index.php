@@ -87,7 +87,10 @@
 <?php foreach ($destaques as $destaque) {?>
 					<!-- FADE -->
 					<li data-transition="fade" data-slotamount="1" data-masterspeed="300">
-						<img src="<?=base_url("assets/images/atividades/destaques/{$destaque['fig_destaque']}")?>" alt=""/>
+						<a href="<?=base_url("atividades/{$destaque['slug']}")?>">
+							<!-- assets/images/atividades/thumbnails/379b6-wallpaper_01.jpg -->
+							<img src="<?=base_url("assets/images/atividades/destaques/{$destaque['fig_destaque']}")?>" alt=""/>
+						</a>
 						<div class="tp-caption scrolleffect sft"
 							 data-x="center"
 							 data-y="120"
