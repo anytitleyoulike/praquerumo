@@ -125,7 +125,7 @@ class Agendamento extends CI_Controller {
 		$quantidade = $this->input->post('quantidade');
 		$atividade_codigo = $this->input->post('atividade_codigo');
 
-		var_dump($evento);
+		//var_dump($evento);
 
 		$dados_validados = $this->_validacao();
 
