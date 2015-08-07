@@ -38,6 +38,8 @@ class Atividades extends CI_Controller {
 			$atividade['eventos'] = $this->eventos_model->buscarDatasEventos(2, $atividade['codigo']);
 		}
 
+		atualizarVendivelPorData();
+
 		$data = array("atividades" => $atividades, "destaques" => $atividades_destaque,
 			"fotos_destaque" => $fotos_destaque, "estado" => $estado, "atividadesSemData" => $atividadesSemData);
 		$this->load->template("eventos/index", $data);
@@ -68,6 +70,16 @@ class Atividades extends CI_Controller {
 			"fotos_destaque" => $fotos_destaque);
 
 		$this->load->templateHome("eventos/index2", $data);
+	}
+
+	private function atualizarVendivelPorData(){
+		if(date('H:i:s') == "00:00:00"){
+			$result = $this->eventos_model->buscaVisivelFim();
+
+			foreach ($result as $atividades) {
+				$this->eventos->atualizaVendivel($atividades['atividade_codigo']);
+			}
+		}
 	}
 
 	/*
