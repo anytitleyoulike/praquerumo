@@ -8,7 +8,7 @@ var res = {
 }
 
 Iugu.setAccountID("486b1f80-1c29-458e-a069-85e10c6d75cb");
- Iugu.setTestMode(true);
+ //Iugu.setTestMode(true);
 
 function getClientData(){
   var clientData =  '{ "clientData" : {' +
