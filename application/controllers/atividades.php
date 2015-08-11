@@ -38,11 +38,13 @@ class Atividades extends CI_Controller {
 			$atividade['eventos'] = $this->eventos_model->buscarDatasEventos(2, $atividade['codigo']);
 		}
 
-		if(date('H:i:s') >= "00:00:00" && date('H:i:s') <= "00:01:00"){
+		if(date("H:i:s" == "00:00:00")){
 			$result = $this->eventos_model->buscaVisivelFim();
 
-			foreach ($result as $atividades) {
-				$this->eventos->atualizaVendivel($atividades['atividade_codigo']);
+			foreach ($result as $tv) {
+				if($tv['ultimaData'] < date("Y-m-d 23:59:59")){
+					$this->eventos_model->atualizaStatusVendivel($tv['atividade_codigo']);
+				}
 			}
 		}
 

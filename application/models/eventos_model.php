@@ -107,10 +107,8 @@ class Eventos_model extends CI_Model {
 
 	public function buscaVisivelFim(){
 		$this->db->select("evento.atividade_codigo");
-		$this->db->select_max("evento.visivel_fim");
-		$this->db->join("atividade", "atividade.codigo = evento.atividade_codigo");
+		$this->db->select_max("evento.visivel_fim" , "ultimaData");
 		$this->db->group_by("evento.atividade_codigo");
-		$this->db->where("evento.visivel_fim < '".date('Y-m-d H:i:s')."'");
 		return $this->db->get("evento")->result_array();
 	}
 
