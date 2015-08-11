@@ -52,6 +52,12 @@
 												</div>
 											</div>
 										</form>
+										<?php 
+										if(isset($msg)){
+
+											echo '<div class="alert alert-danger">'. $msg .'</div>';
+										} 
+										?>
 										<form id="register-form" action="/praquerumo/usuarios/cadastro" method="post" role="form" style="display: none;">
 											<div class="form-group">
 												<?php echo form_error('nome');?>

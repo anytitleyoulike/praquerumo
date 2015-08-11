@@ -21,7 +21,7 @@ class Usuarios extends CI_Controller{
 			//checar se usuario já existe
 			if($this->usuario->checkEmailExistente($usuario['email']) == TRUE) {
 				$data['msg'] = "Seu endereço de email já existe";
-				$this->load->template("usuarios/cadastro", $data);
+				$this->load->template("login/index", $data);
 
 			} else {
 				$this->usuario->salva($usuario);
@@ -40,7 +40,6 @@ class Usuarios extends CI_Controller{
 			}
 
 		} else {
-
 			$this->load->template("login/index");
 		}
 
@@ -86,7 +85,7 @@ class Usuarios extends CI_Controller{
 	}
 
 	public function teste () {
-		var_dump($this->session->userdata('email'));
+		var_dump($this->session->userdata('id'));
 		
 	}
 
