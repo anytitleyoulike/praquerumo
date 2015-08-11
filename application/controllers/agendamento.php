@@ -97,7 +97,7 @@ class Agendamento extends CI_Controller {
 					);
 
 					//send email de confirmação(com voucher e qrcode)
-					//$this->_sendEmailToClientWaiting($email, $dados_email);
+					$this->_sendEmailToClientWaiting($email, $dados_email);
 					//pegar email do organizador
 					//$this->_sendEmailToOrganizer();
 					$this->_sendEmailToPQRWaiting($dados_email);
