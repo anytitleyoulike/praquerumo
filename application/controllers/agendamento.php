@@ -125,8 +125,6 @@ class Agendamento extends CI_Controller {
 		$quantidade = $this->input->post('quantidade');
 		$atividade_codigo = $this->input->post('atividade_codigo');
 
-		//var_dump($evento);
-
 		$dados_validados = $this->_validacao();
 
 		if ($dados_validados) {
@@ -356,13 +354,6 @@ class Agendamento extends CI_Controller {
 			'bloquear_boleto' => $bloquear_boleto,
 		);
 		$this->load->template("agendamento/index", $data);
-	}
-
-	public function teste(){
-		$this->load->model('eventos_model','evento');
-
-		$a = $this->evento->buscaMaxVagasDisponiveis(12);
-		var_dump($a['disponivel']);
 	}
 
 	/*descontar de disponiveis do evento*/
