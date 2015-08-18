@@ -1,11 +1,13 @@
   	<title>PRAQUERUMO - <?=$modalidade["nome{$sufix}"] . " | " . $atividade['titulo']?></title>
-	<meta  name="description" content='<?=character_limiter($atividade["apresentacao"], 150)?>'>
-	<meta property="og:url" content="http://www.praquerumo.com.br/eventos/<?=$atividade['codigo']?>" />
+  	<?php $tirar  = array('<p>', '</p>');?>
+	<meta  name="description" content='<?=character_limiter(str_replace($tirar, '', $atividade["apresentacao"]), 150)?>'>
+	<!-- <meta property="og:url" content="http://www.praquerumo.com.br/eventos/<?=$atividade['codigo']?>" /> -->
+	<meta property="og:url" content="<?=base_url('atividades/'.$atividade['slug'])?>" />
 	<meta property="og:title" content="<?=$atividade['titulo']?>" />
 	<!-- <meta property="og:image" content="<?=base_url("assets/images/logo_beta.png")?>" /> -->
-	<meta property="og:image" content="<?=base_url("assets/images/atividades/detalhes/{$atividade['fig_01']}")?>" />
+	<meta property="og:image" content="<?=base_url('assets/images/atividades/detalhes/'.$atividade['fig_01'])?>" />
 
-	<link rel="canonical" href="http://www.praquerumo.com.br/atividades/<?=$atividade['slug']?>" />
+	<link rel="canonical" href="<?=base_url('atividades/'.$atividade['slug'])?>" />
 	<link rel="stylesheet" href="<?=base_url("assets/css/jslider.css")?>" type="text/css">
 	<link rel="stylesheet" href="<?=base_url("assets/css/jslider.round-blue.css")?>" type="text/css">
 	<link href="<?=base_url("assets/css/evento-box.css")?>" rel="stylesheet" media="screen">
@@ -124,7 +126,7 @@ echo form_hidden($data);
 					<h4 class="grey" style="font-family:'Hammersmith One', sans-serif;"><?=$atividade["cidade"] . "/" . $atividade["estado"]?></h4>
 					<div class="social-networks">
 							<!-- facebook social button-->
-							<div class="bt-face fb-like" data-href="http://www.praquerumo.com.br/atividades/<?=$atividade['slug']?>"
+							<div class="bt-face fb-like" data-href="<?=base_url('atividades/'.$atividade['slug'])?>"
 								data-layout="button_count" data-action="like"
 								data-show-faces="false" data-share="true">
 							</div>
