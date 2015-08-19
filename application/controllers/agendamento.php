@@ -34,7 +34,7 @@ class Agendamento extends CI_Controller {
 
 		$evento = $this->input->post('evento_codigo');
 		$quantidade = $this->input->post('quantidade');
-
+		$atividade_codigo = $this->input->post('atividade_codigo');
 		//$dados_validados = $this->_validacao();
 		$dados_validados = true;
 		if ($dados_validados) {
@@ -52,7 +52,7 @@ class Agendamento extends CI_Controller {
 			if ($disponivel != 0) {
 				$resultado = $this->_criaBoleto($email, $descricao,
 					$quantidade, $preco_formatado);
-
+				
 				if (!array_key_exists("errors", $resultado)) {
 					$invoice_id = $resultado["invoice_id"];
 					$usuario = $this->_getUsuarioId($nome, $celular, $email);
@@ -149,7 +149,7 @@ class Agendamento extends CI_Controller {
 					$invoice_id = $result_pgto["invoice_id"];
 
 					$vagas_atualizados = $this->_atualizaVagas($result_pgto["success"],
-						$evento, $disponivel, $quantidade);
+						$evento, $disponivel, $quantidade,$atividade_codigo);
 
 					//retorna usuario_id, se nao existir, cria um usuario anonimo
 					$usuario = $this->_getUsuarioId($nome_completo, $celular, $email);
@@ -363,7 +363,7 @@ class Agendamento extends CI_Controller {
 			$vagas_restantes = ($vagas > 0) ? $vagas : 0;
 			$dados = array('disponivel' => $vagas_restantes);
 			$this->eventos_model->atualizaVagasDisponiveis($evento, $dados);
-			$maxVagas = $this->eventos_model->buscaMaxVagasDisponiveis($codigo);
+			$maxVagas = $this->eventos_model->buscaMaxVagasDisponiveis($atividade_codigo);
 			if($maxVagas['disponivel'] == 0){
 				$this->eventos_model->atualizaStatusVendivel($atividade_codigo);
 			}
