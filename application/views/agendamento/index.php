@@ -66,6 +66,7 @@ echo form_open("agendamento/realizaTransacoesPagamentos", $attributes);
 
 $data = array(
 	'evento_codigo' => $evento['codigo'],
+	'atividade_codigo' => $evento['atividade_codigo'],
 	'preco_raw' => $preco_raw,
 	'quantidade' => $quantidade,
 	'descricao' => $descricao_pgto,

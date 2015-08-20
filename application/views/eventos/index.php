@@ -87,7 +87,10 @@
 <?php foreach ($destaques as $destaque) {?>
 					<!-- FADE -->
 					<li data-transition="fade" data-slotamount="1" data-masterspeed="300">
-						<img src="<?=base_url("assets/images/atividades/destaques/{$destaque['fig_destaque']}")?>" alt=""/>
+						<a href="<?=base_url("atividades/{$destaque['slug']}")?>">
+							<!-- assets/images/atividades/thumbnails/379b6-wallpaper_01.jpg -->
+							<img src="<?=base_url("assets/images/atividades/destaques/{$destaque['fig_destaque']}")?>" alt=""/>
+						</a>
 						<div class="tp-caption scrolleffect sft"
 							 data-x="center"
 							 data-y="120"
@@ -211,13 +214,6 @@ foreach ($atividades as $atividade) {?>
 </h6>
 
 <?php $avaliacao = $atividade['avaliacao'];
-	if ($avaliacao['nota'] == null) {
-		$rating = 0;
-	} else {
-
-		$rating = round($avaliacao['nota']);
-	}
-
 	if ($avaliacao['recomenda'] == null) {
 		$recomendacoes = 0;
 	} else {
@@ -226,7 +222,6 @@ foreach ($atividades as $atividade) {?>
 	}
 
 	?>
-									<img src="<?=base_url("assets/images/user-rating-{$rating}.png")?>" width="100"	alt=""/>
 						<hr>
 						<div class="presentation">
 							<p class="grey">
@@ -273,12 +268,8 @@ foreach ($atividades as $atividade) {?>
 	}
 }
 ?>
-
-		</div>
-
 		<!-- Eventos sem data -->
 
-		<div id="atividades" class="container cstyle07" style="padding:20px;">
 <?php
 foreach ($atividadesSemData as $atividadeSemDate) {
 ?>
@@ -300,13 +291,6 @@ foreach ($atividadesSemData as $atividadeSemDate) {
 </h6>
 
 <?php $avaliacao = $atividadeSemDate['avaliacao'];
-	if ($avaliacao['nota'] == null) {
-		$rating = 0;
-	} else {
-
-		$rating = round($avaliacao['nota']);
-	}
-
 	if ($avaliacao['recomenda'] == null) {
 		$recomendacoes = 0;
 	} else {
@@ -315,7 +299,6 @@ foreach ($atividadesSemData as $atividadeSemDate) {
 	}
 
 	?>
-									<img src="<?=base_url("assets/images/user-rating-{$rating}.png")?>" width="100"	alt=""/>
 						<hr>
 						<div class="presentation">
 							<p class="grey">
