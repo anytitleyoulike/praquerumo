@@ -268,12 +268,8 @@ foreach ($atividades as $atividade) {?>
 	}
 }
 ?>
-
-		</div>
-
 		<!-- Eventos sem data -->
 
-		<div id="atividades" class="container cstyle07" style="padding:20px;">
 <?php
 foreach ($atividadesSemData as $atividadeSemDate) {
 ?>

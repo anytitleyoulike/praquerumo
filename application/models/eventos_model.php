@@ -28,7 +28,7 @@ class Eventos_model extends CI_Model {
 
 	public function buscarEventoDetalhes($id) {
 		$this->db->select('evento.codigo, evento.preco, evento.visivel_fim, atividade.fig_thumbnail, descricao_atividade.titulo,
-			descricao_atividade.cidade, descricao_atividade.estado, descricao_atividade.ponto_encontro');
+			descricao_atividade.cidade, descricao_atividade.estado, descricao_atividade.ponto_encontro, evento.atividade_codigo');
 		$this->db->select('date_format(evento.inicio, "%Y-%m-%d") as data_inicio', false);
 		$this->db->select('date_format(evento.inicio, "%T") as hora_inicio', false);
 		$this->db->select('date_format(evento.fim, "%T") as hora_fim', false);
@@ -105,9 +105,30 @@ class Eventos_model extends CI_Model {
 		return $this->db->get("evento")->row_array();
 	}
 
+	public function buscaVisivelFim(){
+		$this->db->select("evento.atividade_codigo");
+		$this->db->select_max("evento.visivel_fim" , "ultimaData");
+		$this->db->group_by("evento.atividade_codigo");
+		return $this->db->get("evento")->result_array();
+	}
+
+	public function buscaMaxVagasDisponiveis($codigo) {
+		$this->db->select_sum('evento.disponivel');
+		$this->db->select_max('evento.visivel_fim');
+		$this->db->where('codigo', $codigo);
+		return $this->db->get("evento")->row_array();
+	}
+
 	public function atualizaVagasDisponiveis($codigo, $dados) {
 		$this->db->where('codigo', $codigo);
 		$this->db->update('evento', $dados);
+
+		return true;
+	}
+
+	public function atualizaStatusVendivel($atividade_codigo) {
+		$this->db->where('codigo', $atividade_codigo);
+		$this->db->update('atividade', $dados = array('vendivel' => 0));
 
 		return true;
 	}
