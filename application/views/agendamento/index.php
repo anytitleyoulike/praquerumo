@@ -4,7 +4,7 @@
 	<link rel="stylesheet" href="<?=base_url("assets/css/jslider.round-blue.css")?>" type="text/css">
 	<!--<link href="<?=base_url("assets/css/evento-box.css")?>" rel="stylesheet" media="screen">-->
 	<link href="<?=base_url("assets/css/loader.css")?>" rel="stylesheet" media="screen">
-
+	<?php require_once("analytics-tracker.php")?>
 	<script type="text/javascript" src="<?=base_url("assets/js/jshashtable-2.1_src.js")?>"></script>
 	<script type="text/javascript" src="<?=base_url("assets/js/jquery.numberformatter-1.2.3.js")?>"></script>
 	<script type="text/javascript" src="<?=base_url("assets/js/tmpl.js")?>"></script>
