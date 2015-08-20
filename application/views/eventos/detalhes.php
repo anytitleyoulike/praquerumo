@@ -19,7 +19,7 @@
 	<script type="text/javascript" src="<?=base_url("assets/js/jquery.dependClass-0.1.js")?>"></script>
 	<script type="text/javascript" src="<?=base_url("assets/js/draggable-0.1.js")?>"></script>
 	<script type="text/javascript" src="<?=base_url("assets/js/jquery.slider.js")?>"></script>
-
+	<?php require_once("analytics-tracker.php") ?>
 	<!-- script gplus -->
 	<script src="https://apis.google.com/js/platform.js" async defer>
 	  {lang: 'pt-BR'}
