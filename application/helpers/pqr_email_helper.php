@@ -21,7 +21,7 @@ function send_email($to, $subject, $content) {
 	if (defined('ENVIRONMENT') && ENVIRONMENT != 'development') {
 		$ci->email->send();
 	} else {
-		$ci->email->to("apds.anderson@gmail.com");
+		$ci->email->to("ezequiel.brandao@gmail.com");
 		$ci->email->send();
 	}
 

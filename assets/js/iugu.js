@@ -8,7 +8,7 @@ var res = {
 }
 
 Iugu.setAccountID("486b1f80-1c29-458e-a069-85e10c6d75cb");
-// Iugu.setTestMode(true);
+ //Iugu.setTestMode(true);
 
 function getClientData(){
   var clientData =  '{ "clientData" : {' +
@@ -110,43 +110,10 @@ jQuery(function($) {
           }
       }
       else{
-        var clientData = JSON.parse( getClientData() ).clientData;
-        $.ajax({
-          url : 'realizaTransacaoBoleto',
-          type : 'POST',
-          data : {
-                    nome: clientData.nome, email: clientData.email,
-                    celular: clientData.celular, requisitos_especiais: clientData.requisitos_especiais,
-                    preco_raw: clientData.preco_raw, descricao: clientData.descricao,
-                    data_horario: clientData.data_horario,
-                    evento_codigo: clientData.evento_codigo,quantidade: clientData.quantidade
-                  },
-          beforeSend: function(){
-            //res.container.append(res.loader);
-            btn.button('loading');
-          },
-          success : function(data){
-            var result = JSON.parse( data );
-            console.log(result);
-
-            if(result.success == true){
-              //window.location.replace(result.url_aguardando);
-              //window.open(result.url_boleto);
-              window.location.replace(result.url_boleto);
-            }
-            else{
-              //dizer o motivo do erro
-              btn.button('reset');
-            }
-            //goto pagina de confirmacao de intencao
-            //res.container.find(res.loader).remove();
-            btn.button('reset');
-          }
-        });
+        btn.submit();
 
       }
 
       return false;
   });
 });
-

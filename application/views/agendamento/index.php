@@ -62,7 +62,7 @@
 <?php
 $attributes = array('id' => 'payment-form');
 
-echo form_open("agendamento/realizaTransacaoCartao", $attributes);
+echo form_open("agendamento/realizaTransacoesPagamentos", $attributes);
 
 $data = array(
 	'evento_codigo' => $evento['codigo'],
@@ -208,7 +208,7 @@ echo form_error("email");
 					<br/>
 					<!-- Nav tabs -->
 					<ul class="nav navigation-tabs">
-					  <li class="active"><a href="#card" data-toggle="tab">Cartão de Crédito</a></li>
+					  <li class="active"><a href="#card" id="pagCardAba" data-toggle="tab">Cartão de Crédito</a></li>
 					  <li><a href="#bank_slip" id="pagBoleto" data-toggle="tab">Boleto</a></li>
 					</ul>
 
