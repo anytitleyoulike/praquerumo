@@ -119,16 +119,16 @@
 						<div class="abover ohidden">
 							<div class="abbg">
 								<div class="socials-container">
-									<a href="http://twitter.com/andbrain" data-placement="top" title="Twitter" class="left"><span class="socials-twitter "></span></a>
-									<a href="http://facebook.com/anderson.brain" data-placement="top" title="Facebook" class="left"><span class="socials-facebook "></span></a>
-									<a href="https://plus.google.com/108230580368477134168" data-placement="top" title="Google Plus" class="left"><span class="socials-gplus "></span></a>
+									<a href="http://twitter.com/anytitleyoulike" data-placement="top" title="Twitter" class="left"><span class="socials-twitter "></span></a>
+									<a href="https://www.facebook.com/anytitleyoulike" data-placement="top" title="Facebook" class="left"><span class="socials-facebook "></span></a>
+									<a href="https://plus.google.com/u/0/+MarcelloHenrique/posts" data-placement="top" title="Google Plus" class="left"><span class="socials-gplus "></span></a>
 								</div>
 							</div>
-							<img src="<?=base_url("assets/images/time/anderson.jpg")?>" class="fwimg" alt=""/>
+							<img src="<?=base_url("assets/images/time/marcello.jpg")?>" class="fwimg" alt=""/>
 							<div class="chart2 none" data-percent="69" style="float:right; margin-top:-60px; right:10px;"><span class="countnewvisits">81</span>%</div>
 						</div>
-						<p class="lato lh2 mt10"><b>Anderson Pimentel</b><br/>
-						Cofundador e Diretor Tecnológico
+						<p class="lato lh2 mt10"><b>Marcello Henrique</b><br/>
+						Diretor Programador da Porra Toda
 						</p>
 					</div>
 					<div class="col-md-4">
@@ -146,25 +146,56 @@
 						<p class="lato lh2 mt10"><b>Tayke Monteiro</b><br/>
 						Cofundador e Diretor de Aventuras
 						</p>
+					</div>
+					<div class="col-md-4">
+						<div class="abover ohidden">
+							<div class="abbg">
+								<div class="socials-container">
+									<a href="#" data-placement="top" title="Twitter" class="left"><span class="socials-twitter "></span></a>
+									<a href="https://www.facebook.com/matheus.bzevedo" data-placement="top" title="Facebook" class="left"><span class="socials-facebook "></span></a>
+									<a href="https://plus.google.com/u/0/102513329359924198202/posts" data-placement="top" title="Google Plus" class="left"><span class="socials-gplus "></span></a>
+								</div>
+							</div>
+							<img src="<?=base_url("assets/images/time/matheus.jpg")?>" class="fwimg" alt=""/>
+							<div class="chart3 none" data-percent="69" style="float:right; margin-top:-60px; right:10px;"><span class="countsearchtrafic">33</span>%</div>
+						</div>
+						<p class="lato lh2 mt10"><b>Matheus Azevedo</b><br/>
+						Programador e Diretor de Peladas
+						</p>
 					</div>					
 					<div class="col-md-4">
 						<div class="abover ohidden">
 							<div class="abbg">
 								<div class="socials-container">
 									<a href="#" data-placement="top" title="Twitter" class="left"><span class="socials-twitter "></span></a>
-									<a href="https://www.facebook.com/henrique.melo.359" data-placement="top" title="Facebook" class="left"><span class="socials-facebook "></span></a>
-									<a href="https://plus.google.com/100629779120591827027" data-placement="top" title="Google Plus" class="left"><span class="socials-gplus "></span></a>
+									<a href="https://www.facebook.com/ezequiel.brandao.5" data-placement="top" title="Facebook" class="left"><span class="socials-facebook "></span></a>
+									<a href="https://plus.google.com/u/0/108988122351530786007" data-placement="top" title="Google Plus" class="left"><span class="socials-gplus "></span></a>
 								</div>
 							</div>
-							<img src="<?=base_url("assets/images/time/henrique.jpg")?>" class="fwimg" alt=""/>
+							<img src="<?=base_url("assets/images/time/ezequiel.jpg")?>" class="fwimg" alt=""/>
 							<div class="chart2 none" data-percent="69" style="float:right; margin-top:-60px; right:10px;"><span class="countnewvisits">81</span>%</div>
 						</div>
-						<p class="lato lh2 mt10"><b>Henrique Armond</b><br/>
-						Diretor de Informações
+						<p class="lato lh2 mt10"><b>Ezequiel Brandão</b><br/>
+						Programador e Gerente de Gambiarras
 						</p>
 					</div>
-					<div class="clearfix"></div>
-					<div class="col-md-4" style="margin-top:30px;">
+					<div class="col-md-4">
+						<div class="abover ohidden">
+							<div class="abbg">
+								<div class="socials-container">
+									<a href="#" data-placement="top" title="Twitter" class="left"><span class="socials-twitter "></span></a>
+									<a href="https://www.facebook.com/erico.sabino.5" data-placement="top" title="Facebook" class="left"><span class="socials-facebook "></span></a>
+									<a href="https://plus.google.com/u/0/114328481475179981597" data-placement="top" title="Google Plus" class="left"><span class="socials-gplus "></span></a>
+								</div>
+							</div>
+							<img src="<?=base_url("assets/images/time/erico.jpg")?>" class="fwimg" alt=""/>
+							<div class="chart2 none" data-percent="69" style="float:right; margin-top:-60px; right:10px;"><span class="countnewvisits">81</span>%</div>
+						</div>
+						<p class="lato lh2 mt10"><b>Erico Sabino</b><br/>
+						Diretor Ninja do Scrum e ranger azul nas horas vagas
+						</p>
+					</div>
+					<div class="col-md-4">
 						<div class="abover ohidden">
 							<div class="abbg">
 								<div class="socials-container">
@@ -180,6 +211,23 @@
 						Diretor de Design e UX
 						</p>
 					</div>
+					<div class="clearfix"></div>
+					<!-- <div class="col-md-4" style="margin-top:30px;">
+						<div class="abover ohidden">
+							<div class="abbg">
+								<div class="socials-container">
+									<a href="https://twitter.com/nandoserzedelo" data-placement="top" title="Twitter" class="left"><span class="socials-twitter "></span></a>
+									<a href="https://www.facebook.com/fernandoserzedelo" data-placement="top" title="Facebook" class="left"><span class="socials-facebook "></span></a>
+									<a href="https://plus.google.com/111865554502934532267" data-placement="top" title="Google Plus" class="left"><span class="socials-gplus "></span></a>
+								</div>
+							</div>
+							<img src="<?=base_url("assets/images/time/fernando.jpg")?>" class="fwimg" alt=""/>
+							<div class="chart2 none" data-percent="69" style="float:right; margin-top:-60px; right:10px;"><span class="countnewvisits">81</span>%</div>
+						</div>
+						<p class="lato lh2 mt10"><b>Fernando Serzedelo</b><br/>
+						Diretor de Design e UX
+						</p>
+					</div> -->
 					<div class="clearfix"></div>
 
 					<br/>
