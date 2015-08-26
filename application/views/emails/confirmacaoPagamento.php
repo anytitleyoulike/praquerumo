@@ -2,11 +2,9 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Pagamento Realizado!</title>
-		<!--<link rel="stylesheet" type="text/css" href="cjs/style.css"/>-->
+		<link rel="stylesheet" type="text/css" href="cjs/style.css"/>
 	</head>
 	<body>
-		<center>
 	<table width="640px" border="0">
 		<tr>
 			<td align="left" ><img src="<?=base_url('assets/images/emails/logo_pqr.png')?>" style="margin-top:22px; margin-left:37px; margin-bottom:16px;"/></td>
@@ -14,14 +12,14 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-				<table bgcolor="#E6E6E6" width="100%" height="79.144px" border="0" style="background-color:#E6E6E6;">
+				<table bgcolor="#E6E6E6" width="100%" height="79.144px" border="0">
 					<tr>
 						<td align="justify">
 							<img src="<?=base_url('assets/images/emails/icone_pagamentoverificado.png')?>" width="35px" height="35px" style="margin-left:37px; margin-top:24px; margin-bottom:27px;">
 						</td>
 						<td>
 							<font style="margin-top:24px; margin-right:54px; color:#0CA86B;">SUA <strong>COMPRA</strong> FOI REALIZADA COM SUCESSO!</font>
-							<font size="2px" style="color:#0CA86B;"><strong>Validade:<?=dataMysqlParaPtBr($atividade["data"])?></strong></font>
+							<font size="2px" style="color:#0CA86B;">Data:<?=substr(dataMysqlParaPtBr($compra['data_compra']),0, 10)?></font>
 						</td>
 					</tr>
 				</table>
@@ -34,12 +32,13 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-				<table bgcolor="#1655A1" width="100%" height="39.572px" style="background-color:#1655A1;">
+				<table bgcolor="#1655A1" width="100%" height="39.572px">
 					<tr>
 						<td>
 							<font color="#FFF" style="margin-left:37px; font-size:12px;">
 								<strong>N&Uacute;MERO DO VOUCHER:</strong>
 								<strong style="margin-left:69px;"><?=$compra['voucher']?></strong>
+								<strong style="margin-left:93px;">Validade:<?=dataMysqlParaPtBr($atividade["data"])?></strong>
 							</font>
 						</td>
 					</tr>
@@ -98,7 +97,6 @@
 				<table width="557px" border="0" align="center">
 					<tr>
 						<td>
-							<br/>
 							<p style="color:#808080;" align="justify"><strong>Ponto de Encontro</strong>: <?=$atividade['ponto_encontro']?></p>
 						</td>
 					</tr>
@@ -134,6 +132,5 @@
 			</td>
 		</tr>
 	</table>
-</center>
 	</body>
 </html>
