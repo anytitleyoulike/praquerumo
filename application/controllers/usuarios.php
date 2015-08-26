@@ -60,7 +60,7 @@ class Usuarios extends CI_Controller{
 		$this->email->subject('Teste Verificação');
 
 		foreach ($marcello as $user) {
-			$this->email->to($user->verification_code);
+			$this->email->to($user->email);
 			$this->email->message("Caro, usuário este é seu link de confirmação de email ". base_url('/verifica/'.$user->verification_code));
 			$this->email->send();
 		}
