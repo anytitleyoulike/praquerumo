@@ -46,7 +46,7 @@ class Atividades_model extends CI_Model {
 		$this->db->join("modalidade", "modalidade.id = atividade.modalidade_id");
 		$this->db->join("evento", "evento.atividade_codigo = atividade.codigo");
 		$this->db->join("descricao_atividade", "descricao_atividade.atividade_codigo = atividade.codigo");
-		$this->db->where(array("atividade.disponivel" => TRUE, "atividade.vendivel" => TRUE, "evento.visivel_fim <" => date('Y-m-d H:i:s')));
+		$this->db->where(array("atividade.disponivel" => TRUE, "atividade.vendivel" => FALSE, "evento.visivel_fim <" => date('Y-m-d H:i:s')));
 		$this->db->group_by('atividade.codigo');
 		$this->db->order_by('evento.preco');
 
@@ -59,7 +59,7 @@ class Atividades_model extends CI_Model {
 	 * @return array com eventos
 	 */
 	public function buscarDestaque($limite, $lingua, $sufix) {
-		$this->db->select("atividade.fig_destaque, descricao_atividade.cidade,
+		$this->db->select("atividade.fig_destaque, atividade.slug, descricao_atividade.cidade,
 			evento.preco, evento.inicio, modalidade.nome" . $sufix . " as modalidade");
 		$this->db->select_min('evento.preco');
 		$this->db->from("atividade");
@@ -69,6 +69,7 @@ class Atividades_model extends CI_Model {
 
 		$this->db->group_by("atividade.codigo");
 		$this->db->where("destaque", true);
+		$this->db->where("vendivel", true);
 		$this->db->where("descricao_atividade.lingua_id", $lingua);
 		$this->db->order_by("evento.inicio");
 		$this->db->limit($limite);

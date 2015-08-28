@@ -102,6 +102,7 @@
 																	Quantidade:<span><?=$compra['quantidade']?></span><br/>
 																	Horário: <span><?=$atividade['horario']?></span><br/>
 																	Valor: <span><?=$compra['preco']?></span><br/>
+																	Forma de Pagamento: <span><?=$compra['forma_pagamento']?></span><br/>
 																</font>
 																<div>
 																	<font face="Adobe Garamond Pro, serif"> <p>Em caso de dúvida, não hesite em contatar-nos.</p>

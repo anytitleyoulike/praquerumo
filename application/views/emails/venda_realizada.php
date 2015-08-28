@@ -118,6 +118,7 @@
 																			</tr>
 																		</tbody>
 																	</table>
+																	<span class="bold" style="font-weight: bold;">Forma de Pagamento: </span><?=$compra['forma_pagamento']?><br/>
 																	<div class="box-voucher" style="width: 60%;margin: 20px auto 60px auto;border: 7px solid black;text-align: center;color: black;font-weight: bold;">
 																		<span class="voucher-text" style="font-style: italic;display: block;font-size: 16px;">Voucher</span>
 																		<span class="voucher-number" style="font-size: 14px;"><?=$compra['voucher']?></span>

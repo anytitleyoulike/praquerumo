@@ -54,7 +54,6 @@ $autoload['packages'] = array();
 
 $autoload['libraries'] = array('database', 'session', 'user_agent', 'form_validation');
 
-
 /*
 | -------------------------------------------------------------------
 |  Auto-load Helper Files

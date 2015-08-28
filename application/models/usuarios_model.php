@@ -29,6 +29,14 @@ class Usuarios_model extends CI_Model {
 		}
 	}
 
+	public function buscaDadosCompra($userId) {
+		$this->db->select("usuario.nome, usuario.email, usuario.telefone");
+		$this->db->from('usuario');
+		$this->db->where("id", $userId);
+
+		return $this->db->get()->row_array();
+	}
+
 	public function buscaUsuarioId($email) {
 		$this->db->select("usuario.id");
 		$this->db->where("email", $email);

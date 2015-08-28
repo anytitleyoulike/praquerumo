@@ -4,7 +4,7 @@
 	<link rel="stylesheet" href="<?=base_url("assets/css/jslider.round-blue.css")?>" type="text/css">
 	<!--<link href="<?=base_url("assets/css/evento-box.css")?>" rel="stylesheet" media="screen">-->
 	<link href="<?=base_url("assets/css/loader.css")?>" rel="stylesheet" media="screen">
-
+	<?php require_once("analytics-tracker.php")?>
 	<script type="text/javascript" src="<?=base_url("assets/js/jshashtable-2.1_src.js")?>"></script>
 	<script type="text/javascript" src="<?=base_url("assets/js/jquery.numberformatter-1.2.3.js")?>"></script>
 	<script type="text/javascript" src="<?=base_url("assets/js/tmpl.js")?>"></script>
@@ -62,10 +62,11 @@
 <?php
 $attributes = array('id' => 'payment-form');
 
-echo form_open("agendamento/realizaTransacaoCartao", $attributes);
+echo form_open("agendamento/realizaTransacoesPagamentos", $attributes);
 
 $data = array(
 	'evento_codigo' => $evento['codigo'],
+	'atividade_codigo' => $evento['atividade_codigo'],
 	'preco_raw' => $preco_raw,
 	'quantidade' => $quantidade,
 	'descricao' => $descricao_pgto,
@@ -207,7 +208,7 @@ echo form_error("email");
 					<br/>
 					<!-- Nav tabs -->
 					<ul class="nav navigation-tabs">
-					  <li class="active"><a href="#card" data-toggle="tab">Cartão de Crédito</a></li>
+					  <li class="active"><a href="#card" id="pagCardAba" data-toggle="tab">Cartão de Crédito</a></li>
 					  <li><a href="#bank_slip" id="pagBoleto" data-toggle="tab">Boleto</a></li>
 					</ul>
 
