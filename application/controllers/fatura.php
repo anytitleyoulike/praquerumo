@@ -211,13 +211,13 @@ class Fatura extends CI_Controller {
 	function _sendEmailToClientConfirmacao($to, $data) {
 		//email de confirmacao de pagamento de boleto
 		$subject = "Confirmação de pagamento!";
-		$conteudo = $this->load->view('emails/confirmacaoPagamento', $data, TRUE);
+		$conteudo = $this->load->view('emails/confirmacaoPagamentoBoleto', $data, TRUE);
 		send_email($to, $subject, $conteudo);
 	}
 
 	function _sendEmailToPQRConfirmacao($data) {
 		$subject = "Pagamento realizado!";
-		$conteudo = $this->load->view('emails/confirmacaoPagamento', $data, TRUE);
+		$conteudo = $this->load->view('emails/confirmacaoPagamentoBoleto', $data, TRUE);
 		send_email("comercial@praquerumo.com.br", $subject, $conteudo);
 	}
 
@@ -238,8 +238,8 @@ class Fatura extends CI_Controller {
 		$dados_atividade = array(
 			'titulo' => $evento['titulo'],
 			'ponto_encontro' => $evento['ponto_encontro'],
-			'data' => $evento['data_inicio'],
-			'horario' => $evento['hora_inicio'],
+			'data' => dataMysqlParaPtBr($evento['data_inicio']),
+			'horario' => substr($evento['hora_inicio'], 0, 5),
 		);
 		############dados da compra##################
 		$dados_compra['voucher'] = $fatura_id;
@@ -270,5 +270,4 @@ class Fatura extends CI_Controller {
 
 		return $dados_email;
 	}
-
 }
