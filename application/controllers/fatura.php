@@ -55,13 +55,13 @@ class Fatura extends CI_Controller {
 	}
 
 	public function sendTestFatura(){
-		$url = "http://www.praquerumo.com.br/fatura/mudanca";
+		$url = base_url('fatura/mudanca');
 
 	    $data = array(
 	    	'event' => 'Eventos',
 	    	'data' => array(
 	    		'status' => 'paid',
-	    		'id' => 'B3FF2BAF5E69413EA4AF49896A58795B',
+	    		'id' => '74a31364d5d24be88e055caae2091a4e',
 	    		)
 	    	);
 
@@ -211,13 +211,13 @@ class Fatura extends CI_Controller {
 	function _sendEmailToClientConfirmacao($to, $data) {
 		//email de confirmacao de pagamento de boleto
 		$subject = "Confirmação de pagamento!";
-		$conteudo = $this->load->view('emails/venda_realizada', $data, TRUE);
+		$conteudo = $this->load->view('emails/confirmacaoPagamento', $data, TRUE);
 		send_email($to, $subject, $conteudo);
 	}
 
 	function _sendEmailToPQRConfirmacao($data) {
 		$subject = "Pagamento realizado!";
-		$conteudo = $this->load->view('emails/venda_realizada', $data, TRUE);
+		$conteudo = $this->load->view('emails/confirmacaoPagamento', $data, TRUE);
 		send_email("comercial@praquerumo.com.br", $subject, $conteudo);
 	}
 
