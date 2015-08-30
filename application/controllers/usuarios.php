@@ -44,6 +44,7 @@ class Usuarios extends CI_Controller{
 		$this->load->model("usuarios_model", "usuario");
 
 		$this->load->library('email');
+		$this->load->helper('pqr_email');
 
 				$this->email->initialize(array(
 				'protocol' => 'smtp',
@@ -63,9 +64,31 @@ class Usuarios extends CI_Controller{
 			$this->email->to($user->email);
 			$this->email->message("Caro, usuário este é seu link de confirmação de email ". base_url('/verifica/'.$user->verification_code));
 			$this->email->send();
-		}
 
+			// $subject = "Teste Verificação";
+			// $content = "Caro, usuário este é seu link de confirmação de email ". base_url('/verifica/'.$user->verification_code);
+			// send_email($user->email,$subject, $content);
+			
+		}
 		echo $this->email->print_debugger();
 		
+	}
+
+
+	public function atualizaStatus($codigoVerificacao = NULL){
+
+		$this->load->model('usuarios_model', 'usuario');
+
+		$result = $this->usuario->atualizaStatusConta($codigoVerificacao);
+		
+		if($result) {
+			//criar template pra exibir a mensagem;
+			$data = array("msg" => "Conta Ativada com Sucesso!"); 
+		} else {
+			$data = array("msg" => "Sua conta já está ativada!");
+		}
+
+		echo $data['msg'];
+
 	}
 }
