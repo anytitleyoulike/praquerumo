@@ -215,7 +215,7 @@ pode efetuar o depósito na maioria dos bancos ou através do site de seu banco.
 														</td>
 														<td valign="top">
 															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Valor</strong>: R$ <?=$preco?></p>
-															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Quantidade:</strong>: <?=$compra["quantidade"]?></p>
+															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Quantidade</strong>: <?=$compra["quantidade"]?></p>
 															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Valor Total</strong>: R$ <?=$total?></p>
 														</td>
 													</tr>

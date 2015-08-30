@@ -97,11 +97,17 @@ class Agendamento extends CI_Controller {
 					);
 					/*Fim de dados para email*/
 
+
+					$total = str_replace('.', ',', ($preco*$quantidade));
+					if(substr($preco, strlen($preco)-2, 2) == '00'){
+						$total = $total.",00";
+					}
+
 					$dados_email = array(
 						'atividade' => $dados_atividade,
 						'nome' => $nome,
 						'preco' => str_replace('.', ',', $preco),
-						'total' => str_replace('.', ',', ($preco*$quantidade)),
+						'total' => $total,
 						'url' => $resultado['url'],
 						'compra' => $dados_compra,
 					);
@@ -206,12 +212,17 @@ class Agendamento extends CI_Controller {
 					);
 					/*Fim de dados para email*/
 
+					$total = str_replace('.', ',', ($preco*$quantidade));
+					if(substr($preco, strlen($preco)-2, 2) == '00'){
+						$total = $total.",00";
+					}
+
 					$dados_email = array(
 						'atividade' => $dados_atividade,
 						'usuario' => $dados_usuario,
 						'compra' => $dados_compra,
 						'preco' => str_replace('.', ',', $preco),
-						'total' => str_replace('.', ',', ($preco*$quantidade)),
+						'total' => $total,
 					);
 					//send email de confirmação(com voucher e qrcode)
 					

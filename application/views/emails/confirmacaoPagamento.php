@@ -19,7 +19,7 @@
 						</td>
 						<td>
 							<font style="margin-top:24px; margin-right:54px; color:#0CA86B;">SUA <strong>COMPRA</strong> FOI REALIZADA COM SUCESSO!</font>
-							<font size="2px" style="color:#0CA86B;">Data:<?=substr(dataMysqlParaPtBr($compra['data_compra']),0, 10)?></font>
+							<font size="2px" style="color:#0CA86B;">Validade:<?=dataMysqlParaPtBr($atividade["data"])?></font>
 						</td>
 					</tr>
 				</table>
@@ -38,7 +38,6 @@
 							<font color="#FFF" style="margin-left:37px; font-size:12px;">
 								<strong>N&Uacute;MERO DO VOUCHER:</strong>
 								<strong style="margin-left:69px;"><?=$compra['voucher']?></strong>
-								<strong style="margin-left:93px;">Validade:<?=dataMysqlParaPtBr($atividade["data"])?></strong>
 							</font>
 						</td>
 					</tr>
@@ -82,7 +81,7 @@
 									</td>
 									<td valign="top" style="color:#808080;">
 										<p style="margin-top:15px; margin-left:6px;"><strong>Valor</strong>: R$ <?=$preco?></p>
-										<p style="margin-top:15px; margin-left:6px;"><strong>Quantidade:</strong>: <?=$compra['quantidade']?></p>
+										<p style="margin-top:15px; margin-left:6px;"><strong>Quantidade</strong>: <?=$compra['quantidade']?></p>
 										<p style="margin-top:15px; margin-left:6px;"><strong>Valor Total</strong>: R$ <?=$total?></p>
 									</td>
 								</tr>
