@@ -31,15 +31,4 @@ class Usuarios_model extends CI_Model {
 		return $this->db->get('usuario')->result();
 	}
 
-	public function atualizaStatusConta($codigoVerificacao) {
-		$this->db->set('active', TRUE);
-		$this->db->where('verification_code',$codigoVerificacao);
-		$this->db->update('usuario');
-
-		if($this->db->affected_rows() > 0) {
-			return true;
-		} else{
-			return false;
-		}
-	}
 }
