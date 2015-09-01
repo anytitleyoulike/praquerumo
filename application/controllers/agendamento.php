@@ -226,16 +226,12 @@ class Agendamento extends CI_Controller {
 					);
 					//send email de confirmação(com voucher e qrcode)
 					
-					$this->_sendEmailToClient($email, $dados_email);
+					//$this->_sendEmailToClient($email, $dados_email);
 
 					//pegar email do organizador
 					//$this->_sendEmailToOrganizer();
 
 					//$this->_sendEmailToPQR($dados_email);
-
-					//load page de sucesso no agendamento
-					//$this->load->view("eventos/sucesso");
-					//
 
 					$this->load->template('eventos/sucesso', $dados_email);
 
