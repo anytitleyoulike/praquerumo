@@ -61,7 +61,8 @@ class Newsletter extends CI_Controller {
 		$this->email->subject('Teste Verificação');
 
 		$this->email->to($email);
-		$this->email->message("Caro, usuário este é seu link de confirmação de email ". base_url('/verifica/'.$user->codigo_verificacao));
+		$this->email->message("Caro usuário este é seu link de confirmação de email ". base_url('/verifica/'.$user->codigo_verificacao . "\n
+			Clique no link para obter acesso ao nosso E-BOOK\nObrigado!\n Equipe PraQueRumo"));
 		$this->email->send();
 		
 	}
@@ -90,7 +91,7 @@ class Newsletter extends CI_Controller {
 			$data = array("msg" => "Sua conta já está ativada!");
 		}
 
-		echo $data['msg'];
+		$this->load->template('newsletter/confirmacao', $data);
 
 	}
 
