@@ -34,12 +34,17 @@ class Newsletter extends CI_Controller {
 		}
 	}
 
+	public function oi() {
+		$data = array("msg" => "blablabla", "status" => true);
+		$this->load->template("newsletter/confirmacao",$data);
+	}
+
 	public function addEmail() {
 		
 		if($this->input->server("REQUEST_METHOD") == "POST") {
 			$this->load->model("newsletter_model",'newsletter');
 			$this->form_validation->set_rules('inputEmail', 'e-mail', 'trim|required|valid_email|callback_ja_cadastrado');
-
+			$this->form_validation->set_error_delimiters("<p class='alert alert-danger' style='width:42%; margin-left:30%'>", "</p>");
 			$sucesso = $this->form_validation->run();
 
 			if ($sucesso) {
@@ -79,8 +84,6 @@ class Newsletter extends CI_Controller {
 				'crlf' => "\r\n",
 				'newline' => "\r\n"
 			));
-
-
 		
 		$user = $this->newsletter->buscaEmail($email);
 

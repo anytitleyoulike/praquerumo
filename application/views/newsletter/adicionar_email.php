@@ -1,17 +1,29 @@
 <html>
 	<head>
+		<title>Newsletter</title>
 		<meta charset="UTF-8">
 		<?= $nav_bar?>
 	</head>
 	<body>
-		<form method="post" style="width: 60%;margin-top: 5%; margin-left:20%"  action="/praquerumo/newsletter/addemail">
-		<h2>Assine nossa Newsletter</h2>
-			<?php echo validation_errors();?>
-			<div class="form-group">
-    			<label for="exampleInputEmail1">Email</label>
-    			<input type="email" class="form-control" name="inputEmail" placeholder="Email">
-  			</div>
-  			<button type="button" style="margin-left: 45%"class="btn btn-success btn-lg">Enviar!</button>
-		</form>
-	</body>
+		<div class="container" style="margin-top:5%">
+	<div class="row">
+        <div class="span12">
+    		<div class="thumbnail center well well-small text-center">
+                <h2>Newsletter</h2>
+                
+                <p>Assine nossa newsletter para ter acesso ao nosso ebook!</p>
+                
+                <form action="/praquerumo/newsletter/addemail" method="post">
+                	<?php echo validation_errors();?>
+                    <div class="input-prepend"><span class="add-on"><i class="icon-envelope"></i></span>
+                        <input type="text" id="" name="inputEmail" placeholder="seu@email.com">
+                    </div>
+                    <br />
+                    <input type="submit" value="Assine agora!" class="btn btn-success btn-large" />
+              </form>
+            </div>    
+        </div>
+	</div>
+</div>
+
 </html>
