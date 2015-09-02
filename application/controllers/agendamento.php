@@ -86,15 +86,30 @@ class Agendamento extends CI_Controller {
 					//gerar voucher
 					//gerar qrcode
 
-					$dados_email = array(
-						//'evento' => $evento,
-						'nome' => $nome,
-						'url' => $resultado['url'],
+					/*Inicio de dados para email*/
+					$dados_atividade = $this->_dadosAtividade($evento);
+					$dados_compra = array(
+						'data_compra' => datetime_now(),
+						'quantidade' => $quantidade,
+						//'preco' => $preco_confirmacao,
+						'voucher' => $invoice_id,
 						'forma_pagamento' => $forma_pagamento,
-						//'voucher' => $invoice_id,
-						//'quantidade' => $quantidade,
-						//'preco' => $preco_formatado,
-						//'data_horario' => $data_horario,
+					);
+					/*Fim de dados para email*/
+
+
+					$total = str_replace('.', ',', ($preco*$quantidade));
+					if(substr($preco, strlen($preco)-2, 2) == '00'){
+						$total = $total.",00";
+					}
+
+					$dados_email = array(
+						'atividade' => $dados_atividade,
+						'nome' => $nome,
+						'preco' => str_replace('.', ',', $preco),
+						'total' => $total,
+						'url' => $resultado['url'],
+						'compra' => $dados_compra,
 					);
 
 					//send email de confirmação(com voucher e qrcode)
@@ -197,23 +212,26 @@ class Agendamento extends CI_Controller {
 					);
 					/*Fim de dados para email*/
 
+					$total = str_replace('.', ',', ($preco*$quantidade));
+					if(substr($preco, strlen($preco)-2, 2) == '00'){
+						$total = $total.",00";
+					}
+
 					$dados_email = array(
 						'atividade' => $dados_atividade,
 						'usuario' => $dados_usuario,
 						'compra' => $dados_compra,
+						'preco' => str_replace('.', ',', $preco),
+						'total' => $total,
 					);
 					//send email de confirmação(com voucher e qrcode)
 					
-					$this->_sendEmailToClient($email, $dados_email);
+					//$this->_sendEmailToClient($email, $dados_email);
 
 					//pegar email do organizador
 					//$this->_sendEmailToOrganizer();
 
 					//$this->_sendEmailToPQR($dados_email);
-
-					//load page de sucesso no agendamento
-					//$this->load->view("eventos/sucesso");
-					//
 
 					$this->load->template('eventos/sucesso', $dados_email);
 
@@ -235,7 +253,7 @@ class Agendamento extends CI_Controller {
 
 	function _sendEmailToClient($to, $data) {
 		$subject = "Confirmação de pagamento!";
-		$conteudo = $this->load->view('emails/venda_realizada', $data, TRUE);
+		$conteudo = $this->load->view('emails/confirmacaoPagamento', $data, TRUE);
 		send_email($to, $subject, $conteudo);
 	}
 
