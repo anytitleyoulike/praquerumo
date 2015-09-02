@@ -7,7 +7,7 @@ function dataPtBrParaMysql($dataPtBr) {
 
 function dataMysqlParaPtBr($dataMysql) {
 	$data = new DateTime($dataMysql);
-	return $data->format("d/m");
+	return $data->format("d/m/Y");
 }
 
 function getDayData($dataMysql) {
