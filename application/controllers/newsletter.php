@@ -87,22 +87,27 @@ class Newsletter extends CI_Controller {
 		
 		$user = $this->newsletter->buscaEmail($email);
 
-		$this->email->from('suporte@praquerumo.com', 'Suporte PQR');
+		$this->email->from('contato@praquerumo.com', 'Contato PQR');
 		$this->email->subject('Confirmação de Email');
 
 		$this->email->to($email);
 		$this->email->message("Caro usuário este é seu link de confirmação de email ". base_url('/verifica/'.$user->codigo_verificacao . "\n
 			Clique para obter acesso ao nosso E-BOOK\nObrigado!\n Equipe PraQueRumo"));
-		$this->email->send();
+		return $this->email->send();
 		
 	}
 
 	public function disparaEmail() {
 		$this->db->where("ativo", 0);
-		$result = $this->db->get('newsletter')->result();
+		$query = $this->db->get('newsletter')->result();
 
-		foreach ($result as $users) {
-			$this->_enviaEmailVerificacao($users->email);
+		foreach ($query as $users) {
+			$result = $this->_enviaEmailVerificacao($users->email);
+			if($result > 0) {
+				print_r("email enviado para: " . $users->email."\n");
+			} else {
+				print_r("falha no envio: " . $users->email."\n");
+			}
 		}
 	}
 
@@ -122,11 +127,11 @@ class Newsletter extends CI_Controller {
 				$this->db->set('ativo', FALSE);
 				$this->db->where('id', $users->id);
 				$this->db->update('newsletter');
-				$this->_enviaEmailVerificacao($users->email);
-				echo "codigo gerado para o email: " . $users->email."\n";
+				// $this->_enviaEmailVerificacao($users->email);
+				print_r("codigo gerado para o email: " . $users->email."\n");
 
 			} else {
-				echo "codigo já existente para o email: " . $users->email . "\n";
+				print("codigo já existente para o email: " . $users->email . "\n");
 			}
 		}
 
