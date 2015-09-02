@@ -35,11 +35,38 @@ class Newsletter extends CI_Controller {
 	}
 
 	public function addEmail() {
-		$this->load->template("newsletter/adicionar_email");
+		
+		if($this->input->server("REQUEST_METHOD") == "POST") {
+			$this->load->model("newsletter_model",'newsletter');
+			$this->form_validation->set_rules('inputEmail', 'e-mail', 'trim|required|valid_email|callback_ja_cadastrado');
+
+			$sucesso = $this->form_validation->run();
+
+			if ($sucesso) {
+				$email = $this->input->post('inputEmail');
+				
+				$dados = array(
+					'email' 			 => $email,
+					'codigo_verificacao' => md5(uniqid($email . rand())),
+					'ativo'              => false
+				);
+				
+				$this->newsletter->salvar($dados);
+
+				$this->_enviaEmailVerificacao($email);
+
+				$this->load->template('newsletter/obrigado');
+
+			} else {
+				$this->load->template("newsletter/adicionar_email");	
+			}
+		} else {
+			$this->load->template("newsletter/adicionar_email");
+		}
 	}
 
 	public function _enviaEmailVerificacao($email) {
-		$this->load->helper('pqr_email');
+
 		$this->load->model("newsletter_model",'newsletter');
 		$this->load->library('email');
 
@@ -58,13 +85,48 @@ class Newsletter extends CI_Controller {
 		$user = $this->newsletter->buscaEmail($email);
 
 		$this->email->from('suporte@praquerumo.com', 'Suporte PQR');
-		$this->email->subject('Teste Verificação');
+		$this->email->subject('Confirmação de Email');
 
 		$this->email->to($email);
 		$this->email->message("Caro usuário este é seu link de confirmação de email ". base_url('/verifica/'.$user->codigo_verificacao . "\n
-			Clique no link para obter acesso ao nosso E-BOOK\nObrigado!\n Equipe PraQueRumo"));
+			Clique para obter acesso ao nosso E-BOOK\nObrigado!\n Equipe PraQueRumo"));
 		$this->email->send();
 		
+	}
+
+	public function disparaEmail() {
+		$this->db->where("ativo", 0);
+		$result = $this->db->get('newsletter')->result();
+
+		foreach ($result as $users) {
+			$this->_enviaEmailVerificacao($users->email);
+		}
+	}
+
+	public function geradorCodigo() {
+
+		$this->load->model("newsletter_model", "newsletter");
+
+		$result = $this->newsletter->getAllUsers();
+
+		foreach ($result as $users) {
+			
+			if($users->ativo == "" && empty($users->codigo_verificacao)){
+
+				$codigo = md5(uniqid($users->email . rand()));
+				
+				$this->db->set('codigo_verificacao', $codigo);
+				$this->db->set('ativo', FALSE);
+				$this->db->where('id', $users->id);
+				$this->db->update('newsletter');
+				$this->_enviaEmailVerificacao($users->email);
+				echo "codigo gerado para o email: " . $users->email."\n";
+
+			} else {
+				echo "codigo já existente para o email: " . $users->email . "\n";
+			}
+		}
+
 	}
 
 	public function ja_cadastrado($email) {
@@ -86,9 +148,11 @@ class Newsletter extends CI_Controller {
 		
 		if($result) {
 			//criar template pra exibir a mensagem;
-			$data = array("msg" => "Conta Ativada com Sucesso!"); 
+			$data = array("msg" => "Conta Ativada com Sucesso!",
+						  "status" => false); 
 		} else {
-			$data = array("msg" => "Sua conta já está ativada!");
+			$data = array("msg" => "Sua conta já está ativada!",
+						  "status" => true);
 		}
 
 		$this->load->template('newsletter/confirmacao', $data);
