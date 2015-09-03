@@ -7,38 +7,162 @@ class Newsletter extends CI_Controller {
 
 	public function novo() {
 
-		$this->load->library("form_validation");
-		$this->load->model("newsletter_model");
-		$this->form_validation->set_rules('newsletter', 'e-mail', 'trim|required|valid_email|callback_ja_cadastrado');
+		$this->load->model("newsletter_model",'newsletter');
+		$this->form_validation->set_rules('inputEmail', 'e-mail', 'trim|required|valid_email|callback_ja_cadastrado');
 
 		$sucesso = $this->form_validation->run();
 
 		if ($sucesso) {
-			$email = array('email' => $this->input->post('newsletter'));
-			$this->newsletter_model->salvar($email);
+			
+			$email = $this->input->post('inputEmail');
+			
+			$dados = array(
+				'email' 			 => $email,
+				'codigo_verificacao' => md5(uniqid($email . rand())),
+				'ativo'              => false
+			);
+			
+			$this->newsletter->salvar($dados);
+
+			$this->_enviaEmailVerificacao($email);
+
 			$this->load->template('newsletter/obrigado');
 
-			//$this->session->set_flashdata("success", "Novo Produto Cadastrado com sucesso!");
-			//redirect('/');
 		} else {
-			$this->load->model("eventos_model");
-			$eventos = $this->eventos_model->buscarEventos(6);
-			$eventos_destaque = $this->eventos_model->buscarEventosDestaque(4);
-			$data = array("eventos" => $eventos, "destaques" => $eventos_destaque);
 
-			//redirect(base_url());
-			$this->load->template("eventos/index", $data);
+			$this->load->template("newsletter/adicionar_email");
 		}
+	}
+
+	public function oi(){
+		$data = array("status" => false, "msg" => "sua conta já está ativada!");
+		$this->load->template("newsletter/confirmacao",$data);
+	}
+
+	public function addEmail() {
+		if($this->input->server("REQUEST_METHOD") == "POST") {
+			$this->load->model("newsletter_model",'newsletter');
+			$this->form_validation->set_rules('inputEmail', 'e-mail', 'trim|required|valid_email|callback_ja_cadastrado');
+			$this->form_validation->set_error_delimiters("<p class='alert alert-danger' style='width:42%; margin-left:30%'>", "</p>");
+			$sucesso = $this->form_validation->run();
+
+			if ($sucesso) {
+				$email = $this->input->post('inputEmail');
+				
+				$dados = array(
+					'email' 			 => $email,
+					'codigo_verificacao' => md5(uniqid($email . rand())),
+					'ativo'              => false
+				);
+				
+				$this->newsletter->salvar($dados);
+
+				$this->_enviaEmailVerificacao($email);
+
+				$this->load->template('newsletter/obrigado');
+
+			} else {
+				$this->load->view("newsletter/adicionar_email");	
+			}
+		} else {
+			$this->load->view("newsletter/adicionar_email");
+		}
+	}
+
+	public function _enviaEmailVerificacao($email) {
+
+		$this->load->model("newsletter_model",'newsletter');
+		$this->load->library('email');
+
+				$this->email->initialize(array(
+				'protocol' => 'smtp',
+				'smtp_host' => 'smtp.sendgrid.net',
+				'smtp_user' => 'praquerumo',
+				'smtp_pass' => '@tt171423',
+				'smtp_port' => 587,
+				'crlf' => "\r\n",
+				'newline' => "\r\n"
+			));
+		
+		$user = $this->newsletter->buscaEmail($email);
+
+		$this->email->from('suporte@praquerumo.com', 'Contato PQR');
+		$this->email->subject('Confirmação de Email');
+
+		$this->email->to($email);
+		$this->email->message("Caro usuário este é seu link de confirmação de email ". base_url('/verifica/'.$user->codigo_verificacao . "\n
+			Clique para ativar sua conta e obter acesso ao nosso E-BOOK\nObrigado!\n Equipe PraQueRumo"));
+		return $this->email->send();
+		
+	}
+
+	public function disparaEmail() {
+		$this->db->where("ativo", 0);
+		$query = $this->db->get('newsletter')->result();
+
+		foreach ($query as $users) {
+			$result = $this->_enviaEmailVerificacao($users->email);
+			if($result > 0) {
+				print_r("email enviado para: " . $users->email."\n");
+			} else {
+				print_r("falha no envio: " . $users->email."\n");
+			}
+		}
+	}
+
+	public function geradorCodigo() {
+
+		$this->load->model("newsletter_model", "newsletter");
+
+		$result = $this->newsletter->getAllUsers();
+
+		foreach ($result as $users) {
+			
+			if($users->ativo == "" && empty($users->codigo_verificacao)){
+
+				$codigo = md5(uniqid($users->email . rand()));
+				
+				$this->db->set('codigo_verificacao', $codigo);
+				$this->db->set('ativo', FALSE);
+				$this->db->where('id', $users->id);
+				$this->db->update('newsletter');
+				// $this->_enviaEmailVerificacao($users->email);
+				print_r("codigo gerado para o email: " . $users->email."\n");
+
+			} else {
+				print("codigo já existente para o email: " . $users->email . "\n");
+			}
+		}
+
 	}
 
 	public function ja_cadastrado($email) {
 
-		if ($this->newsletter_model->estaSalvo($email)) {
+		if ($this->newsletter->estaSalvo($email)) {
 			$this->form_validation->set_message("ja_cadastrado", "O email {$email} já está cadastrado!");
 			return FALSE;
 		} else {
 			return TRUE;
 		}
+
+	}
+
+	public function atualizaStatus($codigoVerificacao = NULL){
+
+		$this->load->model('newsletter_model', 'newsletter');
+
+		$result = $this->newsletter->atualizaStatusConta($codigoVerificacao);
+		
+		if($result) {
+			//criar template pra exibir a mensagem;
+			$data = array("msg" => "Conta Ativada com Sucesso!",
+						  "status" => false); 
+		} else {
+			$data = array("msg" => "Sua conta já está ativada!",
+						  "status" => true);
+		}
+
+		$this->load->template('newsletter/confirmacao', $data);
 
 	}
 
