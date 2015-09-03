@@ -15,7 +15,7 @@
 		<div class="container" style="margin-top:18%">
             <div class="row">
                 <div class="span12">
-            		<div class="center text-center" style="position: absolute; margin-left:16%">
+            		<div class="center text-center" style="position: absolute; margin-left:14%">
                         <p style="color: #fff; font-size: x-large">Cadastre seu email para receber o link de acesso</p>
                         
                         <?php echo form_open('newsletter/addemail')?>

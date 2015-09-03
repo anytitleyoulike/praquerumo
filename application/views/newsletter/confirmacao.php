@@ -13,10 +13,15 @@
                     ×</button>
                <span class="glyphicon glyphicon-ok"></span> <strong>Sucesso!</strong>
                 <hr class="message-inner-separator">
-                <p> <?= $msg ?></p>
+                Olá,
                 <br>
+                <p> Para ter acesso ao e-book basta clicar no link:</p>
+                <br>
+
                 <div class="well"><span class="glyphicon glyphicon-hand-right"></span>
-                    <a href="https://goo.gl/ZDQfqM">Clique para ter acesso ao seu e-book</a> 
+                    <a href="https://goo.gl/ZDQfqM"> Ebook PQR</a>
+                </br>
+                    Equipe Pra Que Rumo
                 </div>
             </div>
             <?php } else { ?>
@@ -25,10 +30,15 @@
                     ×</button>
                <span class="glyphicon glyphicon-ok"></span> <strong>Sucesso!</strong>
                 <hr class="message-inner-separator">
-                <p> <?= $msg ?></p>
+                 Olá,
                 <br>
+                <p> Para ter acesso ao e-book basta clicar no link:</p>
+                <br>
+
                 <div class="well"><span class="glyphicon glyphicon-hand-right"></span>
-                    <a href="https://goo.gl/ZDQfqM">Clique para ter acesso ao seu e-book</a> 
+                    <a href="https://goo.gl/ZDQfqM"> Ebook PQR</a>
+                </br>
+                    Equipe Pra Que Rumo
                 </div>
             </div>
 
