@@ -34,11 +34,6 @@ class Newsletter extends CI_Controller {
 		}
 	}
 
-	public function oi(){
-		$data = array("status" => false, "msg" => "sua conta já está ativada!");
-		$this->load->template("newsletter/confirmacao",$data);
-	}
-
 	public function addEmail() {
 		if($this->input->server("REQUEST_METHOD") == "POST") {
 			$this->load->model("newsletter_model",'newsletter');
@@ -59,7 +54,7 @@ class Newsletter extends CI_Controller {
 
 				$this->_enviaEmailVerificacao($email);
 
-				$this->load->template('newsletter/obrigado');
+				$this->load->template('newsletter/obrigado_ebook');
 
 			} else {
 				$this->load->view("newsletter/adicionar_email");	
