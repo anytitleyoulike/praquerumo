@@ -34,13 +34,7 @@ class Newsletter extends CI_Controller {
 		}
 	}
 
-	public function oi() {
-		$data = array("msg" => "blablabla", "status" => true);
-		$this->load->template("newsletter/confirmacao",$data);
-	}
-
 	public function addEmail() {
-		
 		if($this->input->server("REQUEST_METHOD") == "POST") {
 			$this->load->model("newsletter_model",'newsletter');
 			$this->form_validation->set_rules('inputEmail', 'e-mail', 'trim|required|valid_email|callback_ja_cadastrado');
@@ -87,12 +81,12 @@ class Newsletter extends CI_Controller {
 		
 		$user = $this->newsletter->buscaEmail($email);
 
-		$this->email->from('contato@praquerumo.com', 'Contato PQR');
+		$this->email->from('suporte@praquerumo.com', 'Contato PQR');
 		$this->email->subject('Confirmação de Email');
 
 		$this->email->to($email);
 		$this->email->message("Caro usuário este é seu link de confirmação de email ". base_url('/verifica/'.$user->codigo_verificacao . "\n
-			Clique para obter acesso ao nosso E-BOOK\nObrigado!\n Equipe PraQueRumo"));
+			Clique para ativar sua conta e obter acesso ao nosso E-BOOK\nObrigado!\n Equipe PraQueRumo"));
 		return $this->email->send();
 		
 	}

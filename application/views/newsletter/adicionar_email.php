@@ -13,8 +13,8 @@
                 
                 <p>Assine nossa newsletter para ter acesso ao nosso ebook!</p>
                 
-                <form action="/praquerumo/newsletter/addemail" method="post">
-                	<?php echo validation_errors();?>
+                <?php echo form_open('newsletter/addemail')?>
+                    	<?php echo validation_errors();?>
                     <div class="input-prepend"><span class="add-on"><i class="icon-envelope"></i></span>
                         <input type="text" id="" name="inputEmail" placeholder="seu@email.com">
                     </div>
