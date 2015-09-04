@@ -98,6 +98,25 @@
 				<table width="557px" border="0" align="center">
 					<tr>
 						<td>
+							<table width='100%' border='0'>
+								<tr>
+									<td colspan='2' align='center'><font style='margin-top:12px; color:#808080;'>DADOS DO CLIENTE</font></td>
+								</tr>
+								<tr>
+									<td width='50%'><font style='margin-left:37px; color:#808080;'><strong>Nome</strong>: <?=$usuario['nome']?></font></td>
+									<td align='center'><font style='color:#808080;'><strong>Tel</strong>: <?=$usuario['telefone']?></font>:</td>
+								</tr>
+								<tr>
+									<td colspan='2' width='50%'><font style='margin-left:37px; color:#808080;'><strong>E-mail</strong>: <?=$usuario['email']?></font></td>
+								</tr>
+								<tr>
+									<td colspan='2'><hr/></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td>
 							<br/>
 							<p style="color:#808080;" align="justify"><strong>Ponto de Encontro</strong>: <?=$atividade['ponto_encontro']?></p>
 						</td>

@@ -82,7 +82,7 @@
 									<td valign="top" style="color:#808080;">
 										<p style="margin-top:15px; margin-left:6px;"><strong>Valor</strong>: <?=$compra['preco']?></p>
 										<p style="margin-top:15px; margin-left:6px;"><strong>Quantidade</strong>: <?=$compra['quantidade']?></p>
-										<p style="margin-top:15px; margin-left:6px;"><strong>Valor Total</strong>:<?=$compra['total']?></p>
+										<p style="margin-top:15px; margin-left:6px;"><strong>Valor Total</strong>: <?=$compra['total']?></p>
 									</td>
 								</tr>
 							</table>
@@ -94,6 +94,25 @@
 		<tr>
 			<td colspan="2">
 				<table width="557px" border="0" align="center">
+					<tr>
+						<td>
+							<table width='100%' border='0'>
+								<tr>
+									<td colspan='2' align='center'><font style='margin-top:12px; color:#808080;'>DADOS DO CLIENTE</font></td>
+								</tr>
+								<tr>
+									<td width='50%'><font style='margin-left:37px; color:#808080;'><strong>Nome</strong>: <?=$usuario['nome']?></font></td>
+									<td align='center'><font style='color:#808080;'><strong>Tel</strong>: <?=$usuario['telefone']?></font>:</td>
+								</tr>
+								<tr>
+									<td colspan='2' width='50%'><font style='margin-left:37px; color:#808080;'><strong>E-mail</strong>: <?=$usuario['email']?></font></td>
+								</tr>
+								<tr>
+									<td colspan='2'><hr/></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
 					<tr>
 						<td>
 							<p style="color:#808080;" align="justify"><strong>Ponto de Encontro</strong>: <?=$atividade['ponto_encontro']?></p>
