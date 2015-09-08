@@ -162,7 +162,7 @@ pode efetuar o depósito na maioria dos bancos ou através do site de seu banco.
 					<tr>
 						<td align="justify">
 							<p style="margin-top:12px; color:#808080; font-size:12px; margin-left:37px;">
-								Olá <?=$nome?>, <br/>
+								Olá,<br/>
 								Tomamos conhecimento do seu pedido via <strong>BOLETO BANCÁRIO</strong> e estamos felizes pelo seu interesse em nossas atividades!
 							</p>
 						</td>
@@ -227,9 +227,9 @@ pode efetuar o depósito na maioria dos bancos ou através do site de seu banco.
 							</tr>
 						</td>
 					</tr>
-					<tr>
-						<td>
-							<p>&nbsp;</p>
+					<tr height='42px'>
+						<td height='42px'>
+							&nbsp;
 						</td>
 					</tr>
 				</table>
