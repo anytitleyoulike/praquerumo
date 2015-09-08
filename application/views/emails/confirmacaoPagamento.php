@@ -102,7 +102,7 @@
 								</tr>
 								<tr>
 									<td width='50%'><font style='margin-left:37px; color:#808080;'><strong>Nome</strong>: <?=$usuario['nome']?></font></td>
-									<td align='center'><font style='color:#808080;'><strong>Tel</strong>: <?=$usuario['telefone']?></font>:</td>
+									<td align='center'><font style='color:#808080;'><strong>Tel</strong>: <?=$usuario['telefone']?></font></td>
 								</tr>
 								<tr>
 									<td colspan='2'><hr/></td>

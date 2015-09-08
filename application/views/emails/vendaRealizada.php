@@ -105,6 +105,9 @@
 									<td align="center"><font style="color:#808080;"><strong>Tel</strong>: <?=$usuario["telefone"]?></font></td>
 								</tr>
 								<tr>
+									<td colspan="3" width="50%"><font style="margin-left:37px; color:#808080;"><strong>E-mail</strong>: <?=$usuario["email"]?></font></td>
+								</tr>
+								<tr>
 									<td colspan="3"><hr/></td>
 								</tr>
 								<tr>
