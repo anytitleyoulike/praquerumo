@@ -19,4 +19,16 @@ class Usuarios_model extends CI_Model {
 
 		return $this->db->get('usuario')->row_array();
 	}
+
+	public function getAllUsers() {
+		return $this->db->get('usuario')->result();
+	}
+
+	public function buscaCodigoVerificacao($id) {
+		$this->db->select("usuario.nome, usuario.email, usuario.telefone, usuario.verification_code");
+		$this->db->where("id", $id);
+
+		return $this->db->get('usuario')->result();
+	}
+
 }
