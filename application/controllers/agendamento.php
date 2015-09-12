@@ -106,6 +106,8 @@ class Agendamento extends CI_Controller {
 					$dados_email = array(
 						'atividade' => $dados_atividade,
 						'nome' => $nome,
+						'celular' => $celular,
+						'email' => $email,
 						'preco' => str_replace('.', ',', $preco),
 						'total' => $total,
 						'url' => $resultado['url'],
