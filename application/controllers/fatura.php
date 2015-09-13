@@ -217,7 +217,7 @@ class Fatura extends CI_Controller {
 
 	function _sendEmailToPQRConfirmacao($data) {
 		$subject = "Pagamento realizado!";
-		$conteudo = $this->load->view('emails/confirmacaoPagamentoBoleto', $data, TRUE);
+		$conteudo = $this->load->view('emails/vendaRealizada', $data, TRUE);
 		send_email("comercial@praquerumo.com.br", $subject, $conteudo);
 	}
 
