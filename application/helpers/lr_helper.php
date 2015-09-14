@@ -15,7 +15,7 @@ function getMessageErrorByLR($lr) {
 			$message = "Saldo Insuficiente!";
 			break;
 		default:
-			$message = "Transação não efetuada, tente novamente ou entre em contato com o suporte técnico";
+			$message = "Transação não efetuada, tente novamente ou entre em contato com o suporte técnico: <a href='mailto:suporte@praquerumo.com.br'>suporte@praquerumo.com.br</a>";
 			break;
 	}
 
