@@ -348,21 +348,39 @@ echo form_input(array(
 								<div class="margtop15"><span class="dark"> Nome no cartão:</span><span class="red">*</span></div>
 							</div>
 							<div class="col-md-4">
-<?php
-echo form_input(array(
-	"name" => "nome_cartao",
-	"id" => "nome_cartao",
-	"data-iugu" => "full_name",
-	"class" => "form-control margtop10",
-	"maxlength" => "255",
-))
-?>
-</div>
+								<?php
+								echo form_input(array(
+									"name" => "nome_cartao",
+									"id" => "nome_cartao",
+									"data-iugu" => "full_name",
+									"class" => "form-control margtop10",
+									"maxlength" => "255",
+								))
+								?>
+							</div>
 							<div class="col-md-4 textleft margtop15">(como aparece no cartão)
 							</div>
 							<div class="clearfix"></div>
 
 					  </div>
+		<div class="col-md-4 textright">
+			<div class="margtop15"><span class="dark"> Parcelas:</span><span class="red">*</span></div>
+		</div>
+		
+		<div class="col-md-4 margtop15">
+				<select id="parcelas" class="form-control mySelectBoxClass">
+				<?php 
+					if($preco_total > 60 && $preco_total < 100) { 
+						for($i=1; $i <=2;$i++) { ?>
+							<option value="<?=$i?>"><?=$i?>x <?=numeroEmReais($parcelas[$i])?> </option>
+				<?php 	}
+					} else if($preco_total >= 100) {
+						for($i=1; $i <=4 ;$i++) { ?>
+						<option value="<?=$i?>"><?=$i?>x <?=numeroEmReais($parcelas[$i])?> </option>
+					<?php }
+					} ?>
+				</select>
+		</div>
 					  <!-- End of Tab 1 -->
 
 					  <!-- Tab 2 -->
