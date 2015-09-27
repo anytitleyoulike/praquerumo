@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<?php require_once("analytics-tracker.php");?>
 		<title>Pagamento Realizado!</title>
 		<!--<link rel="stylesheet" type="text/css" href="cjs/style.css"/>-->
 	</head>
