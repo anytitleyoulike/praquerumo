@@ -4,7 +4,7 @@
 
 class Atividades extends CI_Controller {
 
-	public function index() {
+	public function index($estado = "") {
 		//$this->output->enable_profiler(TRUE);
 		$this->load->helper('check_language');
 		$this->load->helper('check_state');
@@ -14,28 +14,55 @@ class Atividades extends CI_Controller {
 		$this->load->model("eventos_model");
 		$this->load->model("avaliacao_model");
 
-		$estado = get_state();
+
 		$lingua = get_language();
 		$fotos_destaque = getDestaques();
 
-		$atividades = $this->atividades_model->buscarAtividades(21, $lingua['id'], $lingua['sufix']);
+		if($estado == null || $estado == "") {
 
-		/*Atividade sem data*/
-		$atividadesSemData = $this->atividades_model->buscarAtividadesSemData(21, $lingua['id'], $lingua['sufix']);
+			$atividades = $this->atividades_model->buscarAtividades(21, $lingua['id'], $lingua['sufix']);
 
-		foreach ($atividadesSemData as &$atividadeSemDate) {
-			$atividadeSemDate['avaliacao'] = $this->avaliacao_model->buscarAvaliacao($atividadeSemDate['codigo']);
-			$atividadeSemDate['recomendacao'] = $this->avaliacao_model->buscarRecomendacao($atividadeSemDate['codigo']);
-			$atividadeSemDate['eventos'] = $this->eventos_model->buscarDatasEventos(2, $atividadeSemDate['codigo']);
-		}
-		/*Atividde sem data*/
+			/*Atividade sem data*/
+			$atividadesSemData = $this->atividades_model->buscarAtividadesSemData(21, $lingua['id'], $lingua['sufix']);
 
-		$atividades_destaque = $this->atividades_model->buscarDestaque(3, $lingua['id'], $lingua['sufix']);
+			foreach ($atividadesSemData as &$atividadeSemDate) {
+				$atividadeSemDate['avaliacao'] = $this->avaliacao_model->buscarAvaliacao($atividadeSemDate['codigo']);
+				$atividadeSemDate['recomendacao'] = $this->avaliacao_model->buscarRecomendacao($atividadeSemDate['codigo']);
+				$atividadeSemDate['eventos'] = $this->eventos_model->buscarDatasEventos(2, $atividadeSemDate['codigo']);
+			}
+			/*Atividde sem data*/
 
-		foreach ($atividades as &$atividade) {
-			$atividade['avaliacao'] = $this->avaliacao_model->buscarAvaliacao($atividade['codigo']);
-			$atividade['recomendacao'] = $this->avaliacao_model->buscarRecomendacao($atividade['codigo']);
-			$atividade['eventos'] = $this->eventos_model->buscarDatasEventos(2, $atividade['codigo']);
+			$atividades_destaque = $this->atividades_model->buscarDestaque(3, $lingua['id'], $lingua['sufix']);
+
+			foreach ($atividades as &$atividade) {
+				$atividade['avaliacao'] = $this->avaliacao_model->buscarAvaliacao($atividade['codigo']);
+				$atividade['recomendacao'] = $this->avaliacao_model->buscarRecomendacao($atividade['codigo']);
+				$atividade['eventos'] = $this->eventos_model->buscarDatasEventos(2, $atividade['codigo']);
+			}
+			$estado = "Todos os Estados";
+		} else {
+
+			$atividades = $this->atividades_model->buscarAtividadesPorEstado($estado);
+
+			/*Atividade sem data*/
+			$atividadesSemData = $this->atividades_model->buscarPorEstadoSemData($estado);
+
+			foreach ($atividadesSemData as &$atividadeSemDate) {
+				$atividadeSemDate['avaliacao'] = $this->avaliacao_model->buscarAvaliacao($atividadeSemDate['codigo']);
+				$atividadeSemDate['recomendacao'] = $this->avaliacao_model->buscarRecomendacao($atividadeSemDate['codigo']);
+				$atividadeSemDate['eventos'] = $this->eventos_model->buscarDatasEventos(2, $atividadeSemDate['codigo']);
+			}
+			/*Atividde sem data*/
+
+			$atividades_destaque = $this->atividades_model->buscarDestaque(3, $lingua['id'], $lingua['sufix']);
+
+			foreach ($atividades as &$atividade) {
+				$atividade['avaliacao'] = $this->avaliacao_model->buscarAvaliacao($atividade['codigo']);
+				$atividade['recomendacao'] = $this->avaliacao_model->buscarRecomendacao($atividade['codigo']);
+				$atividade['eventos'] = $this->eventos_model->buscarDatasEventos(2, $atividade['codigo']);
+			}
+			$estado = ucfirst($estado);
+
 		}
 
 		if(date("H:i:s" == "00:00:00")){
