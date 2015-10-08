@@ -8,7 +8,7 @@
 	<link href="<?=base_url("assets/css/evento-box.css")?>" rel="stylesheet" media="screen">
 	<!-- Carousel -->
 	<link href="<?=base_url("assets/css/carousel.css")?>" rel="stylesheet">
-	<?php require_once("analytics-tracker.php") ?>
+	<?php require_once("analytics-tracker.php"); ?>
 
     <style type="text/css">
     	.price{
