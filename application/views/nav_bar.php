@@ -22,13 +22,9 @@ if (isset($estado)) {?>
 								<a data-toggle="dropdown" class="dropdown-toggle" href="#"><?=$estado?><b class="lightcaret mt-2"></b></a>
 								<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
 								  <li class="dropdown-header"># Estados #</li>
-								  <!-- <li><a href="<?=base_url("estado/switchState/acre")?>">Acre</a></li> -->
-								  <li><a href="<?=base_url("estado/switchState/amazonas")?>">Amazonas</a></li>
-								  <!-- <li><a href="<?=base_url("estado/switchState/amapa")?>">Amapá</a></li>
-								  <li><a href="<?=base_url("estado/switchState/para")?>">Pará</a></li>
-								  <li><a href="<?=base_url("estado/switchState/rondonia")?>">Rondônia</a></li> -->
-								  <li><a href="<?=base_url("estado/switchState/roraima")?>">Roraima</a></li>
-								  <!-- <li><a href="<?=base_url("estado/switchState/tocantins")?>">Tocantins</a></li> -->
+								  <li><a href="<?=base_url("")?>">Todos os Estados</a></li>
+								  <li><a href="<?=base_url("estado/amazonas")?>">Amazonas</a></li>
+								  <li><a href="<?=base_url("estado/roraima")?>">Roraima</a></li>
 								</ul>
 							  </li>
 <?php }?>
