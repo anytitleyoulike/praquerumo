@@ -52,6 +52,7 @@
 													<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Atividade</strong>: <?=$atividade["titulo"]?></p>
 													<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Data</strong>: <?=$atividade["data"]?></p>
 													<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Hora</strong>: <?=$atividade["horario"]?></p>
+													<br>
 												</td>
 											</tr>
 										</table>
@@ -72,6 +73,7 @@
 															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Valor</strong>: <?=$compra["preco"]?></p>
 															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Quantidade:</strong>: <?=$compra["quantidade"]?></p>
 															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Valor Total</strong>: <?=$compra["total"]?></p>
+															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Parcelas:</strong> <?=$compra["parcelas"]?></p>
 														</td>
 													</tr>
 												</table>
