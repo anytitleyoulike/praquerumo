@@ -53,6 +53,7 @@
 													<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Data</strong>: <?=$atividade["data"]?></p>
 													<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Hora</strong>: <?=$atividade["horario"]?></p>
 													<br>
+													<br>
 												</td>
 											</tr>
 										</table>

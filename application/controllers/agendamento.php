@@ -171,13 +171,15 @@ class Agendamento extends CI_Controller {
 			$descricao = $this->input->post('descricao');
 			$data_horario = $this->input->post('data_horario');
 			$forma_pagamento = $this->input->post('tipo_pagamento');
+			
+			$parcelas = $this->input->post('parcelas');
 			if($forma_pagamento == '#card')$forma_pagamento = 'Cartão de Crédito';
 
 			$disponivel = $this->_verificaDisponibilidade($evento, $quantidade);
 			
 			if ($disponivel != 0) {
 				$result_pgto = $this->_pagar($token, $email, $descricao,
-					$quantidade, $preco_formatado);
+					$quantidade, $preco_formatado,$parcelas);
 
 				if ($result_pgto->success) {
 					$invoice_id = $result_pgto["invoice_id"];
@@ -479,12 +481,13 @@ class Agendamento extends CI_Controller {
 	} 
 
 	/*Realiza o pagamento pelo iugu*/
-	function _pagar($token, $email, $descricao, $quantidade, $preco) {
+	function _pagar($token, $email, $descricao, $quantidade, $preco, $parcelas) {
 
 		setIuguAPIToken();
 		$carrinho = array(
 			"token" => $token,
 			"email" => $email,
+			"months" => $parcelas,
 			"items" => array(
 				array(
 					"description" => $descricao,
