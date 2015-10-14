@@ -244,6 +244,7 @@ class Fatura extends CI_Controller {
 		############dados da compra##################
 		$dados_compra['voucher'] = $fatura_id;
 		$dados_compra['data_compra'] = $fatura->created_at;
+		$dados_compra['parcelas'] = $fatura->installments;
 		//pega a quantidade comprada
 		$itens = $fatura['items'];
 

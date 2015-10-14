@@ -362,25 +362,31 @@ echo form_input(array(
 							</div>
 							<div class="clearfix"></div>
 
-					  </div>
+					  
 		<div class="col-md-4 textright">
 			<div class="margtop15"><span class="dark"> Parcelas:</span><span class="red">*</span></div>
 		</div>
-		
 		<div class="col-md-4 margtop15">
-				<select id="parcelas" class="form-control mySelectBoxClass">
+				<select name="parcelas" class="form-control mySelectBoxClass">
 				<?php 
-					if($preco_total > 60 && $preco_total < 100) { 
+					if($preco_total >= 60 && $preco_total <= 100) { 
 						for($i=1; $i <=2;$i++) { ?>
 							<option value="<?=$i?>"><?=$i?>x <?=numeroEmReais($parcelas[$i])?> </option>
 				<?php 	}
-					} else if($preco_total >= 100) {
+					} else if($preco_total > 101) {
 						for($i=1; $i <=4 ;$i++) { ?>
 						<option value="<?=$i?>"><?=$i?>x <?=numeroEmReais($parcelas[$i])?> </option>
-					<?php }
+				
+				<?php }
+					}else if($preco_total < 60) { ?>
+						<option value="1">1x <?=numeroEmReais($parcelas[1])?> </option>
+				<?php
 					} ?>
 				</select>
+		
 		</div>
+	</div>
+		
 					  <!-- End of Tab 1 -->
 
 					  <!-- Tab 2 -->
