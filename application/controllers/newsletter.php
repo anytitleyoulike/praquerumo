@@ -8,13 +8,13 @@ class Newsletter extends CI_Controller {
 	public function novo() {
 
 		$this->load->model("newsletter_model",'newsletter');
-		$this->form_validation->set_rules('inputEmail', 'e-mail', 'trim|required|valid_email|callback_ja_cadastrado');
+		$this->form_validation->set_rules('newsletter', 'e-mail', 'trim|required|valid_email|callback_ja_cadastrado');
 
 		$sucesso = $this->form_validation->run();
 
 		if ($sucesso) {
 			
-			$email = $this->input->post('inputEmail');
+			$email = $this->input->post('newsletter');
 			
 			$dados = array(
 				'email' 			 => $email,
@@ -30,7 +30,7 @@ class Newsletter extends CI_Controller {
 
 		} else {
 
-			$this->load->template("newsletter/adicionar_email");
+			redirect(base_url(""));
 		}
 	}
 
@@ -86,7 +86,7 @@ class Newsletter extends CI_Controller {
 
 		$this->email->to($email);
 		$this->email->message("Caro usuário este é seu link de confirmação de email ". base_url('/verifica/'.$user->codigo_verificacao . "\n
-			Clique para ativar sua conta e obter acesso ao nosso E-BOOK\nObrigado!\n Equipe PraQueRumo"));
+			Clique para ativar sua conta\nObrigado!\n Equipe PraQueRumo"));
 		return $this->email->send();
 		
 	}

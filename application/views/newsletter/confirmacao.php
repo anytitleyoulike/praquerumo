@@ -15,14 +15,9 @@
                 <hr class="message-inner-separator">
                 Olá,
                 <br>
-                <p> Para ter acesso ao e-book basta clicar no link:</p>
+                <p> Sua conta já está ativada!</p>
                 <br>
 
-                <div class="well"><span class="glyphicon glyphicon-hand-right"></span>
-                    <a href="https://goo.gl/ZDQfqM"> Ebook PQR</a>
-                </br>
-                    Equipe Pra Que Rumo
-                </div>
             </div>
             <?php } else { ?>
                  <div class="alert alert-success">
@@ -32,14 +27,8 @@
                 <hr class="message-inner-separator">
                  Olá,
                 <br>
-                <p> Para ter acesso ao e-book basta clicar no link:</p>
+                <p> Conta ativada com sucesso!</p>
                 <br>
-
-                <div class="well"><span class="glyphicon glyphicon-hand-right"></span>
-                    <a href="https://goo.gl/ZDQfqM"> Ebook PQR</a>
-                </br>
-                    Equipe Pra Que Rumo
-                </div>
             </div>
 
             <?php }?>
