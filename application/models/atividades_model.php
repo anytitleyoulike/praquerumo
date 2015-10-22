@@ -129,7 +129,7 @@ class Atividades_model extends CI_Model {
 	 * @return array com evento
 	 */
 	public function buscarAtividade($id, $lingua) {
-		$this->db->select("atividade.codigo, atividade.slug, atividade.vendivel, atividade.disponivel,
+		$this->db->select("atividade.codigo, atividade.slug, atividade.vendivel, atividade.disponivel, atividade.codigo_desconto,
 			atividade.latitude, atividade.longitude, atividade.fig_01, atividade.fig_02, atividade.fig_03,
 			atividade.fig_04, atividade.categoria_id, atividade.elemento_id, atividade.modalidade_id,
 			atividade.usuario_id, atividade.dicas, atividade.acompanhamento, atividade.cuidados,

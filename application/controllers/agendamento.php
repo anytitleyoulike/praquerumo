@@ -33,6 +33,7 @@ class Agendamento extends CI_Controller {
 	}
 
 	public function realizaTransacaoBoleto() {
+		$this->load->model("desconto_model");
 		$this->load->model("eventos_model");
 		$this->load->model("usuarios_model");
 		$this->load->model("faturas_model");
@@ -58,6 +59,10 @@ class Agendamento extends CI_Controller {
 			$descricao = $this->input->post('descricao');
 			$data_horario = $this->input->post('data_horario');
 			$forma_pagamento = 'boleto bancario';
+			$cupom = $this->input->post('cupom_desconto');
+			/*if(isset($cupom)){
+				echo $cupom;
+			}*/
 
 			$disponivel = $this->_verificaDisponibilidade($evento, $quantidade);
 
@@ -83,6 +88,10 @@ class Agendamento extends CI_Controller {
 					$this->faturas_model->salva($fatura);
 					//verificar gatilho que aciona o salvamento de faturas
 
+					$desconto = $this->desconto_model->buscarDesconto($cupom, $atividade_codigo);
+					$desconto_porcentagem = $desconto['0']['porcentagem']/100;
+					$this->desconto_model->atualizaCupom($desconto['0']['codigo'], $desconto['0']['quantidade'], $desconto['0']['usados']);
+					//var_dump($desconto);
 					//gerar voucher
 					//gerar qrcode
 
@@ -97,8 +106,8 @@ class Agendamento extends CI_Controller {
 					);
 					/*Fim de dados para email*/
 
-
-					$total = str_replace('.', ',', ($preco*$quantidade));
+					$total = ($preco*$quantidade) - (($preco*$quantidade)*$desconto_porcentagem);
+					$total = str_replace('.', ',', $total);
 					if(substr($preco, strlen($preco)-2, 2) == '00'){
 						$total = $total.",00";
 					}
@@ -108,7 +117,7 @@ class Agendamento extends CI_Controller {
 						'nome' => $nome,
 						'celular' => $celular,
 						'email' => $email,
-						'preco' => str_replace('.', ',', $preco),
+						'preco' => str_replace('.', ',', $preco-($preco*$desconto_porcentagem)),
 						'total' => $total,
 						'url' => $resultado['url'],
 						'compra' => $dados_compra,

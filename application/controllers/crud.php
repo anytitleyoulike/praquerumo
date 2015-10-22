@@ -60,6 +60,7 @@ class Crud extends CI_Controller {
 		     ->display_as('modalidade_id', 'Modalidade')
 		     ->display_as('categoria_id', 'Categoria')
 		     ->display_as('elemento_id', 'Elemento')
+		     ->display_as('codigo_desconto', 'Cupom de Desconto')
 		     ->display_as('comissao', 'Comissão (%)')
 		     ->display_as('fig_01', 'Figura 1 (760x400)px')
 		     ->display_as('fig_02', 'Figura 2 (760x400)px')
@@ -76,17 +77,17 @@ class Crud extends CI_Controller {
 		     ->display_as('dt_atualizacao', 'Data de atualização');
 
 		$crud->columns('slug', 'usuario_id', 'modalidade_id', 'categoria_id',
-			'elemento_id', 'comissao', 'fig_thumbnail', 'dt_atualizacao', 'dt_criacao', 'cuidados', 'dicas', 'acompanhamento');
+			'elemento_id', 'codigo_desconto', 'comissao', 'fig_thumbnail', 'dt_atualizacao', 'dt_criacao', 'cuidados', 'dicas', 'acompanhamento');
 
 		//campos no add de uma atividade
 		$crud->add_fields('slug', 'usuario_id', 'modalidade_id', 'categoria_id',
-			'elemento_id', 'vendivel', 'disponivel', 'destaque', 'comissao', 'latitude', 'longitude',
+			'elemento_id', 'codigo_desconto', 'vendivel', 'disponivel', 'destaque', 'comissao', 'latitude', 'longitude',
 			'fig_destaque', 'fig_thumbnail', 'fig_01', 'fig_02', 'fig_03', 'fig_04',
 			'acompanhamento', 'cuidados', 'dicas', 'dt_criacao', 'dt_atualizacao');
 
 		//campos no edit de uma atividade
 		$crud->edit_fields('slug', 'usuario_id', 'modalidade_id', 'categoria_id',
-			'elemento_id', 'vendivel', 'disponivel', 'destaque', 'comissao', 'latitude', 'longitude',
+			'elemento_id', 'codigo_desconto', 'vendivel', 'disponivel', 'destaque', 'comissao', 'latitude', 'longitude',
 			'fig_destaque', 'fig_thumbnail', 'fig_01', 'fig_02', 'fig_03', 'fig_04',
 			'acompanhamento', 'cuidados', 'dicas', 'dt_atualizacao');
 
@@ -94,6 +95,7 @@ class Crud extends CI_Controller {
 		$crud->set_relation('modalidade_id', 'modalidade', 'nome_pt');
 		$crud->set_relation('categoria_id', 'categoria', 'nome_pt');
 		$crud->set_relation('elemento_id', 'elemento', 'nome_pt');
+		$crud->set_relation('codigo_desconto', 'desconto', 'cupom');
 		//$crud->set_relation_n_n('acompanhamento', 'acompanhamentos', 'itens', 'atividade_codigo', 'itens_id', 'nome_pt', '');
 		//$crud->set_relation_n_n('cuidados', 'restricoes', 'cuidados', 'atividade_codigo', 'cuidados_id', 'nome_pt', '');
 		//$crud->set_relation_n_n('dicas', 'dicas', 'informacoes', 'atividade_codigo', 'informacoes_id', 'nome_pt', '');
@@ -603,4 +605,20 @@ class Crud extends CI_Controller {
 		$this->load->view('eventos/crud_template', $output);
 	}
 
+	public function desconto() {
+		$this->load->library('grocery_CRUD');
+		$crud = new grocery_CRUD();
+		$crud->set_table('desconto');
+		$crud->display_as('cupom', 'Cupom')
+			->display_as('quantidade', 'Quantidade')
+			->display_as('porcentagem', 'porcentagem');
+
+		$crud->add_fields('cupom', 'quantidade', 'porcentagem');
+		$crud->required_fields('cupom', 'quantidade', 'porcentagem');
+		//manipulation
+		//$crud->unset_delete();
+
+		$output = $crud->render();
+		$this->load->view('eventos/crud_template', $output);
+	}
 }
