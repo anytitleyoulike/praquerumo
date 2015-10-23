@@ -190,12 +190,22 @@ echo form_error("email");
 					<br/>
 					<div class="col-md-4">
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 textcenter">
 						Cupom de desconto
 						<!-- Collapse 5 -->
-						<button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse5"></button>
-						<div id="collapse5" class="collapse">
-							<input type="text" class="form-control margtop10" placeholder="">
+						<!-- <button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse5"></button> -->
+						<div id="collapse5" class="">
+							<!-- <input type="text" class="form-control margtop10" placeholder="" name="cupom_desconto"> -->
+<?php
+echo form_input(array(
+	"name" => "cupom_desconto",
+	"id" => "cupom_desconto",
+	"class" => "form-control",
+	"maxlength" => "12",
+	"value" => set_value('cupom_desconto'),
+));
+echo form_error("cupom_desconto");
+?>
 						</div>
 						<!-- End of collapse 5 -->
 						<div class="clearfix"></div>
