@@ -6,7 +6,7 @@ class Desconto_model extends CI_Model {
 		$this->db->select('desconto.codigo, desconto.quantidade, desconto.porcentagem, desconto.usados');
 		$this->db->from('desconto');
 		$this->db->join("atividade", "atividade.codigo_desconto = desconto.codigo");
-		$this->db->where(array("atividade.codigo" => $atividade_codigo, "desconto.quantidade >" => 0));
+		$this->db->where(array("atividade.codigo" => $atividade_codigo, "desconto.quantidade >" => 0, "desconto.cupom" => $cupom));
 
 		return $this->db->get()->result_array();
 	}

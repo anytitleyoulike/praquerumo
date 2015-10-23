@@ -47,35 +47,41 @@ class Agendamento extends CI_Controller {
 
 		$dados_validados = $this->_validacao();
 
+
 		$atividade_codigo = $this->input->post('atividade_codigo');
+
+		$cupom = $this->input->post('cupom_desconto');
+		$desconto = $this->desconto_model->buscarDesconto($cupom, $atividade_codigo);
 		
+		if(empty($desconto)){
+			$desconto_porcentagem = 0;
+		}else{
+			$desconto_porcentagem = $desconto['0']['porcentagem']/100;
+		}
+
 		if ($dados_validados) {
 			$email = $this->input->post('email');
 			$nome = $this->input->post('nome');
 			$celular = $this->input->post('celular');
 			$requisitos_especiais = $this->input->post('requisicoes_especiais');
 			$preco = $this->input->post('preco_raw');
-			$preco_formatado = str_replace('.', '', $preco);
+			$preco_desconto = number_format($preco*$desconto_porcentagem, 2);
+			$preco_desconto = str_replace(".", "", $preco_desconto);
+			$preco_formatado = str_replace(".", "", $preco);
 			$descricao = $this->input->post('descricao');
 			$data_horario = $this->input->post('data_horario');
 			$forma_pagamento = 'boleto bancario';
-			$cupom = $this->input->post('cupom_desconto');
-			/*if(isset($cupom)){
-				echo $cupom;
-			}*/
-
 			$disponivel = $this->_verificaDisponibilidade($evento, $quantidade);
 
 			if ($disponivel != 0) {
 				$resultado = $this->_criaBoleto($email, $descricao,
-					$quantidade, $preco_formatado);
+					$quantidade, $preco_formatado, $preco_desconto);
 				
 				if (!array_key_exists("errors", $resultado)) {
 					$invoice_id = $resultado["invoice_id"];
 					$usuario = $this->_getUsuarioId($nome, $celular, $email);
 
-					$vagas_atualizados = $this->_atualizaVagas($resultado["success"],
-						$evento, $disponivel, $quantidade, $atividade_codigo);
+					$vagas_atualizados = $this->_atualizaVagas($resultado["success"], $evento, $disponivel, $quantidade, $atividade_codigo);
 
 					//add fatura
 					$fatura = array(
@@ -88,8 +94,6 @@ class Agendamento extends CI_Controller {
 					$this->faturas_model->salva($fatura);
 					//verificar gatilho que aciona o salvamento de faturas
 
-					$desconto = $this->desconto_model->buscarDesconto($cupom, $atividade_codigo);
-					$desconto_porcentagem = $desconto['0']['porcentagem']/100;
 					$this->desconto_model->atualizaCupom($desconto['0']['codigo'], $desconto['0']['quantidade'], $desconto['0']['usados']);
 					//var_dump($desconto);
 					//gerar voucher
@@ -153,7 +157,7 @@ class Agendamento extends CI_Controller {
 	}
 
 	public function realizaTransacaoCartao() {
-
+		$this->load->model("desconto_model");
 		$this->load->model("eventos_model");
 		$this->load->model("usuarios_model");
 		$this->load->model("faturas_model");
@@ -165,6 +169,14 @@ class Agendamento extends CI_Controller {
 		$evento = $this->input->post('evento_codigo');
 		$quantidade = $this->input->post('quantidade');
 		$atividade_codigo = $this->input->post('atividade_codigo');
+		$cupom = $this->input->post('cupom_desconto');
+		$desconto = $this->desconto_model->buscarDesconto($cupom, $atividade_codigo);
+		
+		if(empty($desconto)){
+			$desconto_porcentagem = 0;
+		}else{
+			$desconto_porcentagem = $desconto['0']['porcentagem']/100;
+		}
 
 		$dados_validados = $this->_validacao();
 
@@ -176,6 +188,8 @@ class Agendamento extends CI_Controller {
 			$email = $this->input->post('email');
 			$preco = $this->input->post('preco_raw');
 			$preco_formatado = str_replace('.', '', $preco);
+			$preco_desconto = number_format($preco*$desconto_porcentagem, 2);
+			$preco_desconto = str_replace(".", "", $preco_desconto);
 			$preco_confirmacao = $this->input->post('preco_str');
 			$descricao = $this->input->post('descricao');
 			$data_horario = $this->input->post('data_horario');
@@ -185,14 +199,13 @@ class Agendamento extends CI_Controller {
 			$disponivel = $this->_verificaDisponibilidade($evento, $quantidade);
 			
 			if ($disponivel != 0) {
-				$result_pgto = $this->_pagar($token, $email, $descricao,
-					$quantidade, $preco_formatado);
+				$result_pgto = $this->_pagar($token, $email, $descricao, $quantidade, $preco_formatado, $preco_desconto);
 
 				if ($result_pgto->success) {
 					$invoice_id = $result_pgto["invoice_id"];
 
-					$vagas_atualizados = $this->_atualizaVagas($result_pgto["success"],
-						$evento, $disponivel, $quantidade,$atividade_codigo);
+					$vagas_atualizados = $this->_atualizaVagas($result_pgto["success"], $evento, $disponivel, $quantidade,$atividade_codigo);
+					$this->desconto_model->atualizaCupom($desconto['0']['codigo'], $desconto['0']['quantidade'], $desconto['0']['usados']);
 
 					//retorna usuario_id, se nao existir, cria um usuario anonimo
 					$usuario = $this->_getUsuarioId($nome_completo, $celular, $email);
@@ -223,7 +236,9 @@ class Agendamento extends CI_Controller {
 					);
 					/*Fim de dados para email*/
 
-					$total = str_replace('.', ',', ($preco*$quantidade));
+					$total = ($preco*$quantidade) - (($preco*$quantidade)*$desconto_porcentagem);
+					$total = number_format($total, 2);
+					$total = str_replace('.', ',', $total);
 					if(substr($preco, strlen($preco)-2, 2) == '00'){
 						$total = $total.",00";
 					}
@@ -232,7 +247,7 @@ class Agendamento extends CI_Controller {
 						'atividade' => $dados_atividade,
 						'usuario' => $dados_usuario,
 						'compra' => $dados_compra,
-						'preco' => str_replace('.', ',', $preco),
+						'preco' => str_replace('.', ',', number_format($preco-($preco*$desconto_porcentagem), 2)),
 						'total' => $total,
 					);
 					//send email de confirmação(com voucher e qrcode)
@@ -442,12 +457,13 @@ class Agendamento extends CI_Controller {
 	}
 
 	/*Realiza o pagamento pelo iugu*/
-	function _pagar($token, $email, $descricao, $quantidade, $preco) {
+	function _pagar($token, $email, $descricao, $quantidade, $preco, $desconto) {
 
 		setIuguAPIToken();
 		$carrinho = array(
 			"token" => $token,
 			"email" => $email,
+			"discount_cents" => $desconto,
 			"items" => array(
 				array(
 					"description" => $descricao,
@@ -460,19 +476,21 @@ class Agendamento extends CI_Controller {
 		return Iugu_Charge::create($carrinho);
 	}
 
-	function _criaBoleto($email, $descricao, $quantidade, $preco) {
+	function _criaBoleto($email, $descricao, $quantidade, $preco, $desconto) {
 		setIuguAPIToken();
 		$carrinho = array(
 			"method" => "bank_slip",
 			"email" => $email,
 			"due_date" => date("d/m/Y"),
+			"discount_cents" => $desconto,
 			"items" => array(
 				array(
 					"description" => $descricao,
 					"quantity" => $quantidade,
 					"price_cents" => $preco,
 				),
-			));
+			)
+		);
 
 		return Iugu_Charge::create($carrinho);
 	}
