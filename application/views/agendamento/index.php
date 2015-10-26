@@ -367,19 +367,19 @@ echo form_input(array(
 			<div class="margtop15"><span class="dark"> Parcelas:</span><span class="red">*</span></div>
 		</div>
 		<div class="col-md-4 margtop15">
-				<select name="parcelas" class="form-control mySelectBoxClass">
+				<select id="select-valor" name="parcelas" class="form-control mySelectBoxClass">
 				<?php 
 					if($preco_total >= 60 && $preco_total <= 100) { 
 						for($i=1; $i <=2;$i++) { ?>
-							<option value="<?=$i?>"><?=$i?>x <?=numeroEmReais($parcelas[$i])?> </option>
+							<option id="<?=$parcelas[$i]?>" value="<?=$i?>"><?=$i?>x <?=numeroEmReais($parcelas[$i])?> </option>
 				<?php 	}
 					} else if($preco_total > 101) {
 						for($i=1; $i <=4 ;$i++) { ?>
-						<option value="<?=$i?>"><?=$i?>x <?=numeroEmReais($parcelas[$i])?> </option>
+						<option id="<?=$parcelas[$i]?>" value="<?=$i?>"><?=$i?>x <?=numeroEmReais($parcelas[$i])?> </option>
 				
 				<?php }
 					}else if($preco_total < 60) { ?>
-						<option value="1">1x <?=numeroEmReais($parcelas[1])?> </option>
+						<option id="<?=$parcelas[1]?>" value="1">1x <?=numeroEmReais($parcelas[1])?> </option>
 				<?php
 					} ?>
 				</select>
@@ -542,7 +542,7 @@ echo form_close();
 					<div class="line3"></div>
 					<div class="padding20">
 						<span class="left size14 dark">Valor Total:</span>
-						<span class="right lred2 bold size18"><?=$preco?></span>
+						<span class="right lred2 bold size18 valor-real"><?=$preco?></span>
 						<div class="clearfix"></div>
 					</div>
 
@@ -590,6 +590,17 @@ echo form_close();
 
 
 	</div>
+
+	<script> 
+		$('#select-valor').change(function() {
+		
+			var valorSelecionado = $('#select-valor option:selected').attr('id');
+			var parcelas = $('#select-valor option:selected').val();
+			
+			$('.valor-real').text("R$ " + valorSelecionado*parcelas);
+
+		});
+	</script>
 	<!-- END OF CONTENT -->
 
 	<!-- Javascript  -->
