@@ -585,7 +585,6 @@ echo form_close();
 			</div>
 			<!-- END OF RIGHT CONTENT -->
 
-
 		</div>
 
 
@@ -596,8 +595,13 @@ echo form_close();
 		
 			var valorSelecionado = $('#select-valor option:selected').attr('id');
 			var parcelas = $('#select-valor option:selected').val();
+			var valorTotal = valorSelecionado*parcelas;
 			
-			$('.valor-real').text("R$ " + valorSelecionado*parcelas);
+			valorTotal = $.formatNumber(valorTotal, {format:"#,###.00", locale:"br"});
+			
+			$('.valor-real').text("R$ " + valorTotal);
+			//mudando valor que é exibido na confirmação de pagamento.
+			$('input[name="preco_str"]').val(valorTotal);
 
 		});
 	</script>
