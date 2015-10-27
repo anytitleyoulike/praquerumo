@@ -85,7 +85,7 @@
 									<td valign="top" style="color:#808080;">
 										<p style="margin-top:15px; margin-left:6px;"><strong>Valor</strong>: R$ <?=$preco?></p>
 										<p style="margin-top:15px; margin-left:6px;"><strong>Quantidade</strong>: <?=$compra['quantidade']?></p>
-										<p style="margin-top:15px; margin-left:6px;"><strong>Valor Total</strong>: R$ <?=$total?></p>
+										<p style="margin-top:15px; margin-left:6px;"><strong>Valor Total</strong>: R$ <?=$compra['preco']?></p>
 									</td>
 								</tr>
 							</table>
