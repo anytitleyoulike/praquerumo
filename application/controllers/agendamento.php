@@ -171,13 +171,15 @@ class Agendamento extends CI_Controller {
 			$descricao = $this->input->post('descricao');
 			$data_horario = $this->input->post('data_horario');
 			$forma_pagamento = $this->input->post('tipo_pagamento');
+			
+			$parcelas = $this->input->post('parcelas');
 			if($forma_pagamento == '#card')$forma_pagamento = 'Cartão de Crédito';
 
 			$disponivel = $this->_verificaDisponibilidade($evento, $quantidade);
 			
 			if ($disponivel != 0) {
 				$result_pgto = $this->_pagar($token, $email, $descricao,
-					$quantidade, $preco_formatado);
+					$quantidade, $preco_formatado,$parcelas);
 
 				if ($result_pgto->success) {
 					$invoice_id = $result_pgto["invoice_id"];
@@ -367,8 +369,8 @@ class Agendamento extends CI_Controller {
 
 	function _novoAgendamento($codigo_evento, $quantidade, $error = null) {
 		$evento = $this->eventos_model->buscarEventoDetalhes($codigo_evento);
-		$preco = $evento['preco'] * $quantidade;
-		$str_preco = numeroEmReais($preco);
+		$precoTotal = $evento['preco'] * $quantidade;
+		$str_preco = numeroEmReais($precoTotal);
 
 		$descricao = getDayData($evento['data_inicio']) .
 		" de " . getMonthFullNameData($evento['data_inicio']) . " " .
@@ -378,7 +380,7 @@ class Agendamento extends CI_Controller {
 		$evento['titulo'] = $this->_removeUTF($evento['titulo']);
 
 		$bloquear_boleto = $this->_verificaBloqueioBoleto($evento['visivel_fim']);
-
+		$valoresParcelados = $this->_calculaParcelaIugu($precoTotal);
 		$data = array(
 			"evento" => $evento,
 			"quantidade" => $quantidade,
@@ -386,12 +388,44 @@ class Agendamento extends CI_Controller {
 			"preco" => $str_preco,
 			"preco_unit" => numeroEmReais($evento['preco']),
 			"preco_raw" => $evento['preco'],
-			"preco_avg" => numeroEmReais($preco / $quantidade),
+			"preco_avg" => numeroEmReais($precoTotal / $quantidade),
+			"preco_total" => $precoTotal,
+			"parcelas"  => $valoresParcelados,
 			"descricao_pgto" => $evento['titulo'] . ", " . $descricao,
 			"descricao" => $descricao,
 			'bloquear_boleto' => $bloquear_boleto,
 		);
 		$this->load->template("agendamento/index", $data);
+	}
+
+	// calculo de juros
+	private function _calculaParcelaIugu($valor) {
+		
+		$this->load->helper("currency");
+		
+		// vezes => juros
+		$parcelasComJuros = array(
+			"3" => "0.10",
+			"4" => "0.11"
+		);
+
+		$valoresParcelados = array();
+		
+		for($i=1;$i <= 4; $i++) {
+			
+			if($i <= 2) {
+				$novoValor = $valor/$i;
+				$valoresParcelados[$i] = number_format($novoValor,3);
+			} else {
+				
+				$novoValor = $valor * ((1-0.06) / (1-$parcelasComJuros[$i]));
+				
+				$valoresParcelados[$i] = number_format($novoValor/$i,3);
+			}
+		}
+		
+		return $valoresParcelados;
+
 	}
 
 	/*descontar de disponiveis do evento*/
@@ -432,13 +466,30 @@ class Agendamento extends CI_Controller {
 		return Iugu_Customer::create($cliente);
 	}
 
+	public function teste() {
+		$this->load->helper('iugu');
+		setIuguAPIToken();
+		$carrinho = array(
+			"token" => "123AEAE123EA0kEIEIJAEI",
+			"email" => "maarc.hen@gmail.com",
+			"items" => array(
+				"description" => "item um",
+				"quantity"    => "1",
+				"price_cents" => "10000")
+		);
+
+		$a = Iugu_Charge::create($carrinho);
+		var_dump($a);
+	} 
+
 	/*Realiza o pagamento pelo iugu*/
-	function _pagar($token, $email, $descricao, $quantidade, $preco) {
+	function _pagar($token, $email, $descricao, $quantidade, $preco, $parcelas) {
 
 		setIuguAPIToken();
 		$carrinho = array(
 			"token" => $token,
 			"email" => $email,
+			"months" => $parcelas,
 			"items" => array(
 				array(
 					"description" => $descricao,

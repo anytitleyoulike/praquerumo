@@ -348,21 +348,45 @@ echo form_input(array(
 								<div class="margtop15"><span class="dark"> Nome no cartão:</span><span class="red">*</span></div>
 							</div>
 							<div class="col-md-4">
-<?php
-echo form_input(array(
-	"name" => "nome_cartao",
-	"id" => "nome_cartao",
-	"data-iugu" => "full_name",
-	"class" => "form-control margtop10",
-	"maxlength" => "255",
-))
-?>
-</div>
+								<?php
+								echo form_input(array(
+									"name" => "nome_cartao",
+									"id" => "nome_cartao",
+									"data-iugu" => "full_name",
+									"class" => "form-control margtop10",
+									"maxlength" => "255",
+								))
+								?>
+							</div>
 							<div class="col-md-4 textleft margtop15">(como aparece no cartão)
 							</div>
 							<div class="clearfix"></div>
 
-					  </div>
+					  
+		<div class="col-md-4 textright">
+			<div class="margtop15"><span class="dark"> Parcelas:</span><span class="red">*</span></div>
+		</div>
+		<div class="col-md-4 margtop15">
+				<select id="select-valor" name="parcelas" class="form-control mySelectBoxClass">
+				<?php 
+					if($preco_total >= 60 && $preco_total <= 100) { 
+						for($i=1; $i <=2;$i++) { ?>
+							<option id="<?=$parcelas[$i]?>" value="<?=$i?>"><?=$i?>x <?=numeroEmReais($parcelas[$i])?> </option>
+				<?php 	}
+					} else if($preco_total > 101) {
+						for($i=1; $i <=4 ;$i++) { ?>
+						<option id="<?=$parcelas[$i]?>" value="<?=$i?>"><?=$i?>x <?=numeroEmReais($parcelas[$i])?> </option>
+				
+				<?php }
+					}else if($preco_total < 60) { ?>
+						<option id="<?=$parcelas[1]?>" value="1">1x <?=numeroEmReais($parcelas[1])?> </option>
+				<?php
+					} ?>
+				</select>
+		
+		</div>
+	</div>
+		
 					  <!-- End of Tab 1 -->
 
 					  <!-- Tab 2 -->
@@ -518,7 +542,7 @@ echo form_close();
 					<div class="line3"></div>
 					<div class="padding20">
 						<span class="left size14 dark">Valor Total:</span>
-						<span class="right lred2 bold size18"><?=$preco?></span>
+						<span class="right lred2 bold size18 valor-real"><?=$preco?></span>
 						<div class="clearfix"></div>
 					</div>
 
@@ -561,11 +585,26 @@ echo form_close();
 			</div>
 			<!-- END OF RIGHT CONTENT -->
 
-
 		</div>
 
 
 	</div>
+
+	<script> 
+		$('#select-valor').change(function() {
+		
+			var valorSelecionado = $('#select-valor option:selected').attr('id');
+			var parcelas = $('#select-valor option:selected').val();
+			var valorTotal = valorSelecionado*parcelas;
+			
+			valorTotal = $.formatNumber(valorTotal, {format:"#,###.00", locale:"br"});
+			
+			$('.valor-real').text("R$ " + valorTotal);
+			//mudando valor que é exibido na confirmação de pagamento.
+			$('input[name="preco_str"]').val(valorTotal);
+
+		});
+	</script>
 	<!-- END OF CONTENT -->
 
 	<!-- Javascript  -->
