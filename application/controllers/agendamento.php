@@ -415,12 +415,12 @@ class Agendamento extends CI_Controller {
 			
 			if($i <= 2) {
 				$novoValor = $valor/$i;
-				$valoresParcelados[$i] = number_format($novoValor,2);
+				$valoresParcelados[$i] = number_format($novoValor,3);
 			} else {
 				
 				$novoValor = $valor * ((1-0.06) / (1-$parcelasComJuros[$i]));
 				
-				$valoresParcelados[$i] = number_format($novoValor/$i,2);
+				$valoresParcelados[$i] = number_format($novoValor/$i,3);
 			}
 		}
 		
