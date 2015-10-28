@@ -21,8 +21,7 @@ CREATE TABLE IF NOT EXISTS `atividade` (
   `usuario_id` int(11) NOT NULL,
   `dicas` text NOT NULL,
   `acompanhamento` text NOT NULL,
-  `cuidados` text NOT NULL,
-  `codigo_desconto` int(11) NOT NULL
+  `cuidados` text NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1 COMMENT='Atividade que será anunciada';
 
 -- --------------------------------------------------------
@@ -37,11 +36,17 @@ CREATE TABLE IF NOT EXISTS `desconto` (
   `quantidade` int(11) NOT NULL,
   `porcentagem` int(2) NOT NULL,
   `usados` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
+
+ALTER TABLE atividade
+ADD COLUMN codigo_desconto INT (11) NULL;
+
+ALTER TABLE atividade
+ADD CONSTRAINT fk_atividade_desconto FOREIGN KEY (codigo_desconto) REFERENCES desconto(codigo);
 
 --
 -- Indexes for table `atividade`
@@ -66,7 +71,4 @@ ALTER TABLE `atividade`
   MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `desconto`
---
-ALTER TABLE `desconto`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
