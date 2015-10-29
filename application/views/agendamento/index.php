@@ -373,7 +373,7 @@ echo form_input(array(
 						for($i=1; $i <=2;$i++) { ?>
 							<option id="<?=$parcelas[$i]?>" value="<?=$i?>"><?=$i?>x <?=numeroEmReais($parcelas[$i])?> </option>
 				<?php 	}
-					} else if($preco_total > 101) {
+					} else if($preco_total > 100) {
 						for($i=1; $i <=4 ;$i++) { ?>
 						<option id="<?=$parcelas[$i]?>" value="<?=$i?>"><?=$i?>x <?=numeroEmReais($parcelas[$i])?> </option>
 				
