@@ -601,7 +601,7 @@ echo form_close();
 			
 			$('.valor-real').text("R$ " + valorTotal);
 			//mudando valor que é exibido na confirmação de pagamento.
-			$('input[name="preco_str"]').val(valorTotal);
+			$('input[name="preco_str"]').val("R$ "+ valorTotal);
 
 		});
 	</script>
