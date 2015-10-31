@@ -617,7 +617,7 @@ if (!empty($eventos)) {
 		);
 		echo form_hidden($dados_agenda);
 
-		echo "<td>" . getSessionTime($horario['inicio']) . " - " . getSessionTime($horario['fim']) .
+		echo "<td>" . substr($horario['inicio'], 0, 5) . " - " . substr($horario['fim'], 0, 5) .
 		"</td>";
 
 		echo '<td id="agenda_' . $horario['codigo'] . '" name="valor_total">' . numeroEmReais($horario['preco']) . "</td>";
