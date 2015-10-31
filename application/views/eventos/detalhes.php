@@ -306,17 +306,17 @@ echo form_hidden($data);
 							<div id="collapse3" class="collapse in">
 								<div class="hpadding20">
 									<div class="col-md-12">
-										<ul class="checklist">
+										<!-- <ul class="checklist"> -->
 										<?php 
 											foreach ($array as $array) {
 												if(strlen($array) != 2){
 										?>
-													<li><?=$array?></li>
+													<p><?=$array?></p>
 										<?php 
 												}
 											}
 										?>
-										</ul>
+										<!-- </ul> -->
 									</div>
 								</div>
 								<div class="clearfix"></div>
@@ -336,11 +336,11 @@ echo form_hidden($data);
 							<div id="collapse3" class="collapse in">
 								<div class="hpadding20">
 									<div class="col-md-12">
-										<ul class="checklist">
+										<!-- <ul class="checklist"> -->
 <?php foreach ($dicas as $dica):?>
-													<li><?=$dica["nome{$sufix}"]?><br /></li>
+													<?=$dica["nome{$sufix}"]?>
 <?php endforeach?>
-</ul>
+<!-- </ul> -->
 									</div>
 								</div>
 								<div class="clearfix"></div>
@@ -365,17 +365,17 @@ echo form_hidden($data);
 								<div id="collapse6" class="collapse in">
 									<div class="hpadding20">
 										<div class="col-md-12">
-											<ul class="checklist">
+											<!-- <ul class="checklist"> -->
 											<?php 
 												foreach ($array as $array) {
 													if(strlen($array) != 2){
 											?>
-														<li><?=$array?></li>
+														<p><?=$array?></p>
 											<?php 
 													}
 												}
 											?>
-											</ul>
+											<!-- </ul> -->
 										</div>
 									<div class="clearfix"></div>
 									</div>
@@ -425,17 +425,17 @@ echo form_hidden($data);
 								<div id="collapse7" class="collapse in">
 									<div class="hpadding20">
 										<div class="col-md-12">
-											<ul class="checklist">
+											<!-- <ul class="checklist"> -->
 											<?php 
 												foreach ($array as $array) {
 													if(strlen($array) != 2){
 											?>
-														<li><?=$array?></li>
+														<p><?=$array?></p>
 											<?php 
 													}
 												}
 											?>
-											</ul>
+											<!-- </ul> -->
 										</div>
 									<div class="clearfix"></div>
 									</div>
@@ -456,11 +456,11 @@ echo form_hidden($data);
 								<div id="collapse7" class="collapse in">
 									<div class="hpadding20">
 										<div class="col-md-12">
-											<ul class="checklist">
+											<!-- <ul class="checklist"> -->
 <?php foreach ($restricoes as $restricoe):?>
-														<li><?=$restricoe["nome{$sufix}"]?><br /></li>
+														<p><?=$restricoe["nome{$sufix}"]?></p>
 <?php endforeach?>
-											</ul>
+											<!-- </ul> -->
 										</div>
 									<div class="clearfix"></div>
 									</div>
