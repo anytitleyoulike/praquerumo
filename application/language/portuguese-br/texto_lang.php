@@ -52,6 +52,7 @@ $lang["details_item_duracao"] = "Duração";
 $lang["details_item_ponto_encontro"] = "Ponto de Encontro";
 $lang["details_recomendados"] = "Recomendadas";
 $lang["details_comentarios"] = "Comentários";
+$lang["details_comentarios_titulo"] = "Tire suas dúvidas aqui! :)";
 $lang["details_recomendados_titulo"] = "Atrações recomendadas";
 $lang["details_recomendados_avaliacoes"] = "Avaliações";
 $lang["details_recomendados_mais"] = "Mais";

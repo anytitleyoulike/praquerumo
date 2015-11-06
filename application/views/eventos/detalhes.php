@@ -244,7 +244,7 @@ echo form_hidden($data);
 						<span class="maps"></span><span class="hidetext"><?=lang("details_menu_mapa")?></span>&nbsp;</a></li>
 					<!--<li onclick="mySelectUpdate(); trigerJslider(); trigerJslider2(); trigerJslider3(); trigerJslider4(); trigerJslider5(); trigerJslider6();" class=""><a data-toggle="tab" href="#reviews"><span class="reviews"></span><span class="hidetext">Avaliações</span>&nbsp;</a></li>-->
 					<li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#thingstodo"><span class="thingstodo"></span><span class="hidetext"><?=lang("details_recomendados")?></span>&nbsp;</a></li>
-					<li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#comments_fb"><span class="comments_fb"></span><span class="hidetext"><?=lang("details_comentarios")?></span>&nbsp;</a></li>
+					<li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#comentarios"><span class="comentarios"></span><span class="hidetext"><?=lang("details_comentarios")?></span>&nbsp;</a></li>
 				</ul>
 
 				<div class="tab-content4" >
@@ -1160,9 +1160,9 @@ if (!empty($eventos)) {
 </div>
 
 <!-- TAB 6 comentarios fb-->
-<div id="comments_fb" class="tab-pane fade">
+<div id="comentarios" class="tab-pane fade">
 
-	<p class="hpadding20 opensans size16 dark bold"><?=lang("details_recomendados_titulo")?></p>
+	<p class="hpadding20 opensans size16 dark bold"><?=lang("details_comentarios_titulo")?></p>
 
 <div class="line2"></div>
 		<div id="fb-root"></div>
