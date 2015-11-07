@@ -46,14 +46,14 @@
 <?=$nav_bar?>
   	<!-- script facebook social plugin -->
 	  	<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-			  var js, fjs = d.getElementsByTagName(s)[0];
-			  if (d.getElementById(id)) return;
-			  js = d.createElement(s); js.id = id;
-			  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&appId=763327940353666&version=v2.0";
-			  fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-		</script>
+			<script>(function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5&appId=762715127184684";
+				fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+			</script>
 
 	<!-- Organizador -->
 <?php
@@ -1165,17 +1165,9 @@ if (!empty($eventos)) {
 	<p class="hpadding20 opensans size16 dark bold"><?=lang("details_comentarios_titulo")?></p>
 
 <div class="line2"></div>
-		<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) return;
-				js = d.createElement(s); js.id = id;
-				js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5&appId=762715127184684";
-				fjs.parentNode.insertBefore(js, fjs);
-				}(document, 'script', 'facebook-jssdk'));
-		</script>
+		
 		<div class="padding20">
-			<div class="fb-comments" data-href="<?=base_url('atividades/'.$atividade['slug'])?>" data-numposts="5"></div>
+			<div class="fb-comments" width="100%" data-href="<?=base_url('atividades/'.$atividade['slug'])?>" data-numposts="5"></div>
 			<!-- <div class="col-md-8 mediafix1">
 				<div class="clearfix">oi3</div>
 			</div> -->
