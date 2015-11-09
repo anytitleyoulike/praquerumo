@@ -1162,7 +1162,7 @@ if (!empty($eventos)) {
 <!-- TAB 6 comentarios fb-->
 <div id="comentarios" class="tab-pane fade">
 
-	<p class="hpadding20 opensans size16 dark bold"><?=lang("details_comentarios_titulo")?></p>
+	<!-- <p class="hpadding20 opensans size16 dark bold"><?=lang("details_comentarios_titulo")?></p> -->
 
 <div class="line2"></div>
 		
