@@ -6,6 +6,7 @@
 	<meta property="og:title" content="<?=$atividade['titulo']?>" />
 	<!-- <meta property="og:image" content="<?=base_url("assets/images/logo_beta.png")?>" /> -->
 	<meta property="og:image" content="<?=base_url('assets/images/atividades/detalhes/'.$atividade['fig_01'])?>" />
+	<meta property="fb:app_id" content="762715127184684" />
 
 	<link rel="canonical" href="<?=base_url('atividades/'.$atividade['slug'])?>" />
 	<link rel="stylesheet" href="<?=base_url("assets/css/jslider.css")?>" type="text/css">
@@ -45,14 +46,14 @@
 <?=$nav_bar?>
   	<!-- script facebook social plugin -->
 	  	<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-			  var js, fjs = d.getElementsByTagName(s)[0];
-			  if (d.getElementById(id)) return;
-			  js = d.createElement(s); js.id = id;
-			  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&appId=763327940353666&version=v2.0";
-			  fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-		</script>
+			<script>(function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5&appId=762715127184684";
+				fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+			</script>
 
 	<!-- Organizador -->
 <?php
@@ -243,6 +244,7 @@ echo form_hidden($data);
 						<span class="maps"></span><span class="hidetext"><?=lang("details_menu_mapa")?></span>&nbsp;</a></li>
 					<!--<li onclick="mySelectUpdate(); trigerJslider(); trigerJslider2(); trigerJslider3(); trigerJslider4(); trigerJslider5(); trigerJslider6();" class=""><a data-toggle="tab" href="#reviews"><span class="reviews"></span><span class="hidetext">Avaliações</span>&nbsp;</a></li>-->
 					<li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#thingstodo"><span class="thingstodo"></span><span class="hidetext"><?=lang("details_recomendados")?></span>&nbsp;</a></li>
+					<li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#comentarios"><span class="comentarios"></span><span class="hidetext"><?=lang("details_comentarios")?></span>&nbsp;</a></li>
 				</ul>
 
 				<div class="tab-content4" >
@@ -1155,6 +1157,24 @@ if (!empty($eventos)) {
 						</div>
 
 <?php endforeach?>
+</div>
+
+<!-- TAB 6 comentarios fb-->
+<div id="comentarios" class="tab-pane fade">
+
+	<!-- <p class="hpadding20 opensans size16 dark bold"><?=lang("details_comentarios_titulo")?></p> -->
+
+<div class="line2"></div>
+		
+		<div class="padding20">
+			<div class="fb-comments" width="100%" data-href="<?=base_url('atividades/'.$atividade['slug'])?>" data-numposts="5"></div>
+			<!-- <div class="col-md-8 mediafix1">
+				<div class="clearfix">oi3</div>
+			</div> -->
+				
+			<div class="clearfix"></div>
+		</div>
+
 </div>
 				</div>
 			</div>
