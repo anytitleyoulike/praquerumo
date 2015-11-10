@@ -98,10 +98,7 @@
 							 data-start="800"
 							 data-easing="easeOutExpo"  >
 							 <div class="sboxpurple textcenter">
-								<span class="lato size28 slim caps white"><?=$destaque['cidade']?></span><br/><br/><br/>
-								<span class="lato size100 slim caps white"><?=$destaque['modalidade']?></span><br/>
-								<span class="lato size20 normal caps white">por</span><br/><br/>
-								<span class="lato size48 slim uppercase yellow"><?=numeroEmReais($destaque['preco'])?></span><br/>
+								<!-- div do texto das imagens de destaque-->
 							 </div>
 						</div>
 					</li>

@@ -23,14 +23,19 @@ if (isset($estado)) {?>
 								<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
 								  <li class="dropdown-header"># Estados #</li>
 								  <li><a href="<?=base_url("")?>">Todos os Estados</a></li>
+								  <li><a href="<?=base_url("estado/acre")?>">Acre</a></li>
 								  <li><a href="<?=base_url("estado/amazonas")?>">Amazonas</a></li>
+								  <li><a href="<?=base_url("estado/amapa")?>">Amapá</a></li>
+								  <li><a href="<?=base_url("estado/para")?>">Pará</a></li>
+								  <li><a href="<?=base_url("estado/rondonia")?>">Rondonia</a></li>
 								  <li><a href="<?=base_url("estado/roraima")?>">Roraima</a></li>
+								  <li><a href="<?=base_url("estado/tocantins")?>">Tocantins</a></li>
 								</ul>
 							  </li>
 <?php }?>
-				  	  <li><a href="http://goo.gl/eNkA3V" target="_blank">Adicionar Atividade</a></li>
+				  	  <li><a href="https://goo.gl/ytcJv4" target="_blank">Adicionar Atividade</a></li>
 				  	  <li><a href="<?=base_url("equipe")?>">Quem Somos</a></li>
-				  	  <!-- <li><a href="http://www.praquerumo.com.br/blog" target="_blank">Blog</a></li> -->
+				  	  <li><a href="http://blog.praquerumo.com.br" target="_blank">Blog</a></li>
 				  	  <!-- <li><a id="nav_contatos" href="#">Contato</a></li> -->
 				</ul>
 			  </div>
