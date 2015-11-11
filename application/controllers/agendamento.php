@@ -466,21 +466,6 @@ class Agendamento extends CI_Controller {
 		return Iugu_Customer::create($cliente);
 	}
 
-	public function teste() {
-		$this->load->helper('iugu');
-		setIuguAPIToken();
-		$carrinho = array(
-			"token" => "123AEAE123EA0kEIEIJAEI",
-			"email" => "maarc.hen@gmail.com",
-			"items" => array(
-				"description" => "item um",
-				"quantity"    => "1",
-				"price_cents" => "10000")
-		);
-
-		$a = Iugu_Charge::create($carrinho);
-		var_dump($a);
-	} 
 
 	/*Realiza o pagamento pelo iugu*/
 	function _pagar($token, $email, $descricao, $quantidade, $preco, $parcelas) {
@@ -517,5 +502,22 @@ class Agendamento extends CI_Controller {
 			));
 
 		return Iugu_Charge::create($carrinho);
+	}
+
+	function teste(){
+		$this->load->model("desconto_model");
+
+		$cupom = $this->input->post('cupom_desconto');
+		$atividade = $this->input->post('atividade_codigo');
+
+		$desconto = $this->desconto_model->buscarDesconto($cupom, $atividade);
+	 		
+		if(empty($desconto)){
+			$desconto_porcentagem = 0;
+		}else{
+			$desconto_porcentagem = $desconto['porcentagem']/100;
+		}
+		$teste = "100,00" + "20";
+		 echo json_encode($teste);
 	}
 }

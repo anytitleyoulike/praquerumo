@@ -39,7 +39,8 @@
         <a href='<?php echo site_url('crud/usuario')?>'>Usuários</a> |
         <a href='<?php echo site_url('crud/atividade')?>'>Atividades</a> |
         <a href='<?php echo site_url('crud/descricaoAtividade')?>'>Descrição da Atividades</a> |
-        <a href='<?php echo site_url('crud/evento')?>'>Eventos</a> ===
+        <a href='<?php echo site_url('crud/evento')?>'>Eventos</a> |
+        <a href='<?php echo site_url('crud/desconto')?>'>Descontos</a> ===
         <!--<a href='<?php echo site_url('crud/elemento')?>'>Elementos</a> |
         <a href='<?php echo site_url('crud/categoria')?>'>Categorias</a> | 
         <a href='<?php echo site_url('crud/lingua')?>'>Línguas</a> === -->

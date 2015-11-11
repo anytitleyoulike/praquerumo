@@ -190,12 +190,12 @@ echo form_error("email");
 					<br/>
 					<div class="col-md-4">
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 textcenter">
 						Cupom de desconto
 						<!-- Collapse 5 -->
-						<button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse5"></button>
-						<div id="collapse5" class="collapse">
-							<input type="text" class="form-control margtop10" placeholder="">
+						<!-- <button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse5"></button> -->
+						<div id="collapse5" class="">
+							<input type="text" class="form-control margtop10" placeholder="" name="cupom_desconto" onblur="validaDesconto()">
 						</div>
 						<!-- End of collapse 5 -->
 						<div class="clearfix"></div>
@@ -604,6 +604,27 @@ echo form_close();
 			$('input[name="preco_str"]').val("R$ "+ valorTotal);
 
 		});
+	</script>
+
+	<script>
+		function validaDesconto(){
+			var cupom_desconto = $("input[name='cupom_desconto']").val();
+			var atividade_codigo = $("input[name='atividade_codigo']").val();
+				$.ajax({
+					type: "POST",
+					url: "/praquerumo/agendamento/teste",
+					data: { cupom_desconto: cupom_desconto, 
+							atividade_codigo: atividade_codigo
+					},
+					success: function(resposta) {
+						var a = JSON.parse(resposta);
+						console.log(a);
+					},
+					error: function() {
+						// correu mal, agir em conformidade
+					}
+				});
+		}
 	</script>
 	<!-- END OF CONTENT -->
 
