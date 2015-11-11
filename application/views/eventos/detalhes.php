@@ -244,7 +244,12 @@ echo form_hidden($data);
 						<span class="maps"></span><span class="hidetext"><?=lang("details_menu_mapa")?></span>&nbsp;</a></li>
 					<!--<li onclick="mySelectUpdate(); trigerJslider(); trigerJslider2(); trigerJslider3(); trigerJslider4(); trigerJslider5(); trigerJslider6();" class=""><a data-toggle="tab" href="#reviews"><span class="reviews"></span><span class="hidetext">Avaliações</span>&nbsp;</a></li>-->
 					<li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#thingstodo"><span class="thingstodo"></span><span class="hidetext"><?=lang("details_recomendados")?></span>&nbsp;</a></li>
-					<li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#comentarios"><span class="comentarios"></span><span class="hidetext"><?=lang("details_comentarios")?></span>&nbsp;</a></li>
+					<li onclick="mySelectUpdate()" class="">
+						<a data-toggle="tab" href="#comentarios">
+							<span class="fb-comments-count" data-href="<?=base_url('atividades/'.$atividade['slug'])?>"></span>
+							<span class="hidetext"><?=lang("details_comentarios")?></span>
+						</a>
+					</li>
 				</ul>
 
 				<div class="tab-content4" >
