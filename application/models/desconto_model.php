@@ -14,8 +14,6 @@ class Desconto_model extends CI_Model {
 	public function atualizaCupom($codigo, $quantidade, $usados){
 		$quantidade = $quantidade - 1;
 		$usados = $usados + 1;
-		/*$this->db->set("quantidade",$quantidade);
-		$this->db->insert("desconto");*/
 
 		$this->db->where('codigo', $codigo);
 		$this->db->update('desconto', $dados = array('quantidade' => $quantidade, 'usados' => $usados));

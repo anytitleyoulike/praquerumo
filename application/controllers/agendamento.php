@@ -33,6 +33,7 @@ class Agendamento extends CI_Controller {
 	}
 
 	public function realizaTransacaoBoleto() {
+		$this->load->model("desconto_model");
 		$this->load->model("eventos_model");
 		$this->load->model("usuarios_model");
 		$this->load->model("faturas_model");
@@ -41,19 +42,29 @@ class Agendamento extends CI_Controller {
 		$this->load->helper('iugu');
 
 		$evento = $this->input->post('evento_codigo');
-		
 		$quantidade = $this->input->post('quantidade');
-
-		$dados_validados = $this->_validacao();
-
 		$atividade_codigo = $this->input->post('atividade_codigo');
 		
+		$cupom_desconto = $this->input->post('cupom_desconto');
+		$desconto = $this->desconto_model->buscarDesconto($cupom_desconto, $atividade_codigo);
+		if(empty($desconto)){
+			$desconto_porcentagem = 0;
+			$preco_desconto = 0;
+		}else{
+			$desconto_porcentagem = $desconto['porcentagem']/100;
+		}
+
+		$dados_validados = $this->_validacao();
 		if ($dados_validados) {
 			$email = $this->input->post('email');
 			$nome = $this->input->post('nome');
 			$celular = $this->input->post('celular');
 			$requisitos_especiais = $this->input->post('requisicoes_especiais');
 			$preco = $this->input->post('preco_raw');
+			if($desconto_porcentagem != 0){
+				$preco_desconto = $preco*$quantidade;
+				$preco_desconto = str_replace(".", "",number_format($preco_desconto*$desconto_porcentagem, 2));
+			}
 			$preco_formatado = str_replace('.', '', $preco);
 			$descricao = $this->input->post('descricao');
 			$data_horario = $this->input->post('data_horario');
@@ -62,16 +73,15 @@ class Agendamento extends CI_Controller {
 			$disponivel = $this->_verificaDisponibilidade($evento, $quantidade);
 
 			if ($disponivel != 0) {
-				$resultado = $this->_criaBoleto($email, $descricao,
-					$quantidade, $preco_formatado);
+				$resultado = $this->_criaBoleto($email, $descricao, $quantidade, $preco_formatado, $preco_desconto);
 				
 				if (!array_key_exists("errors", $resultado)) {
 					$invoice_id = $resultado["invoice_id"];
 					$usuario = $this->_getUsuarioId($nome, $celular, $email);
 
-					$vagas_atualizados = $this->_atualizaVagas($resultado["success"],
-						$evento, $disponivel, $quantidade, $atividade_codigo);
-
+					$vagas_atualizados = $this->_atualizaVagas($resultado["success"], $evento, $disponivel, $quantidade, $atividade_codigo);
+					if(!empty($desconto))
+					$this->desconto_model->atualizaCupom($desconto["codigo"], $desconto["quantidade"], $desconto["usados"]);
 					//add fatura
 					$fatura = array(
 						'id' => $invoice_id,
@@ -144,7 +154,7 @@ class Agendamento extends CI_Controller {
 	}
 
 	public function realizaTransacaoCartao() {
-
+		$this->load->model("desconto_model");
 		$this->load->model("eventos_model");
 		$this->load->model("usuarios_model");
 		$this->load->model("faturas_model");
@@ -157,8 +167,16 @@ class Agendamento extends CI_Controller {
 		$quantidade = $this->input->post('quantidade');
 		$atividade_codigo = $this->input->post('atividade_codigo');
 
-		$dados_validados = $this->_validacao();
+		$cupom_desconto = $this->input->post('cupom_desconto');
+		$desconto = $this->desconto_model->buscarDesconto($cupom_desconto, $atividade_codigo);
+		if(empty($desconto)){
+			$desconto_porcentagem = 0;
+			$preco_desconto = 0;
+		}else{
+			$desconto_porcentagem = $desconto['porcentagem']/100;
+		}
 
+		$dados_validados = $this->_validacao();
 		if ($dados_validados) {
 			$token = $this->input->post('token');
 			$nome_completo = $this->input->post('nome');
@@ -166,6 +184,10 @@ class Agendamento extends CI_Controller {
 			$requisitos_especiais = $this->input->post('requisicoes_especiais');
 			$email = $this->input->post('email');
 			$preco = $this->input->post('preco_raw');
+			if($desconto_porcentagem != 0){
+				$preco_desconto = $preco*$quantidade;
+				$preco_desconto = str_replace(".", "",number_format($preco_desconto*$desconto_porcentagem, 2));
+			}
 			$preco_formatado = str_replace('.', '', $preco);
 			$preco_confirmacao = $this->input->post('preco_str');
 			$descricao = $this->input->post('descricao');
@@ -178,15 +200,14 @@ class Agendamento extends CI_Controller {
 			$disponivel = $this->_verificaDisponibilidade($evento, $quantidade);
 			
 			if ($disponivel != 0) {
-				$result_pgto = $this->_pagar($token, $email, $descricao,
-					$quantidade, $preco_formatado,$parcelas);
+				$result_pgto = $this->_pagar($token, $email, $descricao, $quantidade, $preco_formatado, $parcelas, $preco_desconto);
 
 				if ($result_pgto->success) {
 					$invoice_id = $result_pgto["invoice_id"];
 
-					$vagas_atualizados = $this->_atualizaVagas($result_pgto["success"],
-						$evento, $disponivel, $quantidade,$atividade_codigo);
-
+					$vagas_atualizados = $this->_atualizaVagas($result_pgto["success"],	$evento, $disponivel, $quantidade,$atividade_codigo);
+					if(!empty($desconto))
+					$this->desconto_model->atualizaCupom($desconto["codigo"], $desconto["quantidade"], $desconto["usados"]);
 					//retorna usuario_id, se nao existir, cria um usuario anonimo
 					$usuario = $this->_getUsuarioId($nome_completo, $celular, $email);
 
@@ -468,13 +489,14 @@ class Agendamento extends CI_Controller {
 
 
 	/*Realiza o pagamento pelo iugu*/
-	function _pagar($token, $email, $descricao, $quantidade, $preco, $parcelas) {
+	function _pagar($token, $email, $descricao, $quantidade, $preco, $parcelas, $desconto) {
 
 		setIuguAPIToken();
 		$carrinho = array(
 			"token" => $token,
 			"email" => $email,
 			"months" => $parcelas,
+			"discount_cents" => $desconto,
 			"items" => array(
 				array(
 					"description" => $descricao,
@@ -487,12 +509,13 @@ class Agendamento extends CI_Controller {
 		return Iugu_Charge::create($carrinho);
 	}
 
-	function _criaBoleto($email, $descricao, $quantidade, $preco) {
+	function _criaBoleto($email, $descricao, $quantidade, $preco, $desconto) {
 		setIuguAPIToken();
 		$carrinho = array(
 			"method" => "bank_slip",
 			"email" => $email,
 			"due_date" => date("d/m/Y"),
+			"discount_cents" => $desconto,
 			"items" => array(
 				array(
 					"description" => $descricao,
@@ -507,17 +530,21 @@ class Agendamento extends CI_Controller {
 	function teste(){
 		$this->load->model("desconto_model");
 
-		$cupom = $this->input->post('cupom_desconto');
-		$atividade = $this->input->post('atividade_codigo');
+		$cupom_desconto = $this->input->post("cupom_desconto");
+		$atividade_codigo = $this->input->post("atividade_codigo");
+		$atividade_preco = $this->input->post("atividade_preco");
+		$atividade_quantidade = $this->input->post("atividade_quantidade");
 
-		$desconto = $this->desconto_model->buscarDesconto($cupom, $atividade);
+		$desconto = $this->desconto_model->buscarDesconto($cupom_desconto, $atividade_codigo);
 	 		
 		if(empty($desconto)){
 			$desconto_porcentagem = 0;
+			$preco = $atividade_preco*$atividade_quantidade;
 		}else{
-			$desconto_porcentagem = $desconto['porcentagem']/100;
+			$desconto_porcentagem = $desconto["porcentagem"]/100;
+			$preco = $atividade_preco*$atividade_quantidade;
+			$preco = number_format($preco - ($preco*$desconto_porcentagem), 2);
 		}
-		$teste = "100,00" + "20";
-		 echo json_encode($teste);
+		echo json_encode(floatval($preco));
 	}
 }
