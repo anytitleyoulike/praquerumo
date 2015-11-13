@@ -533,17 +533,14 @@ class Agendamento extends CI_Controller {
 		$cupom_desconto = $this->input->post("cupom_desconto");
 		$atividade_codigo = $this->input->post("atividade_codigo");
 		$atividade_preco = $this->input->post("atividade_preco");
-		$atividade_quantidade = $this->input->post("atividade_quantidade");
 
 		$desconto = $this->desconto_model->buscarDesconto($cupom_desconto, $atividade_codigo);
 	 		
 		if(empty($desconto)){
-			$desconto_porcentagem = 0;
-			$preco = $atividade_preco*$atividade_quantidade;
+			$preco = $atividade_preco;
 		}else{
-			$desconto_porcentagem = $desconto["porcentagem"]/100;
-			$preco = $atividade_preco*$atividade_quantidade;
-			$preco = number_format($preco - ($preco*$desconto_porcentagem), 2);
+			$porcentagemDesconto = $desconto["porcentagem"]/100;
+			$preco = number_format($atividade_preco - ($atividade_preco*$porcentagemDesconto), 2);
 		}
 		echo json_encode(floatval($preco));
 	}
