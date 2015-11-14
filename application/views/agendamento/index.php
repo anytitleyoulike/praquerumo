@@ -72,6 +72,7 @@ $data = array(
 	'descricao' => $descricao_pgto,
 	'data_horario' => $descricao,
 	'tipo_pagamento' => '#card',
+	'preco_total' => $preco_total,
 	'preco_str' => $preco,
 	'bloquear_boleto' => $bloquear_boleto,
 );
@@ -194,8 +195,10 @@ echo form_error("email");
 						Cupom de desconto
 						<!-- Collapse 5 -->
 						<!-- <button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse5"></button> -->
+						
 						<div id="collapse5" class="">
 							<input type="text" class="form-control margtop10" placeholder="" name="cupom_desconto" onblur="validaDesconto()">
+							<button class="btn btn-default">teste</buton>
 						</div>
 						<!-- End of collapse 5 -->
 						<div class="clearfix"></div>
@@ -600,7 +603,7 @@ echo form_close();
 			
 			$('.valor-real').text("R$ " + valorTotal);
 			//mudando valor que é exibido na confirmação de pagamento.
-			$('input[name="preco_str"]').val("R$ "+ valorTotal);
+			$('input[name="preco_str"]').val(valorTotal);
 
 		});
 	</script>
@@ -609,31 +612,39 @@ echo form_close();
 		function validaDesconto(){
 			var cupom_desconto = $("input[name='cupom_desconto']").val();
 			var atividade_codigo = $("input[name='atividade_codigo']").val();
-			var atividade_preco = $("input[name='preco_raw'").val();
-			var atividade_quantidade = $("input[name='quantidade']").val();
+			var atividade_preco = $("input[name='preco_total'").val();
 			$.ajax({
 				type: "POST",
 				url: "/praquerumo/agendamento/teste",
 				data: { cupom_desconto: cupom_desconto, 
 						atividade_codigo: atividade_codigo,
-						atividade_preco: atividade_preco,
-						atividade_quantidade: atividade_quantidade
+						atividade_preco: atividade_preco
 				},
 				success: function(resposta) {
-					var preco_com_desconto = resposta;
-					var desconto = atividade_quantidade * atividade_preco;
-					desconto = desconto - resposta;
-					desconto = $.formatNumber(desconto, {format:"#,###.00", locale: "br"});
-					if(desconto == ",00"){
-						desconto = "0,00";
-					}
-					console.log(desconto);
+					var data = jQuery.parseJSON(resposta);
 
-					preco_com_desconto = $.formatNumber(resposta, {format:"#,###.00", locale: "br"});
-					// console.log(resposta);
+					var preco_com_desconto = data.preco;
+					var valorDesconto = atividade_preco - data.preco;
+
+					if(valorDesconto == 0){
+						valorDesconto = "0,00";
+					}else{
+						valorDesconto = $.formatNumber(valorDesconto, {format:"#,###.00", locale: "br"});	
+					}
+
+					var options = "";
+					$.each(data.valoresParcelados, function(key, value){
+						options += "<option id='"+value+"' value='"+ key +"'>"+key+"x R$"+$.formatNumber(value, {format:"#,###.00", locale: "br"})+"</option>";});
+					$("#select-valor").html(options);
+
+					preco_com_desconto = $.formatNumber(data.preco, {format:"#,###.00", locale: "br"});
+					
+					atividade_preco = $.formatNumber(atividade_preco, {format:"#,###.00", locale: "br"});
+
 					$("input[name='preco_str']").val("R$ "+ preco_com_desconto);
 					$('.valor-real').text("R$ " + preco_com_desconto);
-					$('.desconto').text("R$ " + desconto);
+					$('.desconto').text("R$ " + valorDesconto);
+					$(".subtotal").text("R$ "+ atividade_preco);
 				},
 				error: function() {
 					// correu mal, agir em conformidade
