@@ -368,20 +368,13 @@ echo form_input(array(
 		</div>
 		<div class="col-md-4 margtop15">
 				<select id="select-valor" name="parcelas" class="form-control mySelectBoxClass">
-				<?php 
-					if($preco_total >= 60 && $preco_total <= 100) { 
-						for($i=1; $i <=2;$i++) { ?>
-							<option id="<?=$parcelas[$i]?>" value="<?=$i?>"><?=$i?>x <?=numeroEmReais($parcelas[$i])?> </option>
-				<?php 	}
-					} else if($preco_total > 100) {
-						for($i=1; $i <=4 ;$i++) { ?>
-						<option id="<?=$parcelas[$i]?>" value="<?=$i?>"><?=$i?>x <?=numeroEmReais($parcelas[$i])?> </option>
+					<?php 
+						foreach ($parcelas as $i => $parcela) {?>
+							<option id="<?=$parcela?>" value="<?=$i?>"><?= $i."x ". numeroEmReais($parcela) ?></option>
+						
+					<?php	}
+					?>	
 				
-				<?php }
-					}else if($preco_total < 60) { ?>
-						<option id="<?=$parcelas[1]?>" value="1">1x <?=numeroEmReais($parcelas[1])?> </option>
-				<?php
-					} ?>
 				</select>
 		
 		</div>
