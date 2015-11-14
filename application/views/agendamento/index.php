@@ -190,12 +190,12 @@ echo form_error("email");
 					<br/>
 					<div class="col-md-4">
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 textcenter">
 						Cupom de desconto
 						<!-- Collapse 5 -->
-						<button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse5"></button>
-						<div id="collapse5" class="collapse">
-							<input type="text" class="form-control margtop10" placeholder="">
+						<!-- <button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse5"></button> -->
+						<div id="collapse5" class="">
+							<input type="text" class="form-control margtop10" placeholder="" name="cupom_desconto" onblur="validaDesconto()">
 						</div>
 						<!-- End of collapse 5 -->
 						<div class="clearfix"></div>
@@ -534,6 +534,12 @@ echo form_close();
 					</div>
 					<div class="line3"></div>
 					<div class="padding20">
+						<span class="left size14 dark">Subtotal:</span>
+						<span class="right lred2 bold size18 subtotal"><?=$preco?></span>
+						<div class="clearfix"></div>
+						<span class="left size14 dark">Desconto:</span>
+						<span class="right lred2 bold size18 desconto">R$ 0,00</span>
+						<div class="clearfix"></div>
 						<span class="left size14 dark">Valor Total:</span>
 						<span class="right lred2 bold size18 valor-real"><?=$preco?></span>
 						<div class="clearfix"></div>
@@ -597,6 +603,43 @@ echo form_close();
 			$('input[name="preco_str"]').val("R$ "+ valorTotal);
 
 		});
+	</script>
+
+	<script>
+		function validaDesconto(){
+			var cupom_desconto = $("input[name='cupom_desconto']").val();
+			var atividade_codigo = $("input[name='atividade_codigo']").val();
+			var atividade_preco = $("input[name='preco_raw'").val();
+			var atividade_quantidade = $("input[name='quantidade']").val();
+			$.ajax({
+				type: "POST",
+				url: "/praquerumo/agendamento/teste",
+				data: { cupom_desconto: cupom_desconto, 
+						atividade_codigo: atividade_codigo,
+						atividade_preco: atividade_preco,
+						atividade_quantidade: atividade_quantidade
+				},
+				success: function(resposta) {
+					var preco_com_desconto = resposta;
+					var desconto = atividade_quantidade * atividade_preco;
+					desconto = desconto - resposta;
+					desconto = $.formatNumber(desconto, {format:"#,###.00", locale: "br"});
+					if(desconto == ",00"){
+						desconto = "0,00";
+					}
+					console.log(desconto);
+
+					preco_com_desconto = $.formatNumber(resposta, {format:"#,###.00", locale: "br"});
+					// console.log(resposta);
+					$("input[name='preco_str']").val("R$ "+ preco_com_desconto);
+					$('.valor-real').text("R$ " + preco_com_desconto);
+					$('.desconto').text("R$ " + desconto);
+				},
+				error: function() {
+					// correu mal, agir em conformidade
+				}
+			});
+		}
 	</script>
 	<!-- END OF CONTENT -->
 
