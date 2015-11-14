@@ -542,6 +542,13 @@ class Agendamento extends CI_Controller {
 			$porcentagemDesconto = $desconto["porcentagem"]/100;
 			$preco = number_format($atividade_preco - ($atividade_preco*$porcentagemDesconto), 2);
 		}
-		echo json_encode(floatval($preco));
+
+		$valoresParcelados = $this->_calculaParcelaIugu($preco);
+
+		$data = array(
+			'preco' => floatval($preco),
+			'valoresParcelados' => $valoresParcelados
+		);
+		echo json_encode($data);
 	}
 }

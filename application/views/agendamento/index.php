@@ -198,6 +198,7 @@ echo form_error("email");
 						
 						<div id="collapse5" class="">
 							<input type="text" class="form-control margtop10" placeholder="" name="cupom_desconto" onblur="validaDesconto()">
+							<button class="btn btn-default">teste</buton>
 						</div>
 						<!-- End of collapse 5 -->
 						<div class="clearfix"></div>
@@ -608,7 +609,6 @@ echo form_close();
 			valorTotal = $.formatNumber(valorTotal, {format:"#,###.00", locale:"br"});
 			
 			$('.valor-real').text("R$ " + valorTotal);
-			$('.subtotal').text("R$ " + valorTotal);
 			//mudando valor que é exibido na confirmação de pagamento.
 			$('input[name="preco_str"]').val(valorTotal);
 
@@ -628,8 +628,10 @@ echo form_close();
 						atividade_preco: atividade_preco
 				},
 				success: function(resposta) {
-					var preco_com_desconto = resposta;
-					var valorDesconto = atividade_preco - resposta;
+					var data = jQuery.parseJSON(resposta);
+
+					var preco_com_desconto = data.preco;
+					var valorDesconto = atividade_preco - data.preco;
 
 					if(valorDesconto == 0){
 						valorDesconto = "0,00";
@@ -637,7 +639,12 @@ echo form_close();
 						valorDesconto = $.formatNumber(valorDesconto, {format:"#,###.00", locale: "br"});	
 					}
 
-					preco_com_desconto = $.formatNumber(resposta, {format:"#,###.00", locale: "br"});
+					var options = "";
+					$.each(data.valoresParcelados, function(key, value){
+						options += "<option id='"+value+"' value='"+ key +"'>"+key+"x R$"+$.formatNumber(value, {format:"#,###.00", locale: "br"})+"</option>";});
+					$("#select-valor").html(options);
+
+					preco_com_desconto = $.formatNumber(data.preco, {format:"#,###.00", locale: "br"});
 					
 					atividade_preco = $.formatNumber(atividade_preco, {format:"#,###.00", locale: "br"});
 
