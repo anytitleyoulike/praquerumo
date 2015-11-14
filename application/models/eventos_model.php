@@ -132,4 +132,12 @@ class Eventos_model extends CI_Model {
 
 		return true;
 	}
+
+	public function estadosComAtividades(){
+		$this->db->select('estados');
+		$this->db->from('descricao_atividade');
+		$this->db->group_by('estado');
+
+		return $this->db->get()->result_array();
+	}
 }

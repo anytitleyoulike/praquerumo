@@ -432,7 +432,16 @@ class Agendamento extends CI_Controller {
 
 		$valoresParcelados = array();
 		
-		for($i=1;$i <= 4; $i++) {
+
+		if($valor >= 60 && $valor <= 100) {
+			$limite = 2;
+		} else if($valor > 100) {
+			$limite = 4;
+		} else {
+			$limite = 1;
+		}
+
+		for($i=1;$i <= $limite; $i++) {
 			
 			if($i <= 2) {
 				$novoValor = $valor/$i;
