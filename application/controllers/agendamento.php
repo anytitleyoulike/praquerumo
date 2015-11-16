@@ -536,7 +536,7 @@ class Agendamento extends CI_Controller {
 		return Iugu_Charge::create($carrinho);
 	}
 
-	function teste(){
+	function validaDesconto(){
 		$this->load->model("desconto_model");
 
 		$cupom_desconto = $this->input->post("cupom_desconto");
