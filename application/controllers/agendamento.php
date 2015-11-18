@@ -202,7 +202,7 @@ class Agendamento extends CI_Controller {
 			$disponivel = $this->_verificaDisponibilidade($evento, $quantidade);
 			
 			if ($disponivel != 0) {
-				$result_pgto = $this->_pagar($token, $email, $descricao, $quantidade, $preco_formatado, $parcelas, $preco_desconto);
+				$result_pgto = $this->_pagar($token, $email, $descricao, $quantidade, $preco_formatado, $parcelas, $preco_com_desconto);
 
 				if ($result_pgto->success) {
 					$invoice_id = $result_pgto["invoice_id"];
