@@ -63,7 +63,8 @@ class Agendamento extends CI_Controller {
 			$preco = $this->input->post('preco_raw');
 			if($desconto_porcentagem != 0){
 				$preco_desconto = $preco*$quantidade;
-				$preco_desconto = str_replace(".", "",number_format($preco_desconto*$desconto_porcentagem, 2));
+				$preco_desconto = number_format($preco_desconto*$desconto_porcentagem, 2);
+				$preco_com_desconto = str_replace(".", "", $preco_desconto);
 			}
 			$preco_formatado = str_replace('.', '', $preco);
 			$descricao = $this->input->post('descricao');
@@ -73,7 +74,7 @@ class Agendamento extends CI_Controller {
 			$disponivel = $this->_verificaDisponibilidade($evento, $quantidade);
 
 			if ($disponivel != 0) {
-				$resultado = $this->_criaBoleto($email, $descricao, $quantidade, $preco_formatado, $preco_desconto);
+				$resultado = $this->_criaBoleto($email, $descricao, $quantidade, $preco_formatado, $preco_com_desconto);
 				
 				if (!array_key_exists("errors", $resultado)) {
 					$invoice_id = $resultado["invoice_id"];
@@ -108,10 +109,8 @@ class Agendamento extends CI_Controller {
 					/*Fim de dados para email*/
 
 
-					$total = str_replace('.', ',', ($preco*$quantidade));
-					if(substr($preco, strlen($preco)-2, 2) == '00'){
-						$total = $total.",00";
-					}
+					$total = number_format((($preco*$quantidade)-$preco_desconto), 2, ",", ".");
+					$subtotal = number_format($preco*$quantidade, 2, ",", ".");
 
 					$dados_email = array(
 						'atividade' => $dados_atividade,
@@ -122,6 +121,8 @@ class Agendamento extends CI_Controller {
 						'total' => $total,
 						'url' => $resultado['url'],
 						'compra' => $dados_compra,
+						'preco_com_desconto' => str_replace(".", ",", $preco_desconto),
+						'subtotal' => $subtotal
 					);
 
 					//send email de confirmação(com voucher e qrcode)
@@ -186,7 +187,8 @@ class Agendamento extends CI_Controller {
 			$preco = $this->input->post('preco_raw');
 			if($desconto_porcentagem != 0){
 				$preco_desconto = $preco*$quantidade;
-				$preco_desconto = str_replace(".", "",number_format($preco_desconto*$desconto_porcentagem, 2));
+				$preco_desconto = number_format($preco_desconto*$desconto_porcentagem, 2);
+				$preco_com_desconto = str_replace(".", "", $preco_desconto);
 			}
 			$preco_formatado = str_replace('.', '', $preco);
 			$preco_confirmacao = $this->input->post('preco_str');
@@ -237,10 +239,8 @@ class Agendamento extends CI_Controller {
 					);
 					/*Fim de dados para email*/
 
-					$total = str_replace('.', ',', ($preco*$quantidade));
-					if(substr($preco, strlen($preco)-2, 2) == '00'){
-						$total = $total.",00";
-					}
+					$total = number_format((($preco*$quantidade)-$preco_desconto), 2, ",", ".");
+					$subtotal = number_format($preco*$quantidade, 2, ",", ".");
 
 					$dados_email = array(
 						'atividade' => $dados_atividade,
@@ -248,6 +248,8 @@ class Agendamento extends CI_Controller {
 						'compra' => $dados_compra,
 						'preco' => str_replace('.', ',', $preco),
 						'total' => $total,
+						'preco_com_desconto' => str_replace(".", ",", $preco_desconto),
+						'subtotal' => $subtotal
 					);
 					//send email de confirmação(com voucher e qrcode)
 					
@@ -536,7 +538,7 @@ class Agendamento extends CI_Controller {
 		return Iugu_Charge::create($carrinho);
 	}
 
-	function teste(){
+	function validaDesconto(){
 		$this->load->model("desconto_model");
 
 		$cupom_desconto = $this->input->post("cupom_desconto");
@@ -547,16 +549,19 @@ class Agendamento extends CI_Controller {
 	 		
 		if(empty($desconto)){
 			$preco = $atividade_preco;
+			$success = false;
 		}else{
 			$porcentagemDesconto = $desconto["porcentagem"]/100;
 			$preco = number_format($atividade_preco - ($atividade_preco*$porcentagemDesconto), 2);
+			$success = true;
 		}
 
 		$valoresParcelados = $this->_calculaParcelaIugu($preco);
 
 		$data = array(
 			'preco' => floatval($preco),
-			'valoresParcelados' => $valoresParcelados
+			'valoresParcelados' => $valoresParcelados,
+			'success' => $success
 		);
 		echo json_encode($data);
 	}
