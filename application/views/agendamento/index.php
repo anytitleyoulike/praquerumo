@@ -195,10 +195,9 @@ echo form_error("email");
 						Cupom de desconto
 						<!-- Collapse 5 -->
 						<!-- <button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse5"></button> -->
-						
-						<div id="collapse5" class="">
-							<input type="text" class="form-control margtop10" placeholder="" name="cupom_desconto" onblur="validaDesconto()">
-							<button class="btn btn-default">Verificar</buton>
+						<div id="collapse5">
+							<input type="text" class="form-control margtop10" placeholder="" name="cupom_desconto">
+							<input type="button" class="btn btn-default" onclick="validaDesconto()" value="Verificar"></input>
 						</div>
 						<!-- End of collapse 5 -->
 						<div class="clearfix"></div>
@@ -542,6 +541,9 @@ echo form_close();
 						<div class="clearfix"></div>
 						<span class="left size14 dark">Desconto:</span>
 						<span class="right lred2 size16 desconto">R$ 0,00</span>
+						<!-- <div class="clearfix"></div>
+						<span class="left size14 dark">Juros:</span>
+						<span class="right lred2 size16 juros">R$ 0,00</span> -->
 						<div class="clearfix"></div>
 						<span class="left size14 dark">Valor Total:</span>
 						<span class="right lred2 bold size18 valor-real"><?=$preco?></span>
@@ -598,15 +600,26 @@ echo form_close();
 			var valorSelecionado = $('#select-valor option:selected').attr('id');
 			var parcelas = $('#select-valor option:selected').val();
 			var valorTotal = valorSelecionado*parcelas;
-			var desconto = atividade_preco - valorTotal;
-			desconto = $.formatNumber(desconto, {format:"#,###.00", locale:"br"});
-			valorTotal = $.formatNumber(valorTotal, {format:"#,###.00", locale:"br"});
 			
-			$('.desconto').text("R$ " + desconto);
+			var desconto = valorTotal-atividade_preco;
+			/*if(parcelas == 3 || parcelas == 4){
+				var juros = valorTotal - parseFloat(atividade_preco);
+				juros = $.formatNumber(juros, {format:"#,###.00", locale:"br"});
+			}else{
+				var juros = "0,00";
+			}*/
+
+			
+
+			valorTotal = $.formatNumber(valorTotal, {format:"#,###.00", locale:"br"});
+			desconto = $.formatNumber(desconto, {format:"#,###.00", locale:"br"});
+			
+			// $(".juros").text("R$ " + juros);
 			$('.valor-real').text("R$ " + valorTotal);
+			$('.desconto').text("R$ " + desconto);
 			//mudando valor que é exibido na confirmação de pagamento.
 			$('input[name="preco_str"]').val(valorTotal);
-
+		
 		});
 	</script>
 
@@ -614,7 +627,7 @@ echo form_close();
 		function validaDesconto(){
 			var cupom_desconto = $("input[name='cupom_desconto']").val();
 			var atividade_codigo = $("input[name='atividade_codigo']").val();
-			var atividade_preco = $("input[name='preco_total'").val();
+			var atividade_preco = ($("input[name='preco_total'").val());
 			$.ajax({
 				type: "POST",
 				url: "/praquerumo/agendamento/validaDesconto",
@@ -624,7 +637,6 @@ echo form_close();
 				},
 				success: function(resposta) {
 					var data = jQuery.parseJSON(resposta);
-
 					var preco_com_desconto = data.preco;
 					var valorDesconto = atividade_preco - data.preco;
 
@@ -633,20 +645,33 @@ echo form_close();
 					}else{
 						valorDesconto = $.formatNumber(valorDesconto, {format:"#,###.00", locale: "br"});	
 					}
+					
+					if(data.success == false){
+						$("#collapse5").removeClass("has-success").addClass("has-error");
+						$("#collapse5").append("<span class='help-block'>Código inválido</span>");
+						setTimeout(function(){$("#collapse5 span").hide()}, 2000);
+					}else{
+						$("#collapse5").removeClass("has-error").addClass("has-success");
+						$("#collapse5 span").hide();
+					}
 
 					var options = "";
 					$.each(data.valoresParcelados, function(key, value){
+						
 						options += "<option id='"+value+"' value='"+ key +"'>"+key+"x R$ "+$.formatNumber(value, {format:"#,###.00", locale: "br"})+"</option>";});
 					$("#select-valor").html(options);
 
 					preco_com_desconto = $.formatNumber(data.preco, {format:"#,###.00", locale: "br"});
+
 					
-					atividade_preco = $.formatNumber(atividade_preco, {format:"#,###.00", locale: "br"});
+					/*if(data.preco <= 100){
+						var juros = "0,00";
+						$(".juros").text("R$ " + juros);
+					}*/
 
 					$("input[name='preco_str']").val("R$ "+ preco_com_desconto);
 					$('.valor-real').text("R$ " + preco_com_desconto);
 					$('.desconto').text("R$ " + valorDesconto);
-					$(".subtotal").text("R$ "+ atividade_preco);
 				},
 				error: function() {
 					// correu mal, agir em conformidade
