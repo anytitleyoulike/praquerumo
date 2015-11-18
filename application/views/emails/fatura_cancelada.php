@@ -35,7 +35,7 @@
 					Tomamos conhecimento do seu pedido via <strong>BOLETO BANCÁRIO</strong>, mas infelizmente não identificamos seu pagamento.
 				</p>
 				<p style="margin-top:12px; color:#808080; font-size:12px; margin-left:37px; margin-right:46px;">
-					Caso você ainda tenha interesse em participar dessa atividade, solicitamos que faça um novo pedido através do nosso site: <a href="http://www.praquerumo.com.br">www.praquerumo.com.br</a>, pois, infelizmente não podemos gerar um novo boleto por e-mail.
+					Caso você ainda tenha interesse em participar dessa atividade, solicitamos que faça um novo pedido através do nosso site: <a href="<?=base_url("")?>"><?=base_url("")?></a>, pois, infelizmente não podemos gerar um novo boleto por e-mail.
 				</p>
 				<p style="margin-top:12px; color:#808080; font-size:12px; margin-left:37px; margin-right:46px;">
 					Gostaríamos de lembrar que a fatura do <strong>BOLETO</strong> vale somente por 24 horas.
@@ -51,7 +51,7 @@
 		</tr>
 		<tr>
 			<td align="center" colspan="2">
-				<a href="http://www.praquerumo.com.br"><img src="<?=base_url('assets/images/emails/icone_sitepqr.png')?>" width="30px" height="30px" /></a> 
+				<a href="<?=base_url("")?>"><img src="<?=base_url('assets/images/emails/icone_sitepqr.png')?>" width="30px" height="30px" /></a> 
 				<a href="https://www.facebook.com/praquerumo"><img src="<?=base_url('assets/images/emails/icone_facebook.png')?>" width="30px" height="30px" /></a> 
 				<a href="https://instagram.com/praquerumoficial/"><img src="<?=base_url('assets/images/emails/icone_instagram.png')?>" width="30px" height="30px" /></a> 
 				<a href="https://plus.google.com/+PraquerumoBr"><img src="<?=base_url('assets/images/emails/icone_googleplus.png')?>" width="30px" height="30px" /></a> 

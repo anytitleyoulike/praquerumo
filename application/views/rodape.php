@@ -103,7 +103,7 @@ echo form_close();
 
 <div class="footerbg2">
 	<div class="container center grey">
-		<a href="<?=base_url()?>">Home</a> | <a href="<?=base_url("equipe")?>">Quem Somos</a> | <a href="http://www.praquerumo.com.br/blog" target="_blank">Blog</a>
+		<a href="<?=base_url()?>">Home</a> | <a href="<?=base_url("equipe")?>">Quem Somos</a> | <a href="http://blog.praquerumo.com.br" target="_blank">Blog</a>
 		 | <a href="<?=base_url("termos/termo_de_uso")?>" target="_blank"><?=lang("footer_termo_de_uso")?></a> <!--| <a href="#">Contact</a>-->
 		<a href="#top" class="gotop scroll">
 			<img src="<?php echo base_url('assets/images/spacer.png')?>" alt="" />

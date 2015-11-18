@@ -127,7 +127,7 @@
 											É imporante lembrar que sua fatura pelo <strong><a href="<?=$url?>">BOLETO</a></strong> vale somente por 24 horas!
 										</p>
 										<p style="margin-top:12px; color:#808080; font-size:12px;">
-											Se você não imprimir sua fatura, infelizmente não poderemos fornecer uma cópia. E se por acaso isso acontecer, faça um novo pedido em nosso site: <a href="http://www.praquerumo.com.br">www.praquerumo.com.br</a>
+											Se você não imprimir sua fatura, infelizmente não poderemos fornecer uma cópia. E se por acaso isso acontecer, faça um novo pedido em nosso site: <a href="<?=base_url("")?>"><?=base_url("")?></a>
 										</p>
 										<p style="margin-top:12px; color:#808080; font-size:12px;">
 											Depois de realizar o pagamento, pode levar até 1 dia útil para recebermos a confirmação. E para
@@ -147,7 +147,7 @@
 					</tr>
 					<tr>
 						<td align="center" colspan="2">
-							<a href="http://www.praquerumo.com.br"><img src="<?=base_url('assets/images/emails/icone_sitepqr.png')?>" width="30px" height="30px" /></a> 
+							<a href="<?=base_url("")?>"><img src="<?=base_url('assets/images/emails/icone_sitepqr.png')?>" width="30px" height="30px" /></a> 
 							<a href="https://www.facebook.com/praquerumo"><img src="<?=base_url('assets/images/emails/icone_facebook.png')?>" width="30px" height="30px" /></a> 
 							<a href="https://instagram.com/praquerumoficial/"><img src="<?=base_url('assets/images/emails/icone_instagram.png')?>" width="30px" height="30px" /></a> 
 							<a href="https://plus.google.com/+PraquerumoBr"><img src="<?=base_url('assets/images/emails/icone_googleplus.png')?>" width="30px" height="30px" /></a> 
