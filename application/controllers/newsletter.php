@@ -11,7 +11,7 @@ class Newsletter extends CI_Controller {
 		$this->form_validation->set_rules('newsletter', 'e-mail', 'trim|required|valid_email|callback_ja_cadastrado');
 
 		$sucesso = $this->form_validation->run();
-
+		
 		if ($sucesso) {
 			
 			$email = $this->input->post('newsletter');
@@ -26,11 +26,19 @@ class Newsletter extends CI_Controller {
 
 			$this->_enviaEmailVerificacao($email);
 
-			$this->load->template('newsletter/obrigado');
+			$data = array(
+				"success" => true,
+				"msg"     => "Obrigado por se cadastrar! Aguarde nosso email de confirmação"
+			);
+
+			echo json_encode($data);
 
 		} else {
-
-			redirect(base_url(""));
+			$data = array(
+				"success" => false,
+				"msg"     => "Email incorreto ou já cadastrado"
+			);
+		 echo json_encode($data);
 		}
 	}
 
