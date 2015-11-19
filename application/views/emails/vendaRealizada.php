@@ -72,9 +72,9 @@
 														</td>
 														<td valign="top">
 															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Valor</strong>: <?=$compra["preco"]?></p>
-															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Quantidade:</strong>: <?=$compra["quantidade"]?></p>
+															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Desconto:</strong> <?=$compra["desconto"]?></p>
 															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Valor Total</strong>: <?=$compra["total"]?></p>
-															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Parcelas:</strong> <?=$compra["parcelas"]?></p>
+															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Quantidade:</strong>: <?=$compra["quantidade"]?></p>
 														</td>
 													</tr>
 												</table>
