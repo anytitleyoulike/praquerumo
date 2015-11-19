@@ -197,6 +197,7 @@ echo form_error("email");
 						<!-- <button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse5"></button> -->
 						<div id="collapse5">
 							<input type="text" class="form-control margtop10" placeholder="" name="cupom_desconto">
+							<input type="hidden" name="success" value="false" />
 							<input type="button" class="btn btn-default" onclick="validaDesconto()" value="Verificar"></input>
 						</div>
 						<!-- End of collapse 5 -->
@@ -599,12 +600,19 @@ echo form_close();
 
 	<script> 
 		$('#select-valor').change(function() {
-			var atividade_preco = $("input[name='preco_total'").val();
+			var atividade_preco = $("input[name='preco_total']").val();
+			var success = $("input[name='success']").val();
 			var valorSelecionado = $('#select-valor option:selected').attr('id');
 			var parcelas = $('#select-valor option:selected').val();
 			var valorTotal = valorSelecionado*parcelas;
-			
-			var desconto = valorTotal-atividade_preco;
+
+			if(success == "true"){
+				var desconto = valorTotal-atividade_preco;
+
+				desconto = $.formatNumber(desconto, {format:"#,###.00", locale:"br"});
+				$('.desconto').text("R$ " + desconto);
+			}
+
 			/*if(parcelas == 3 || parcelas == 4){
 				var juros = valorTotal - parseFloat(atividade_preco);
 				juros = $.formatNumber(juros, {format:"#,###.00", locale:"br"});
@@ -615,11 +623,9 @@ echo form_close();
 			
 
 			valorTotal = $.formatNumber(valorTotal, {format:"#,###.00", locale:"br"});
-			desconto = $.formatNumber(desconto, {format:"#,###.00", locale:"br"});
 			
 			// $(".juros").text("R$ " + juros);
 			$('.valor-real').text("R$ " + valorTotal);
-			$('.desconto').text("R$ " + desconto);
 			//mudando valor que é exibido na confirmação de pagamento.
 			$('input[name="preco_str"]').val(valorTotal);
 		
@@ -672,6 +678,7 @@ echo form_close();
 						$(".juros").text("R$ " + juros);
 					}*/
 
+					$("input[name='success']").val(data.success);
 					$("input[name='preco_str']").val("R$ "+ preco_com_desconto);
 					$('.valor-real').text("R$ " + preco_com_desconto);
 					$('.desconto').text("R$ " + valorDesconto);
