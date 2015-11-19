@@ -61,7 +61,7 @@ class Fatura extends CI_Controller {
 	    	'event' => 'Eventos',
 	    	'data' => array(
 	    		'status' => 'paid',
-	    		'id' => '74a31364d5d24be88e055caae2091a4e',
+	    		'id' => '3636478125D34EFCBAC3CFE11F0745C1',
 	    		)
 	    	);
 
@@ -244,7 +244,7 @@ class Fatura extends CI_Controller {
 		############dados da compra##################
 		$dados_compra['voucher'] = $fatura_id;
 		$dados_compra['data_compra'] = $fatura->created_at;
-		$dados_compra['parcelas'] = $fatura->installments;
+		$dados_compra['desconto'] = $fatura->discount;
 		//pega a quantidade comprada
 		$itens = $fatura['items'];
 

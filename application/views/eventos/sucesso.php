@@ -66,6 +66,9 @@
 										<p style="margin-top:15px; margin-left:6px;"><strong>Atividade</strong>: <?=$atividade['titulo']?></p>
 										<p style="margin-top:15px; margin-left:6px;"><strong>Data</strong>: <?=dataMysqlParaPtBr($atividade["data"])?></p>
 										<p style="margin-top:15px; margin-left:6px;"><strong>Hora</strong>: <?=substr($atividade["horario"], 0,5)?></p>
+										<br>
+										<br>
+										<br>
 									</td>
 								</tr>
 							</table>
@@ -86,7 +89,7 @@
 										<p style="margin-top:15px; margin-left:6px;"><strong>Valor unitário</strong>: R$ <?=$preco?></p>
 										<p style="margin-top:15px; margin-left:6px;"><strong>Quantidade</strong>: <?=$compra["quantidade"]?></p>
 										<p style="margin-top:15px; margin-left:6px;"><strong>Subtotal</strong>: R$ <?=$subtotal?></p>
-										<p style="margin-top:15px; margin-left:6px;"><strong>Desconto</strong>: R$ -<?=$preco_com_desconto?></p>
+										<p style="margin-top:15px; margin-left:6px;"><strong>Desconto</strong>: R$ <?=$preco_com_desconto?></p>
 										<p style="margin-top:15px; margin-left:6px;"><strong>Valor Total</strong>: R$ <?=$total?></p>
 									</td>
 								</tr>

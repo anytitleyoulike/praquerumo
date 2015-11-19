@@ -83,7 +83,7 @@
 										<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Valor unitário</strong>: R$ <?=$preco?></p>
 										<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Quantidade</strong>: <?=$compra["quantidade"]?></p>
 										<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Subtotal</strong>: R$ <?=$subtotal?></p>
-										<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Desconto</strong>: R$ -<?=$preco_com_desconto?></p>
+										<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Desconto</strong>: R$ <?=$preco_com_desconto?></p>
 										<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Valor Total</strong>: R$ <?=$total?></p>
 									</td>
 								</tr>
