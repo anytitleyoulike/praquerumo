@@ -639,7 +639,7 @@ echo form_close();
 			var atividade_preco = ($("input[name='preco_total'").val());
 			$.ajax({
 				type: "POST",
-				url: "/praquerumo/agendamento/validaDesconto",
+				url: "../controllers/agendamento/validaDesconto",
 				data: { cupom_desconto: cupom_desconto, 
 						atividade_codigo: atividade_codigo,
 						atividade_preco: atividade_preco
