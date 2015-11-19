@@ -66,6 +66,9 @@
 										<p style="margin-top:15px; margin-left:6px;"><strong>Atividade</strong>: <?=$atividade['titulo']?></p>
 										<p style="margin-top:15px; margin-left:6px;"><strong>Data</strong>: <?=dataMysqlParaPtBr($atividade["data"])?></p>
 										<p style="margin-top:15px; margin-left:6px;"><strong>Hora</strong>: <?=substr($atividade["horario"], 0,5)?></p>
+										<br>
+										<br>
+										<br>
 									</td>
 								</tr>
 							</table>
