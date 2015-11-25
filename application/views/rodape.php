@@ -16,10 +16,10 @@
 						rel="publisher" target="_blank" class="social3"> <img
 						src="<?=base_url('assets/images/social_medias/icon-gplus.png')?>" alt="Google+" width="30px" height="30px" />
 					</a>
-					<a href="http://www.youtube.com/praquerumo" target="_blank"
+					<a href="https://www.youtube.com/praquerumo" target="_blank"
 						class="social4"><img src="<?=base_url('assets/images/social_medias/icon-youtube.png')?>"
 						alt="Youtube" width="30px" height="30px" /> </a>
-					<a href="http://www.instagram.com/praquerumoficial" target="_blank"
+					<a href="https://www.instagram.com/praquerumoficial" target="_blank"
 						class="social5"><img src="<?=base_url('assets/images/social_medias/icon-instagram.png')?>"
 						alt="Youtube" width="30px" height="30px" /> </a>
 
@@ -49,7 +49,7 @@
 						<img src="http://storage.pupui.com.br/9CA0F40E971643D1B7C8DE46BBC18396/assets/cc-icons.e8f4c6b4db3cc0869fa93ad535acbfe7.png" alt="Visa, Master, Diners. Amex" border="0" />
 			 		</li>
 					<li>
-						<a class="iugu-btn" href="http://iugu.com" tabindex="-1"><img src="http://storage.pupui.com.br/9CA0F40E971643D1B7C8DE46BBC18396/assets/payments-by-iugu.1df7caaf6958f1b5774579fa807b5e7f.png" alt="Pagamentos por Iugu" border="0" /></a>
+						<a class="iugu-btn" href="https://iugu.com" tabindex="-1"><img src="http://storage.pupui.com.br/9CA0F40E971643D1B7C8DE46BBC18396/assets/payments-by-iugu.1df7caaf6958f1b5774579fa807b5e7f.png" alt="Pagamentos por Iugu" border="0" /></a>
 					</li>
 				</ul>
 			</div>
