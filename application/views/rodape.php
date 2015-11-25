@@ -70,7 +70,7 @@
 					));
 					echo form_error("newsletter");
 					$data = array('class' => 'btn btn-default btncustom',
-					'type' => 'submit',
+					'type' => 'button',
 					'onclick' => "submitNewsletter()",
 					'src' => "<img src=" . base_url('assets/images/arrow.png') . '" alt="" />');
 					echo form_button($data);
@@ -114,15 +114,15 @@
 
 <!-- Javascript -->
 
-<script>
+<script type="text/javascript">
 
 
 function submitNewsletter() {
 	
-	var email = $("input[name='newsletter']").val()
+	var email = jQuery('input[name="newsletter"]').val();
 
 	jQuery.ajax({
-		url: '../newsletter/novo',
+		url: '/praquerumo/newsletter/novo',
 		type: 'post',
 		data: {
 			newsletter: email,
@@ -130,13 +130,19 @@ function submitNewsletter() {
 		success: function(data) {
 			var response = JSON.parse(data);
 			if(response.success == false) {
-				$('.relative').append("<div id='tips-error' class='red'>"+ response.msg +"</div>");
-				$('input["name=newsletter"]').val("");
-			} else {
-				$('.relative').append("<div id='tips-error' class='green'>"+ response.msg +"</div>");
-				$('input["name=newsletter"]').val("");
-			}
+				jQuery('.relative').append("<div id='tips-error' class='red'>"+ response.msg +"</div>");
 
+				
+				
+			} else {
+				jQuery('.relative').append("<div id='tips-error' class='green'>"+ response.msg +"</div>");
+			}
+			
+ 
+			setTimeout(function(){	
+				jQuery("#tips-error").remove(); 
+				jQuery('input[name="newsletter"]').val("");
+			}, 2000);
 		},
 	});
 }
