@@ -29,7 +29,7 @@
 															<tbody>
 																<tr>
 																	<td align="right" valign="middle" style="border-top: 8px solid rgb(255, 255, 255); padding: 0px; margin: 0px">
-																		<a href="http:www.praquerumo.com.br"><img width="230" height="87" src="http://www.praquerumo.com.br/assets/images/emails/logo.png"style="border-width: 0px; margin-top: -23; border-style: none; border-color: transparent; display: block"></a>
+																		<a href="<?=base_url("")?>"><img width="230" height="87" src="<?=base_url("assets/images/emails/logo.png")?>"style="border-width: 0px; margin-top: -23; border-style: none; border-color: transparent; display: block"></a>
 																	</td>
 																</tr>
 															</tbody>
@@ -98,13 +98,13 @@
 															<tbody>
 																<tr>
 																	<td style="display: inline-block !important; width: auto !important; margin: auto; padding: 5px">
-																		<a title="Facebook" target="_blank" href="https://www.facebook.com/praquerumo"><img border="0" style="display: block" alt="Like" src="http://www.praquerumo.com.br/assets/images/icone_facebook.png"></a>
+																		<a title="Facebook" target="_blank" href="https://www.facebook.com/praquerumo"><img border="0" style="display: block" alt="Like" src="<?=base_url("/assets/images/icone_facebook.png")?>"></a>
 																	</td>
 																	<td style="display: inline-block !important; width: auto !important; margin: auto; padding: 5px">
-																		<a class="logo-pqr" title="PRAQUERUMO" target="_blank" href="http://www.praquerumo.com.br"><img border="0" style="display: block" alt="PRAQUERUMO" src="http://www.praquerumo.com.br/assets/images/icone_pqr.png"></a>
+																		<a class="logo-pqr" title="PRAQUERUMO" target="_blank" href="<?=base_url("")?>"><img border="0" style="display: block" alt="PRAQUERUMO" src="<?=base_url("/assets/images/icone_pqr.png")?>"></a>
 																	</td>
 																	<td style="display: inline-block !important; width: auto !important; margin: auto; padding: 5px">
-																		<a title="Twitter" target="_blank" href="https://twitter.com/PraQueRumo"><img border="0" style="display: block" alt="Twitter" src="http://www.praquerumo.com.br/assets/images/icone_twitter.png"></a>
+																		<a title="Twitter" target="_blank" href="https://twitter.com/PraQueRumo"><img border="0" style="display: block" alt="Twitter" src="<?=base_url("/assets/images/icone_twitter.png")?>"></a>
 																	</td>
 																</tr>
 															</tbody>

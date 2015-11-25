@@ -1,10 +1,9 @@
   	<title>PRAQUERUMO - <?=$modalidade["nome{$sufix}"] . " | " . $atividade['titulo']?></title>
   	<?php $tirar  = array('<p>', '</p>');?>
 	<meta  name="description" content='<?=character_limiter(str_replace($tirar, '', $atividade["apresentacao"]), 150)?>'>
-	<!-- <meta property="og:url" content="http://www.praquerumo.com.br/eventos/<?=$atividade['codigo']?>" /> -->
 	<meta property="og:url" content="<?=base_url('atividades/'.$atividade['slug'])?>" />
 	<meta property="og:title" content="<?=$atividade['titulo']?>" />
-	<!-- <meta property="og:image" content="<?=base_url("assets/images/logo_beta.png")?>" /> -->
+
 	<meta property="og:image" content="<?=base_url('assets/images/atividades/detalhes/'.$atividade['fig_01'])?>" />
 	<meta property="fb:app_id" content="762715127184684" />
 
@@ -132,13 +131,13 @@ echo form_hidden($data);
 								data-show-faces="false" data-share="true">
 							</div>
 							<!-- gplus social button-->
-							<div class="bt-gplus g-plusone" href="http://www.praquerumo.com.br/atividades/<?=$atividade['slug']?>"
+							<div class="bt-gplus g-plusone" href="<?=base_url('atividades/'.$atividade['slug'])?>"
 								data-size="medium" expandTo="right">
 							</div>
 							<!-- twitter social button-->
 							<div class="bt-twitter">
-								<a href="https://twitter.com/share" class="twitter-share-button" data-ref="http://www.praquerumo.com.br/atividades/<?=$atividade['slug']?>"
-								  data-url="http://www.praquerumo.com.br/atividades/<?=$atividade['slug']?>" data-lang="en"></a>
+								<a href="https://twitter.com/share" class="twitter-share-button" data-ref="<?=base_url('atividades/'.$atividade['slug'])?>"
+								  data-url="<?=base_url('atividades/'.$atividade['slug'])?>" data-lang="en"></a>
 	    						<script>!function(d,s,id){
 	    							var js,fjs=d.getElementsByTagName(s)[0];
 		    							if(!d.getElementById(id)){

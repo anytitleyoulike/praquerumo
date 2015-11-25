@@ -36,7 +36,7 @@ class Fatura extends CI_Controller {
 	}
 
 	public function sendTest(){
-		$url = "http://www.praquerumo.com.br/fatura/test";
+		$url = "<?= base_url(fatura/test)";
 
 	    $data = array('event' => 'Eventos', 'data' => 'Faturas');
 
