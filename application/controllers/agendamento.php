@@ -187,7 +187,9 @@ class Agendamento extends CI_Controller {
 			$preco = $this->input->post('preco_raw');
 			if($desconto_porcentagem != 0){
 				$preco_desconto = $preco*$quantidade;
-				$preco_desconto = number_format($preco_desconto*$desconto_porcentagem, 2);
+				$preco_str = str_replace("R$ ", "", $this->input->post('preco_str'));
+				$preco_str = str_replace(",", ".", $preco_str);
+				$preco_desconto = $preco_desconto - $preco_str;
 				$preco_com_desconto = str_replace(".", "", $preco_desconto);
 			}
 			$preco_formatado = str_replace('.', '', $preco);
@@ -239,7 +241,7 @@ class Agendamento extends CI_Controller {
 					);
 					/*Fim de dados para email*/
 
-					$total = number_format((($preco*$quantidade)-$preco_desconto), 2, ",", ".");
+					$total = $this->input->post('preco_str');
 					$subtotal = number_format($preco*$quantidade, 2, ",", ".");
 
 					$dados_email = array(
