@@ -2,7 +2,7 @@
 <html>
   <head>
 	<title>PRAQUERUMO - <?=lang("title_pagina_inicial")?></title>
-	<link rel="canonical" href="http://www.praquerumo.com.br/" />
+	<link rel="canonical" href="<?=base_url("")?>" />
 	<meta  name="description" content="Encontre atividades de turismo de aventura e ecoturismo na Amazônia. Experimente atividades como Rafting, Stand-Up Paddle, Trekking, Caiaque e muito mais.">
 	<!--<link href="<?=base_url("assets/css/style01.css")?>" rel="stylesheet" media="screen">-->
 	<link href="<?=base_url("assets/css/evento-box.css")?>" rel="stylesheet" media="screen">
