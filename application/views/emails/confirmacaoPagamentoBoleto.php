@@ -51,9 +51,9 @@
 		</tr>
 		<tr>
 			<td align="left">
-				<table border="1" width="312px" height="109px" cellspacing="0px">
+				<table border="1" width="312px" height="175px" cellspacing="0px">
 					<tr>
-						<td>
+						<td valign="top">
 							<table>
 								<tr>
 									<td valign="top">
@@ -63,8 +63,6 @@
 										<p style="margin-top:15px; margin-left:6px;"><strong>Atividade</strong>: <?=$atividade['titulo']?></p>
 										<p style="margin-top:15px; margin-left:6px;"><strong>Data</strong>: <?=$atividade["data"]?></p>
 										<p style="margin-top:15px; margin-left:6px;"><strong>Hora</strong>: <?=$atividade["horario"]?></p>
-									<br>
-									<br>
 									</td>
 								</tr>
 							</table>
@@ -73,7 +71,7 @@
 				</table>
 			</td>
 			<td align="right">
-				<table border="1" width="312px" height="109px" cellspacing="0px">
+				<table border="1" width="312px" height="175px" cellspacing="0px">
 					<tr>
 						<td>
 							<table width="100%" height="100%">
@@ -82,10 +80,11 @@
 										<img src="<?=base_url('assets/images/emails/icone_reais.png')?>" width="25px" height="25px" style="margin-left:5px; margin-top:5px;"/>
 									</td>
 									<td valign="top" style="color:#808080;">
-										<p style="margin-top:15px; margin-left:6px;"><strong>Valor</strong>: <?=$compra['preco']?></p>
-										<p style="margin-top:15px; margin-left:6px;"><strong>Desconto:</strong> <?=$compra['desconto']?></p>
-										<p style="margin-top:15px; margin-left:6px;"><strong>Valor Total</strong>: <?=$compra['total']?></p>
-										<p style="margin-top:15px; margin-left:6px;"><strong>Quantidade</strong>: <?=$compra['quantidade']?></p>
+										<p style="margin-top:15px; margin-left:6px;"><strong>Valor unitário</strong>: R$ <?=$preco?></p>
+										<p style="margin-top:15px; margin-left:6px;"><strong>Quantidade</strong>: <?=$compra["quantidade"]?></p>
+										<p style="margin-top:15px; margin-left:6px;"><strong>Subtotal</strong>: R$ <?=$subtotal?></p>
+										<p style="margin-top:15px; margin-left:6px;"><strong>Desconto</strong>: R$ <?=$preco_com_desconto?></p>
+										<p style="margin-top:15px; margin-left:6px;"><strong>Valor Total</strong>: R$ <?=$total?></p>
 									</td>
 								</tr>
 							</table>

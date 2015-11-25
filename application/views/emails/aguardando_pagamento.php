@@ -46,11 +46,11 @@
 					</tr>
 					<tr>
 						<td align="left">
-							<table border="1" width="312px" height="109px" cellspacing="0px" style="border-color:#FFF;">
+							<table border="1" width="312px" height="175px" cellspacing="0px" style="border-color:#FFF;">
 								<tr>
-									<td>
+									<td valign="top">
 										<table>
-											<tr>
+											<tr valign="top">
 												<td valign="top">
 													<img src="<?=base_url('assets/images/emails/iconcebranco.png')?>" width="25px" height="25px" style="margin-left:5px; margin-top:5px;"/>
 												</td>
@@ -66,7 +66,7 @@
 							</table>
 						</td>
 								<td align="right">
-									<table border="1" width="312px" height="109px" cellspacing="0px" style="border-color:#FFF;">
+									<table border="1" width="312px" height="175px" cellspacing="0px" style="border-color:#FFF;">
 										<tr>
 											<td>
 												<table width="100%" height="100%">
