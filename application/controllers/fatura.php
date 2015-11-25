@@ -251,7 +251,7 @@ class Fatura extends CI_Controller {
 		foreach ($itens as $item) {
 			$dados_compra['quantidade'] = $item->quantity;
 			$dados_compra['preco'] = $item->price;
-			$dados_compra['subtotal'] = $fatura->total;//verificar como calcular o subtotal
+			$dados_compra['subtotal'] = number_format($fatura->item_total_cents/100, 2, ",", ".");
 			$dados_compra['total'] = $fatura->total;
 		}
 

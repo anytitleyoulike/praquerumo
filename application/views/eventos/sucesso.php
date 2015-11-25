@@ -54,9 +54,9 @@
 		</tr>
 		<tr>
 			<td align="left">
-				<table border="1" width="312px" height="109px" cellspacing="0px">
+				<table border="1" width="312px" height="175px" cellspacing="0px">
 					<tr>
-						<td>
+						<td valign="top">
 							<table>
 								<tr>
 									<td valign="top">
@@ -66,9 +66,6 @@
 										<p style="margin-top:15px; margin-left:6px;"><strong>Atividade</strong>: <?=$atividade['titulo']?></p>
 										<p style="margin-top:15px; margin-left:6px;"><strong>Data</strong>: <?=dataMysqlParaPtBr($atividade["data"])?></p>
 										<p style="margin-top:15px; margin-left:6px;"><strong>Hora</strong>: <?=substr($atividade["horario"], 0,5)?></p>
-										<br>
-										<br>
-										<br>
 									</td>
 								</tr>
 							</table>
@@ -77,7 +74,7 @@
 				</table>
 			</td>
 			<td align="right">
-				<table border="1" width="312px" height="109px" cellspacing="0px">
+				<table border="1" width="312px" height="175px" cellspacing="0px">
 					<tr>
 						<td>
 							<table width="100%" height="100%">
