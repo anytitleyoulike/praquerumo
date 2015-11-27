@@ -234,8 +234,7 @@ class Agendamento extends CI_Controller {
 					);
 					/*Fim de dados para email*/
 
-					$total = str_replace("R$ ", "", $this->input->post("preco_str"));
-					$total = str_replace(",", ".", $total);
+					$total = str_replace(",", ".", $preco_confirmacao);
 					$subtotal = number_format($preco*$quantidade, 2, ",", ".");
 					$valor_desconto = $subtotal - $total;
 
@@ -243,7 +242,7 @@ class Agendamento extends CI_Controller {
 						'atividade' => $dados_atividade,
 						'usuario' => $dados_usuario,
 						'compra' => $dados_compra,
-						'preco' => number_format($preco, 2, ".", ","),
+						'preco' => number_format($preco, 2, ",", "."),
 						'total' => $preco_confirmacao,
 						'valor_desconto' => number_format($valor_desconto, 2, ",", "."),
 						'subtotal' => $subtotal
