@@ -78,7 +78,7 @@
 																	<td align="right" valign="middle"
 																		style="border-top: 8px solid rgb(255, 255, 255); padding: 0px; margin: 0px"><a
 																		href="#"><img width="194" height="87"
-																			src="http://www.praquerumo.com.br/assets/img/praquerumo.png"
+																			src="<?=base_url("assets/images/logo_beta.png")?>"
 																			style="border-width: 0px; margin-top: -23; border-style: none; border-color: transparent; display: block"></a></td>
 																</tr>
 															</tbody>
@@ -172,13 +172,13 @@
 																		title="Twitter" target="_blank"
 																		href="https://twitter.com/PraQueRumo"><img
 																			border="0" style="display: block" alt="Twitter"
-																			src="http://www.praquerumo.com.br/assets/img/icone_twitter.png"></a></td>
+																			src="<?=base_url("/assets/images/social_medias/icon-twitter.png")?>"></a></td>
 																	<td
 																		style="display: inline-block !important; width: auto !important; margin: auto; padding: 5px"><a
 																		target="_blank" title="PraQueRumo"
 																		href="http://www.praquerumo.com.br"><img
 																			border="0" style="display: block" alt="PraQueRumo"
-																			src="http://www.praquerumo.com.br/assets/img/icone_praquerumo.png"></a></td>
+																			src="<?=base_url("assets/images/logosmal_black.png")?>"></a></td>
 																</tr>
 															</tbody>
 														</table></td>

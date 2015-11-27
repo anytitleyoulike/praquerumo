@@ -393,7 +393,7 @@ $counter++;
 	<script type="text/javascript" src="assets/js/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
 -->
     <!-- Custom Select-->
-	<script type='text/javascript' src='assets/js/jquery.customSelect.js'></script>
+	<script type='text/javascript' src='<?=base_url("assets/js/jquery.customSelect.js")?>'></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed
     <script src="dist/js/bootstrap.min.js"></script>-->
