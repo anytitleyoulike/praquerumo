@@ -76,26 +76,14 @@ class Newsletter extends CI_Controller {
 
 		$this->load->model("newsletter_model",'newsletter');
 		$this->load->library('email');
-
-				$this->email->initialize(array(
-				'protocol' => 'smtp',
-				'smtp_host' => 'smtp.sendgrid.net',
-				'smtp_user' => 'praquerumo',
-				'smtp_pass' => '@tt171423',
-				'smtp_port' => 587,
-				'crlf' => "\r\n",
-				'newline' => "\r\n"
-			));
+		$this->load->helper("pqr_email");
 		
 		$user = $this->newsletter->buscaEmail($email);
-
-		$this->email->from('suporte@praquerumo.com', 'Contato PQR');
-		$this->email->subject('Confirmação de Email');
-
-		$this->email->to($email);
-		$this->email->message("Caro usuário este é seu link de confirmação de email ". base_url('/verifica/'.$user->codigo_verificacao . "\n
-			Clique para ativar sua conta\nObrigado!\n Equipe PraQueRumo"));
-		return $this->email->send();
+		
+		$content = "Caro usuário este é seu link de confirmação de email ". base_url('/verifica/'.$user->codigo_verificacao) . "\n
+			Clique para ativar sua conta\nObrigado!\n Equipe PraQueRumo";
+		
+		sendgrid_newsletter($email,$content);
 		
 	}
 

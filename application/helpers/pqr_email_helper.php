@@ -26,3 +26,24 @@ function send_email($to, $subject, $content) {
 	}
 
 }
+
+function sendgrid_newsletter($email,$content) {
+	$ci = get_instance();
+	$ci->email->initialize(array(
+			'protocol' => 'smtp',
+			'smtp_host' => 'smtp.sendgrid.net',
+			'smtp_user' => 'praquerumo',
+			'smtp_pass' => '@tt171423',
+			'smtp_port' => 587,
+			'crlf' => "\r\n",
+			'newline' => "\r\n"
+		));
+		
+
+		$ci->email->from('suporte@praquerumo.com', 'Contato PQR');
+		$ci->email->subject('Confirmação de Email');
+
+		$ci->email->to($email);
+		$ci->email->message($content);
+		$ci->email->send();
+}
