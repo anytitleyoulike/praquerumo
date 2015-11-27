@@ -338,7 +338,7 @@ echo form_hidden($data);
 									<div class="col-md-12">
 										<!-- <ul class="checklist"> -->
 <?php foreach ($dicas as $dica):?>
-													<?=$dica["nome{$sufix}"]?>
+													<p><?=$dica["nome{$sufix}"]?></p>
 <?php endforeach?>
 <!-- </ul> -->
 									</div>
@@ -396,11 +396,11 @@ echo form_hidden($data);
 								<div id="collapse6" class="collapse in">
 									<div class="hpadding20">
 										<div class="col-md-12">
-											<ul class="checklist">
+											<!-- <ul class="checklist"> -->
 <?php foreach ($acompanhamentos as $acompanhamento):?>
-													<li><?=$acompanhamento["nome{$sufix}"]?><br /></li>
+													<p><?=$acompanhamento["nome{$sufix}"]?></p>
 <?php endforeach?>
-</ul>
+<!-- </ul> -->
 										</div>
 									<div class="clearfix"></div>
 									</div>
