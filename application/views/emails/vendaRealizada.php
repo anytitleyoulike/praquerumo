@@ -40,9 +40,9 @@
 					</tr>
 					<tr>
 						<td align="left">
-							<table border="1" width="312px" height="109px" cellspacing="0px" style="border-color:#FFF;">
+							<table border="1" width="312px" height="175px" cellspacing="0px" style="border-color:#FFF;">
 								<tr>
-									<td>
+									<td valign="top">
 										<table>
 											<tr>
 												<td valign="top">
@@ -52,8 +52,6 @@
 													<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Atividade</strong>: <?=$atividade["titulo"]?></p>
 													<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Data</strong>: <?=$atividade["data"]?></p>
 													<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Hora</strong>: <?=$atividade["horario"]?></p>
-													<br>
-													<br>
 												</td>
 											</tr>
 										</table>
@@ -62,7 +60,7 @@
 							</table>
 						</td>
 								<td align="right">
-									<table border="1" width="312px" height="109px" cellspacing="0px" style="border-color:#FFF;">
+									<table border="1" width="312px" height="175px" cellspacing="0px" style="border-color:#FFF;">
 										<tr>
 											<td>
 												<table width="100%" height="100%">
@@ -71,10 +69,11 @@
 															<img src="<?=base_url('assets/images/emails/iconebranco2.png')?>" width="25px" height="25px" style="margin-left:5px; margin-top:5px;"/>
 														</td>
 														<td valign="top">
-															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Valor</strong>: <?=$compra["preco"]?></p>
-															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Quantidade:</strong>: <?=$compra["quantidade"]?></p>
-															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Valor Total</strong>: <?=$compra["total"]?></p>
-															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Parcelas:</strong> <?=$compra["parcelas"]?></p>
+															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Valor unitário</strong>: R$ <?=$compra["preco"]?></p>
+															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Quantidade</strong>: <?=$compra["quantidade"]?></p>
+															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Subtotal</strong>: R$ <?=$compra["subtotal"]?></p>
+															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Desconto</strong>: R$ <?=$compra["desconto"]?></p>
+															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Valor Total</strong>: R$ <?=$compra["total"]?></p>
 														</td>
 													</tr>
 												</table>
