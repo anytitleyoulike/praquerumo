@@ -54,9 +54,9 @@
 		</tr>
 		<tr>
 			<td align="left">
-				<table border="1" width="312px" height="109px" cellspacing="0px">
+				<table border="1" width="312px" height="190px" cellspacing="0px">
 					<tr>
-						<td>
+						<td valign="top">
 							<table>
 								<tr>
 									<td valign="top">
@@ -66,9 +66,6 @@
 										<p style="margin-top:15px; margin-left:6px;"><strong>Atividade</strong>: <?=$atividade['titulo']?></p>
 										<p style="margin-top:15px; margin-left:6px;"><strong>Data</strong>: <?=dataMysqlParaPtBr($atividade["data"])?></p>
 										<p style="margin-top:15px; margin-left:6px;"><strong>Hora</strong>: <?=substr($atividade["horario"], 0,5)?></p>
-										<br>
-										<br>
-										<br>
 									</td>
 								</tr>
 							</table>
@@ -77,7 +74,7 @@
 				</table>
 			</td>
 			<td align="right">
-				<table border="1" width="312px" height="109px" cellspacing="0px">
+				<table border="1" width="312px" height="190px" cellspacing="0px">
 					<tr>
 						<td>
 							<table width="100%" height="100%">
@@ -89,7 +86,7 @@
 										<p style="margin-top:15px; margin-left:6px;"><strong>Valor unitário</strong>: R$ <?=$preco?></p>
 										<p style="margin-top:15px; margin-left:6px;"><strong>Quantidade</strong>: <?=$compra["quantidade"]?></p>
 										<p style="margin-top:15px; margin-left:6px;"><strong>Subtotal</strong>: R$ <?=$subtotal?></p>
-										<p style="margin-top:15px; margin-left:6px;"><strong>Desconto</strong>: R$ <?=$preco_com_desconto?></p>
+										<p style="margin-top:15px; margin-left:6px;"><strong>Desconto</strong>: R$ <?=$valor_desconto?></p>
 										<p style="margin-top:15px; margin-left:6px;"><strong>Valor Total</strong>: R$ <?=$total?></p>
 									</td>
 								</tr>

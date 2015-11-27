@@ -51,9 +51,9 @@
 		</tr>
 		<tr>
 			<td align="left">
-				<table border="1" width="312px" height="109px" cellspacing="0px">
+				<table border="1" width="312px" height="175px" cellspacing="0px">
 					<tr>
-						<td>
+						<td valign="top">
 							<table>
 								<tr>
 									<td valign="top">
@@ -71,7 +71,7 @@
 				</table>
 			</td>
 			<td align="right">
-				<table border="1" width="312px" height="109px" cellspacing="0px">
+				<table border="1" width="312px" height="175px" cellspacing="0px">
 					<tr>
 						<td>
 							<table width="100%" height="100%">
