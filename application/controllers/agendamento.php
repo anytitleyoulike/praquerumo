@@ -167,15 +167,7 @@ class Agendamento extends CI_Controller {
 		$evento = $this->input->post('evento_codigo');
 		$quantidade = $this->input->post('quantidade');
 		$atividade_codigo = $this->input->post('atividade_codigo');
-
 		$cupom_desconto = $this->input->post('cupom_desconto');
-		$desconto = $this->desconto_model->buscarDesconto($cupom_desconto, $atividade_codigo);
-		if(empty($desconto)){
-			$desconto_porcentagem = 0;
-			$preco_desconto = 0;
-		}else{
-			$desconto_porcentagem = $desconto['porcentagem']/100;
-		}
 
 		$dados_validados = $this->_validacao();
 		if ($dados_validados) {
@@ -185,27 +177,28 @@ class Agendamento extends CI_Controller {
 			$requisitos_especiais = $this->input->post('requisicoes_especiais');
 			$email = $this->input->post('email');
 			$preco = $this->input->post('preco_raw');
-			if($desconto_porcentagem != 0){
-				$preco_desconto = $preco*$quantidade;
-				$preco_str = str_replace("R$ ", "", $this->input->post('preco_str'));
-				$preco_str = str_replace(",", ".", $preco_str);
-				$preco_desconto = $preco_desconto - $preco_str;
-				$preco_com_desconto = str_replace(".", "", $preco_desconto);
-			}
 			$preco_formatado = str_replace('.', '', $preco);
+			$parcelas = $this->input->post('parcelas');
 			$preco_confirmacao = $this->input->post('preco_str');
 			$descricao = $this->input->post('descricao');
 			$data_horario = $this->input->post('data_horario');
 			$forma_pagamento = $this->input->post('tipo_pagamento');
 			
-			$parcelas = $this->input->post('parcelas');
 			if($forma_pagamento == '#card')$forma_pagamento = 'Cartão de Crédito';
+
+			$desconto = $this->desconto_model->buscarDesconto($cupom_desconto, $atividade_codigo);
+			if(empty($desconto)){
+				$valor_desconto = 0;
+			}else{
+				$desconto_porcentagem = $desconto['porcentagem']/100;
+				$preco_total = $preco*$quantidade;
+				$valor_desconto = number_format($preco_total*$desconto_porcentagem, 2, "", ".");
+			}
 
 			$disponivel = $this->_verificaDisponibilidade($evento, $quantidade);
 			
 			if ($disponivel != 0) {
-				$result_pgto = $this->_pagar($token, $email, $descricao, $quantidade, $preco_formatado, $parcelas, $preco_com_desconto);
-
+				$result_pgto = $this->_pagar($token, $email, $descricao, $quantidade, $preco_formatado, $parcelas, $valor_desconto);
 				if ($result_pgto->success) {
 					$invoice_id = $result_pgto["invoice_id"];
 
@@ -241,16 +234,18 @@ class Agendamento extends CI_Controller {
 					);
 					/*Fim de dados para email*/
 
-					$total = $this->input->post('preco_str');
+					$total = str_replace("R$ ", "", $this->input->post("preco_str"));
+					$total = str_replace(",", ".", $total);
 					$subtotal = number_format($preco*$quantidade, 2, ",", ".");
+					$valor_desconto = $subtotal - $total;
 
 					$dados_email = array(
 						'atividade' => $dados_atividade,
 						'usuario' => $dados_usuario,
 						'compra' => $dados_compra,
-						'preco' => str_replace('.', ',', $preco),
-						'total' => $total,
-						'preco_com_desconto' => str_replace(".", ",", $preco_desconto),
+						'preco' => number_format($preco, 2, ".", ","),
+						'total' => $preco_confirmacao,
+						'valor_desconto' => number_format($valor_desconto, 2, ",", "."),
 						'subtotal' => $subtotal
 					);
 					//send email de confirmação(com voucher e qrcode)
@@ -518,7 +513,6 @@ class Agendamento extends CI_Controller {
 				),
 			),
 		);
-
 		return Iugu_Charge::create($carrinho);
 	}
 

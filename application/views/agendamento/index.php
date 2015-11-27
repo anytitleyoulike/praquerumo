@@ -196,8 +196,8 @@ echo form_error("email");
 						<!-- Collapse 5 -->
 						<!-- <button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse5"></button> -->
 						<div id="collapse5">
-							<input type="text" class="form-control margtop10" placeholder="" name="cupom_desconto">
-							<input type="hidden" name="success" value="false" />
+							<input type="text" class="form-control margtop10" placeholder="" name="cupom_desconto"></input>
+							<input type="hidden" name="success" value="false"></input>
 							<input type="button" class="btn btn-default" onclick="validaDesconto()" value="Verificar"></input>
 						</div>
 						<!-- End of collapse 5 -->
@@ -662,6 +662,8 @@ echo form_close();
 					}else{
 						$("#collapse5").removeClass("has-error").addClass("has-success");
 						$("#collapse5 span").hide();
+						$("#collapse5").append("<span class='help-block'>Código aceito</span>");
+						setTimeout(function(){$("#collapse5 span").hide()}, 2000);
 					}
 
 					var options = "";
