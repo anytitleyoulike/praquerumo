@@ -119,8 +119,8 @@
 						<div class="abover ohidden">
 							<div class="abbg">
 								<div class="socials-container">
-									<a href="http://twitter.com/andbrain" data-placement="top" title="Twitter" class="left"><span class="socials-twitter "></span></a>
-									<a href="http://facebook.com/anderson.brain" data-placement="top" title="Facebook" class="left"><span class="socials-facebook "></span></a>
+									<a href="https://twitter.com/andbrain" data-placement="top" title="Twitter" class="left"><span class="socials-twitter "></span></a>
+									<a href="https://facebook.com/anderson.brain" data-placement="top" title="Facebook" class="left"><span class="socials-facebook "></span></a>
 									<a href="https://plus.google.com/108230580368477134168" data-placement="top" title="Google Plus" class="left"><span class="socials-gplus "></span></a>
 								</div>
 							</div>
