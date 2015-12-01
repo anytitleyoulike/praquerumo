@@ -79,11 +79,12 @@ class Newsletter extends CI_Controller {
 		$this->load->helper("pqr_email");
 		
 		$user = $this->newsletter->buscaEmail($email);
+		$data['link'] = base_url('/verifica/'.$user->codigo_verificacao);
 		
-		$content = "Caro usuário este é seu link de confirmação de email ". base_url('/verifica/'.$user->codigo_verificacao) . "\n
-			Clique para ativar sua conta\nObrigado!\n Equipe PraQueRumo";
+		$content = $this->load->view("emails/confirmacaoNewsletter", $data, TRUE);
+		$subject = "Confirmação de Email";
 		
-		sendgrid_newsletter($email,$content);
+		sendgrid_newsletter($email,$subject,$content);
 		
 	}
 
