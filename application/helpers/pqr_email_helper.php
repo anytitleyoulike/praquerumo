@@ -13,16 +13,16 @@ function send_email($to, $subject, $content) {
 	$config["smtp_port"] = "587";
 	$ci->email->initialize($config);
 
-	$ci->email->from("contato@praquerumo.com.br", "PRAQUERUMO");
+	$ci->email->from("contato@praquerumo.com.br", "Pra Que Rumo");
 	$ci->email->to($to);
 	$ci->email->subject($subject);
 	$ci->email->message($content);
 
 	if (defined('ENVIRONMENT') && ENVIRONMENT != 'development') {
-		$ci->email->send();
+		return $ci->email->send();
 	} else {
-		$ci->email->to("matheusbzevedo@gmail.com");
-		$ci->email->send();
+		$ci->email->to("maarc.hen@gmail.com");
+		return $ci->email->send();
 	}
 
 }
@@ -46,5 +46,6 @@ function sendgrid_newsletter($email,$subject,$content) {
 
 		$ci->email->to($email);
 		$ci->email->message($content);
-		$ci->email->send();
+		return $ci->email->send();
+		
 }

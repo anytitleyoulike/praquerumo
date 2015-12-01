@@ -1,5 +1,6 @@
 <html>
 	<head>
+        <meta http-equiv="refresh" content="5;url=<?= base_url()?>" />
         <?php require_once("analytics-tracker.php") ?>
         <title>Ativação</title>
 	</head>

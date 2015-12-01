@@ -13,7 +13,7 @@ class Newsletter extends CI_Controller {
 		$sucesso = $this->form_validation->run();
 		
 		if ($sucesso) {
-			
+			$this->db->trans_begin();
 			$email = $this->input->post('newsletter');
 			
 			$dados = array(
@@ -24,12 +24,21 @@ class Newsletter extends CI_Controller {
 			
 			$this->newsletter->salvar($dados);
 
-			$this->_enviaEmailVerificacao($email);
-
-			$data = array(
-				"success" => true,
-				"msg"     => "Obrigado por se cadastrar! Aguarde nosso email de confirmação"
-			);
+			if($this->_enviaEmailVerificacao($email)) {
+				$data = array(
+					"success" => true,
+					"msg"     => "Obrigado por se cadastrar! Aguarde nosso email de confirmação"
+				);
+				$this->db->trans_commit();
+			} else {
+				//caso o email não seja enviado, o insert é desfeito.
+				$this->db->trans_rollback();
+				$data = array(
+					"success" => false,
+					"msg"     => "Houve um problema com envio do email. Tente novamente"
+				);
+			}
+			
 
 			echo json_encode($data);
 
@@ -84,7 +93,7 @@ class Newsletter extends CI_Controller {
 		$content = $this->load->view("emails/confirmacaoNewsletter", $data, TRUE);
 		$subject = "Confirmação de Email";
 		
-		sendgrid_newsletter($email,$subject,$content);
+		return sendgrid_newsletter($email,$subject,$content);
 		
 	}
 
