@@ -93,7 +93,7 @@ class Newsletter extends CI_Controller {
 		$content = $this->load->view("emails/confirmacaoNewsletter", $data, TRUE);
 		$subject = "Confirmação de Email";
 		
-		return sendgrid_newsletter($email,$subject,$content);
+		return send_email($email,$subject,$content);
 		
 	}
 
