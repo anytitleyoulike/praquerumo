@@ -122,7 +122,7 @@ function submitNewsletter() {
 	var email = jQuery('input[name="newsletter"]').val();
 
 	jQuery.ajax({
-		url: '/praquerumo/newsletter/novo',
+		url: '../newsletter/novo',
 		type: 'post',
 		data: {
 			newsletter: email,
