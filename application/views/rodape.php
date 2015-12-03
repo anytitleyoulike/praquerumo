@@ -59,23 +59,22 @@
 			<div class="col-md-3 grey">
 				<span class="ftitle"><?=lang("footer_mantenha_se_informado")?></span>
 				<div class="relative">
-<?php
-echo form_open(base_url('newsletter/novo'));
-$attributes = array('class' => 'ftitle');
-echo form_input(array(
-	"name" => "newsletter",
-	"id" => "newsletter_email",
-	"class" => "form-control fccustom",
-	"maxlength" => "255",
-	"placeholder" => "Digite seu email",
-));
-echo form_error("newsletter");
-$data = array('class' => 'btn btn-default btncustom',
-	'type' => 'submit',
-	'src' => "<img src=" . base_url('assets/images/arrow.png') . '" alt="" />');
-echo form_button($data);
-echo form_close();
-?>
+					<?php
+					$attributes = array('class' => 'ftitle');
+					echo form_input(array(
+					"name" => "newsletter",
+					"id" => "newsletter_email",
+					"class" => "form-control form-group",
+					"maxlength" => "255",
+					"placeholder" => "Digite seu email",
+					));
+					echo form_error("newsletter");
+					$data = array('class' => 'btn btn-default btncustom',
+					'type' => 'button',
+					'onclick' => "submitNewsletter()",
+					'src' => "<img src=" . base_url('assets/images/arrow.png') . '" alt="" />');
+					echo form_button($data);
+					?>
 
 				</div>
 				<br /> <br /> <span class="ftitle"><?=lang("footer_suporte")?></span><br />
@@ -115,7 +114,40 @@ echo form_close();
 
 <!-- Javascript -->
 
+<script type="text/javascript">
 
+
+function submitNewsletter() {
+	
+	var email = jQuery('input[name="newsletter"]').val();
+
+	jQuery.ajax({
+		url: '../newsletter/novo',
+		type: 'post',
+		data: {
+			newsletter: email,
+		},
+		success: function(data) {
+			var response = JSON.parse(data);
+			if(response.success == false) {
+				jQuery('.relative').append("<div id='tips-error' class='red'>"+ response.msg +"</div>");
+
+				
+				
+			} else {
+				jQuery('.relative').append("<div id='tips-error' class='green'>"+ response.msg +"</div>");
+			}
+			
+ 
+			setTimeout(function(){	
+				jQuery("#tips-error").remove(); 
+				jQuery('input[name="newsletter"]').val("");
+			}, 2000);
+		},
+	});
+}
+
+</script>
 <!-- Custom functions -->
 <script src="<?=base_url("assets/js/functions.js")?>"></script>
 

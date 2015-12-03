@@ -11,9 +11,9 @@ class Newsletter extends CI_Controller {
 		$this->form_validation->set_rules('newsletter', 'e-mail', 'trim|required|valid_email|callback_ja_cadastrado');
 
 		$sucesso = $this->form_validation->run();
-
+		
 		if ($sucesso) {
-			
+			$this->db->trans_begin();
 			$email = $this->input->post('newsletter');
 			
 			$dados = array(
@@ -24,13 +24,30 @@ class Newsletter extends CI_Controller {
 			
 			$this->newsletter->salvar($dados);
 
-			$this->_enviaEmailVerificacao($email);
+			if($this->_enviaEmailVerificacao($email)) {
+				$data = array(
+					"success" => true,
+					"msg"     => "Obrigado por se cadastrar! Aguarde nosso email de confirmação"
+				);
+				$this->db->trans_commit();
+			} else {
+				//caso o email não seja enviado, o insert é desfeito.
+				$this->db->trans_rollback();
+				$data = array(
+					"success" => false,
+					"msg"     => "Houve um problema com envio do email. Tente novamente"
+				);
+			}
+			
 
-			$this->load->template('newsletter/obrigado');
+			echo json_encode($data);
 
 		} else {
-
-			redirect(base_url(""));
+			$data = array(
+				"success" => false,
+				"msg"     => "Email incorreto ou já cadastrado"
+			);
+		 echo json_encode($data);
 		}
 	}
 
@@ -68,26 +85,15 @@ class Newsletter extends CI_Controller {
 
 		$this->load->model("newsletter_model",'newsletter');
 		$this->load->library('email');
-
-				$this->email->initialize(array(
-				'protocol' => 'smtp',
-				'smtp_host' => 'smtp.sendgrid.net',
-				'smtp_user' => 'praquerumo',
-				'smtp_pass' => '@tt171423',
-				'smtp_port' => 587,
-				'crlf' => "\r\n",
-				'newline' => "\r\n"
-			));
+		$this->load->helper("pqr_email");
 		
 		$user = $this->newsletter->buscaEmail($email);
-
-		$this->email->from('suporte@praquerumo.com', 'Contato PQR');
-		$this->email->subject('Confirmação de Email');
-
-		$this->email->to($email);
-		$this->email->message("Caro usuário este é seu link de confirmação de email ". base_url('/verifica/'.$user->codigo_verificacao . "\n
-			Clique para ativar sua conta\nObrigado!\n Equipe PraQueRumo"));
-		return $this->email->send();
+		$data['link'] = base_url('/verifica/'.$user->codigo_verificacao);
+		
+		$content = $this->load->view("emails/confirmacaoNewsletter", $data, TRUE);
+		$subject = "Confirmação de Email";
+		
+		return send_email($email,$subject,$content);
 		
 	}
 
