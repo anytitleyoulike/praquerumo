@@ -38,3 +38,41 @@
   .jslider-single .jslider-value-to,
   .jslider-single .jslider-bg .v,
   .jslider-limitless .jslider-label { display: none; }
+
+
+.imagemssl {
+  max-width: 100px;
+  min-width: auto;
+  width: auto;
+  height: auto;
+  position: absolute;
+  right: 0px;
+  width: 300px;
+  padding: 10px;
+}
+
+.imagemssl img{
+  max-width: 100px;   /* Máximo da largura da imagem */
+  width: 80px;
+  max-height: auto;  /* Máximo da altura da imagem */
+  min-height: auto;      /* Mínimo da altura, por padrão “auto” */
+}
+
+@media screen and (max-width: 480px){
+  .imagemssl{
+    max-width: 100px;
+    min-width: auto;
+    width: auto;
+    height: auto;
+    position: relative;
+    right: 0px;
+    width: 300px;
+    padding: 10px;
+  }
+  .imagemssl img{
+  text-align: center;
+  max-width: 100px; 
+  width: 80px;
+  max-height: auto;  
+  min-height: auto;
+}

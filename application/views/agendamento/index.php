@@ -72,6 +72,7 @@ $data = array(
 	'descricao' => $descricao_pgto,
 	'data_horario' => $descricao,
 	'tipo_pagamento' => '#card',
+	'preco_total' => $preco_total,
 	'preco_str' => $preco,
 	'bloquear_boleto' => $bloquear_boleto,
 );
@@ -190,12 +191,14 @@ echo form_error("email");
 					<br/>
 					<div class="col-md-4">
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 textcenter">
 						Cupom de desconto
 						<!-- Collapse 5 -->
-						<button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse5"></button>
-						<div id="collapse5" class="collapse">
-							<input type="text" class="form-control margtop10" placeholder="">
+						<!-- <button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse5"></button> -->
+						<div id="collapse5">
+							<input type="text" class="form-control margtop10" placeholder="" name="cupom_desconto"></input>
+							<input type="hidden" name="success" value="false"></input>
+							<input type="button" class="btn btn-default" onclick="validaDesconto()" value="Verificar"></input>
 						</div>
 						<!-- End of collapse 5 -->
 						<div class="clearfix"></div>
@@ -222,6 +225,9 @@ echo form_error("email");
 							</div>
 							<div class="col-md-4">
 								<img src="http://storage.pupui.com.br/9CA0F40E971643D1B7C8DE46BBC18396/assets/cc-icons.e8f4c6b4db3cc0869fa93ad535acbfe7.png" alt="Visa, Master, Diners. Amex" border="0" />
+							</div>
+							<div class="imagemssl">
+								<img src="<?=base_url("assets/images/ssl.png")?>"/>
 							</div>
 							<div class="clearfix"></div>
 							<div class="col-md-4 textright">
@@ -534,6 +540,15 @@ echo form_close();
 					</div>
 					<div class="line3"></div>
 					<div class="padding20">
+						<span class="left size14 dark">Subtotal:</span>
+						<span class="right lred2 bold size18 subtotal"><?=$preco?></span>
+						<div class="clearfix"></div>
+						<span class="left size14 dark">Desconto:</span>
+						<span class="right lred2 size16 desconto">R$ 0,00</span>
+						<!-- <div class="clearfix"></div>
+						<span class="left size14 dark">Juros:</span>
+						<span class="right lred2 size16 juros">R$ 0,00</span> -->
+						<div class="clearfix"></div>
 						<span class="left size14 dark">Valor Total:</span>
 						<span class="right lred2 bold size18 valor-real"><?=$preco?></span>
 						<div class="clearfix"></div>
@@ -585,18 +600,96 @@ echo form_close();
 
 	<script> 
 		$('#select-valor').change(function() {
-		
+			var atividade_preco = $("input[name='preco_total']").val();
+			var success = $("input[name='success']").val();
 			var valorSelecionado = $('#select-valor option:selected').attr('id');
 			var parcelas = $('#select-valor option:selected').val();
 			var valorTotal = valorSelecionado*parcelas;
+
+			if(success == "true"){
+				var desconto = valorTotal-atividade_preco;
+
+				desconto = $.formatNumber(desconto, {format:"#,###.00", locale:"br"});
+				$('.desconto').text("R$ " + desconto);
+			}
+
+			/*if(parcelas == 3 || parcelas == 4){
+				var juros = valorTotal - parseFloat(atividade_preco);
+				juros = $.formatNumber(juros, {format:"#,###.00", locale:"br"});
+			}else{
+				var juros = "0,00";
+			}*/
+
 			
+
 			valorTotal = $.formatNumber(valorTotal, {format:"#,###.00", locale:"br"});
 			
+			// $(".juros").text("R$ " + juros);
 			$('.valor-real').text("R$ " + valorTotal);
 			//mudando valor que é exibido na confirmação de pagamento.
-			$('input[name="preco_str"]').val("R$ "+ valorTotal);
-
+			$('input[name="preco_str"]').val(valorTotal);
+		
 		});
+	</script>
+
+	<script>
+		function validaDesconto(){
+			var cupom_desconto = $("input[name='cupom_desconto']").val();
+			var atividade_codigo = $("input[name='atividade_codigo']").val();
+			var atividade_preco = ($("input[name='preco_total'").val());
+			$.ajax({
+				type: "POST",
+				url: "../agendamento/validaDesconto",
+				data: { cupom_desconto: cupom_desconto, 
+						atividade_codigo: atividade_codigo,
+						atividade_preco: atividade_preco
+				},
+				success: function(resposta) {
+					var data = jQuery.parseJSON(resposta);
+					var preco_com_desconto = data.preco;
+					var valorDesconto = atividade_preco - data.preco;
+
+					if(valorDesconto == 0){
+						valorDesconto = "0,00";
+					}else{
+						valorDesconto = $.formatNumber(valorDesconto, {format:"#,###.00", locale: "br"});	
+					}
+					
+					if(data.success == false){
+						$("#collapse5").removeClass("has-success").addClass("has-error");
+						$("#collapse5").append("<span class='help-block'>Código inválido</span>");
+						setTimeout(function(){$("#collapse5 span").hide()}, 2000);
+					}else{
+						$("#collapse5").removeClass("has-error").addClass("has-success");
+						$("#collapse5 span").hide();
+						$("#collapse5").append("<span class='help-block'>Código aceito</span>");
+						setTimeout(function(){$("#collapse5 span").hide()}, 2000);
+					}
+
+					var options = "";
+					$.each(data.valoresParcelados, function(key, value){
+						
+						options += "<option id='"+value+"' value='"+ key +"'>"+key+"x R$ "+$.formatNumber(value, {format:"#,###.00", locale: "br"})+"</option>";});
+					$("#select-valor").html(options);
+
+					preco_com_desconto = $.formatNumber(data.preco, {format:"#,###.00", locale: "br"});
+
+					
+					/*if(data.preco <= 100){
+						var juros = "0,00";
+						$(".juros").text("R$ " + juros);
+					}*/
+
+					$("input[name='success']").val(data.success);
+					$("input[name='preco_str']").val("R$ "+ preco_com_desconto);
+					$('.valor-real').text("R$ " + preco_com_desconto);
+					$('.desconto').text("R$ " + valorDesconto);
+				},
+				error: function() {
+					// correu mal, agir em conformidade
+				}
+			});
+		}
 	</script>
 	<!-- END OF CONTENT -->
 

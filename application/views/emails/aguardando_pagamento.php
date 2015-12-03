@@ -46,11 +46,11 @@
 					</tr>
 					<tr>
 						<td align="left">
-							<table border="1" width="312px" height="109px" cellspacing="0px" style="border-color:#FFF;">
+							<table border="1" width="312px" height="175px" cellspacing="0px" style="border-color:#FFF;">
 								<tr>
-									<td>
+									<td valign="top">
 										<table>
-											<tr>
+											<tr valign="top">
 												<td valign="top">
 													<img src="<?=base_url('assets/images/emails/iconcebranco.png')?>" width="25px" height="25px" style="margin-left:5px; margin-top:5px;"/>
 												</td>
@@ -66,7 +66,7 @@
 							</table>
 						</td>
 								<td align="right">
-									<table border="1" width="312px" height="109px" cellspacing="0px" style="border-color:#FFF;">
+									<table border="1" width="312px" height="175px" cellspacing="0px" style="border-color:#FFF;">
 										<tr>
 											<td>
 												<table width="100%" height="100%">
@@ -75,8 +75,10 @@
 															<img src="<?=base_url('assets/images/emails/iconebranco2.png')?>" width="25px" height="25px" style="margin-left:5px; margin-top:5px;"/>
 														</td>
 														<td valign="top">
-															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Valor</strong>: R$ <?=$preco?></p>
+															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Valor unitário</strong>: R$ <?=$preco?></p>
 															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Quantidade</strong>: <?=$compra["quantidade"]?></p>
+															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Subtotal</strong>: R$ <?=$subtotal?></p>
+															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Desconto</strong>: R$ <?=$preco_com_desconto?></p>
 															<p style="margin-top:15px; margin-left:6px; color:#FFF;"><strong>Valor Total</strong>: R$ <?=$total?></p>
 														</td>
 													</tr>
