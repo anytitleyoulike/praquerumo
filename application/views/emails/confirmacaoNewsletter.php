@@ -149,10 +149,16 @@
 																		style="display: inline-block !important; width: auto !important; margin: auto; padding: 5px"><a
 																		title="Twitter" target="_blank"
 																		href="https://twitter.com/PraQueRumo"><img
-																			border="0" style="display: block" width="40px" height="40px"alt="Twitter"
+																			border="0" style="display: block" width="38px" height="38px"alt="Twitter"
 																			src="<?=base_url("/assets/images/social_medias/icon-twitter.png")?>"></a></td>
 																	<td
 																		style="display: inline-block !important; width: auto !important; margin: auto; padding: 5px"><a
+																		title="Twitter" target="_blank"
+																		href="https://instagram.com/praquerumoficial"><img
+																			border="0" style="display: block" width="38px" height="38px"alt="Twitter"
+																			src="<?=base_url("/assets/images/social_medias/icon-instagram.png")?>"></a></td>
+																	<td
+																		style="display: inline-block !important; width: auto !important; margin: auto; padding: 0px"><a
 																		target="_blank" title="PraQueRumo"
 																		href="<?=base_url("")?>"><img
 																			border="0" style="display: block" alt="PraQueRumo"
