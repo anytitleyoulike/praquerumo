@@ -224,7 +224,7 @@ echo form_error("email");
 								<div class="margtop15"><span class="dark"></span><span class="red"></span></div>
 							</div>
 							<div class="col-md-4">
-								<img src="http://storage.pupui.com.br/9CA0F40E971643D1B7C8DE46BBC18396/assets/cc-icons.e8f4c6b4db3cc0869fa93ad535acbfe7.png" alt="Visa, Master, Diners. Amex" border="0" />
+								<img src="<?=base_url("assets/images/bandeiras-cartao.png")?>" alt="Visa, Master, Diners. Amex" border="0" />
 							</div>
 							<div class="imagemssl">
 								<img src="<?=base_url("assets/images/ssl.png")?>"/>
