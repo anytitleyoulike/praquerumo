@@ -46,10 +46,11 @@
 				<span class="ftitle"><?=lang("footer_formas_pagamento")?></span><br/><br/>
 				<ul class="" style="list-style-type: none; padding: 0px; margin: 0px;">
 					<li>
-						<img src="http://storage.pupui.com.br/9CA0F40E971643D1B7C8DE46BBC18396/assets/cc-icons.e8f4c6b4db3cc0869fa93ad535acbfe7.png" alt="Visa, Master, Diners. Amex" border="0" />
+						<img src="<?=base_url("assets/images/bandeiras-cartao.png")?>" alt="Visa, Master, Diners. Amex" border="0" />
 			 		</li>
 					<li>
-						<a class="iugu-btn" href="https://iugu.com" tabindex="-1"><img src="http://storage.pupui.com.br/9CA0F40E971643D1B7C8DE46BBC18396/assets/payments-by-iugu.1df7caaf6958f1b5774579fa807b5e7f.png" alt="Pagamentos por Iugu" border="0" /></a>
+						<a class="iugu-btn" href="https://iugu.com" tabindex="-1">
+							<img src="<?=base_url("assets/images/pagamentos-iugu.png")?>" alt="Pagamentos por Iugu" border="0" /></a>
 					</li>
 				</ul>
 			</div>

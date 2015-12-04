@@ -54,7 +54,7 @@ if (defined('ENVIRONMENT')) {
 	switch (ENVIRONMENT) {
 		case 'development'://dev on-the-fly
 			$db['default']['hostname'] = 'localhost';//mysql.dev.praquerumo.com.br
-			$db['default']['username'] = '';//blackone
+			$db['default']['username'] = 'root';//blackone
 			$db['default']['password'] = '';//@tt171423
 			$db['default']['database'] = 'praquerumo';//devpraquerumo
 			break;
