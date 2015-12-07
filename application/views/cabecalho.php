@@ -46,3 +46,29 @@
 
     <!-- jQuery -->
     <script src="<?=base_url("assets/js/jquery.v2.0.3.js")?>"></script>
+
+    <div style="display: none" itemscope itemtype="https://schema.org/Organization">
+         <span itemprop="name">PRAQUERUMO - Vivencie Experiências na Amazônia</span>
+         <span itemprop="description">Encontre atividades de turismo de aventura e ecoturismo na Amazônia. Experimente atividades como Rafting, Stand-Up Paddle, Trekking, Caiaque e muito mais.</span>
+         <span itemprop="telephone">+55 92 98112.1280</span>
+         <span itemprop="email">contato@praquerumo.com.br</span>
+         <link itemprop="url" href="https://www.praquerumo.com.br/"> 
+         <a itemprop="sameAs" href="https://www.facebook.com/praquerumo">Facebook</a>
+         <a itemprop="sameAs" href="https://www.instagram.com/praquerumoficial/">Instagram</a>
+         <a itemprop="sameAs" href="https://www.youtube.com/user/praquerumo">Youtube</a>
+         <a itemprop="sameAs" href="https://plus.google.com/+PraquerumoBr">Google +</a>
+         <a itemprop="sameAs" href="https://twitter.com/PraQueRumo">Twitter</a>
+         <img itemprop="logo" title="PRAQUERUMO - Vivencie Experiências na Amazônia" alt="PRAQUERUMO - Vivencie Experiências na Amazônia" src="https://www.praquerumo.com.br/assets/images/logo_beta.png" style="display: none"/>
+
+         <div style="display: none" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <span itemprop="streetAddress">Rua do Comércio, 86</span>
+            <span itemprop="postalCode">69055000</span>
+            <span itemprop="addressLocality">Manaus</span>
+            <span itemprop="addressRegion">Amazonas</span>
+            <span itemprop="addressCountry">Brazil</span>
+            <p itemscope itemtype="https://schema.org/GeoCoordinates">
+               <meta itemprop="latitude" content="-3.080581"/>
+               <meta itemprop="longitude" content="-60.0103906"/>
+            </p>
+         </div>
+      </div>
