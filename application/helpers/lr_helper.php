@@ -12,7 +12,7 @@ function getMessageErrorByLR($lr) {
 			$message = "Transação inválida!";
 			break;
 		case '51':
-			$message = "Saldo Insuficiente!";
+			$message = "Saldo Insuficiente! Consulte a sua operadora do cartão";
 			break;
 		default:
 			$message = "Transação não efetuada, tente novamente ou entre em contato com o suporte técnico: <a href='mailto:suporte@praquerumo.com.br'>suporte@praquerumo.com.br</a>";

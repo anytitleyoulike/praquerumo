@@ -260,7 +260,18 @@ class Agendamento extends CI_Controller {
 
 					//redirect(base_url("fatura/novo"));
 				} else {
+					
+					//se a transação falhar, um email será enviado ao suporte para resolver
 					$error = getMessageErrorByLR($result_pgto->LR);
+					
+					$data = array(
+						"iugu"      => $result_pgto,
+						"user"      => $nome_completo,
+						"atividade" => $descricao
+					);
+
+					$message = $this->load->view("emails/erroTransacao.php", $data, TRUE);
+					send_email("suporte@praquerumo.com.br", "Erro de Transação", $message);
 					$this->_novoAgendamento($evento, $quantidade, $error);
 				}
 			} else {
