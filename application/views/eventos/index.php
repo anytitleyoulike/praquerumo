@@ -70,7 +70,9 @@
 					<!-- papercut fade turnoff flyin slideright slideleft slideup slidedown-->
 					<!-- FADE -->
 					<li data-transition="fade" data-slotamount="1" data-masterspeed="300">
-						<img src="<?=base_url("assets/images/destaques/8.png")?>" alt=""/>
+						<a href="<?=base_url()?>">
+							<img src="<?=base_url("assets/images/destaques/8.png")?>" alt=""/>
+						</a>
 						<div class="tp-caption scrolleffect sft"
 							 data-x="center"
 							 data-y="120"
@@ -88,7 +90,6 @@
 					<!-- FADE -->
 					<li data-transition="fade" data-slotamount="1" data-masterspeed="300">
 						<a href="<?=base_url("atividades/{$destaque['slug']}")?>">
-							<!-- assets/images/atividades/thumbnails/379b6-wallpaper_01.jpg -->
 							<img src="<?=base_url("assets/images/atividades/destaques/{$destaque['fig_destaque']}")?>" alt=""/>
 						</a>
 						<div class="tp-caption scrolleffect sft"
@@ -124,9 +125,14 @@
 			if (tpj.fn.cssOriginal!=undefined)
 				tpj.fn.css = tpj.fn.cssOriginal;
 
+			var posicaoBullet = 0;
+			if ((document.body.scrollWidth || document.body.offsetWidth) <= 480){
+				posicaoBullet = -100;
+			};
+
 				tpj('.fullscreenbanner').revolution(
 					{
-						delay:9000,
+						delay:5000,
 						startwidth:1170,
 						startheight:600,
 
@@ -140,7 +146,7 @@
 						navigationType:"bullet",				// bullet, thumb, none
 						navigationArrows:"solo",				// nexttobullets, solo (old name verticalcentered), none
 
-						navigationStyle:false,				// round,square,navbar,round-old,square-old,navbar-old, or any from the list in the docu (choose between 50+ different item), custom
+						navigationStyle: false,				// round,square,navbar,round-old,square-old,navbar-old, or any from the list in the docu (choose between 50+ different item), custom
 
 
 						navigationHAlign:"left",				// Vertical Align top,center,bottom
@@ -151,12 +157,12 @@
 						soloArrowLeftHalign:"left",
 						soloArrowLeftValign:"center",
 						soloArrowLeftHOffset:20,
-						soloArrowLeftVOffset:0,
+						soloArrowLeftVOffset:posicaoBullet,
 
 						soloArrowRightHalign:"right",
 						soloArrowRightValign:"center",
 						soloArrowRightHOffset:20,
-						soloArrowRightVOffset:0,
+						soloArrowRightVOffset:posicaoBullet,
 
 						touchenabled:"on",						// Enable Swipe Function : on/off
 
@@ -170,14 +176,12 @@
 
 
 						fullWidth:"on",							// Same time only Enable FullScreen of FullWidth !!
-						fullScreen:"off",						// Same time only Enable FullScreen of FullWidth !!
+						fullScreen:"on",						// Same time only Enable FullScreen of FullWidth !!
 
 
 						shadow:0								//0 = no Shadow, 1,2,3 = 3 Different Art of Shadows -  (No Shadow in Fullwidth Version !)
 
 					});
-
-
 		});
 		</script>
 

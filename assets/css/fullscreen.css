@@ -24,20 +24,38 @@ website:   	http://www.themepunch.com
   
   
 .fullscreen-container {
+	max-width: 1480px;
 	width:100% !important;
 	position:relative;
 	padding:0;
 	height:100%!important;
 }
-@media (min-width: 992px) {
+.fullscreen-container img {
+	max-width: 1480px;
+	width:100% !important;
+	position:relative;
+	padding:0;
+	height:100%!important;
+}
+
+@media screen and (max-width: 480px){
 	.fullscreen-container {
+		max-width: 540px;
+		width: 100%;
+		position: relative;
+		padding:10px;
+		max-height: 280px;
+		height:100%!important;
+	}
+	.fullscreen-container img {
+		max-width: 540px;
 		width:100% !important;
 		position:relative;
 		padding:0;
-		height:80%!important;
+		max-height: 280px;
+		height:100%!important;
 	}
 }
-
 
 
  /***************** THIS IS ONLY FOR DEMO , CAN BE DELETED **************/

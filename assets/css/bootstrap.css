@@ -4171,6 +4171,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-collapse {
+  background: #FFF;
   max-height: 340px;
   padding-right: 15px;
   padding-left: 15px;
