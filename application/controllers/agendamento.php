@@ -260,7 +260,18 @@ class Agendamento extends CI_Controller {
 
 					//redirect(base_url("fatura/novo"));
 				} else {
+					
+					//se a transação falhar, um email será enviado ao suporte para resolver
 					$error = getMessageErrorByLR($result_pgto->LR);
+					
+					$data = array(
+						"iugu"      => $result_pgto,
+						"user"      => $nome_completo,
+						"atividade" => $descricao
+					);
+
+					$message = $this->load->view("emails/erroTransacao.php", $data, TRUE);
+					send_email("suporte@praquerumo.com.br", "Erro de Transação", $message);
 					$this->_novoAgendamento($evento, $quantidade, $error);
 				}
 			} else {
@@ -370,8 +381,8 @@ class Agendamento extends CI_Controller {
 
 	private function _removeUTF($titulo) {
 		$titulo = strtr(utf8_decode($titulo),
-                 utf8_decode('ŠŒŽšœžŸ¥µÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ'),
-                             'SOZsozYYuAAAAAAACEEEEIIIIDNOOOOOOUUUUYsaaaaaaaceeeeiiiionoooooouuuuyy');
+                 utf8_decode('´`ŠŒŽšœžŸ¥µÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýÿ'),
+                             '  SOZsozYYuAAAAAAACEEEEIIIIDNOOOOOOUUUUYsaaaaaaaceeeeiiiionoooooouuuuyy');
 		return $titulo;
 	}
 
@@ -394,10 +405,7 @@ class Agendamento extends CI_Controller {
 		$descricao = getDayData($evento['data_inicio']) .
 		" de " . getMonthFullNameData($evento['data_inicio']) . " " .
 		getSessionTime($evento['hora_inicio']) . " - " . getSessionTime($evento['hora_fim']);
-		
-		// remove acentos do titulo do evento. 
-		$evento['titulo'] = $this->_removeUTF($evento['titulo']);
-
+				
 		$bloquear_boleto = $this->_verificaBloqueioBoleto($evento['visivel_fim']);
 		$valoresParcelados = $this->_calculaParcelaIugu($precoTotal);
 		$data = array(
@@ -414,6 +422,7 @@ class Agendamento extends CI_Controller {
 			"descricao" => $descricao,
 			'bloquear_boleto' => $bloquear_boleto,
 		);
+		
 		$this->load->template("agendamento/index", $data);
 	}
 
@@ -497,7 +506,8 @@ class Agendamento extends CI_Controller {
 
 	/*Realiza o pagamento pelo iugu*/
 	function _pagar($token, $email, $descricao, $quantidade, $preco, $parcelas, $desconto) {
-
+		//removendo caracteres especiais para enviar ao iugu
+		$descricao = $this->_removeUTF($descricao);
 		setIuguAPIToken();
 		$carrinho = array(
 			"token" => $token,
