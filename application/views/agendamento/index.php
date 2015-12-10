@@ -556,6 +556,17 @@ echo form_close();
 
 
 				</div><br/>
+
+				<div class="pagecontainer2 mt20 needassistancebox">
+					<div class="cpadding1">
+						<span class="icon-help"></span>
+						<h3 class="opensans"><?=lang("details_duvidas")?></h3>
+						<p class="size14 grey">Não conseguiu realizar seu agendamento? Nosso time está disposto a ajudá-lo!<br/> Entre em contato:</p>
+						<a href="mailto:suporte@praquerumo.com.br" target="_top">
+							<p class="opensans size16 green xslim">suporte@praquerumo.com.br</p>
+						</a>
+					</div>
+				</div>
 				<!--
 				<div class="pagecontainer2 needassistancebox">
 					<div class="cpadding1">
