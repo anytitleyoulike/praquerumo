@@ -1,3 +1,7 @@
 User-agent: Googlebot
 
 Disallow: /application/config/
+Disallow: /application/documents/
+Disallow: /application/system/
+
+Sitemap: https://www.praquerumo.com.br/sitemap.xml
