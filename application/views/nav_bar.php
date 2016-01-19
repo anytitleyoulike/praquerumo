@@ -11,7 +11,7 @@
 				  <span class="icon-bar"></span>
 				  <span class="icon-bar"></span>
 				</button>
-				<a href="<?=base_url()?>" class="navbar-brand"><img src="<?=base_url("assets/images/logo_beta.png")?>" alt="Pra Que Rumo Logo" class="logo"/></a>
+				<a href="<?=base_url()?>" class="navbar-brand"><img src="<?=base_url("assets/images/logo_beta.png")?>" alt="Pra Que Rumo Logo" class="logo" width="150px" height="40px" /></a>
 			  </div>
 			  <div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right navbar-verticalalign">

@@ -560,7 +560,7 @@ website:   	http://www.themepunch.com
 .tpclear		{	clear:both;}
 
 
-.tp-bullets								{	z-index:1000; position:absolute;
+.tp-bullets								{	z-index:1000; position: absolute;
 												-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 												-moz-opacity: 1;
 												-khtml-opacity: 1;
@@ -637,15 +637,15 @@ website:   	http://www.themepunch.com
 															-khtml-opacity: 0;
 															opacity: 0;
 														}
-.tp-leftarrow											{	z-index:100;cursor:pointer; position:relative;	background:url(../images/large_left.png) no-Repeat top left;	width:40px;	height:40px;   }
-.tp-rightarrow											{	z-index:100;cursor:pointer; position:relative;	background:url(../images/large_right.png) no-Repeat top left;	width:40px;	height:40px;   }
+.tp-leftarrow											{	z-index:100;cursor:pointer; position:relative;	background:url(../images/large_left.png) no-Repeat top left;	width:40px;	height:40px;	}
+.tp-rightarrow											{	z-index:100;cursor:pointer; position:relative;	background:url(../images/large_right.png) no-Repeat top left;	width:40px;	height:40px;	}
 
 
-.tp-leftarrow.round										{	z-index:100;cursor:pointer; position:relative;	background:url(../images/small_left.png) no-Repeat top left;	width:19px;	height:14px;  margin-right:0px; float:left; margin-top:-7px;	}
+.tp-leftarrow.round										{	z-index:100;cursor:pointer; position:relative;	background:url(../images/small_left.png) no-Repeat top left;	width:19px;	height:14px;  margin-right:0px; float:left; margin-top:-7px;}
 .tp-rightarrow.round									{	z-index:100;cursor:pointer; position:relative;	background:url(../images/small_right.png) no-Repeat top left;	width:19px;	height:14px;  margin-right:0px; float:left;	margin-top:-7px;}
 
 
-.tp-leftarrow.round-old									{	z-index:100;cursor:pointer; position:relative;	background:url(../images/arrow_left.png) no-Repeat top left;	width:26px;	height:26px;  margin-right:0px; float:left; margin-top:-13px;	}
+.tp-leftarrow.round-old									{	z-index:100;cursor:pointer; position:relative;	background:url(../images/arrow_left.png) no-Repeat top left;	width:26px;	height:26px;  margin-right:0px; float:left; margin-top:-13px;}
 .tp-rightarrow.round-old								{	z-index:100;cursor:pointer; position:relative;	background:url(../images/arrow_right.png) no-Repeat top left;	width:26px;	height:26px;  margin-right:0px; float:left;	margin-top:-13px;}
 
 
