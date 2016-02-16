@@ -657,9 +657,8 @@ echo form_close();
 				},
 				success: function(resposta) {
 					var data = jQuery.parseJSON(resposta);
-					var preco_com_desconto = data.preco;
 					var valorDesconto = atividade_preco - data.preco;
-
+					
 					if(valorDesconto == 0){
 						valorDesconto = "0,00";
 					}else{
@@ -680,11 +679,12 @@ echo form_close();
 					var options = "";
 					$.each(data.valoresParcelados, function(key, value){
 						
-						options += "<option id='"+value+"' value='"+ key +"'>"+key+"x R$ "+$.formatNumber(value, {format:"#,###.00", locale: "br"})+"</option>";});
+						options += "<option id='"+value+"' value='"+ key +"'>"+key+"x R$ "+$.formatNumber(value, {format:"#,###.00", locale: "br"})+"</option>";
+					});
 					$("#select-valor").html(options);
 
+					data.preco = "0,00";
 					preco_com_desconto = $.formatNumber(data.preco, {format:"#,###.00", locale: "br"});
-
 					
 					/*if(data.preco <= 100){
 						var juros = "0,00";

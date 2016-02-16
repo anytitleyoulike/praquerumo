@@ -176,7 +176,7 @@ echo form_hidden($data);
 				<div class="clearfix"></div>
 
 				<div class="hpadding20">
-					<span id="box-datas"><a href="#" id="ancora-datas" class="add2fav margtop30" data-toggle="modal" data-target="#outrasDatas"> outras datas</a></span>
+					<span id="box-datas"><a href="#" id="ancora-datas" class="add2fav margtop30" data-toggle="modal" data-target="#outrasDatas"> Fale Conosco</a></span>
 					<a id="agendarAgora" href="#" class="booknow margtop20 btnmarg"><?=lang("details_agendar")?></a>
 				</div>
 
@@ -245,6 +245,7 @@ echo form_hidden($data);
 					<li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#thingstodo"><span class="thingstodo"></span><span class="hidetext"><?=lang("details_recomendados")?></span>&nbsp;</a></li>
 					<li onclick="mySelectUpdate()" class="">
 						<a data-toggle="tab" href="#comentarios">
+							<span class="reviews"></span>
 							<span class="fb-comments-count" data-href="<?=base_url('atividades/'.$atividade['slug'])?>"></span>
 							<span class="hidetext"><?=lang("details_comentarios")?></span>
 						</a>
@@ -675,7 +676,8 @@ if (!empty($eventos)) {
 } else {
 	echo '<div class="line2"></div>';
 	echo '<div class="padding20">';
-	echo "Sem eventos disponiveis";
+	echo "Ainda não temos datas programadas para essa atividade <br>
+	      Deseja solicitar uma data? Contate-nos <a href='mailto:suporte@praquerumo.com.br'>suporte@praquerumo.com.br</a>";
 	echo '</div>';
 }
 ?>
@@ -1225,12 +1227,7 @@ $url_site_organizador = "#";
 							<p class="opensans size16 green xslim">contato@praquerumo.com.br</p>
 						</a>
 						<!--<?php
-/*if (is_mobile()) {
-$target_suporte = "tel:+559282232626";
-}
-else {
-$target_suporte = "#";
-}*/
+
 ?>
 
 						<a href="<?=$target_suporte?>" target="_top">
@@ -1242,14 +1239,14 @@ $target_suporte = "#";
 
 <?php
 if (is_mobile()) {
-	$target_suporte = "tel:+559281121280";
+	$target_suporte = "tel:+55 92 99385-2746‬";
 } else {
 	$target_suporte = "#";
 }
 ?>
 						<a href="<?=$target_suporte?>" target="_top">
 							<spam class="opensans size16 green xslim">
-								+55 92 8112-1280
+								+55 92 99385-2746‬
 							</spam>
 						</a>
 					</div>

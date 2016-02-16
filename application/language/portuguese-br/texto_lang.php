@@ -38,7 +38,7 @@ $lang["title_pagina_inicial"] = "Vivencie Experiências na Amazônia";
  * Detalhes da atividade
  */
 
-$lang["details_agendar"] = "Agendar Agora";
+$lang["details_agendar"] = "Reservar Agora";
 $lang["details_dos_usuarios"] = "dos usuários";
 $lang["details_recomendam"] = "recomendam";
 
