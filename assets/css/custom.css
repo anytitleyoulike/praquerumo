@@ -657,7 +657,7 @@ a.add2fav{
 width:100%;
 height:52px;
 border:1px solid #e5e5e5;
-background:url('../images/btn-plus.png') #fff no-repeat 20px 0;
+background:url('../images/icon-mail.png') #fff no-repeat 20px 0;
 padding:15px 10px 10px 10px;
 display:block;
 text-align:center;
@@ -678,7 +678,7 @@ a:hover.add2fav{
 text-decoration:none;
 color:#666!important;
 border:1px solid #ccc;
-background:url('../images/btn-plus-over.png') #fff no-repeat 20px 0;
+background:url('../images/icon-mail-hover.png') #fff no-repeat 20px 0;
 }
 a:link.add2fav{text-decoration:none ; color:#7c8c94; }
 a:active.add2fav{text-decoration:none ; color:#7c8c94; }
