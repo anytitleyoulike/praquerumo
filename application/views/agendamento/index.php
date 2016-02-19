@@ -683,7 +683,6 @@ echo form_close();
 					});
 					$("#select-valor").html(options);
 
-					data.preco = "0,00";
 					preco_com_desconto = $.formatNumber(data.preco, {format:"#,###.00", locale: "br"});
 					
 					/*if(data.preco <= 100){

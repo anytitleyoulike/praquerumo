@@ -46,11 +46,12 @@ class Agendamento extends CI_Controller {
 		$atividade_codigo = $this->input->post('atividade_codigo');
 		
 		$cupom_desconto = $this->input->post('cupom_desconto');
-		$desconto = $this->desconto_model->buscarDesconto($cupom_desconto, $atividade_codigo);
-		if(empty($desconto)){
+		
+		if(empty($cupom_desconto)){
 			$desconto_porcentagem = 0;
-			$preco_desconto = 0;
+			$preco_com_desconto = 0;
 		}else{
+			$desconto = $this->desconto_model->buscarDesconto($cupom_desconto, $atividade_codigo);
 			$desconto_porcentagem = $desconto['porcentagem']/100;
 		}
 
@@ -186,10 +187,10 @@ class Agendamento extends CI_Controller {
 			
 			if($forma_pagamento == '#card')$forma_pagamento = 'Cartão de Crédito';
 
-			$desconto = $this->desconto_model->buscarDesconto($cupom_desconto, $atividade_codigo);
-			if(empty($desconto)){
+			if(empty($cupom_desconto)){
 				$valor_desconto = 0;
 			}else{
+				$desconto = $this->desconto_model->buscarDesconto($cupom_desconto, $atividade_codigo);
 				$desconto_porcentagem = $desconto['porcentagem']/100;
 				$preco_total = $preco*$quantidade;
 				$valor_desconto = number_format($preco_total*$desconto_porcentagem, 2, "", ".");
@@ -557,6 +558,7 @@ class Agendamento extends CI_Controller {
 			$success = false;
 		}else{
 			$porcentagemDesconto = $desconto["porcentagem"]/100;
+		
 			$preco = number_format($atividade_preco - ($atividade_preco*$porcentagemDesconto), 2);
 			$success = true;
 		}
