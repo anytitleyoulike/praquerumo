@@ -4114,6 +4114,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   z-index: 1000;
   min-height: 50px;
   margin-bottom: 0px;
+  margin-top: 8px;
   border: 1px solid transparent;
 }
 
@@ -4336,7 +4337,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-nav > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
-  line-height: 20px;
+  line-height: 15px;
   border-bottom:1px solid #efefef;
 
 }

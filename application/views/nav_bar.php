@@ -33,7 +33,7 @@ if (isset($estado)) {?>
 								</ul>
 							  </li>
 <?php }?>
-				  	  <li><a href="https://goo.gl/ytcJv4" target="_blank">Adicionar Atividade</a></li>
+				  	  <li><a class="btn btn-warning btn-sm" href="https://goo.gl/ytcJv4" target="_blank">Cadastrar Atividade</a></li>
 				  	  <li><a href="<?=base_url("equipe")?>">Quem Somos</a></li>
 				  	  <li><a href="http://blog.praquerumo.com.br" target="_blank">Blog</a></li>
 				  	  <!-- <li><a id="nav_contatos" href="#">Contato</a></li> -->
