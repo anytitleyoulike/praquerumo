@@ -8,9 +8,8 @@
     <meta name="robots" content="index,follow">
     <meta name="rating" content="General"/>
     <meta name="author" content="Pra Que Rumo Team">
-    <!-- <meta property="og:image" content="<?=base_url("assets/images/logo_beta.png")?>" /> -->
-    <meta property="og:site_name" content="PRAQUERUMO" />
-
+    <meta property="og:site_name" content="Pra Que Rumo" />
+    
     <!-- Icon -->
     <link rel="shortcut icon" href="<?=base_url("assets/images/ico/favicon.ico")?>" >
     <!-- can adjust icons to another sizes(touch icons): 57x57px, 72x72px, 114x114px, 144x144px -->
