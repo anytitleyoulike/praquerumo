@@ -4,7 +4,7 @@
 	<title>Pra Que Rumo - <?=lang("title_pagina_inicial")?></title>
 	<meta property="og:url" content="<?=base_url('')?>" />
 	<meta property="og:title" content="Pra Que Rumo - <?=lang("title_pagina_inicial")?>" />
-	<meta property="og:image" content="<?=base_url("assets/images/banner-site-praquerumo.jpg")?>" />
+	<meta property="og:image" content="<?=base_url("assets/images/pqr-facebook-banner.jpg")?>" />
 	<meta  name="description" content="Encontre atividades de turismo de aventura e ecoturismo na Amazônia. Experimente atividades como Rafting, Stand-Up Paddle, Trekking, Caiaque e muito mais.">
 	<!--<link href="<?=base_url("assets/css/style01.css")?>" rel="stylesheet" media="screen">-->
 	<link href="<?=base_url("assets/css/evento-box.css")?>" rel="stylesheet" media="screen">
