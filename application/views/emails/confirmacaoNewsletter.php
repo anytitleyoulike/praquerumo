@@ -24,36 +24,7 @@
 										</table>
 									</td>
 								</tr>
-								<!--
-								<tr>
-									<td align="left" valign="top" style="padding: 0; margin: 0">
-										<table cellspacing="0" cellpadding="0" border="0"
-											align="center" width="100%"
-											style="margin-right: 0px; margin-left: 0px">
-											<tbody>
-												<tr>
-													<td align="left" valign="top"
-														style="margin: 0px; padding: 25px 25px 30px 20px; font-family: Helvetica, Trebuchet, Arial, sans-serif; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255)">PraQueRumo<span
-														style="font-family: Helvetica, Trebuchet, Arial, sans-serif; color: #1c55a5; font-size: 24px; font-weight: bold"><span
-															style="font-weight: normal"></span> </span>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</td>
-								</tr>
-								 -->
-<!-- 								<tr>
-									<td align="center" valign="top" style="margin: 0; padding: 0">
-										<table cellspacing="0" cellpadding="0" border="0" align="left"
-											width="100%" style="margin: 0px">
-											<tbody>
-												<tr>
-												</tr>
-											</tbody>
-										</table>
-									</td>
-								</tr> -->
+								
 								<tr>
 									<td align="center" valign="top" style="margin: 0; padding: 0">
 										<table cellspacing="0" cellpadding="0" border="0"
@@ -104,20 +75,22 @@
 														style="font-family: Helvetica, Trebuchet, Arial, sans-serif; color: #4b4b4b; font-size: 18px; font-weight: normal">
 													</span>
 														<div style="font-family: Arial, sans-serif; font-size: medium">
-															<p> Estamos felizes em saber que você é uma pessoa que tem vontade de sair da rotina 
-																e explorar atividades interessantes na região de Manaus e Presidente Figueiredo.<br>
+															<p> Estamos felizes em saber que você é uma pessoa que tem 
+																vontade de sair da rotina e explorar novas experiências.<br>
 															</p>
 															
-															<p>	Oferecemos experiências únicas com os melhores parceiros de turismo 
-																e de aventura da região Norte. Tudo isso com muita qualidade e segurança!<br> 
+															<p>	O Pra Que Rumo é uma startup amazonense que utiliza a tecnologia 
+																para evidenciar o potencial turístico da nossa região.<br> 
 															</p>
 
-															<p>Fique a vontade para compartilhar o Pra Que Rumo com seus amigos!<br></p>
+															<p> Através do nosso site você encontrará diversas atividades 
+																oferecidas pelos nossos parceiros. Escolha a sua preferida, 
+																reserve sua vaga e realize o pagamento através de cartões de crédito ou boleto bancário.<br>
+															</p>
 
-															<p>Para saber mais sobre as atividades que ocorrem na região, clique aqui: <br> <?= anchor($link)?></p>
+															<p>Comece agora mesmo!</p>
 															
-															Atenciosamente,<br>
-															Equipe Pra Que Rumo.
+															<div align="center"><a href="<?=base_url("")?>"><?=base_url("")?></a></div>
 																	
 														</div>
 																
@@ -148,21 +121,9 @@
 																	<td
 																		style="display: inline-block !important; width: auto !important; margin: auto; padding: 5px"><a
 																		title="Twitter" target="_blank"
-																		href="https://twitter.com/PraQueRumo"><img
-																			border="0" style="display: block" width="38px" height="38px"alt="Twitter"
-																			src="<?=base_url("/assets/images/social_medias/icon-twitter.png")?>"></a></td>
-																	<td
-																		style="display: inline-block !important; width: auto !important; margin: auto; padding: 5px"><a
-																		title="Twitter" target="_blank"
 																		href="https://instagram.com/praquerumoficial"><img
 																			border="0" style="display: block" width="38px" height="38px"alt="Twitter"
 																			src="<?=base_url("/assets/images/social_medias/icon-instagram.png")?>"></a></td>
-																	<td
-																		style="display: inline-block !important; width: auto !important; margin: auto; padding: 0px"><a
-																		target="_blank" title="PraQueRumo"
-																		href="<?=base_url("")?>"><img
-																			border="0" style="display: block" alt="PraQueRumo"
-																			src="<?=base_url("assets/images/logosmal_black.png")?>"></a></td>
 																</tr>
 															</tbody>
 														</table></td>

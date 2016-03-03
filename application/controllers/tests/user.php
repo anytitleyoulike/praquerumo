@@ -5,7 +5,14 @@
 class User extends CI_Controller{
 
 	public function index(){
-		echo "Hello World!";
+		$link = base_url("assets/images/emails/logo.png");
+		echo "<a href= ". $link .">". $link ." </a>";
+	}
+
+	public function teste(){
+		$data['link'] = "https://www.praquerumo.com.br/verifica/asdas12312as324324";
+		$this->load->view("newsletter/confirmacao.php");
+	
 	}
 
 	public function createSubAccount($name, $percent){
