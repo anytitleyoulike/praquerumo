@@ -224,36 +224,15 @@ foreach ($atividades as $atividade) {?>
 						<hr>
 						<div class="presentation">
 							<p class="grey">
-<?=character_limiter($atividade["apresentacao"], 120)?>
-</p>
+								<?=character_limiter($atividade["apresentacao"], 120)?>
+							</p>
 						</div>
 						<!-- Mais eventos -->
 						<div class="clearfix"></div>
-						<div class="box-dates">
-<?php
-	foreach ($atividade['eventos'] as $evento) {
-		if ($evento['totalDisponivel'] > 0) {
-				echo anchor(base_url("atividades/{$atividade['slug']}"), '<time datetime="2014-09-20" class="calendar-icon calendar-small calendar-green calendar-left10">
-																  <em> ' . lang("evento_disponivel") . '</em>
-																  <strong>' . getMonthNameData($evento['data_inicio']) . '</strong>
-																  <span>' . getDayData($evento['data_inicio']) . '</span>
-																</time>');
-		} else {
-			echo anchor(base_url("atividades/{$atividade['slug']}"), '<time datetime="2014-09-20" class="calendar-icon calendar-small calendar-red calendar-left10">
-															  <em> ' . lang("evento_indisponivel") . '</em>
-															  <strong>' . getMonthNameData($evento['data_inicio']) . '</strong>
-															  <span>' . getDayData($evento['data_inicio']) . '</span>
-															</time>');
-		}
-	}
-	?>
 
-<?=anchor(base_url("atividades/{$atividade['slug']}"), '<time datetime="2014-09-20" class="calendar-icon calendar-small calendar-orange calendar-left10">
-															  <em>Mais</em>
-															  <strong>Datas</strong>
-															  <span>+</span>
-															</time>')?>
-</div>
+					<?=anchor(base_url("atividades/{$atividade['slug']}"), 
+					'<button class="btn btn-warning btn-lg">Agendar</button>')?>
+
 						<!--<form action="list4.html">
 							<button class="roundbtn" type="submit">Mais</button>
 						</form>-->
@@ -306,15 +285,10 @@ foreach ($atividadesSemData as $atividadeSemDate) {
 						</div>
 						<!-- Mais eventos -->
 						<div class="clearfix"></div>
-						<div class="box-dates">
+						
+					<?=anchor(base_url("atividades/{$atividadeSemDate['slug']}"), 
+					'<button class="btn btn-warning btn-lg">Agendar</button>')?>
 
-
-<?=anchor(base_url("atividades/{$atividadeSemDate['slug']}"), '<time datetime="2014-09-20" class="calendar-icon calendar-small calendar-orange calendar-left10">
-															  <em>Mais</em>
-															  <strong>Datas</strong>
-															  <span>+</span>
-															</time>')?>
-</div>
 						<!--<form action="list4.html">
 							<button class="roundbtn" type="submit">Mais</button>
 						</form>-->
