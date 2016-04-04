@@ -36,6 +36,24 @@ if (isset($estado)) {?>
 				  	  <li><a class="btn btn-warning btn-sm" href="https://goo.gl/ytcJv4" target="_blank">Cadastrar Atividade</a></li>
 				  	  <li><a href="<?=base_url("equipe")?>">Quem Somos</a></li>
 				  	  <li><a href="http://blog.praquerumo.com.br" target="_blank">Blog</a></li>
+				  	  <?php
+								$site_lang = $this->session->userdata('site_lang');
+
+								if($site_lang == "english"){
+									$flag_href = base_url() . "language/switchlang/portuguese-br";
+									$flag_src = base_url('assets/images/flags/br.png');
+									$flag_alt = "Português";
+								}
+								else {									
+									$flag_href = base_url() . "language/switchlang/english";
+									$flag_src = base_url('assets/images/flags/uk.png');
+									$flag_alt = "English";
+								}
+						?>
+
+						<li><a class="lato caps" style="padding-top: 8px" href='<?= $flag_href ?>'>
+							<img src='<?= $flag_src ?>' alt='<?= $flag_alt ?>' class="flags" /></a>
+						</li>	
 				  	  <!-- <li><a id="nav_contatos" href="#">Contato</a></li> -->
 				</ul>
 			  </div>

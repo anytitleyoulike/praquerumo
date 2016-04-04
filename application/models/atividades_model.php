@@ -9,7 +9,7 @@ class Atividades_model extends CI_Model {
 	 * @sufix sufixo do idioma
 	 * @return array com eventos
 	 */
-	public function buscarAtividades($limite) {
+	public function buscarAtividades($limite, $lingua_id) {
 		$query = $this->db->select('atividade.codigo, atividade.disponivel, atividade.vendivel,
 				atividade.fig_01, atividade.fig_02, atividade.fig_03, atividade.fig_04,
 				atividade.fig_destaque, atividade.fig_thumbnail, descricao_atividade.titulo,
@@ -22,6 +22,7 @@ class Atividades_model extends CI_Model {
 		$this->db->join("evento", "evento.atividade_codigo = atividade.codigo");
 		$this->db->join("descricao_atividade", "descricao_atividade.atividade_codigo = atividade.codigo");
 		$this->db->where(array("atividade.disponivel" => TRUE, "atividade.vendivel" => TRUE, "evento.visivel_fim >=" => date('Y-m-d H:i:s')));
+		$this->db->where("descricao_atividade.lingua_id", $lingua_id);
 		$this->db->group_by('atividade.codigo');
 		$this->db->order_by('data_proxima');
 
@@ -132,7 +133,7 @@ class Atividades_model extends CI_Model {
 		$this->db->select("atividade.codigo, atividade.slug, atividade.vendivel, atividade.disponivel, atividade.codigo_desconto,
 			atividade.latitude, atividade.longitude, atividade.fig_01, atividade.fig_02, atividade.fig_03,
 			atividade.fig_04, atividade.categoria_id, atividade.elemento_id, atividade.modalidade_id,
-			atividade.usuario_id, atividade.dicas, atividade.acompanhamento, atividade.cuidados,
+			atividade.usuario_id, descricao_atividade.dicas, descricao_atividade.acompanhamentos, descricao_atividade.cuidados,
 			,descricao_atividade.lingua_id, descricao_atividade.atividade_codigo, descricao_atividade.como_chegar, descricao_atividade.titulo,
 			descricao_atividade.apresentacao, descricao_atividade.esforco_fisico, descricao_atividade.conforto,
 			descricao_atividade.dificuldade_tecnica, descricao_atividade.descricao, descricao_atividade.cidade,
@@ -142,9 +143,9 @@ class Atividades_model extends CI_Model {
 		$this->db->from("atividade");
 		$this->db->join("descricao_atividade", "descricao_atividade.atividade_codigo = atividade.codigo");
 		$this->db->join("evento", "evento.atividade_codigo = atividade.codigo");
-		$this->db->group_by("atividade.codigo");
+		// $this->db->group_by("atividade.codigo");
 		$this->db->where("atividade.slug", $id);
-		$this->db->or_where("atividade.codigo", $id);
+		// $this->db->or_where("atividade.codigo", $id);
 		$this->db->where("descricao_atividade.lingua_id", $lingua);
 
 		return $this->db->get()->row_array();
