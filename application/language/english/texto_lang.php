@@ -12,6 +12,9 @@ $lang["home_avaliacoes"] = "Reviews";
 
 $lang["home_mais_experiencias"] = "Try out";
 $lang["home_mais"] = "More";
+$lang["home_datas"] = "Dates";
+$lang["evento_disponivel"] = "Available";
+$lang["evento_indisponivel"] = "Sold Out";
 /*
  * Footer
  */
@@ -40,7 +43,7 @@ $lang["details_recomendam"] = "recommend";
 
 $lang["details_menu_informacoes"] = "Informations";
 $lang["details_item_descricao"] = "Description";
-$lang["details_item_roteiro"] = "Itinerary";
+$lang["details_item_roteiro"] = "Schedule";
 $lang["details_item_dicas"] = "Tips";
 $lang["details_item_itens_inclusos"] = "Items Included";
 $lang["details_item_cuidados_restricoes"] = "Cautions and Restrictions";
@@ -52,6 +55,7 @@ $lang["details_comentarios_titulo"] = "Take your questions right here! :)";
 $lang["details_recomendados_titulo"] = "Attractions recommended";
 $lang["details_recomendados_avaliacoes"] = "Reviews";
 $lang["details_recomendados_mais"] = "More";
+$lang["details_faleconosco"] = "Contact Us";
 
 $lang["details_menu_mapa"] = "Map";
 $lang["details_menu_agendamento"] = "Booking";

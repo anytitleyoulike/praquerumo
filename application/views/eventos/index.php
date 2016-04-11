@@ -249,8 +249,8 @@ foreach ($atividades as $atividade) {?>
 	?>
 
 <?=anchor(base_url("atividades/{$atividade['slug']}"), '<time datetime="2014-09-20" class="calendar-icon calendar-small calendar-orange calendar-left10">
-															  <em>Mais</em>
-															  <strong>Datas</strong>
+															  <em>'.lang("home_mais").'</em>
+															  <strong>'.lang("home_datas").'</strong>
 															  <span>+</span>
 															</time>')?>
 </div>
@@ -310,8 +310,8 @@ foreach ($atividadesSemData as $atividadeSemDate) {
 
 
 <?=anchor(base_url("atividades/{$atividadeSemDate['slug']}"), '<time datetime="2014-09-20" class="calendar-icon calendar-small calendar-orange calendar-left10">
-															  <em>Mais</em>
-															  <strong>Datas</strong>
+															  <em>'.lang("home_mais").'</em>
+															  <strong>'.lang("home_datas").'</strong>
 															  <span>+</span>
 															</time>')?>
 </div>

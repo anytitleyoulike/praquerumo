@@ -176,7 +176,7 @@ echo form_hidden($data);
 				<div class="clearfix"></div>
 
 				<div class="hpadding20">
-					<span id="box-datas"><a href="#" id="ancora-datas" class="add2fav margtop30" data-toggle="modal" data-target="#outrasDatas"> Fale Conosco</a></span>
+					<span id="box-datas"><a href="#" id="ancora-datas" class="add2fav margtop30" data-toggle="modal" data-target="#outrasDatas"> <?=lang("details_faleconosco")?></a></span>
 					<a id="agendarAgora" href="#" class="booknow margtop20 btnmarg"><?=lang("details_agendar")?></a>
 				</div>
 

@@ -56,6 +56,7 @@ $lang["details_comentarios_titulo"] = "Tire suas dúvidas aqui! :)";
 $lang["details_recomendados_titulo"] = "Atrações recomendadas";
 $lang["details_recomendados_avaliacoes"] = "Avaliações";
 $lang["details_recomendados_mais"] = "Mais";
+$lang["details_faleconosco"] = "Fale Conosco";
 
 $lang["details_menu_mapa"] = "Mapa";
 $lang["details_menu_agendamento"] = "Agendamento";
