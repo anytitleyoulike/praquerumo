@@ -2,7 +2,10 @@
 
 class Language extends CI_Controller {
 	
-	function switchlang($language = "", $path = "") {
+	function switchlang($language = "") {
+		
+		$url = $this->session->userdata('current_url');
+		
 		if($language != "") {
 			if($language == "english")
 				setlocale(LC_ALL, "en_US");	
@@ -14,7 +17,7 @@ class Language extends CI_Controller {
 			setlocale(LC_ALL, "pt_BR", "pt_BR.iso-8859-1", "pt_BR.utf-8", "portuguese");
 		}
 		$this->session->set_userdata('site_lang', $language);
-		redirect(base_url($path));
+		redirect($url);
 	}
 
 }

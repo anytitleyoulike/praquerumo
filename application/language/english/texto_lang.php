@@ -88,3 +88,38 @@ $lang["about_objetivo_texto"] = "Pellentesque non dolor urna.
 $lang["about_juntese"] = "Want to join us?";
 $lang["about_juntese_texto"] = "Seja nosso parceiro....";
 $lang["about_juntese_agora"] = "Apply Now";
+
+/*
+* Pagina de Agendamento 
+*/
+
+$lang["booking_title_identificacao"] = "Your contact information";
+$lang["booking_subtitle_identificacao"] = "Please, tell us who will do the activity.";
+$lang["booking_title_pagamento"] = "How would you like to pay?";
+$lang["booking_title_email"] = "Where should we send confirmation?";
+$lang["booking_subtitle_email"] = "Please enter the email address where you would like to receive your confirmation.";
+$lang["booking_title_review"] = "Review and confirm your booking";
+$lang["booking_informacao_titulo"] = "Important information about your booking:";
+$lang["booking_informacao_conteudo"] = "This reservation is non-refundable and cannot be changed or canceled.";
+$lang["booking_aceitar_termo"] = "I acknowledge that I have read and accept the 
+<a href='".base_url("termos/termo_de_uso")  ."' class='orange'>terms & conditions</a>.";
+
+
+/*
+* Dados do Usuario
+*/
+
+$lang["user_nome"] = "Full Name:";
+$lang["user_email"] = "Email:";
+$lang["user_telefone"] = "Phone Number:";
+
+/*
+* Pagamento
+*/
+$lang["payment_aba_cartao"] = "Credit Card";
+$lang["payment_aba_boleto"] = "Bank Slip";
+$lang["payment_cartao_numero"] = "Card Number:";
+$lang["payment_cartao_validade"] = "Expiration Date:";
+$lang["payment_cartao_cvv"] = "Security Code:";
+$lang["payment_cartao_nome"] = "Cardholder:";
+$lang["payment_cartao_parcelas"] = "Installments:";

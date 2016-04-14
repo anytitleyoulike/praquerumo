@@ -38,6 +38,9 @@ if (isset($estado)) {?>
 				  	  <li><a href="http://blog.praquerumo.com.br" target="_blank">Blog</a></li>
 				  	  <?php
 								$site_lang = $this->session->userdata('site_lang');
+								
+								//pegando url atual para utilizar no redirecionamento em language_controller
+								$this->session->set_userdata('current_url',current_url());
 
 								if($site_lang == "english"){
 									$flag_href = base_url() . "language/switchlang/portuguese-br";
@@ -49,6 +52,7 @@ if (isset($estado)) {?>
 									$flag_src = base_url('assets/images/flags/uk.png');
 									$flag_alt = "English";
 								}
+
 						?>
 
 						<li><a class="lato caps" style="padding-top: 8px" href='<?= $flag_href ?>'>

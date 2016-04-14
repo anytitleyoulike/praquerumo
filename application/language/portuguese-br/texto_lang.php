@@ -86,3 +86,37 @@ $lang["about_objetivo_texto"] = "Sabemos das dificuldades da região, mas també
 $lang["about_juntese"] = "Quer se juntar a nós?";
 $lang["about_juntese_texto"] = "Seja nosso parceiro: hotéis, companhias de viagens, empresas de aluguel de veículos e traslado e outros correlatos, você pode fazer parceria conosco. Para mais informações sobre isso, por favor enviar e-mail:";
 $lang["about_juntese_agora"] = "contato@praquerumo.com.br";
+
+/*
+* Pagina de Agendamento
+*/
+
+$lang["booking_title_identificacao"] = "Identificação";
+$lang["booking_subtitle_identificacao"] = "Please, tell us who will do the activity.";
+$lang["booking_title_pagamento"] = "Como gostaria de pagar?";
+$lang["booking_title_email"] = "Qual seu e-mail para envio de confirmação de agendamento?";
+$lang["booking_subtitle_email"] = "Por favor, digite seu endereço de e-mail para receber a confirmação.";
+$lang["booking_informacao_titulo"] = "Informações importantes sobre sua reserva:";
+$lang["booking_informacao_conteudo"] = "Esta reserva não é reembolsável 
+e só pode ser alterada ou cancelada com antecedência mínima de 48hs até a realização da atividade.";
+$lang["booking_aceitar_termo"] = "Completando esse agendamento, concordo que lí e aceito o 
+<a href='".base_url("termos/termo_de_uso")  ."' class='orange'>termo de uso & restrições</a>.";
+
+/*
+* Dados do Usuario
+*/
+
+$lang["user_nome"] = "Nome Completo:";
+$lang["user_email"] = "Email:";
+$lang["user_telefone"] = "Telefone:";
+
+/*
+* Pagamento
+*/
+$lang["payment_aba_cartao"] = "Cartão de Crédito";
+$lang["payment_aba_boleto"] = "Boleto";
+$lang["payment_cartao_numero"] = "Número do Cartão:";
+$lang["payment_cartao_validade"] = "Data de Validade:";
+$lang["payment_cartao_cvv"] = "Cód. Segurança:";
+$lang["payment_cartao_nome"] = "Nome no Cartão:";
+$lang["payment_cartao_parcelas"] = "Parcelas:";

@@ -36,7 +36,7 @@ class Atividades_model extends CI_Model {
 	 * @sufix sufixo do idioma
 	 * @return array com eventos
 	 */
-	public function buscarAtividadesSemData($limite) {
+	public function buscarAtividadesSemData($limite,$lingua_id) {
 		$query = $this->db->select('atividade.codigo, atividade.disponivel, atividade.vendivel,
 				atividade.fig_01, atividade.fig_02, atividade.fig_03, atividade.fig_04,
 				atividade.fig_destaque, atividade.fig_thumbnail, descricao_atividade.titulo,
@@ -48,6 +48,7 @@ class Atividades_model extends CI_Model {
 		$this->db->join("evento", "evento.atividade_codigo = atividade.codigo");
 		$this->db->join("descricao_atividade", "descricao_atividade.atividade_codigo = atividade.codigo");
 		$this->db->where(array("atividade.disponivel" => TRUE, "atividade.vendivel" => FALSE, "evento.visivel_fim <" => date('Y-m-d H:i:s')));
+		$this->db->where("descricao_atividade.lingua_id", $lingua_id);
 		$this->db->group_by('atividade.codigo');
 		$this->db->order_by('evento.preco');
 

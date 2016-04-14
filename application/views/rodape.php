@@ -24,7 +24,7 @@
 						alt="Youtube" width="30px" height="30px" /> </a>
 
 						<br/><br/>
-					 <img src="<?=base_url('assets/images/logosmal_black.png')?>" alt="" /><br /> &copy; 2014 |
+					 <img src="<?=base_url('assets/images/logosmal_black.png')?>" alt="" /><br /> &copy; 2016 |
 					  <a href="<?=base_url()?>">PraQueRumo</a><br /><?=lang("footer_direitos_reservados")?><br /> <br />
 				</div>
 			</div>

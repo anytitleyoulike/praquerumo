@@ -20,10 +20,10 @@ class Atividades extends CI_Controller {
 
 		if($estado == null || $estado == "") {
 
-			$atividades = $this->atividades_model->buscarAtividades(21, $lingua['id'], $lingua['sufix']);
+			$atividades = $this->atividades_model->buscarAtividades(21, $lingua['id']);
 
 			/*Atividade sem data*/
-			$atividadesSemData = $this->atividades_model->buscarAtividadesSemData(21, $lingua['id'], $lingua['sufix']);
+			$atividadesSemData = $this->atividades_model->buscarAtividadesSemData(21, $lingua['id']);
 
 			foreach ($atividadesSemData as &$atividadeSemDate) {
 				$atividadeSemDate['avaliacao'] = $this->avaliacao_model->buscarAvaliacao($atividadeSemDate['codigo']);
