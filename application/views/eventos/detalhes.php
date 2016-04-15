@@ -1,4 +1,4 @@
-  	<title>PRAQUERUMO - <?=$modalidade["nome{$sufix}"] . " | " . $atividade['titulo']?></title>
+  	<title>PraQueRumo - <?=$modalidade["nome{$sufix}"] . " | " . $atividade['titulo']?></title>
   	<?php $tirar  = array('<p>', '</p>');?>
 	<meta  name="description" content='<?=character_limiter(str_replace($tirar, '', $atividade["apresentacao"]), 150)?>'>
 	<meta property="og:url" content="<?=base_url('atividades/'.$atividade['slug'])?>" />
@@ -502,9 +502,9 @@ if (!empty($eventos)) {
 										<table class="table">
 												<thead>
 													<tr class="bold">
-														<td>Horário</td>
-														<td>Preço</td>
-														<td>Quantidade</td>
+														<td><?=lang("details_booking_horario")?></td>
+														<td><?=lang("details_booking_preco")?></td>
+														<td><?=lang("details_booking_quantidade")?></td>
 													</tr>
 												</thead>
 												<tbody>
@@ -544,7 +544,7 @@ if (!empty($eventos)) {
 			echo "<td>" .
 			form_button(array(
 				"class" => "bookbtn mt1 agenda-agendar",
-				"content" => "Agendar",
+				"content" => lang("details_booking_botao"),
 				"type" => "submit")
 			)
 			. "</td>";
@@ -570,8 +570,7 @@ if (!empty($eventos)) {
 } else {
 	echo '<div class="line2"></div>';
 	echo '<div class="padding20">';
-	echo "Ainda não temos datas programadas para essa atividade <br>
-	      Deseja solicitar uma data? Contate-nos <a href='mailto:suporte@praquerumo.com.br'>suporte@praquerumo.com.br</a>";
+	echo lang("details_semdata");
 	echo '</div>';
 }
 ?>

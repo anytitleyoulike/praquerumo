@@ -399,7 +399,13 @@ class Agendamento extends CI_Controller {
 	}
 
 	function _novoAgendamento($codigo_evento, $quantidade, $error = null) {
-		$evento = $this->eventos_model->buscarEventoDetalhes($codigo_evento);
+		$this->load->helper("check_language");
+		
+		//pegando id do idioma que está na sessão
+		$lingua = get_language();
+
+		$evento = $this->eventos_model->buscarEventoDetalhes($codigo_evento,$lingua["id"]);
+
 		$precoTotal = $evento['preco'] * $quantidade;
 		$str_preco = numeroEmReais($precoTotal);
 

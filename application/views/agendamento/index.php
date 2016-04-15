@@ -1,4 +1,4 @@
-<title>Pra Que Rumo - Agendamento</title>
+<title>PraQueRumo - Agendamento</title>
 	<meta  name="description" content='Agendamento de atividades'>
 	<link rel="stylesheet" href="<?=base_url("assets/css/jslider.css")?>" type="text/css">
 	<link rel="stylesheet" href="<?=base_url("assets/css/jslider.round-blue.css")?>" type="text/css">
@@ -83,7 +83,7 @@ echo form_hidden($data);
 						<div class="margtop15"><span class="dark"><?=lang("user_nome")?></span><span class="red">*</span></div>
 					</div>
 					<div class="col-md-4">
-						<span class="size12">Primeiro e Último nome*</span>
+
 <?php
 echo form_input(array(
 	"name" => "nome",
@@ -105,7 +105,7 @@ echo form_error("nome");
 					</div>
 
 					<div class="col-md-4 textleft">
-						<span class="size12">Número para contato*</span>
+
 <?php
 echo form_input(array(
 	"name" => "celular",
@@ -117,8 +117,6 @@ echo form_input(array(
 echo form_error("celular");
 ?>
 </div>
-					<div class="clearfix"></div>
-
 					<br/>
 					<div class="col-md-4">
 					</div>
@@ -192,13 +190,13 @@ echo form_error("email");
 					<div class="col-md-4">
 					</div>
 					<div class="col-md-4 textcenter">
-						Cupom de desconto
+						<?=lang('booking_desconto')?>
 						<!-- Collapse 5 -->
 						<!-- <button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse5"></button> -->
 						<div id="collapse5">
 							<input type="text" class="form-control margtop10" placeholder="" name="cupom_desconto"></input>
 							<input type="hidden" name="success" value="false"></input>
-							<input type="button" class="btn btn-default" onclick="validaDesconto()" value="Verificar"></input>
+							<input type="button" class="btn btn-default" onclick="validaDesconto()" value="<?=lang('booking_botao_verificar')?>"></input>
 						</div>
 						<!-- End of collapse 5 -->
 						<div class="clearfix"></div>
@@ -485,14 +483,14 @@ echo form_close();
 								<td class="center green bold">4.5</td>
 							</tr>-->
 							<tr>
-								<td colspan=2><span class="dark">Evento</span>: <?=$evento['titulo']?></td>
+								<td colspan=2><span class="dark"><?=lang("booking_evento")?></span>: <?=$evento['titulo']?></td>
 							</tr>
 							<tr>
-								<td colspan=2><span class="dark">Sessão</span>: <?php echo $descricao?></td>
+								<td colspan=2><span class="dark"><?=lang("booking_sessao")?></span>: <?php echo $descricao?></td>
 							</tr>
 							<tr>
 								<td>
-									<span class="dark">Agendamento</span>: <?=$quantidade?>tickets<br/>
+									<span class="dark"><?=lang("booking_resumo")?></span>: <?=$quantidade?>tickets<br/>
 									Reservas
 									<!-- Collapse 1 -->
 									<button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse1"></button>
@@ -530,7 +528,7 @@ echo form_close();
 
 								</td>
 								<td class="center">
-									Custo/pessoa<br/>
+									<?=lang("booking_custo")?><br/>
 <?=$preco_avg?><br/>
 								</td>
 							</tr>
@@ -559,7 +557,7 @@ echo form_close();
 					<div class="cpadding1">
 						<span class="icon-help"></span>
 						<h3 class="opensans"><?=lang("details_duvidas")?></h3>
-						<p class="size14 grey">Não conseguiu realizar seu agendamento? Nosso time está disposto a ajudá-lo!<br/> Entre em contato:</p>
+						<p class="size14 grey"><?=lang("details_duvidas_texto") ?></p>
 						<a href="mailto:suporte@praquerumo.com.br" target="_top">
 							<p class="opensans size16 green xslim">suporte@praquerumo.com.br</p>
 						</a>

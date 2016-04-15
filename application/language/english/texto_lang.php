@@ -57,14 +57,21 @@ $lang["details_recomendados_avaliacoes"] = "Reviews";
 $lang["details_recomendados_mais"] = "More";
 $lang["details_faleconosco"] = "Contact Us";
 
+$lang["details_booking_horario"] = "Schedule";
+$lang["details_booking_preco"] = "Price";
+$lang["details_booking_quantidade"] = "Quantity";
+$lang["details_booking_botao"] = "Book";
+
 $lang["details_menu_mapa"] = "Map";
 $lang["details_menu_agendamento"] = "Booking";
 $lang["details_titulo_eventos"] = "Dates and Sessions";
+$lang["details_semdata"] = "We still don't have any session scheduled <br>
+	      Do you want to ask for a date? Contact <a href='mailto:suporte@praquerumo.com.br'>suporte@praquerumo.com.br</a>";
 
 $lang["details_organizador"] = "Organizer";
 $lang["details_duvidas"] = "Customer Support";
 $lang["details_duvidas_texto"] = "Our team is available to help you in any
-problem about services offered in this site, please, let us know your doubt";
+problem about services offered in this site, please, let us know your doubt <br/> Contact Us:";
 
 /*
  * Detalhes da atividade
@@ -98,11 +105,17 @@ $lang["booking_subtitle_identificacao"] = "Please, tell us who will do the activ
 $lang["booking_title_pagamento"] = "How would you like to pay?";
 $lang["booking_title_email"] = "Where should we send confirmation?";
 $lang["booking_subtitle_email"] = "Please enter the email address where you would like to receive your confirmation.";
+$lang["booking_desconto"] = "Discount code";
+$lang["booking_botao_verificar"] = "Verify";
 $lang["booking_title_review"] = "Review and confirm your booking";
 $lang["booking_informacao_titulo"] = "Important information about your booking:";
 $lang["booking_informacao_conteudo"] = "This reservation is non-refundable and cannot be changed or canceled.";
 $lang["booking_aceitar_termo"] = "I acknowledge that I have read and accept the 
 <a href='".base_url("termos/termo_de_uso")  ."' class='orange'>terms & conditions</a>.";
+$lang["booking_evento"] = "Event";
+$lang["booking_sessao"] = "Session";
+$lang["booking_resumo"] = "Resume";
+$lang["booking_custo"] = "Price/Person";
 
 
 /*

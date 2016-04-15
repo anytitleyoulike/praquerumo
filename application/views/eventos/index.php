@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-	<title>Pra Que Rumo - <?=lang("title_pagina_inicial")?></title>
+	<title>PraQueRumo - <?=lang("title_pagina_inicial")?></title>
 	<meta property="og:url" content="<?=base_url('')?>" />
 	<meta property="og:title" content="Pra Que Rumo - <?=lang("title_pagina_inicial")?>" />
 	<meta property="og:image" content="<?=base_url("assets/images/pqr-facebook-banner.jpg")?>" />

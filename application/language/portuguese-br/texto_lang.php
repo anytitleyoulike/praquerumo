@@ -9,9 +9,9 @@ $lang["home_quem_somos"] = "Quem Somos";
 $lang["home_titulo_principal"] = "Vivencie Experiências na Amazônia";
 $lang["home_proximas_atividades"] = "Próximos Eventos";
 $lang["home_avaliacoes"] = "Avaliações";
-
 $lang["home_mais_experiencias"] = "Experimente";
 $lang["home_mais"] = "Mais";
+$lang["home_datas"] = "Datas";
 
 $lang["evento_disponivel"] = "Disponível";
 $lang["evento_indisponivel"] = "Esgotado";
@@ -58,9 +58,17 @@ $lang["details_recomendados_avaliacoes"] = "Avaliações";
 $lang["details_recomendados_mais"] = "Mais";
 $lang["details_faleconosco"] = "Fale Conosco";
 
+$lang["details_booking_horario"] = "Horário";
+$lang["details_booking_preco"] = "Preço";
+$lang["details_booking_quantidade"] = "Quantidade";
+$lang["details_booking_botao"] = "Agendar";
+
 $lang["details_menu_mapa"] = "Mapa";
 $lang["details_menu_agendamento"] = "Agendamento";
 $lang["details_titulo_eventos"] = "Datas e Horários";
+$lang["details_semdata"] = "Ainda não temos datas programadas para essa atividade <br>
+	      Deseja solicitar uma data? Contate-nos <a href='mailto:suporte@praquerumo.com.br'>suporte@praquerumo.com.br</a>";
+
 
 $lang["details_organizador"] = "Organizador";
 $lang["details_duvidas"] = "Dúvidas?";
@@ -92,15 +100,22 @@ $lang["about_juntese_agora"] = "contato@praquerumo.com.br";
 */
 
 $lang["booking_title_identificacao"] = "Identificação";
-$lang["booking_subtitle_identificacao"] = "Please, tell us who will do the activity.";
+$lang["booking_subtitle_identificacao"] = "Por favor, diga-nos quem irá realizar a atividade.";
 $lang["booking_title_pagamento"] = "Como gostaria de pagar?";
 $lang["booking_title_email"] = "Qual seu e-mail para envio de confirmação de agendamento?";
 $lang["booking_subtitle_email"] = "Por favor, digite seu endereço de e-mail para receber a confirmação.";
+$lang["booking_desconto"] = "Cupom de Desconto";
+$lang["booking_botao_verificar"] = "Verificar";
+
 $lang["booking_informacao_titulo"] = "Informações importantes sobre sua reserva:";
 $lang["booking_informacao_conteudo"] = "Esta reserva não é reembolsável 
 e só pode ser alterada ou cancelada com antecedência mínima de 48hs até a realização da atividade.";
 $lang["booking_aceitar_termo"] = "Completando esse agendamento, concordo que lí e aceito o 
 <a href='".base_url("termos/termo_de_uso")  ."' class='orange'>termo de uso & restrições</a>.";
+$lang["booking_evento"] = "Evento";
+$lang["booking_sessao"] = "Sessão";
+$lang["booking_resumo"] = "Resumo";
+$lang["booking_custo"] = "Preço/Pessoa";
 
 /*
 * Dados do Usuario
