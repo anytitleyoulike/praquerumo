@@ -135,3 +135,26 @@ $lang["payment_cartao_validade"] = "Data de Validade:";
 $lang["payment_cartao_cvv"] = "Cód. Segurança:";
 $lang["payment_cartao_nome"] = "Nome no Cartão:";
 $lang["payment_cartao_parcelas"] = "Parcelas:";
+
+/*
+* Confirmação de Pagamento
+*/
+
+$lang["success_detalhes"] = "RESUMO DA COMPRA";
+$lang["success_voucher"] = "NÚMERO DO VOUCHER";
+$lang["success_cliente_dados"] = "DADOS DO CLIENTE";
+$lang["success_atividade"] = "Atividade";
+$lang["success_data"] = "Data";
+$lang["success_mensagem"] = "SUA <strong>COMPRA<strong> FOI REALIZADA COM SUCESSO!";
+$lang["success_validade"] = "Validade:";
+$lang["success_info_importante"] = "Informações Importantes:";
+$lang["success_dicas"] = "Dicas:";
+$lang["success_valor_unitario"] = "Valor Unitário";
+$lang["success_desconto"] = "Desconto";
+$lang["success_importante_a"] = "Este voucher deverá ser apresentado ao fornecedor da atividade no ato de realização;";
+$lang["success_importante_b"] = "A tolerância de chegada ao ponto de encontro será de 15 minutos;";
+$lang["success_importante_c"] = "Em caso de dúvidas ou cancelamento estaremos a diposição através do 
+email: <a href='mailto:contato@praquerumo.com.br'>contato@praquerumo.com.br</a> ou pelo telefone: (92) 98112-1280.";
+$lang["sucess_dicas_info"] = "Utilize sempre protetor solar, roupas claras e que protejam bem o corpo da radiação.<br/>
+Não se esqueça de amarrar bem os óculos e câmeras fotográficas à prova d'água.<br/>
+Procure se alimentar bem e venha bastante hidratado. Não será oferecido nenhum tipo de transporte.";

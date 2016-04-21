@@ -136,3 +136,26 @@ $lang["payment_cartao_validade"] = "Expiration Date:";
 $lang["payment_cartao_cvv"] = "Security Code:";
 $lang["payment_cartao_nome"] = "Cardholder:";
 $lang["payment_cartao_parcelas"] = "Installments:";
+
+
+/*
+* Confirmação de Pagamento
+*/
+
+$lang["success_detalhes"] = "ACTIVITY DETAILS";
+$lang["success_voucher"] = "VOUCHER NUMBER:";
+$lang["success_cliente_dados"] = "CLIENT DATA";
+$lang["success_atividade"] = "Activity";
+$lang["success_data"] = "Date";
+$lang["success_mensagem"] = "YOUR <strong>BOOKING</strong> WAS SUCCESSFUL!";
+$lang["success_validade"] = "Expiration Date:";
+$lang["success_info_importante"] = "Important Informations";
+$lang["success_dicas"] = "Tips";
+$lang["success_valor_unitario"] = "Unit Price";
+$lang["success_desconto"] = "Discount";
+$lang["success_importante_a"] = "This voucher must be presented before starting the activity;";
+$lang["success_importante_b"] = "The arrival tolerance at the meeting point will be 15 minutes;";
+$lang["success_importante_c"] = "For questions or cancellation we'll be available through the email: <a href='mailto:contato@praquerumo.com.br'>contato@praquerumo.com.br</a> or by phone: +55 92 98112-1280.";
+$lang["success_dicas_info"] = "Always use sunscreen and clothes that protects your body from radiation.<br/>
+Don't forget to tie your glasses and cameras.<br/>
+Try to eat well and bring water!";

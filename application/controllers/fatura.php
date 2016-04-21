@@ -233,7 +233,7 @@ class Fatura extends CI_Controller {
 		//pega o evento para a fatura
 		$evento_array = $this->faturas_model->getEvento($fatura_id);
 		$codigo_evento = $evento_array['evento_codigo'];
-		$evento = $this->eventos_model->buscarEventoDetalhes($codigo_evento);
+		$evento = $this->eventos_model->buscarEventoDetalhesEmail($codigo_evento);
 
 		$dados_atividade = array(
 			'titulo' => $evento['titulo'],

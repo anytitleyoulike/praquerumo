@@ -365,7 +365,10 @@ class Agendamento extends CI_Controller {
 	}
 
 	function _dadosAtividade($codigo_evento) {
-		$evento = $this->eventos_model->buscarEventoDetalhes($codigo_evento);
+		$this->load->helper("check_language");
+		$lingua = get_language();
+
+		$evento = $this->eventos_model->buscarEventoDetalhes($codigo_evento,$lingua['id']);
 		$dados_atividade = array(
 			'titulo' => $evento['titulo'],
 			'ponto_encontro' => $evento['ponto_encontro'],
