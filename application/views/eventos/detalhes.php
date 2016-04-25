@@ -1239,14 +1239,14 @@ $url_site_organizador = "#";
 
 <?php
 if (is_mobile()) {
-	$target_suporte = "tel:+55 92 99385-2746‬";
+	$target_suporte = "tel:+55 92 98112-1280";
 } else {
 	$target_suporte = "#";
 }
 ?>
 						<a href="<?=$target_suporte?>" target="_top">
 							<spam class="opensans size16 green xslim">
-								+55 92 99385-2746‬
+								+55 92 98112-1280
 							</spam>
 						</a>
 					</div>
