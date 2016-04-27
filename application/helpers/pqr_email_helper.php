@@ -26,26 +26,3 @@ function send_email($to, $subject, $content) {
 	}
 
 }
-
-function sendgrid_newsletter($email,$subject,$content) {
-	$ci = get_instance();
-	$ci->email->initialize(array(
-			'protocol'  => 'smtp',
-			'mailtype'  => 'html',
-			'smtp_host' => 'smtp.sendgrid.net',
-			'smtp_user' => 'praquerumo',
-			'smtp_pass' => '@tt171423',
-			'smtp_port' => 587,
-			'crlf'      => "\r\n",
-			'newline'   => "\r\n"
-		));
-		
-
-		$ci->email->from('suporte@praquerumo.com', 'Pra Que Rumo');
-		$ci->email->subject($subject);
-
-		$ci->email->to($email);
-		$ci->email->message($content);
-		return $ci->email->send();
-		
-}
