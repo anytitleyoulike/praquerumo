@@ -295,7 +295,8 @@ class Crud extends CI_Controller {
 		$crud->columns('lingua_id', 'titulo', 'ponto_encontro', 'apresentacao');
 
 		$crud->add_fields('lingua_id', 'atividade_codigo', 'titulo', 'esforco_fisico', 'conforto', 'dificuldade_tecnica',
-			'cidade', 'estado', 'duracao', 'ponto_encontro', 'como_chegar', 'apresentacao', 'descricao', 'roteiro', 'termo_consentimento');
+			'cidade', 'estado', 'duracao', 'ponto_encontro', 'como_chegar', 'apresentacao', 'descricao', 'roteiro', 
+			'dicas','acompanhamentos','cuidados', 'termo_consentimento');
 		
 		$crud->edit_fields('lingua_id', 'atividade_codigo', 'titulo', 'esforco_fisico', 'conforto', 'dificuldade_tecnica',
 			'cidade', 'estado', 'duracao', 'ponto_encontro', 'como_chegar', 'apresentacao', 'descricao', 'roteiro', 
