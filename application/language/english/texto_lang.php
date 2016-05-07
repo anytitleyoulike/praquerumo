@@ -116,6 +116,7 @@ $lang["booking_evento"] = "Event";
 $lang["booking_sessao"] = "Session";
 $lang["booking_resumo"] = "Resume";
 $lang["booking_custo"] = "Price/Person";
+$lang["booking_completar_agendamento"] = "Book Now";
 
 
 /*

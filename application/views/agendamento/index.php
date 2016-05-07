@@ -446,7 +446,7 @@ echo form_checkbox($data);
 	"id" => "btnSubmit",
 	"data-loading-text" => "Criando Fatura...",
 	"data-complete-text" => "Pronto!",
-	"content" => 'Completar Agendamento',
+	"content" => lang("booking_completar_agendamento"),
 	"type" => "submit",
 ));
 
@@ -634,7 +634,8 @@ echo form_close();
 			// $(".juros").text("R$ " + juros);
 			$('.valor-real').text("R$ " + valorTotal);
 			//mudando valor que é exibido na confirmação de pagamento.
-			$('input[name="preco_str"]').val(valorTotal);
+			$('input[name="preco_str"]').val("R$"+valorTotal);
+			$('input[name="preco_total"]').val(valorTotal);
 		
 		});
 	</script>
@@ -688,6 +689,7 @@ echo form_close();
 
 					$("input[name='success']").val(data.success);
 					$("input[name='preco_str']").val("R$ "+ preco_com_desconto);
+					$("input[name='preco_total']").val(preco_com_desconto);
 					$('.valor-real').text("R$ " + preco_com_desconto);
 					$('.desconto').text("R$ " + valorDesconto);
 				},
