@@ -46,28 +46,18 @@ class Usuarios extends CI_Controller{
 		$this->load->library('email');
 		$this->load->helper('pqr_email');
 
-				$this->email->initialize(array(
-				'protocol' => 'smtp',
-				'smtp_host' => 'smtp.sendgrid.net',
-				'smtp_user' => 'praquerumo',
-				'smtp_pass' => '@tt171423',
-				'smtp_port' => 587,
-				'crlf' => "\r\n",
-				'newline' => "\r\n"
-			));
-
-		$marcello = $this->usuario->buscaCodigoVerificacao(132);
+		$teste = $this->usuario->buscaCodigoVerificacao(132);
 		
-		$this->email->from('suporte@praquerumo.com', 'Suporte PQR');
-		$this->email->subject('Teste Verificação');
-		foreach ($marcello as $user) {
-			$this->email->to($user->email);
-			$this->email->message("Caro, usuário este é seu link de confirmação de email ". base_url('/verifica/'.$user->verification_code));
-			$this->email->send();
-
-			// $subject = "Teste Verificação";
-			// $content = "Caro, usuário este é seu link de confirmação de email ". base_url('/verifica/'.$user->verification_code);
-			// send_email($user->email,$subject, $content);
+		// $this->email->from('suporte@praquerumo.com', 'Suporte PQR');
+		// $this->email->subject('Teste Verificação');
+		foreach ($teste as $user) {
+			// $this->email->to($user->email);
+			// $this->email->message("Caro, usuário este é seu link de confirmação de email ". base_url('/verifica/'.$user->verification_code));
+			// $this->email->send();
+			
+			$subject = "Teste Verificação";
+			$content = "Caro, usuário este é seu link de confirmação de email ". base_url('/verifica/'.$user->verification_code);
+			send_email($user->email,$subject, $content);
 			
 		}
 		echo $this->email->print_debugger();
