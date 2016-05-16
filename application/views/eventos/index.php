@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-	<title>Pra Que Rumo - <?=lang("title_pagina_inicial")?></title>
+	<title>PraQueRumo - <?=lang("title_pagina_inicial")?></title>
 	<meta property="og:url" content="<?=base_url('')?>" />
 	<meta property="og:title" content="Pra Que Rumo - <?=lang("title_pagina_inicial")?>" />
 	<meta property="og:image" content="<?=base_url("assets/images/pqr-facebook-banner.jpg")?>" />
@@ -249,8 +249,8 @@ foreach ($atividades as $atividade) {?>
 	?>
 
 <?=anchor(base_url("atividades/{$atividade['slug']}"), '<time datetime="2014-09-20" class="calendar-icon calendar-small calendar-orange calendar-left10">
-															  <em>Mais</em>
-															  <strong>Datas</strong>
+															  <em>'.lang("home_mais").'</em>
+															  <strong>'.lang("home_datas").'</strong>
 															  <span>+</span>
 															</time>')?>
 </div>
@@ -310,8 +310,8 @@ foreach ($atividadesSemData as $atividadeSemDate) {
 
 
 <?=anchor(base_url("atividades/{$atividadeSemDate['slug']}"), '<time datetime="2014-09-20" class="calendar-icon calendar-small calendar-orange calendar-left10">
-															  <em>Mais</em>
-															  <strong>Datas</strong>
+															  <em>'.lang("home_mais").'</em>
+															  <strong>'.lang("home_datas").'</strong>
 															  <span>+</span>
 															</time>')?>
 </div>

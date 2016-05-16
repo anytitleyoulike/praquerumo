@@ -1,4 +1,4 @@
-  	<title>PRAQUERUMO - <?=$modalidade["nome{$sufix}"] . " | " . $atividade['titulo']?></title>
+  	<title>PraQueRumo - <?=$modalidade["nome{$sufix}"] . " | " . $atividade['titulo']?></title>
   	<?php $tirar  = array('<p>', '</p>');?>
 	<meta  name="description" content='<?=character_limiter(str_replace($tirar, '', $atividade["apresentacao"]), 150)?>'>
 	<meta property="og:url" content="<?=base_url('atividades/'.$atividade['slug'])?>" />
@@ -176,7 +176,7 @@ echo form_hidden($data);
 				<div class="clearfix"></div>
 
 				<div class="hpadding20">
-					<span id="box-datas"><a href="#" id="ancora-datas" class="add2fav margtop30" data-toggle="modal" data-target="#outrasDatas"> Fale Conosco</a></span>
+					<span id="box-datas"><a href="#" id="ancora-datas" class="add2fav margtop30" data-toggle="modal" data-target="#outrasDatas"> <?=lang("details_faleconosco")?></a></span>
 					<a id="agendarAgora" href="#" class="booknow margtop20 btnmarg"><?=lang("details_agendar")?></a>
 				</div>
 
@@ -301,8 +301,7 @@ echo form_hidden($data);
 
 <?php 
 	if (isset($atividade['dicas']) && $atividade['dicas'] != ''){ 
-		$array = explode('</p>', $atividade['dicas']);
-		$array = str_replace('<p>', '', $array);
+		
 ?>
 <!-- Collapse 3 -->
 							<div class="line4"></div>
@@ -314,54 +313,21 @@ echo form_hidden($data);
 								<div class="hpadding20">
 									<div class="col-md-12">
 										<!-- <ul class="checklist"> -->
-										<?php 
-											foreach ($array as $array) {
-												if(strlen($array) != 2){
-										?>
-													<p><?=$array?></p>
-										<?php 
-												}
-											}
-										?>
+										<?=$atividade['dicas']?>
 										<!-- </ul> -->
 									</div>
 								</div>
 								<div class="clearfix"></div>
 							</div>
 <?php 
-	}else{
-?>
-<!-- End of collapse 3 -->
-
-<?php if (!count($dicas) == 0) {?>
-<!-- Collapse 3 -->
-							<div class="line4"></div>
-							<button type="button" class="collapsebtn2 collapsed" data-toggle="collapse" data-target="#collapse3">
-<?=lang("details_item_dicas")?><span class="collapsearrow"></span>
-							</button>
-
-							<div id="collapse3" class="collapse in">
-								<div class="hpadding20">
-									<div class="col-md-12">
-										<!-- <ul class="checklist"> -->
-<?php foreach ($dicas as $dica):?>
-													<?=$dica["nome{$sufix}"]?>
-<?php endforeach?>
-<!-- </ul> -->
-									</div>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-<?php 
-		}
 	}
 ?>
 <!-- End of collapse 3 -->
+<!-- End of collapse 3 -->
 
 <?php 
-	if (isset($atividade['acompanhamento']) && $atividade['acompanhamento'] != ''){ 
-		$array = explode('</p>', $atividade['acompanhamento']);
-		$array = str_replace('<p>', '', $array);
+	if (isset($atividade['acompanhamentos']) && $atividade['acompanhamentos'] != ''){ 
+	
 ?>
 <!-- Collapse 6 -->
 							<div class="line4"></div>
@@ -371,49 +337,13 @@ echo form_hidden($data);
 
 								<div id="collapse6" class="collapse in">
 									<div class="hpadding20">
-										<div class="col-md-12">
-											<!-- <ul class="checklist"> -->
-											<?php 
-												foreach ($array as $array) {
-													if(strlen($array) != 2){
-											?>
-														<p><?=$array?></p>
-											<?php 
-													}
-												}
-											?>
-											<!-- </ul> -->
+										<div class="col-md-12">	
+											<?=$atividade['acompanhamentos'];?>
 										</div>
 									<div class="clearfix"></div>
 									</div>
 								</div>
 <?php 
-	}else{
-?>
-<!-- End of collapse 6 -->
-
-<?php 
-		if (!count($acompanhamentos) == 0) {?>
-<!-- Collapse 6 -->
-							<div class="line4"></div>
-							<button type="button" class="collapsebtn2" data-toggle="collapse" data-target="#collapse6">
-<?=lang("details_item_itens_inclusos")?><span class="collapsearrow"></span>
-							</button>
-
-								<div id="collapse6" class="collapse in">
-									<div class="hpadding20">
-										<div class="col-md-12">
-											<ul class="checklist">
-<?php foreach ($acompanhamentos as $acompanhamento):?>
-													<li><?=$acompanhamento["nome{$sufix}"]?><br /></li>
-<?php endforeach?>
-</ul>
-										</div>
-									<div class="clearfix"></div>
-									</div>
-								</div>
-<?php
-		}
 	}
 ?>
 <!-- End of collapse 6 -->
@@ -421,8 +351,7 @@ echo form_hidden($data);
 <!-- Begin of collapse 7 -->
 <?php
 	if (isset($atividade['cuidados']) && $atividade['cuidados'] != ''){
-		$array = explode('</p>', $atividade['cuidados']);
-		$array = str_replace('<p>', '', $array);
+
 ?>
 <div class="line4"></div>
 							<button type="button" class="collapsebtn2" data-toggle="collapse" data-target="#collapse7">
@@ -432,51 +361,16 @@ echo form_hidden($data);
 								<div id="collapse7" class="collapse in">
 									<div class="hpadding20">
 										<div class="col-md-12">
-											<!-- <ul class="checklist"> -->
-											<?php 
-												foreach ($array as $array) {
-													if(strlen($array) != 2){
-											?>
-														<p><?=$array?></p>
-											<?php 
-													}
-												}
-											?>
-											<!-- </ul> -->
+											<?=$atividade['cuidados']?>
 										</div>
 									<div class="clearfix"></div>
 									</div>
 								</div>
 <?php 
-	}else{
-?>
-<!-- End of collapse 7 -->
-
-<!-- Begin of collapse 7 -->
-<?php 
-		if (!count($restricoes) == 0) {?>
-<div class="line4"></div>
-							<button type="button" class="collapsebtn2" data-toggle="collapse" data-target="#collapse7">
-<?=lang("details_item_cuidados_restricoes")?><span class="collapsearrow"></span>
-							</button>
-
-								<div id="collapse7" class="collapse in">
-									<div class="hpadding20">
-										<div class="col-md-12">
-											<!-- <ul class="checklist"> -->
-<?php foreach ($restricoes as $restricoe):?>
-														<p><?=$restricoe["nome{$sufix}"]?></p>
-<?php endforeach?>
-											<!-- </ul> -->
-										</div>
-									<div class="clearfix"></div>
-									</div>
-								</div>
-<?php
-		}
 	}
 ?>
 <!-- End of collapse 7 -->
+
 						<div class="line4"></div>
 
 						<!-- Collapse 4 -->
@@ -608,9 +502,9 @@ if (!empty($eventos)) {
 										<table class="table">
 												<thead>
 													<tr class="bold">
-														<td>Horário</td>
-														<td>Preço</td>
-														<td>Quantidade</td>
+														<td><?=lang("details_booking_horario")?></td>
+														<td><?=lang("details_booking_preco")?></td>
+														<td><?=lang("details_booking_quantidade")?></td>
 													</tr>
 												</thead>
 												<tbody>
@@ -650,7 +544,7 @@ if (!empty($eventos)) {
 			echo "<td>" .
 			form_button(array(
 				"class" => "bookbtn mt1 agenda-agendar",
-				"content" => "Agendar",
+				"content" => lang("details_booking_botao"),
 				"type" => "submit")
 			)
 			. "</td>";
@@ -676,8 +570,7 @@ if (!empty($eventos)) {
 } else {
 	echo '<div class="line2"></div>';
 	echo '<div class="padding20">';
-	echo "Ainda não temos datas programadas para essa atividade <br>
-	      Deseja solicitar uma data? Contate-nos <a href='mailto:suporte@praquerumo.com.br'>suporte@praquerumo.com.br</a>";
+	echo lang("details_semdata");
 	echo '</div>';
 }
 ?>

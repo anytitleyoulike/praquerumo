@@ -71,9 +71,6 @@ class Crud extends CI_Controller {
 		     ->display_as('latitude', 'Latitude(decimal)')
 		     ->display_as('longitude', 'Longitude(decimal)')
 		     ->display_as('dt_criacao', 'Data de criação')
-		     ->display_as('acompanhamento', 'Acompanhamento')
-		     ->display_as('dicas', 'Dicas')
-		     ->display_as('cuidados', 'Cuidados')
 		     ->display_as('dt_atualizacao', 'Data de atualização');
 
 		$crud->columns('slug', 'usuario_id', 'modalidade_id', 'categoria_id',
@@ -82,8 +79,7 @@ class Crud extends CI_Controller {
 		//campos no add de uma atividade
 		$crud->add_fields('slug', 'usuario_id', 'modalidade_id', 'categoria_id', 'codigo_desconto',
 			'elemento_id', 'vendivel', 'disponivel', 'destaque', 'comissao', 'latitude', 'longitude',
-			'fig_destaque', 'fig_thumbnail', 'fig_01', 'fig_02', 'fig_03', 'fig_04',
-			'acompanhamento', 'cuidados', 'dicas', 'dt_criacao', 'dt_atualizacao');
+			'fig_destaque', 'fig_thumbnail', 'fig_01', 'fig_02', 'fig_03', 'fig_04','dt_criacao', 'dt_atualizacao');
 
 		//campos no edit de uma atividade
 		$crud->edit_fields('slug', 'usuario_id', 'modalidade_id', 'categoria_id', 'codigo_desconto',
@@ -291,15 +287,20 @@ class Crud extends CI_Controller {
 		     ->display_as('estado', 'Estado')
 		     ->display_as('ponto_encontro', 'Ponto de Encontro')
 		     ->display_as('roteiro', 'Roteiro')
-		     ->display_as('como_chegar', 'Como Chegar')
+		     ->display_as('dicas', 'Dicas')
+		     ->display_as('acompanhamentos', 'Acompanhamentos')
+		     ->display_as('cuidados', 'Cuidados')
 		     ->display_as('termo_consentimento', 'Termo de Consentimento');
 
 		$crud->columns('lingua_id', 'titulo', 'ponto_encontro', 'apresentacao');
 
 		$crud->add_fields('lingua_id', 'atividade_codigo', 'titulo', 'esforco_fisico', 'conforto', 'dificuldade_tecnica',
-			'cidade', 'estado', 'duracao', 'ponto_encontro', 'como_chegar', 'apresentacao', 'descricao', 'roteiro', 'termo_consentimento');
+			'cidade', 'estado', 'duracao', 'ponto_encontro', 'como_chegar', 'apresentacao', 'descricao', 'roteiro', 
+			'dicas','acompanhamentos','cuidados', 'termo_consentimento');
+		
 		$crud->edit_fields('lingua_id', 'atividade_codigo', 'titulo', 'esforco_fisico', 'conforto', 'dificuldade_tecnica',
-			'cidade', 'estado', 'duracao', 'ponto_encontro', 'como_chegar', 'apresentacao', 'descricao', 'roteiro', 'termo_consentimento');
+			'cidade', 'estado', 'duracao', 'ponto_encontro', 'como_chegar', 'apresentacao', 'descricao', 'roteiro', 
+			'dicas','acompanhamentos', 'cuidados','termo_consentimento');
 
 		//manipulation
 		//$crud->unset_delete();

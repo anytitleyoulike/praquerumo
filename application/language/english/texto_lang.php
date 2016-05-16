@@ -12,6 +12,9 @@ $lang["home_avaliacoes"] = "Reviews";
 
 $lang["home_mais_experiencias"] = "Try out";
 $lang["home_mais"] = "More";
+$lang["home_datas"] = "Dates";
+$lang["evento_disponivel"] = "Available";
+$lang["evento_indisponivel"] = "Sold Out";
 /*
  * Footer
  */
@@ -40,7 +43,7 @@ $lang["details_recomendam"] = "recommend";
 
 $lang["details_menu_informacoes"] = "Informations";
 $lang["details_item_descricao"] = "Description";
-$lang["details_item_roteiro"] = "Itinerary";
+$lang["details_item_roteiro"] = "Schedule";
 $lang["details_item_dicas"] = "Tips";
 $lang["details_item_itens_inclusos"] = "Items Included";
 $lang["details_item_cuidados_restricoes"] = "Cautions and Restrictions";
@@ -52,15 +55,23 @@ $lang["details_comentarios_titulo"] = "Take your questions right here! :)";
 $lang["details_recomendados_titulo"] = "Attractions recommended";
 $lang["details_recomendados_avaliacoes"] = "Reviews";
 $lang["details_recomendados_mais"] = "More";
+$lang["details_faleconosco"] = "Contact Us";
+
+$lang["details_booking_horario"] = "Schedule";
+$lang["details_booking_preco"] = "Price";
+$lang["details_booking_quantidade"] = "Quantity";
+$lang["details_booking_botao"] = "Book";
 
 $lang["details_menu_mapa"] = "Map";
 $lang["details_menu_agendamento"] = "Booking";
 $lang["details_titulo_eventos"] = "Dates and Sessions";
+$lang["details_semdata"] = "We still don't have any session scheduled <br>
+	      Do you want to ask for a date? Contact <a href='mailto:suporte@praquerumo.com.br'>suporte@praquerumo.com.br</a>";
 
 $lang["details_organizador"] = "Organizer";
 $lang["details_duvidas"] = "Customer Support";
 $lang["details_duvidas_texto"] = "Our team is available to help you in any
-problem about services offered in this site, please, let us know your doubt";
+problem about services offered in this site, please, let us know your doubt <br/> Contact Us:";
 
 /*
  * Detalhes da atividade
@@ -84,3 +95,68 @@ $lang["about_objetivo_texto"] = "Pellentesque non dolor urna.
 $lang["about_juntese"] = "Want to join us?";
 $lang["about_juntese_texto"] = "Seja nosso parceiro....";
 $lang["about_juntese_agora"] = "Apply Now";
+
+/*
+* Pagina de Agendamento 
+*/
+
+$lang["booking_title_identificacao"] = "Your contact information";
+$lang["booking_subtitle_identificacao"] = "Please, tell us who will do the activity.";
+$lang["booking_title_pagamento"] = "How would you like to pay?";
+$lang["booking_title_email"] = "Where should we send confirmation?";
+$lang["booking_subtitle_email"] = "Please enter the email address where you would like to receive your confirmation.";
+$lang["booking_desconto"] = "Discount code";
+$lang["booking_botao_verificar"] = "Verify";
+$lang["booking_title_review"] = "Review and confirm your booking";
+$lang["booking_informacao_titulo"] = "Important information about your booking:";
+$lang["booking_informacao_conteudo"] = "This reservation is non-refundable and cannot be changed or canceled.";
+$lang["booking_aceitar_termo"] = "I acknowledge that I have read and accept the 
+<a href='".base_url("termos/termo_de_uso")  ."' class='orange'>terms & conditions</a>.";
+$lang["booking_evento"] = "Event";
+$lang["booking_sessao"] = "Session";
+$lang["booking_resumo"] = "Resume";
+$lang["booking_custo"] = "Price/Person";
+$lang["booking_completar_agendamento"] = "Book Now";
+
+
+/*
+* Dados do Usuario
+*/
+
+$lang["user_nome"] = "Full Name:";
+$lang["user_email"] = "Email:";
+$lang["user_telefone"] = "Phone Number:";
+
+/*
+* Pagamento
+*/
+$lang["payment_aba_cartao"] = "Credit Card";
+$lang["payment_aba_boleto"] = "Bank Slip";
+$lang["payment_cartao_numero"] = "Card Number:";
+$lang["payment_cartao_validade"] = "Expiration Date:";
+$lang["payment_cartao_cvv"] = "Security Code:";
+$lang["payment_cartao_nome"] = "Cardholder:";
+$lang["payment_cartao_parcelas"] = "Installments:";
+
+
+/*
+* Confirmação de Pagamento
+*/
+
+$lang["success_detalhes"] = "ACTIVITY DETAILS";
+$lang["success_voucher"] = "VOUCHER NUMBER:";
+$lang["success_cliente_dados"] = "CLIENT DATA";
+$lang["success_atividade"] = "Activity";
+$lang["success_data"] = "Date";
+$lang["success_mensagem"] = "YOUR <strong>BOOKING</strong> WAS SUCCESSFUL!";
+$lang["success_validade"] = "Expiration Date:";
+$lang["success_info_importante"] = "Important Informations";
+$lang["success_dicas"] = "Tips";
+$lang["success_valor_unitario"] = "Unit Price";
+$lang["success_desconto"] = "Discount";
+$lang["success_importante_a"] = "This voucher must be presented before starting the activity;";
+$lang["success_importante_b"] = "The arrival tolerance at the meeting point will be 15 minutes;";
+$lang["success_importante_c"] = "For questions or cancellation we'll be available through the email: <a href='mailto:contato@praquerumo.com.br'>contato@praquerumo.com.br</a> or by phone: +55 92 98112-1280.";
+$lang["success_dicas_info"] = "Always use sunscreen and clothes that protects your body from radiation.<br/>
+Don't forget to tie your glasses and cameras.<br/>
+Try to eat well and bring water!";

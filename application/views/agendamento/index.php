@@ -1,4 +1,4 @@
-<title>PRAQUERUMO - Agendamento</title>
+<title>PraQueRumo - Agendamento</title>
 	<meta  name="description" content='Agendamento de atividades'>
 	<link rel="stylesheet" href="<?=base_url("assets/css/jslider.css")?>" type="text/css">
 	<link rel="stylesheet" href="<?=base_url("assets/css/jslider.round-blue.css")?>" type="text/css">
@@ -54,11 +54,11 @@
 <!-- LEFT CONTENT -->
 			<div id="pagCard" class="col-md-8 pagecontainer2 offset-0 loaderArea">
 				<div class="padding30 grey">
-					<span class="size16px bold dark left">Identificação</span>
+					<span class="size16px bold dark left"><?=lang("booking_title_identificacao")?></span>
 					<div class="roundstep active right">1</div>
 					<div class="clearfix"></div>
 					<div class="line4"></div>
-					Por favor, diga-nos quem irá realizar a experiência de turismo.<br/><br/>
+					<?=lang("booking_subtitle_identificacao")?><br/><br/>
 <?php
 $attributes = array('id' => 'payment-form');
 
@@ -80,10 +80,10 @@ $data = array(
 echo form_hidden($data);
 ?>
 <div class="col-md-4 textright">
-						<div class="margtop15"><span class="dark">Nome:</span><span class="red">*</span></div>
+						<div class="margtop15"><span class="dark"><?=lang("user_nome")?></span><span class="red">*</span></div>
 					</div>
 					<div class="col-md-4">
-						<span class="size12">Primeiro e Último nome*</span>
+
 <?php
 echo form_input(array(
 	"name" => "nome",
@@ -101,11 +101,11 @@ echo form_error("nome");
 
 					<br/>
 					<div class="col-md-4 textright">
-						<div class="margtop7"><span class="dark">Celular:</span><span class="red">*</span></div>
+						<div class="margtop7"><span class="dark"><?=lang("user_telefone")?></span><span class="red">*</span></div>
 					</div>
 
 					<div class="col-md-4 textleft">
-						<span class="size12">Número para contato*</span>
+
 <?php
 echo form_input(array(
 	"name" => "celular",
@@ -117,8 +117,6 @@ echo form_input(array(
 echo form_error("celular");
 ?>
 </div>
-					<div class="clearfix"></div>
-
 					<br/>
 					<div class="col-md-4">
 					</div>
@@ -131,18 +129,18 @@ echo form_error("celular");
 
 						<div class="clearfix"></div>	-->
 
-						Requisições especiais (opcional)
+						<!-- Requisições especiais (opcional) -->
 						<!-- Collapse 4 -->
-						<button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse4"></button>
+						<!-- <button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse4"></button> -->
 						<div id="collapse4" class="collapse">
 <?php
-echo form_textarea(array(
-	"name" => "requisicoes_especiais",
-	"id" => "requisicoes_especiais",
-	"placeholder" => "Requisitos especiais para deficientes físicos",
-	"class" => "form-control margtop10",
-	"rows" => "3",
-));
+// echo form_textarea(array(
+// 	"name" => "requisicoes_especiais",
+// 	"id" => "requisicoes_especiais",
+// 	"placeholder" => "Requisitos especiais para deficientes físicos",
+// 	"class" => "form-control margtop10",
+// 	"rows" => "3",
+// ));
 ?>
 </div>
 						<!-- End of collapse 4 -->
@@ -153,11 +151,11 @@ echo form_textarea(array(
 
 					<br/>
 					<br/>
-					<span class="size16px bold dark left">Qual seu e-mail para envio de confirmação de agendamento?</span>
+					<span class="size16px bold dark left"><?=lang("booking_title_email")?></span>
 					<div class="roundstep right">2</div>
 					<div class="clearfix"></div>
 					<div class="line4"></div>
-					Por favor, digite seu endereço de e-mail para receber a confirmação.<br/>
+					<?=lang("booking_subtitle_email")?><br/>
 
 
 					<div class="col-md-4 textright">
@@ -181,7 +179,7 @@ echo form_error("email");
 
 					<br/>
 					<br/>
-					<span class="size16px bold dark left">Como gostaria de pagar?</span>
+					<span class="size16px bold dark left"><?=lang("booking_title_pagamento")?></span>
 					<div class="roundstep right">3</div>
 					<div class="clearfix"></div>
 					<div class="line4"></div>
@@ -192,13 +190,13 @@ echo form_error("email");
 					<div class="col-md-4">
 					</div>
 					<div class="col-md-4 textcenter">
-						Cupom de desconto
+						<?=lang('booking_desconto')?>
 						<!-- Collapse 5 -->
 						<!-- <button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse5"></button> -->
 						<div id="collapse5">
 							<input type="text" class="form-control margtop10" placeholder="" name="cupom_desconto"></input>
 							<input type="hidden" name="success" value="false"></input>
-							<input type="button" class="btn btn-default" onclick="validaDesconto()" value="Verificar"></input>
+							<input type="button" class="btn btn-default" onclick="validaDesconto()" value="<?=lang('booking_botao_verificar')?>"></input>
 						</div>
 						<!-- End of collapse 5 -->
 						<div class="clearfix"></div>
@@ -211,8 +209,8 @@ echo form_error("email");
 					<br/>
 					<!-- Nav tabs -->
 					<ul class="nav navigation-tabs">
-					  <li class="active"><a href="#card" id="pagCardAba" data-toggle="tab">Cartão de Crédito</a></li>
-					  <li><a href="#bank_slip" id="pagBoleto" data-toggle="tab">Boleto</a></li>
+					  <li class="active"><a href="#card" id="pagCardAba" data-toggle="tab"><?=lang("payment_aba_cartao")?></a></li>
+					  <li><a href="#bank_slip" id="pagBoleto" data-toggle="tab"><?=lang("payment_aba_boleto")?></a></li>
 					</ul>
 
 					<!-- Tab panes -->
@@ -231,7 +229,7 @@ echo form_error("email");
 							</div>
 							<div class="clearfix"></div>
 							<div class="col-md-4 textright">
-								<div class="margtop15"><span class="dark">Número do cartão:</span><span class="red">*</span></div>
+								<div class="margtop15"><span class="dark"><?=lang("payment_cartao_numero")?></span><span class="red">*</span></div>
 							</div>
 							<div class="col-md-4">
 
@@ -266,7 +264,7 @@ echo form_input(array(
 							-->
 							<br/>
 							<div class="col-md-4 textright">
-								<div class="margtop7"><span class="dark">Data de validade:</span><span class="red">*</span></div>
+								<div class="margtop7"><span class="dark"><?=lang("payment_cartao_validade")?></span><span class="red">*</span></div>
 							</div>
 
 							<div class="col-md-4">
@@ -320,7 +318,7 @@ $opcoes,
 
 							<br/>
 							<div class="col-md-4 textright">
-								<div class="margtop15"><span class="dark">Cód. Segurança:</span><span class="red">*</span></div>
+								<div class="margtop15"><span class="dark"><?=lang("payment_cartao_cvv")?></span><span class="red">*</span></div>
 							</div>
 							<div class="col-md-4">
 <?php
@@ -351,7 +349,7 @@ echo form_input(array(
 							-->
 
 							<div class="col-md-4 textright">
-								<div class="margtop15"><span class="dark"> Nome no cartão:</span><span class="red">*</span></div>
+								<div class="margtop15"><span class="dark"><?=lang("payment_cartao_nome")?></span><span class="red">*</span></div>
 							</div>
 							<div class="col-md-4">
 								<?php
@@ -370,7 +368,7 @@ echo form_input(array(
 
 					  
 		<div class="col-md-4 textright">
-			<div class="margtop15"><span class="dark"> Parcelas:</span><span class="red">*</span></div>
+			<div class="margtop15"><span class="dark"> <?=lang("payment_cartao_parcelas")?></span><span class="red">*</span></div>
 		</div>
 		<div class="col-md-4 margtop15">
 				<select id="select-valor" name="parcelas" class="form-control mySelectBoxClass">
@@ -409,15 +407,14 @@ echo form_input(array(
 
 					<br/>
 					<br/>
-					<span class="size16px bold dark left">Revise e confirme seu agendamento</span>
+					<span class="size16px bold dark left"><?=lang("booking_title_review")?></span>
 					<div class="roundstep right">4</div>
 					<div class="clearfix"></div>
 					<div class="line4"></div>
 
 					<div class="alert alert-warning">
-					Informações importante sobre seu agendamento:<br/>
-					<p class="size12">• Esta reserva não é reembolsável e só pode ser alterada ou cancelada com
-					antecedência mínima de 48hs até a realização da atividade.</p>
+					<?=lang("booking_informacao_titulo")?><br/>
+					<p class="size12">•<?=lang("booking_informacao_conteudo")?></p>
 					</div>
 
 					<div class="checkbox">
@@ -432,8 +429,7 @@ $data = array(
 echo form_checkbox($data);
 
 ?>
-Completando esse agendamento, concordo que lí e aceito o
-								<a href='<?=base_url("termos/termo_de_uso")?>' class="orange">termo de uso & restrições. </a>
+			<?=lang("booking_aceitar_termo")?>
 								<!-- <a href="#" class="orange">termo de consentimento & condições</a> , e
 								<a href="#" class="orange">política de privacidade</a>. -->
 <?php echo form_error("confirmacao");?>
@@ -450,7 +446,7 @@ Completando esse agendamento, concordo que lí e aceito o
 	"id" => "btnSubmit",
 	"data-loading-text" => "Criando Fatura...",
 	"data-complete-text" => "Pronto!",
-	"content" => 'Completar Agendamento',
+	"content" => lang("booking_completar_agendamento"),
 	"type" => "submit",
 ));
 
@@ -487,14 +483,14 @@ echo form_close();
 								<td class="center green bold">4.5</td>
 							</tr>-->
 							<tr>
-								<td colspan=2><span class="dark">Evento</span>: <?=$evento['titulo']?></td>
+								<td colspan=2><span class="dark"><?=lang("booking_evento")?></span>: <?=$evento['titulo']?></td>
 							</tr>
 							<tr>
-								<td colspan=2><span class="dark">Sessão</span>: <?php echo $descricao?></td>
+								<td colspan=2><span class="dark"><?=lang("booking_sessao")?></span>: <?php echo $descricao?></td>
 							</tr>
 							<tr>
 								<td>
-									<span class="dark">Agendamento</span>: <?=$quantidade?>tickets<br/>
+									<span class="dark"><?=lang("booking_resumo")?></span>: <?=$quantidade?>tickets<br/>
 									Reservas
 									<!-- Collapse 1 -->
 									<button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse1"></button>
@@ -532,7 +528,7 @@ echo form_close();
 
 								</td>
 								<td class="center">
-									Custo/pessoa<br/>
+									<?=lang("booking_custo")?><br/>
 <?=$preco_avg?><br/>
 								</td>
 							</tr>
@@ -561,7 +557,7 @@ echo form_close();
 					<div class="cpadding1">
 						<span class="icon-help"></span>
 						<h3 class="opensans"><?=lang("details_duvidas")?></h3>
-						<p class="size14 grey">Não conseguiu realizar seu agendamento? Nosso time está disposto a ajudá-lo!<br/> Entre em contato:</p>
+						<p class="size14 grey"><?=lang("details_duvidas_texto") ?></p>
 						<a href="mailto:suporte@praquerumo.com.br" target="_top">
 							<p class="opensans size16 green xslim">suporte@praquerumo.com.br</p>
 						</a>
@@ -638,7 +634,8 @@ echo form_close();
 			// $(".juros").text("R$ " + juros);
 			$('.valor-real').text("R$ " + valorTotal);
 			//mudando valor que é exibido na confirmação de pagamento.
-			$('input[name="preco_str"]').val(valorTotal);
+			$('input[name="preco_str"]').val("R$"+valorTotal);
+			$('input[name="preco_total"]').val(valorTotal);
 		
 		});
 	</script>
@@ -692,6 +689,7 @@ echo form_close();
 
 					$("input[name='success']").val(data.success);
 					$("input[name='preco_str']").val("R$ "+ preco_com_desconto);
+					$("input[name='preco_total']").val(preco_com_desconto);
 					$('.valor-real').text("R$ " + preco_com_desconto);
 					$('.desconto').text("R$ " + valorDesconto);
 				},

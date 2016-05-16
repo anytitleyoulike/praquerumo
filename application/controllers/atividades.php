@@ -20,10 +20,10 @@ class Atividades extends CI_Controller {
 
 		if($estado == null || $estado == "") {
 
-			$atividades = $this->atividades_model->buscarAtividades(21, $lingua['id'], $lingua['sufix']);
+			$atividades = $this->atividades_model->buscarAtividades(21, $lingua['id']);
 
 			/*Atividade sem data*/
-			$atividadesSemData = $this->atividades_model->buscarAtividadesSemData(21, $lingua['id'], $lingua['sufix']);
+			$atividadesSemData = $this->atividades_model->buscarAtividadesSemData(21, $lingua['id']);
 
 			foreach ($atividadesSemData as &$atividadeSemDate) {
 				$atividadeSemDate['avaliacao'] = $this->avaliacao_model->buscarAvaliacao($atividadeSemDate['codigo']);
@@ -134,13 +134,12 @@ class Atividades extends CI_Controller {
 		}
 
 		$avaliacao = $this->avaliacao_model->buscarAvaliacao($atividade['codigo']);
-		$acompanhamentos = $this->atividades_model->buscarAcompanhamento($atividade['codigo'], $lingua['sufix']);
+		// $acompanhamentos = $this->atividades_model->buscarAcompanhamento($atividade['codigo'], $lingua['sufix']);
 		$restricoes = $this->atividades_model->buscarRestricoes($atividade['codigo'], $lingua['sufix']);
 		$modalidade = $this->atividades_model->buscarModalidade($atividade['modalidade_id'], $lingua['sufix']);
 		$elemento = $this->atividades_model->buscarElemento($atividade['elemento_id'], $lingua['sufix']);
 		$categoria = $this->atividades_model->buscarCategoria($atividade['categoria_id'], $lingua['sufix']);
 		$organizador = $this->atividades_model->buscarOrganizador($atividade['usuario_id'], $lingua['sufix']);
-		$dicas = $this->atividades_model->buscarDicas($atividade['codigo'], $lingua['sufix']);
 		$comentarios = $this->avaliacao_model->buscarComentarios($atividade['codigo']);
 		$atividades_recomendadas = $this->atividades_model->buscarAtividadesRecomendadas($lingua['id'], $lingua['sufix'],
 			$atividade['elemento_id'], $atividade['codigo']);
@@ -148,9 +147,11 @@ class Atividades extends CI_Controller {
 		$eventos = $this->eventos_model->buscarDatasHorariosEventos(40, $atividade['codigo']);
 		$eventosPorDatas = agrupaPorData($eventos);
 
-		$data = array('atividade' => $atividade, 'acompanhamentos' => $acompanhamentos, 'restricoes' => $restricoes,
+		// var_dump($atividade);
+		// die();
+		$data = array('atividade' => $atividade, 'restricoes' => $restricoes,
 			'modalidade' => $modalidade, 'elemento' => $elemento, 'categoria' => $categoria, 'organizador' => $organizador,
-			'comentarios' => $comentarios, 'dicas' => $dicas, 'sufix' => $lingua['sufix'],
+			'comentarios' => $comentarios, 'sufix' => $lingua['sufix'],
 			'atividades_recomendadas' => $atividades_recomendadas, 'atividades_relacionadas' => $atividades_relacionadas,
 			'eventos' => $eventosPorDatas, 'avaliacao' => $avaliacao);
 		/*codigo para converter titulo em slug amigavel
