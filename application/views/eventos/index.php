@@ -330,6 +330,18 @@ $counter++;
 ?>
 
 		</div>
+		<div class="container">
+		<h3 class="bold">Nosso Instagram:</h5>
+
+				<div class="col-md-14" allign="center">
+
+					<?php foreach ($fotos as $imagem) {
+						echo "<a href=".$imagem['link']." target=_blank>";
+						echo "<img src=".$imagem['img_src']." alt=".$imagem['descricao']."/>";
+						echo "</a>";
+					}?>
+				</div>
+			</div>
 
 		<!-- Comeco midia -->
 
