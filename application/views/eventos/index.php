@@ -330,18 +330,25 @@ $counter++;
 ?>
 
 		</div>
+		
+		<!-- PraQueRumo Instagram Feed -->
 		<div class="container">
-		<h3 class="bold">Nosso Instagram:</h5>
-
-				<div class="col-md-14" allign="center">
-
-					<?php foreach ($fotos as $imagem) {
-						echo "<a href=".$imagem['link']." target=_blank>";
-						echo "<img src=".$imagem['img_src']." alt=".$imagem['descricao']."/>";
-						echo "</a>";
-					}?>
+			<h4 class="bold">
+				<a href="https://www.instagram.com/praquerumoficial" target="_blank">
+					<img src="<?=base_url('assets/images/social_medias/icon-instagram.png')?>" 
+					alt="Instagram" width="30px" height="30px"/> praquerumoficial 
+				</a>
+			</h4>
+				<div class="col-md-14">
+					<div>
+					<?php foreach ($fotos as $instagram) {?>
+						<a href="<?=$instagram['link']?>" target="_blank">
+							<img style="margin: 3px"src="<?=$instagram['img_src']?>" alt="<?=$instagram['descricao']?>"/>
+						</a>
+					<?php }?>
+					</div>
 				</div>
-			</div>
+		</div>
 
 		<!-- Comeco midia -->
 

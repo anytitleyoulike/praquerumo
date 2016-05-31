@@ -21,7 +21,7 @@
 						alt="Youtube" width="30px" height="30px" /> </a>
 					<a href="https://www.instagram.com/praquerumoficial" target="_blank"
 						class="social5"><img src="<?=base_url('assets/images/social_medias/icon-instagram.png')?>"
-						alt="Youtube" width="30px" height="30px" /> </a>
+						alt="Instagram" width="30px" height="30px" /> </a>
 
 						<br/><br/>
 					 <img src="<?=base_url('assets/images/logosmal_black.png')?>" alt="" /><br /> &copy; 2016 |

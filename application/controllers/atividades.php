@@ -116,16 +116,17 @@ class Atividades extends CI_Controller {
 
 	private function _getInstagramPqr(){
 		
-        $pqr_id = 1182491615;
-        $access_token = "7311493.269486c.4ec63ff1cf29459883240a0080ecc57e";
+        $pqr_id = "";
+        $access_token = "";
         
-        $url="https://api.instagram.com/v1/users/".$pqr_id."/media/recent/?access_token=".$access_token."&count=14";
+        $url="https://api.instagram.com/v1/users/{$pqr_id}/media/recent/?access_token={$access_token}&count=14";
 
     	$ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         
+        //pega o retorno jSON da chamada na API
         $output = curl_exec($ch);
         
         $output = json_decode($output);    
