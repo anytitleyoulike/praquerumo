@@ -74,9 +74,16 @@ class Atividades extends CI_Controller {
 				}
 			}
 		}
+		$fotos_instagram = $this->_getInstagramPqr();
 
-		$data = array("atividades" => $atividades, "destaques" => $atividades_destaque,
-			"fotos_destaque" => $fotos_destaque, "estado" => $estado, "atividadesSemData" => $atividadesSemData);
+		$data = array("atividades" => $atividades, 
+			"destaques" => $atividades_destaque,
+			"fotos_destaque" => $fotos_destaque, 
+			"estado" => $estado, 
+			"atividadesSemData" => $atividadesSemData,
+			"fotos" => $fotos_instagram
+		);
+		
 		$this->load->template("eventos/index", $data);
 	}
 
@@ -107,6 +114,35 @@ class Atividades extends CI_Controller {
 		$this->load->templateHome("eventos/index2", $data);
 	}
 
+	private function _getInstagramPqr(){
+		
+        $pqr_id = "";
+        $access_token = "";
+        
+        $url="https://api.instagram.com/v1/users/{$pqr_id}/media/recent/?access_token={$access_token}&count=14";
+
+    	$ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        
+        //pega o retorno jSON da chamada na API
+        $output = curl_exec($ch);
+        
+        $output = json_decode($output);    
+
+        curl_close($ch);
+        $i=0;
+ 		foreach ($output->data as $image) {
+           
+ 			$data[$i]['link'] = $image->link;
+ 			$data[$i]['img_src'] = $image->images->thumbnail->url;
+ 			$data[$i]['descricao'] = $image->caption->text;
+        	$i++;
+        }
+
+        return $data;
+	}
 
 	/*
 	 * 	Atividades Recomendadas => Atividades do mesmo elemento
