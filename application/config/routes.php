@@ -48,5 +48,6 @@ $route['estado/(:any)'] = "atividades/index/$1";
 $route['pmi-pacote-1'] = "agendamento/exclusiva/$1";
 $route['pmi-pacote-2'] = "agendamento/exclusiva/$1";
 $route['pmi-pacote-3'] = "agendamento/exclusiva/$1";
+$route['pmi-pacote-4'] = "agendamento/exclusiva/$1";
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

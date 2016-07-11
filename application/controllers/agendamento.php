@@ -582,18 +582,21 @@ class Agendamento extends CI_Controller {
 	}
 
 	public function exclusiva(){
-		$url = $_SERVER['REQUEST_URI'];
-		switch ($url) {
+		switch ($_SERVER['REQUEST_URI']) {
 			case '/praquerumo/pmi-pacote-1':
-				$this->_novoAgendamento(1654, 1);
+				$this->_novoAgendamento(1655, 1);
 			break;
 
 			case '/praquerumo/pmi-pacote-2':
-				$this->_novoAgendamento(1654, 1);
+				$this->_novoAgendamento(1656, 1);
 			break;
 
 			case '/praquerumo/pmi-pacote-3':
 				$this->_novoAgendamento(1657, 1);
+			break;
+
+			case '/praquerumo/pmi-pacote-4':
+				$this->_novoAgendamento(1658, 1);
 			break;
 		}
 	}
