@@ -403,12 +403,11 @@ class Agendamento extends CI_Controller {
 
 	function _novoAgendamento($codigo_evento, $quantidade, $error = null) {
 		$this->load->helper("check_language");
-		
+		$this->load->model("eventos_model");
+
 		//pegando id do idioma que está na sessão
 		$lingua = get_language();
-
-		$evento = $this->eventos_model->buscarEventoDetalhes($codigo_evento,$lingua["id"]);
-
+		$evento = $this->eventos_model->buscarEventoDetalhes($codigo_evento, $lingua["id"]);
 		$precoTotal = $evento['preco'] * $quantidade;
 		$str_preco = numeroEmReais($precoTotal);
 
@@ -580,5 +579,37 @@ class Agendamento extends CI_Controller {
 			'success' => $success
 		);
 		echo json_encode($data);
+	}
+
+	public function exclusiva(){
+		$url = $_SERVER['REQUEST_URI'];
+		switch ($url) {
+			case '/praquerumo/pmi-pacote-1':
+				$this->_novoAgendamento(1654, 1);
+			break;
+
+			case '/praquerumo/pmi-pacote-2':
+				$this->_novoAgendamento(1654, 1);
+			break;
+
+			case '/praquerumo/pmi-pacote-3':
+				$this->_novoAgendamento(1657, 1);
+			break;
+		}
+	}
+
+	public function teste($id = 1655, $lingua = 1) {
+		$this->db->select('evento.codigo, evento.preco, evento.visivel_fim, atividade.fig_thumbnail, descricao_atividade.titulo,
+			descricao_atividade.cidade, descricao_atividade.estado, descricao_atividade.ponto_encontro, evento.atividade_codigo');
+		$this->db->select('date_format(evento.inicio, "%Y-%m-%d") as data_inicio', false);
+		$this->db->select('date_format(evento.inicio, "%T") as hora_inicio', false);
+		$this->db->select('date_format(evento.fim, "%T") as hora_fim', false);
+		$this->db->from("evento");
+		$this->db->join("atividade", "atividade.codigo = evento.atividade_codigo");
+		$this->db->join("descricao_atividade", "descricao_atividade.atividade_codigo = evento.atividade_codigo");
+		$this->db->where("evento.codigo", $id);
+		$this->db->where("descricao_atividade.lingua_id", $lingua);
+
+		return $this->db->get()->row_array();
 	}
 }
