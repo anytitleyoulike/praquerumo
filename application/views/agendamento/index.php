@@ -483,7 +483,6 @@ echo form_close();
 								<td class="center green bold">4.5</td>
 							</tr>-->
 							<tr>
-								<td colspan=2><span class="dark"><?=lang("booking_evento")?></span>: <?=$evento['titulo']?></td>
 							</tr>
 							<tr>
 								<td colspan=2><span class="dark"><?=lang("booking_sessao")?></span>: <?php echo $descricao?></td>
