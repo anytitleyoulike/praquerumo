@@ -455,8 +455,10 @@ class Crud extends CI_Controller {
 		     ->display_as('preco', 'Preço')
 		     ->display_as('maximo', 'Máx.')
 		     ->display_as('minimo', 'Min.')
+		     ->display_as('descricao', 'Descrição')
 		     ->display_as('disponivel', 'Disponível (normalmente, o mesmo "Máx.")');
 		$crud->columns('atividade_codigo', 'inicio', 'visivel_inicio', 'visivel_fim',
+			'preco', 'disponivel', 'descricao');
 		$crud->required_fields('atividade_codigo', 'inicio', 'fim', 'preco', 'disponivel',
 			'visivel_inicio', 'visivel_fim');
 
