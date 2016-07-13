@@ -50,6 +50,7 @@ class Agendamento extends CI_Controller {
 		if(empty($cupom_desconto)){
 			$desconto_porcentagem = 0;
 			$preco_com_desconto = 0;
+			$preco_desconto = 0;
 		}else{
 			$desconto = $this->desconto_model->buscarDesconto($cupom_desconto, $atividade_codigo);
 			$desconto_porcentagem = $desconto['porcentagem']/100;
@@ -188,18 +189,24 @@ class Agendamento extends CI_Controller {
 			if($forma_pagamento == '#card')$forma_pagamento = 'Cartão de Crédito';
 
 			if(empty($cupom_desconto)){
-				$valor_desconto = 0;
+				$desconto_porcentagem = 0;
+				$preco_com_desconto = 0;
+				$preco_desconto = 0;
 			}else{
 				$desconto = $this->desconto_model->buscarDesconto($cupom_desconto, $atividade_codigo);
 				$desconto_porcentagem = $desconto['porcentagem']/100;
-				$preco_total = $preco*$quantidade;
-				$valor_desconto = number_format($preco_total*$desconto_porcentagem, 2, "", ".");
+			}
+
+			if($desconto_porcentagem != 0){
+				$preco_desconto = $preco*$quantidade;
+				$preco_desconto = number_format($preco_desconto*$desconto_porcentagem, 2);
+				$preco_com_desconto = str_replace(".", "", $preco_desconto);
 			}
 
 			$disponivel = $this->_verificaDisponibilidade($evento, $quantidade);
 
 			if ($disponivel != 0) {
-				$result_pgto = $this->_pagar($token, $email, $descricao, $quantidade, $preco_formatado, $parcelas, $valor_desconto);
+				$result_pgto = $this->_pagar($token, $email, $descricao, $quantidade, $preco_formatado, $parcelas, $preco_desconto);
 				if ($result_pgto->success) {
 					$invoice_id = $result_pgto["invoice_id"];
 
@@ -237,7 +244,7 @@ class Agendamento extends CI_Controller {
 
 					$total = str_replace(",", ".", $preco_confirmacao);
 					$subtotal = number_format($preco*$quantidade, 2, ",", ".");
-					$valor_desconto = $subtotal - $total;
+					//$valor_desconto = empty($valor_desconto) ? 0 : $valor_desconto;
 
 					$dados_email = array(
 						'atividade' => $dados_atividade,
@@ -245,7 +252,7 @@ class Agendamento extends CI_Controller {
 						'compra' => $dados_compra,
 						'preco' => number_format($preco, 2, ",", "."),
 						'total' => $preco_confirmacao,
-						'valor_desconto' => number_format($valor_desconto, 2, ",", "."),
+						'valor_desconto' => number_format($preco_desconto, 2, ",", "."),
 						'subtotal' => $subtotal
 					);
 					//send email de confirmação(com voucher e qrcode)
@@ -256,7 +263,6 @@ class Agendamento extends CI_Controller {
 					//$this->_sendEmailToOrganizer();
 
 					//$this->_sendEmailToPQR($dados_email);
-
 					$this->load->template('eventos/sucesso', $dados_email);
 
 					//redirect(base_url("fatura/novo"));
