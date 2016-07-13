@@ -44,9 +44,9 @@ class Agendamento extends CI_Controller {
 		$evento = $this->input->post('evento_codigo');
 		$quantidade = $this->input->post('quantidade');
 		$atividade_codigo = $this->input->post('atividade_codigo');
-		
+
 		$cupom_desconto = $this->input->post('cupom_desconto');
-		
+
 		if(empty($cupom_desconto)){
 			$desconto_porcentagem = 0;
 			$preco_com_desconto = 0;
@@ -197,7 +197,7 @@ class Agendamento extends CI_Controller {
 			}
 
 			$disponivel = $this->_verificaDisponibilidade($evento, $quantidade);
-			
+
 			if ($disponivel != 0) {
 				$result_pgto = $this->_pagar($token, $email, $descricao, $quantidade, $preco_formatado, $parcelas, $valor_desconto);
 				if ($result_pgto->success) {
@@ -264,7 +264,6 @@ class Agendamento extends CI_Controller {
 					
 					//se a transação falhar, um email será enviado ao suporte para resolver
 					$error = getMessageErrorByLR($result_pgto->LR);
-					
 					$data = array(
 						"iugu"      => $result_pgto,
 						"user"      => $nome_completo,
@@ -414,7 +413,7 @@ class Agendamento extends CI_Controller {
 		$descricao = getDayData($evento['data_inicio']) .
 		" de " . getMonthFullNameData($evento['data_inicio']) . " " .
 		getSessionTime($evento['hora_inicio']) . " - " . getSessionTime($evento['hora_fim']);
-				
+
 		$bloquear_boleto = $this->_verificaBloqueioBoleto($evento['visivel_fim']);
 		$valoresParcelados = $this->_calculaParcelaIugu($precoTotal);
 		$data = array(
@@ -431,7 +430,6 @@ class Agendamento extends CI_Controller {
 			"descricao" => $descricao,
 			'bloquear_boleto' => $bloquear_boleto,
 		);
-		
 		$this->load->template("agendamento/index", $data);
 	}
 
@@ -461,12 +459,12 @@ class Agendamento extends CI_Controller {
 			
 			if($i <= 2) {
 				$novoValor = $valor/$i;
-				$valoresParcelados[$i] = number_format($novoValor,3);
+				$valoresParcelados[$i] = number_format($novoValor,3, ".", "");
 			} else {
 				
 				$novoValor = $valor * ((1-0.06) / (1-$parcelasComJuros[$i]));
 				
-				$valoresParcelados[$i] = number_format($novoValor/$i,3);
+				$valoresParcelados[$i] = number_format($novoValor/$i,3, ".", "");
 			}
 		}
 		
