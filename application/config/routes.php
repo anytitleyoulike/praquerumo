@@ -45,5 +45,6 @@ $route['eventos/(:any)'] = 'atividades/mostra/$1';
 $route['verifica/(:any)'] = 'newsletter/atualizaStatus/$1';
 $route['ebook'] = "newsletter/addEmail";
 $route['estado/(:any)'] = "atividades/index/$1";
+$route['pmi/(:any)'] = "agendamento/exclusiva/$1";
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

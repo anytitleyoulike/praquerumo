@@ -44,12 +44,13 @@ class Agendamento extends CI_Controller {
 		$evento = $this->input->post('evento_codigo');
 		$quantidade = $this->input->post('quantidade');
 		$atividade_codigo = $this->input->post('atividade_codigo');
-		
+
 		$cupom_desconto = $this->input->post('cupom_desconto');
-		
+
 		if(empty($cupom_desconto)){
 			$desconto_porcentagem = 0;
 			$preco_com_desconto = 0;
+			$preco_desconto = 0;
 		}else{
 			$desconto = $this->desconto_model->buscarDesconto($cupom_desconto, $atividade_codigo);
 			$desconto_porcentagem = $desconto['porcentagem']/100;
@@ -188,18 +189,24 @@ class Agendamento extends CI_Controller {
 			if($forma_pagamento == '#card')$forma_pagamento = 'Cartão de Crédito';
 
 			if(empty($cupom_desconto)){
-				$valor_desconto = 0;
+				$desconto_porcentagem = 0;
+				$preco_com_desconto = 0;
+				$preco_desconto = 0;
 			}else{
 				$desconto = $this->desconto_model->buscarDesconto($cupom_desconto, $atividade_codigo);
 				$desconto_porcentagem = $desconto['porcentagem']/100;
-				$preco_total = $preco*$quantidade;
-				$valor_desconto = number_format($preco_total*$desconto_porcentagem, 2, "", ".");
+			}
+
+			if($desconto_porcentagem != 0){
+				$preco_desconto = $preco*$quantidade;
+				$preco_desconto = number_format($preco_desconto*$desconto_porcentagem, 2);
+				$preco_com_desconto = str_replace(".", "", $preco_desconto);
 			}
 
 			$disponivel = $this->_verificaDisponibilidade($evento, $quantidade);
-			
+
 			if ($disponivel != 0) {
-				$result_pgto = $this->_pagar($token, $email, $descricao, $quantidade, $preco_formatado, $parcelas, $valor_desconto);
+				$result_pgto = $this->_pagar($token, $email, $descricao, $quantidade, $preco_formatado, $parcelas, $preco_desconto);
 				if ($result_pgto->success) {
 					$invoice_id = $result_pgto["invoice_id"];
 
@@ -237,7 +244,7 @@ class Agendamento extends CI_Controller {
 
 					$total = str_replace(",", ".", $preco_confirmacao);
 					$subtotal = number_format($preco*$quantidade, 2, ",", ".");
-					$valor_desconto = $subtotal - $total;
+					//$valor_desconto = empty($valor_desconto) ? 0 : $valor_desconto;
 
 					$dados_email = array(
 						'atividade' => $dados_atividade,
@@ -245,7 +252,7 @@ class Agendamento extends CI_Controller {
 						'compra' => $dados_compra,
 						'preco' => number_format($preco, 2, ",", "."),
 						'total' => $preco_confirmacao,
-						'valor_desconto' => number_format($valor_desconto, 2, ",", "."),
+						'valor_desconto' => number_format($preco_desconto, 2, ",", "."),
 						'subtotal' => $subtotal
 					);
 					//send email de confirmação(com voucher e qrcode)
@@ -256,7 +263,6 @@ class Agendamento extends CI_Controller {
 					//$this->_sendEmailToOrganizer();
 
 					//$this->_sendEmailToPQR($dados_email);
-
 					$this->load->template('eventos/sucesso', $dados_email);
 
 					//redirect(base_url("fatura/novo"));
@@ -264,7 +270,6 @@ class Agendamento extends CI_Controller {
 					
 					//se a transação falhar, um email será enviado ao suporte para resolver
 					$error = getMessageErrorByLR($result_pgto->LR);
-					
 					$data = array(
 						"iugu"      => $result_pgto,
 						"user"      => $nome_completo,
@@ -403,19 +408,18 @@ class Agendamento extends CI_Controller {
 
 	function _novoAgendamento($codigo_evento, $quantidade, $error = null) {
 		$this->load->helper("check_language");
-		
+		$this->load->model("eventos_model");
+
 		//pegando id do idioma que está na sessão
 		$lingua = get_language();
-
-		$evento = $this->eventos_model->buscarEventoDetalhes($codigo_evento,$lingua["id"]);
-
+		$evento = $this->eventos_model->buscarEventoDetalhes($codigo_evento, $lingua["id"]);
 		$precoTotal = $evento['preco'] * $quantidade;
 		$str_preco = numeroEmReais($precoTotal);
 
 		$descricao = getDayData($evento['data_inicio']) .
 		" de " . getMonthFullNameData($evento['data_inicio']) . " " .
 		getSessionTime($evento['hora_inicio']) . " - " . getSessionTime($evento['hora_fim']);
-				
+
 		$bloquear_boleto = $this->_verificaBloqueioBoleto($evento['visivel_fim']);
 		$valoresParcelados = $this->_calculaParcelaIugu($precoTotal);
 		$data = array(
@@ -432,7 +436,6 @@ class Agendamento extends CI_Controller {
 			"descricao" => $descricao,
 			'bloquear_boleto' => $bloquear_boleto,
 		);
-		
 		$this->load->template("agendamento/index", $data);
 	}
 
@@ -462,12 +465,12 @@ class Agendamento extends CI_Controller {
 			
 			if($i <= 2) {
 				$novoValor = $valor/$i;
-				$valoresParcelados[$i] = number_format($novoValor,3);
+				$valoresParcelados[$i] = number_format($novoValor,3, ".", "");
 			} else {
 				
 				$novoValor = $valor * ((1-0.06) / (1-$parcelasComJuros[$i]));
 				
-				$valoresParcelados[$i] = number_format($novoValor/$i,3);
+				$valoresParcelados[$i] = number_format($novoValor/$i,3, ".", "");
 			}
 		}
 		
@@ -580,5 +583,25 @@ class Agendamento extends CI_Controller {
 			'success' => $success
 		);
 		echo json_encode($data);
+	}
+
+	public function exclusiva($parametro){
+		switch ($parametro) {
+			case 'pacote-1':
+				$this->_novoAgendamento(1655, 1);
+			break;
+
+			case 'pacote-2':
+				$this->_novoAgendamento(1656, 1);
+			break;
+
+			case 'pacote-3':
+				$this->_novoAgendamento(1657, 1);
+			break;
+
+			case 'pacote-4':
+				$this->_novoAgendamento(1658, 1);
+			break;
+		}
 	}
 }

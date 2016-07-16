@@ -6,7 +6,7 @@ function send_email($to, $subject, $content) {
 	$config["protocol"] = "smtp";
 	$config["smtp_host"] = "mail.praquerumo.com.br";
 	$config["smtp_user"] = "contato@praquerumo.com.br";
-	$config["smtp_pass"] = "@tt171423";
+	$config["smtp_pass"] = "Contato@Rum016";
 	$config["charset"] = "utf-8";
 	$config["mailtype"] = "html";
 	$config["newline"] = '\r\n';

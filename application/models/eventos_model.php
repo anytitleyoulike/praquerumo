@@ -28,7 +28,7 @@ class Eventos_model extends CI_Model {
 
 	public function buscarEventoDetalhes($id,$lingua) {
 		$this->db->select('evento.codigo, evento.preco, evento.visivel_fim, atividade.fig_thumbnail, descricao_atividade.titulo,
-			descricao_atividade.cidade, descricao_atividade.estado, descricao_atividade.ponto_encontro, evento.atividade_codigo');
+			descricao_atividade.cidade, descricao_atividade.estado, descricao_atividade.ponto_encontro, evento.atividade_codigo, evento.descricao');
 		$this->db->select('date_format(evento.inicio, "%Y-%m-%d") as data_inicio', false);
 		$this->db->select('date_format(evento.inicio, "%T") as hora_inicio', false);
 		$this->db->select('date_format(evento.fim, "%T") as hora_fim', false);
