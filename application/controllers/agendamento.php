@@ -564,14 +564,14 @@ class Agendamento extends CI_Controller {
 		$atividade_preco = $this->input->post("atividade_preco");
 
 		$desconto = $this->desconto_model->buscarDesconto($cupom_desconto, $atividade_codigo);
-	 		
+
 		if(empty($desconto)){
 			$preco = $atividade_preco;
 			$success = false;
 		}else{
 			$porcentagemDesconto = $desconto["porcentagem"]/100;
-		
-			$preco = number_format($atividade_preco - ($atividade_preco*$porcentagemDesconto), 2);
+
+			$preco = $atividade_preco - ($atividade_preco*$porcentagemDesconto);
 			$success = true;
 		}
 
