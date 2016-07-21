@@ -605,7 +605,7 @@ echo form_close();
 
 	</div>
 
-	<script> 
+	<script>
 		$('#select-valor').change(function() {
 			var atividade_preco = $("input[name='preco_total']").val();
 			var success = $("input[name='success']").val();
@@ -627,16 +627,16 @@ echo form_close();
 				var juros = "0,00";
 			}*/
 
-			
+
 
 			valorTotal = $.formatNumber(valorTotal, {format:"#,###.00", locale:"br"});
-			
+
 			// $(".juros").text("R$ " + juros);
 			$('.valor-real').text("R$ " + valorTotal);
 			//mudando valor que é exibido na confirmação de pagamento.
 			$('input[name="preco_str"]').val("R$"+valorTotal);
 			$('input[name="preco_total"]').val(valorTotal);
-		
+
 		});
 	</script>
 
@@ -644,24 +644,24 @@ echo form_close();
 		function validaDesconto(){
 			var cupom_desconto = $("input[name='cupom_desconto']").val();
 			var atividade_codigo = $("input[name='atividade_codigo']").val();
-			var atividade_preco = ($("input[name='preco_total'").val());
+			var atividade_preco = ($("input[name='preco_raw'").val());
 			$.ajax({
 				type: "POST",
 				url: "../agendamento/validaDesconto",
-				data: { cupom_desconto: cupom_desconto, 
-						atividade_codigo: atividade_codigo,
-						atividade_preco: atividade_preco
+				data: {
+					cupom_desconto: cupom_desconto,
+					atividade_codigo: atividade_codigo,
+					atividade_preco: atividade_preco
 				},
 				success: function(resposta) {
 					var data = jQuery.parseJSON(resposta);
 					var valorDesconto = atividade_preco - data.preco;
-					
 					if(valorDesconto == 0){
 						valorDesconto = "0,00";
 					}else{
-						valorDesconto = $.formatNumber(valorDesconto, {format:"#,###.00", locale: "br"});	
+						valorDesconto = $.formatNumber(valorDesconto, {format:"#,###.00", locale: "br"});
 					}
-					
+
 					if(data.success == false){
 						$("#collapse5").removeClass("has-success").addClass("has-error");
 						$("#collapse5").append("<span class='help-block'>Código inválido</span>");
@@ -675,13 +675,13 @@ echo form_close();
 
 					var options = "";
 					$.each(data.valoresParcelados, function(key, value){
-						
+
 						options += "<option id='"+value+"' value='"+ key +"'>"+key+"x R$ "+$.formatNumber(value, {format:"#,###.00", locale: "br"})+"</option>";
 					});
 					$("#select-valor").html(options);
 
 					preco_com_desconto = $.formatNumber(data.preco, {format:"#,###.00", locale: "br"});
-					
+
 					/*if(data.preco <= 100){
 						var juros = "0,00";
 						$(".juros").text("R$ " + juros);

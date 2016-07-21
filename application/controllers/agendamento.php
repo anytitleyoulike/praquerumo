@@ -77,7 +77,6 @@ class Agendamento extends CI_Controller {
 
 			if ($disponivel != 0) {
 				$resultado = $this->_criaBoleto($email, $descricao, $quantidade, $preco_formatado, $preco_com_desconto);
-				
 				if (!array_key_exists("errors", $resultado)) {
 					$invoice_id = $resultado["invoice_id"];
 					$usuario = $this->_getUsuarioId($nome, $celular, $email);
@@ -185,7 +184,7 @@ class Agendamento extends CI_Controller {
 			$descricao = $this->input->post('descricao');
 			$data_horario = $this->input->post('data_horario');
 			$forma_pagamento = $this->input->post('tipo_pagamento');
-			
+
 			if($forma_pagamento == '#card')$forma_pagamento = 'Cartão de Crédito';
 
 			if(empty($cupom_desconto)){
@@ -204,9 +203,8 @@ class Agendamento extends CI_Controller {
 			}
 
 			$disponivel = $this->_verificaDisponibilidade($evento, $quantidade);
-
 			if ($disponivel != 0) {
-				$result_pgto = $this->_pagar($token, $email, $descricao, $quantidade, $preco_formatado, $parcelas, $preco_desconto);
+				$result_pgto = $this->_pagar($token, $email, $descricao, $quantidade, $preco_formatado, $parcelas, $preco_com_desconto);
 				if ($result_pgto->success) {
 					$invoice_id = $result_pgto["invoice_id"];
 
@@ -564,14 +562,14 @@ class Agendamento extends CI_Controller {
 		$atividade_preco = $this->input->post("atividade_preco");
 
 		$desconto = $this->desconto_model->buscarDesconto($cupom_desconto, $atividade_codigo);
-	 		
+
 		if(empty($desconto)){
 			$preco = $atividade_preco;
 			$success = false;
 		}else{
 			$porcentagemDesconto = $desconto["porcentagem"]/100;
-		
-			$preco = number_format($atividade_preco - ($atividade_preco*$porcentagemDesconto), 2);
+
+			$preco = $atividade_preco - ($atividade_preco*$porcentagemDesconto);
 			$success = true;
 		}
 
