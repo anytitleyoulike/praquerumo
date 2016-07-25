@@ -205,6 +205,23 @@ echo form_error("email");
 					</div>
 					<div class="clearfix"></div>
 
+					<!-- atividade exclusiva -->
+					<?php if($evento['codigo'] == 1659 || $evento['codigo'] == 1659 || $evento['codigo'] == 1659){ ?>
+						<div class="line4"></div>
+						<div class="col-md-4 textright">
+							<div class="margtop15"><span class="dark">Quantidade:</span></div>
+						</div>
+						<div class="col-md-4 margtop15">
+							<select id="select-exclusiva" name="quantidade_exclusiva" class="form-control mySelectBoxClass" style="width: 90px; text-align:center;">
+								<option value="1" selected>1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</div>
+						<div class="clearfix"></div>
+					<?php } ?>
 
 					<br/>
 					<!-- Nav tabs -->
@@ -607,7 +624,7 @@ echo form_close();
 
 	<script>
 		$('#select-valor').change(function() {
-			var atividade_preco = $("input[name='preco_total']").val();
+			var atividade_preco = $("input[name='preco_raw']").val() * ($("input[name='evento_codigo']").val() == 1659) ? $('#select-exclusiva option:selected').val() : $("input[name='quantidade']").val();
 			var success = $("input[name='success']").val();
 			var valorSelecionado = $('#select-valor option:selected').attr('id');
 			var parcelas = $('#select-valor option:selected').val();
@@ -628,7 +645,6 @@ echo form_close();
 			}*/
 
 
-
 			valorTotal = $.formatNumber(valorTotal, {format:"#,###.00", locale:"br"});
 
 			// $(".juros").text("R$ " + juros);
@@ -641,10 +657,19 @@ echo form_close();
 	</script>
 
 	<script>
+		$('#select-exclusiva').change(function() {
+			var preco = $("input[name='preco_raw'").val() * $('#select-exclusiva option:selected').val();
+			$('.valor-real').text("R$ " + $.formatNumber(preco, {format:"#,###.00", locale:"br"}));
+			$('input[name="preco_total"]').val(preco);
+		});
+	</script>
+
+	<script>
 		function validaDesconto(){
 			var cupom_desconto = $("input[name='cupom_desconto']").val();
+			var quantidade = ($("input[name='evento_codigo']").val() == 1659) ? $('#select-exclusiva option:selected').val() : $("input[name='quantidade']").val();
 			var atividade_codigo = $("input[name='atividade_codigo']").val();
-			var atividade_preco = ($("input[name='preco_raw'").val());
+			var atividade_preco = ($("input[name='preco_raw'").val() * quantidade);
 			$.ajax({
 				type: "POST",
 				url: "../agendamento/validaDesconto",

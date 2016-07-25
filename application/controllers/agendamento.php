@@ -8,7 +8,7 @@ class Agendamento extends CI_Controller {
 		$this->load->model("eventos_model");
 
 		$evento = $this->input->post("evento");
-		$quantidade = $this->input->post("quantidade");
+		$quantidade = ($evento == 1659) ? $this->input->post('quantidade_exclusiva') : $this->input->post('quantidade');
 		$this->_novoAgendamento($evento, $quantidade);
 	}
 
@@ -42,7 +42,7 @@ class Agendamento extends CI_Controller {
 		$this->load->helper('iugu');
 
 		$evento = $this->input->post('evento_codigo');
-		$quantidade = $this->input->post('quantidade');
+		$quantidade = ($evento == 1659) ? $this->input->post('quantidade_exclusiva') : $this->input->post('quantidade');
 		$atividade_codigo = $this->input->post('atividade_codigo');
 
 		$cupom_desconto = $this->input->post('cupom_desconto');
@@ -166,7 +166,7 @@ class Agendamento extends CI_Controller {
 		$this->load->helper('lr');
 
 		$evento = $this->input->post('evento_codigo');
-		$quantidade = $this->input->post('quantidade');
+		$quantidade = ($evento == 1659) ? $this->input->post('quantidade_exclusiva') : $this->input->post('quantidade');
 		$atividade_codigo = $this->input->post('atividade_codigo');
 		$cupom_desconto = $this->input->post('cupom_desconto');
 
@@ -586,7 +586,7 @@ class Agendamento extends CI_Controller {
 	public function exclusiva($parametro){
 		switch ($parametro) {
 			case 'pacote-1':
-				$this->_novoAgendamento(1655, 1);
+				$this->_novoAgendamento(1659, 1);
 			break;
 
 			case 'pacote-2':
