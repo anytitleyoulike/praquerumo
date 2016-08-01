@@ -206,7 +206,7 @@ echo form_error("email");
 					<div class="clearfix"></div>
 
 					<!-- atividade exclusiva -->
-					<?php if($evento['codigo'] == 1659 || $evento['codigo'] == 1659 || $evento['codigo'] == 1659){ ?>
+					<?php if($evento['codigo'] == 1658 || $evento['codigo'] == 1658 || $evento['codigo'] == 1658){ ?>
 						<div class="line4"></div>
 						<div class="col-md-4 textright">
 							<div class="margtop15"><span class="dark">Quantidade:</span></div>
@@ -659,6 +659,16 @@ echo form_close();
 	<script>
 		$('#select-exclusiva').change(function() {
 			var preco = $("input[name='preco_raw'").val() * $('#select-exclusiva option:selected').val();
+			$.ajax({
+				type: "POST",
+				url: "../agendamento/teste",
+				data: { preco: preco},
+				success: function(resposta){
+					var data = jQuery.parseJSON(resposta);
+					console.log(data);
+					console.log("tteste");
+				}
+			});
 			$('.valor-real').text("R$ " + $.formatNumber(preco, {format:"#,###.00", locale:"br"}));
 			$('input[name="preco_total"]').val(preco);
 		});

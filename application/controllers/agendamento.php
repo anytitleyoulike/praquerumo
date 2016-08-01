@@ -8,7 +8,7 @@ class Agendamento extends CI_Controller {
 		$this->load->model("eventos_model");
 
 		$evento = $this->input->post("evento");
-		$quantidade = ($evento == 1659) ? $this->input->post('quantidade_exclusiva') : $this->input->post('quantidade');
+		$quantidade = (($evento == 1656) ||($evento == 1657) || ($evento == 1658) || ($evento == 1659)) ? $this->input->post('quantidade_exclusiva') : $this->input->post('quantidade');
 		$this->_novoAgendamento($evento, $quantidade);
 	}
 
@@ -42,7 +42,7 @@ class Agendamento extends CI_Controller {
 		$this->load->helper('iugu');
 
 		$evento = $this->input->post('evento_codigo');
-		$quantidade = ($evento == 1659) ? $this->input->post('quantidade_exclusiva') : $this->input->post('quantidade');
+		$quantidade = (($evento == 1656) ||($evento == 1657) || ($evento == 1658) || ($evento == 1659)) ? $this->input->post('quantidade_exclusiva') : $this->input->post('quantidade');
 		$atividade_codigo = $this->input->post('atividade_codigo');
 
 		$cupom_desconto = $this->input->post('cupom_desconto');
@@ -166,7 +166,7 @@ class Agendamento extends CI_Controller {
 		$this->load->helper('lr');
 
 		$evento = $this->input->post('evento_codigo');
-		$quantidade = ($evento == 1659) ? $this->input->post('quantidade_exclusiva') : $this->input->post('quantidade');
+		$quantidade = (($evento == 1656) ||($evento == 1657) || ($evento == 1658) || ($evento == 1659)) ? $this->input->post('quantidade_exclusiva') : $this->input->post('quantidade');
 		$atividade_codigo = $this->input->post('atividade_codigo');
 		$cupom_desconto = $this->input->post('cupom_desconto');
 
@@ -601,5 +601,16 @@ class Agendamento extends CI_Controller {
 				$this->_novoAgendamento(1658, 1);
 			break;
 		}
+	}
+
+	public function teste(){
+		$preco = $this->input->post("preco");
+		$quantidade = $this->input->post("quantidade");
+		$parcelas = $this->_calculaParcelaIugu($preco);
+		$data = [
+			"preco" => $preco,
+			"parcelas" => $parcelas
+		];
+		echo json_encode($data);
 	}
 }
