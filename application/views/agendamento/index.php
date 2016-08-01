@@ -79,7 +79,7 @@ $data = array(
 
 echo form_hidden($data);
 ?>
-<div class="col-md-4 textright">
+					<div class="col-md-4 textright">
 						<div class="margtop15"><span class="dark"><?=lang("user_nome")?></span><span class="red">*</span></div>
 					</div>
 					<div class="col-md-4">
@@ -121,6 +121,7 @@ echo form_error("celular");
 					<div class="col-md-4">
 					</div>
 					<div class="col-md-8 textleft">
+
 						<!--Acompanhamentos / Requisição para fumantes (opcional)
 						<button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse3"></button>
 						<div id="collapse3" class="collapse">
@@ -143,6 +144,23 @@ echo form_error("celular");
 // ));
 ?>
 </div>
+					<!-- atividade exclusiva -->
+					<?php if($evento['codigo'] == 1659 || $evento['codigo'] == 1658 || $evento['codigo'] == 1657 || $evento['codigo'] == 1656){ ?>
+						<div class="line4"></div>
+						<div class="col-md-6 textright">
+							<div class="margtop7"><span class="dark">Quantidade:</span></div>
+						</div>
+						<div class="col-md-4 margtop1 textleft">
+							<select id="select-exclusiva" name="quantidade_exclusiva" class="form-control mySelectBoxClass" style="width: 90px; text-align:center;">
+								<option value="1" selected>1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</div>
+						<div class="clearfix"></div>
+					<?php } ?>
 						<!-- End of collapse 4 -->
 						<div class="clearfix"></div>
 
@@ -204,24 +222,6 @@ echo form_error("email");
 					<div class="col-md-4 textleft">
 					</div>
 					<div class="clearfix"></div>
-
-					<!-- atividade exclusiva -->
-					<?php if($evento['codigo'] == 1658 || $evento['codigo'] == 1658 || $evento['codigo'] == 1658){ ?>
-						<div class="line4"></div>
-						<div class="col-md-4 textright">
-							<div class="margtop15"><span class="dark">Quantidade:</span></div>
-						</div>
-						<div class="col-md-4 margtop15">
-							<select id="select-exclusiva" name="quantidade_exclusiva" class="form-control mySelectBoxClass" style="width: 90px; text-align:center;">
-								<option value="1" selected>1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-						</div>
-						<div class="clearfix"></div>
-					<?php } ?>
 
 					<br/>
 					<!-- Nav tabs -->
@@ -665,12 +665,17 @@ echo form_close();
 				data: { preco: preco},
 				success: function(resposta){
 					var data = jQuery.parseJSON(resposta);
-					console.log(data);
-					console.log("tteste");
+					var options = "";
+					$.each(data.parcelas, function(key, value){
+
+						options += "<option id='"+value+"' value='"+ key +"'>"+key+"x R$ "+$.formatNumber(value, {format:"#,###.00", locale: "br"})+"</option>";
+					});
+					$("#select-valor").html(options);
 				}
 			});
 			$('.valor-real').text("R$ " + $.formatNumber(preco, {format:"#,###.00", locale:"br"}));
 			$('input[name="preco_total"]').val(preco);
+			$('.subtotal').text("R$ " + $.formatNumber(preco, {format:"#,###.00", locale:"br"}));
 		});
 	</script>
 
