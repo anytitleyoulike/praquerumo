@@ -603,7 +603,7 @@ class Agendamento extends CI_Controller {
 		}
 	}
 
-	public function teste(){
+	public function parcelasAtividadeExclusiva(){
 		$preco = $this->input->post("preco");
 		$quantidade = $this->input->post("quantidade");
 		$parcelas = $this->_calculaParcelaIugu($preco);

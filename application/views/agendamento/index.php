@@ -661,7 +661,7 @@ echo form_close();
 			var preco = $("input[name='preco_raw'").val() * $('#select-exclusiva option:selected').val();
 			$.ajax({
 				type: "POST",
-				url: "../agendamento/teste",
+				url: "../agendamento/parcelasAtividadeExclusiva",
 				data: { preco: preco},
 				success: function(resposta){
 					var data = jQuery.parseJSON(resposta);
@@ -682,7 +682,7 @@ echo form_close();
 	<script>
 		function validaDesconto(){
 			var cupom_desconto = $("input[name='cupom_desconto']").val();
-			var quantidade = ($("input[name='evento_codigo']").val() == 1659) ? $('#select-exclusiva option:selected').val() : $("input[name='quantidade']").val();
+			var quantidade = (($("input[name='evento_codigo']").val() == 1659) || ($("input[name='evento_codigo']").val() == 1658) || ($("input[name='evento_codigo']").val() == 1657) || ($("input[name='evento_codigo']").val() == 1656)) ? $('#select-exclusiva option:selected').val() : $("input[name='quantidade']").val();
 			var atividade_codigo = $("input[name='atividade_codigo']").val();
 			var atividade_preco = ($("input[name='preco_raw'").val() * quantidade);
 			$.ajax({
