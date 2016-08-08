@@ -79,7 +79,7 @@ $data = array(
 
 echo form_hidden($data);
 ?>
-<div class="col-md-4 textright">
+					<div class="col-md-4 textright">
 						<div class="margtop15"><span class="dark"><?=lang("user_nome")?></span><span class="red">*</span></div>
 					</div>
 					<div class="col-md-4">
@@ -121,6 +121,7 @@ echo form_error("celular");
 					<div class="col-md-4">
 					</div>
 					<div class="col-md-8 textleft">
+
 						<!--Acompanhamentos / Requisição para fumantes (opcional)
 						<button type="button" class="collapsebtn3 collapsed mt-5" data-toggle="collapse" data-target="#collapse3"></button>
 						<div id="collapse3" class="collapse">
@@ -143,6 +144,20 @@ echo form_error("celular");
 // ));
 ?>
 </div>
+					<!-- atividade exclusiva -->
+					<?php if($evento['codigo'] == 1659 || $evento['codigo'] == 1658 || $evento['codigo'] == 1657 || $evento['codigo'] == 1656){ ?>
+						<div class="line4"></div>
+						<div class="col-md-6 textright">
+							<div class="margtop7"><span class="dark">Quantidade:</span></div>
+						</div>
+						<div class="col-md-4 margtop1 textleft">
+							<select id="select-exclusiva" name="quantidade_exclusiva" class="form-control mySelectBoxClass" style="width: 90px; text-align:center;">
+								<option value="1" selected>1</option>
+								<option value="2">2</option>
+							</select>
+						</div>
+						<div class="clearfix"></div>
+					<?php } ?>
 						<!-- End of collapse 4 -->
 						<div class="clearfix"></div>
 
@@ -204,7 +219,6 @@ echo form_error("email");
 					<div class="col-md-4 textleft">
 					</div>
 					<div class="clearfix"></div>
-
 
 					<br/>
 					<!-- Nav tabs -->
@@ -366,24 +380,25 @@ echo form_input(array(
 							</div>
 							<div class="clearfix"></div>
 
-					  
+
 		<div class="col-md-4 textright">
 			<div class="margtop15"><span class="dark"> <?=lang("payment_cartao_parcelas")?></span><span class="red">*</span></div>
 		</div>
 		<div class="col-md-4 margtop15">
 				<select id="select-valor" name="parcelas" class="form-control mySelectBoxClass">
-					<?php 
+					<option value=""> Selecione</option>
+					<?php
 						foreach ($parcelas as $i => $parcela) {?>
 							<option id="<?=$parcela?>" value="<?=$i?>"><?= $i."x ". numeroEmReais($parcela) ?></option>
-						
+
 					<?php	}
-					?>	
-				
+					?>
+
 				</select>
-		
+
 		</div>
 	</div>
-		
+
 					  <!-- End of Tab 1 -->
 
 					  <!-- Tab 2 -->
@@ -607,7 +622,7 @@ echo form_close();
 
 	<script>
 		$('#select-valor').change(function() {
-			var atividade_preco = $("input[name='preco_total']").val();
+			var atividade_preco = $("input[name='preco_raw']").val() * ($("input[name='evento_codigo']").val() == 1659) ? $('#select-exclusiva option:selected').val() : $("input[name='quantidade']").val();
 			var success = $("input[name='success']").val();
 			var valorSelecionado = $('#select-valor option:selected').attr('id');
 			var parcelas = $('#select-valor option:selected').val();
@@ -628,7 +643,6 @@ echo form_close();
 			}*/
 
 
-
 			valorTotal = $.formatNumber(valorTotal, {format:"#,###.00", locale:"br"});
 
 			// $(".juros").text("R$ " + juros);
@@ -641,10 +655,34 @@ echo form_close();
 	</script>
 
 	<script>
+		$('#select-exclusiva').change(function() {
+			var preco = $("input[name='preco_raw'").val() * $('#select-exclusiva option:selected').val();
+			$.ajax({
+				type: "POST",
+				url: "../agendamento/parcelasAtividadeExclusiva",
+				data: { preco: preco},
+				success: function(resposta){
+					var data = jQuery.parseJSON(resposta);
+					var options = "";
+					$.each(data.parcelas, function(key, value){
+
+						options += "<option id='"+value+"' value='"+ key +"'>"+key+"x R$ "+$.formatNumber(value, {format:"#,###.00", locale: "br"})+"</option>";
+					});
+					$("#select-valor").html(options);
+				}
+			});
+			$('.valor-real').text("R$ " + $.formatNumber(preco, {format:"#,###.00", locale:"br"}));
+			$('input[name="preco_total"]').val(preco);
+			$('.subtotal').text("R$ " + $.formatNumber(preco, {format:"#,###.00", locale:"br"}));
+		});
+	</script>
+
+	<script>
 		function validaDesconto(){
 			var cupom_desconto = $("input[name='cupom_desconto']").val();
+			var quantidade = (($("input[name='evento_codigo']").val() == 1659) || ($("input[name='evento_codigo']").val() == 1658) || ($("input[name='evento_codigo']").val() == 1657) || ($("input[name='evento_codigo']").val() == 1656)) ? $('#select-exclusiva option:selected').val() : $("input[name='quantidade']").val();
 			var atividade_codigo = $("input[name='atividade_codigo']").val();
-			var atividade_preco = ($("input[name='preco_raw'").val());
+			var atividade_preco = ($("input[name='preco_raw'").val() * quantidade);
 			$.ajax({
 				type: "POST",
 				url: "../agendamento/validaDesconto",
