@@ -154,9 +154,6 @@ echo form_error("celular");
 							<select id="select-exclusiva" name="quantidade_exclusiva" class="form-control mySelectBoxClass" style="width: 90px; text-align:center;">
 								<option value="1" selected>1</option>
 								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
 							</select>
 						</div>
 						<div class="clearfix"></div>
@@ -383,24 +380,25 @@ echo form_input(array(
 							</div>
 							<div class="clearfix"></div>
 
-					  
+
 		<div class="col-md-4 textright">
 			<div class="margtop15"><span class="dark"> <?=lang("payment_cartao_parcelas")?></span><span class="red">*</span></div>
 		</div>
 		<div class="col-md-4 margtop15">
 				<select id="select-valor" name="parcelas" class="form-control mySelectBoxClass">
-					<?php 
+					<option value=""> Selecione</option>
+					<?php
 						foreach ($parcelas as $i => $parcela) {?>
 							<option id="<?=$parcela?>" value="<?=$i?>"><?= $i."x ". numeroEmReais($parcela) ?></option>
-						
+
 					<?php	}
-					?>	
-				
+					?>
+
 				</select>
-		
+
 		</div>
 	</div>
-		
+
 					  <!-- End of Tab 1 -->
 
 					  <!-- Tab 2 -->
