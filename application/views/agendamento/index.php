@@ -155,11 +155,9 @@ echo form_error("celular");
 								<option value="1" selected>1</option>
 								<option value="2">2</option>
 							</select>
-							<div>
 								<a href="#" data-toggle="tooltip" title="Caso deseje mais de dois tickets, solicitar em contato@praquerumo.com.br" data-placement="bottom">
 									<span class="glyphicon glyphicon-info-sign green"></span>
 								</a>
-							</div>
 						</div>
 						<div class="clearfix"></div>
 					<?php } ?>
