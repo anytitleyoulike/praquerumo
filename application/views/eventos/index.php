@@ -72,7 +72,7 @@
 					<!-- papercut fade turnoff flyin slideright slideleft slideup slidedown-->
 					<!-- FADE -->
 					<li data-transition="fade" data-slotamount="1" data-masterspeed="300">
-						<img src="<?=base_url("assets/images/banner-site-praquerumo.jpg")?>" alt=""/>
+						<img src="<?=base_url("assets/images/novo-banner-pqr.jpg")?>" alt=""/>
 						<div class="tp-caption scrolleffect sft"
 							 data-x="center"
 							 data-y="120"
