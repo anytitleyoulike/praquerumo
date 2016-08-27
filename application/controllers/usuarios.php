@@ -111,7 +111,7 @@ class Usuarios extends CI_Controller{
 		echo $data['msg'];
 
 	}
-}
+
 	//Olhar o trello e ver os proximos passos
 	public function perfil() {
 		$userId = $this->session->userdata('id');
@@ -147,11 +147,6 @@ class Usuarios extends CI_Controller{
 		} else {
 			echo "falhou";
 		}
-	}
-
-	public function teste () {
-		var_dump($this->session->userdata('id'));
-		
 	}
 
 	public function logout() {
