@@ -67,7 +67,7 @@ $lang["details_menu_mapa"] = "Mapa";
 $lang["details_menu_agendamento"] = "Agendamento";
 $lang["details_titulo_eventos"] = "Datas e Horários";
 $lang["details_semdata"] = "Ainda não temos datas programadas para essa atividade <br>
-	      Deseja solicitar uma data? Contate-nos <a href='mailto:suporte@praquerumo.com.br'>suporte@praquerumo.com.br</a>";
+	      Deseja solicitar uma data? Contate-nos <a href='mailto:contato@praquerumo.com.br'>contato@praquerumo.com.br</a>";
 
 
 $lang["details_organizador"] = "Organizador";

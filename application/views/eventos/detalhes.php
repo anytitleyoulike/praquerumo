@@ -1116,7 +1116,7 @@ $url_site_organizador = "#";
 						<span class="icon-help"></span>
 						<h3 class="opensans"><?=lang("details_duvidas")?></h3>
 						<p class="size14 grey"><?=lang("details_duvidas_texto")?>:</p>
-						<a href="mailto:suporte@praquerumo.com.br" target="_top">
+						<a href="mailto:contato@praquerumo.com.br" target="_top">
 							<p class="opensans size16 green xslim">contato@praquerumo.com.br</p>
 						</a>
 						<!--<?php
@@ -1132,14 +1132,14 @@ $url_site_organizador = "#";
 
 <?php
 if (is_mobile()) {
-	$target_suporte = "tel:+55 92 98112-1280";
+	$target_suporte = "tel:+55 92 98433-9499";
 } else {
 	$target_suporte = "#";
 }
 ?>
 						<a href="<?=$target_suporte?>" target="_top">
 							<spam class="opensans size16 green xslim">
-								+55 92 98112-1280
+								+55 92 98433-9499
 							</spam>
 						</a>
 					</div>
